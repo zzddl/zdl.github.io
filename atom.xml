@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-07-28T14:57:25.027Z</updated>
+    <updated>2020-07-28T15:05:04.227Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,54 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[HTML简介]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-jian-jie/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-jian-jie/">
+        </link>
+        <updated>2020-07-28T14:58:41.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="什么是-html">什么是 HTML？</h2>
+<p>HTML 是用来描述网页的一种语言。</p>
+<ul>
+<li>HTML 指的是超文本标记语言 (<strong>H</strong>yper <strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage)</li>
+<li>HTML 不是一种编程语言，而是一种<strong>标记语言</strong> (markup language)</li>
+<li>标记语言是一套<strong>标记标签</strong> (markup tag)</li>
+<li>HTML 使用<strong>标记标签</strong>来描述网页</li>
+</ul>
+<h2 id="html-标签">HTML 标签</h2>
+<p>HTML 标记标签通常被称为 HTML 标签 (HTML tag)。</p>
+<ul>
+<li>HTML 标签是由<strong>尖括号</strong>包围的关键词，比如 &lt; html&gt;</li>
+<li>HTML 标签通常是<strong>成对出现</strong>的，比如 &lt; b&gt; 和 &lt; /b&gt;</li>
+<li>标签对中的第一个标签是<strong>开始标签</strong>，第二个标签是<strong>结束标签</strong></li>
+<li>开始和结束标签也被称为<strong>开放标签</strong>和<strong>闭合标签</strong></li>
+</ul>
+<h2 id="html文档-网页">HTML文档 = 网页</h2>
+<ul>
+<li>HTML 文档<strong>描述网页</strong></li>
+<li>HTML 文档<strong>包含 HTML 标签</strong>和<strong>纯文本</strong></li>
+<li>HTML 文档也被称为<strong>网页</strong></li>
+<li>web浏览器的作用是读取html文档，并且以网页的形式显示。浏览器不会显示HTML标签，而是用标签解释页面内容</li>
+</ul>
+<pre><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My first Heading&lt;/h1&gt;
+
+&lt;p&gt;My first paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="例子解释">例子解释</h2>
+<ul>
+<li>&lt; html&gt; 与 &lt; /html&gt; 之间的文本描述网页</li>
+<li>&lt; body&gt; 与 &lt; /body&gt; 之间的文本是可见的页面内容</li>
+<li>&lt; h1&gt; 与 &lt; /h1&gt; 之间的文本被显示为标题</li>
+<li>&lt; p&gt; 与 &lt; /p&gt; 之间的文本被显示为段落</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Git常用命令]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/git-chang-yong-ming-ling/</id>
