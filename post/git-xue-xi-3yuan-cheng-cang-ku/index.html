@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>git学习（3）远程仓库 | zdl&#39;s blog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1595902367584">
+<link rel="stylesheet" href="https://zzddl.github.io/zdl.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="1.添加远程库
+（1）关联远程库
+$ git remote add origin [git@github.com:zzddl](mailto:git@github.com:zzddl)(用户名字)/learngit.git
+
+（2）推送本地..." />
+    <meta name="keywords" content="git,学习" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zzddl.github.io/zdl.github.io/">
+        <img src="https://zzddl.github.io/zdl.github.io//images/avatar.png?v=1595902367584" class="site-logo">
+        <h1 class="site-title">zdl&#39;s blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zzddl.github.io/zdl.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">git学习（3）远程仓库</h2>
+            <div class="post-date">2020-07-28</div>
+            
+              <div class="feature-container" style="background-image: url('https://zzddl.github.io/zdl.github.io//post-images/git-xue-xi-3yuan-cheng-cang-ku.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="1添加远程库">1.添加远程库</h2>
+<p>（1）关联远程库</p>
+<pre><code>$ git remote add origin [git@github.com:zzddl](mailto:git@github.com:zzddl)(用户名字)/learngit.git
+</code></pre>
+<p>（2）推送本地库的内容到远程库</p>
+<pre><code>$ git push -u origin master
+</code></pre>
+<p>在之后的提交中只需要输入</p>
+<pre><code>$ git push origin master
+</code></pre>
+<p>（3）由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令</p>
+<p>（4）当你第一次使用Git的clone或者push命令连接GitHub时，会得到一个警告：</p>
+<pre><code>The authenticity of host 'github.com (xx.xx.xx.xx)' can't be established.
+
+RSA key fingerprint is xx.xx.xx.xx.xx.
+
+Are you sure you want to continue connecting (yes/no)?
+</code></pre>
+<p>​		这是因为Git使用SSH连接，而SSH连接在第一次验证GitHub服务器的Key时，需要你确认GitHub的Key的指纹信息是否真的来自GitHub的服务器，输入yes回车即可。</p>
+<p>​		Git会输出一个警告，告诉你已经把GitHub的Key添加到本机的一个信任列表里了（这个警告只会出现一次）：</p>
+<pre><code>Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
+</code></pre>
+<p>（5）小结</p>
+<p>​		要关联一个远程库，使用命令</p>
+<pre><code>git remote add origin [git@server-name:path/repo-name.git](mailto:git@server-name:path/repo-name.git)
+</code></pre>
+<p>​		关联后，使用命令<code>git push -u origin master</code>第一次推送master分支的所有内容。</p>
+<p>​		此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改</p>
+<p>2.从远程库克隆</p>
+<p>（1）在创建时，需要勾选Initialize this repository with a README选项</p>
+<p>（2）克隆命令</p>
+<pre><code>$ git clone [git@github.com:zzddl](mailto:git@github.com:zzddl)(用户名)/gitskills.git
+</code></pre>
+<p>（3）git支持多种协议，也包括https，但是ssh协议最快.</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zzddl.github.io/zdl.github.io/tag/3DREVt4bN/" class="tag">
+                    git
+                  </a>
+                
+                  <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="tag">
+                    学习
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-2shi-guang-ji-chuan-suo/">
+                  <h3 class="post-title">
+                    git学习（2）时光机穿梭
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>git学习（4）分支管理 | zdl&#39;s blog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1595902367584">
+<link rel="stylesheet" href="https://zzddl.github.io/zdl.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="1.创建与合并分支
+（1）HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支
+
+（2）当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，..." />
+    <meta name="keywords" content="git,学习" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zzddl.github.io/zdl.github.io/">
+        <img src="https://zzddl.github.io/zdl.github.io//images/avatar.png?v=1595902367584" class="site-logo">
+        <h1 class="site-title">zdl&#39;s blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zzddl.github.io/zdl.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">git学习（4）分支管理</h2>
+            <div class="post-date">2020-07-28</div>
+            
+              <div class="feature-container" style="background-image: url('https://zzddl.github.io/zdl.github.io//post-images/git-xue-xi-4fen-zhi-guan-li.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="1创建与合并分支">1.创建与合并分支</h2>
+<p>（1）HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支<br>
+<img src="https://zzddl.github.io/zdl.github.io//post-images/1595902329718.png" alt="" loading="lazy"><br>
+（2）当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上<br>
+<img src="https://zzddl.github.io/zdl.github.io//post-images/1595902336627.png" alt="" loading="lazy"><br>
+dev向前移动的时候，master指向不变。<br>
+合并就是master指向dev所指向的。<br>
+<img src="https://zzddl.github.io/zdl.github.io//post-images/1595902342976.png" alt="" loading="lazy"><br>
+（3）命令：</p>
+<p>查看分支：git branch</p>
+<p>创建分支：git branch <name></p>
+<p>切换分支：git checkout <name>或者git switch <name></p>
+<p>创建+切换分支：git checkout -b <name>或者git switch -c <name></p>
+<p>合并某分支到当前分支：git merge <name></p>
+<p>删除分支：git branch -d <name></p>
+<h2 id="2解决冲突">2.解决冲突</h2>
+<p>（1）发生冲突后的图示：<br>
+<img src="https://zzddl.github.io/zdl.github.io//post-images/1595902353205.png" alt="" loading="lazy"><br>
+（2）冲突解决后<br>
+<img src="https://zzddl.github.io/zdl.github.io//post-images/1595902361532.png" alt="" loading="lazy"><br>
+（3）用带参数的git log也可以看到分支合并情况，如：</p>
+<pre><code>$ git log --graph --pretty=oneline --abbrev-commit
+</code></pre>
+<p>（4）最后要删除分支</p>
+<p>（5）小结：</p>
+<p>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。</p>
+<p>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。</p>
+<p>用<code>git log --graph</code>命令可以看到分支合并图。</p>
+<h2 id="3分支管理策略">3.分支管理策略</h2>
+<p>（1）</p>
+<pre><code>$ git merge --no-ff -m &quot;merge with no-ff&quot; dev
+</code></pre>
+<p>​		dev是分支名字，--no-ff表示禁用Fast forward</p>
+<p>（2）合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。</p>
+<p>（3）退出<code>git log</code>需要输入命令q</p>
+<h2 id="4bug分支">4.Bug分支</h2>
+<p>（1）Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作（即把未完成的其他分支的工作先保存起来，然后完成其他事后再继续）</p>
+<pre><code>$ git stash
+</code></pre>
+<p>（2）首先确定要在哪个分支上修复bug，假定需要在master分支上修复，就从master创建临时分支</p>
+<pre><code>$ git checkout master
+
+$ git checkout -b bug分支名字
+</code></pre>
+<p>修复并且提交完成后，切换到master分支，完成合并，然后删除bug分支</p>
+<p>（3）保存的工作可以用<code>$ git stash list</code>来查看</p>
+<p>（4）Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：</p>
+<p>​		一是用<code>git stash apply</code>恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；</p>
+<pre><code>$ git stash apply stash@{0}
+</code></pre>
+<p>​		另一种方式是用<code>git stash pop</code>，恢复的同时把stash内容也删了</p>
+<p>（5）Git专门提供了一个<code>cherry-pick</code>命令，让我们能复制一个特定的提交到当前分支（在另外一个分支修复相同的bug）</p>
+<pre><code>$ git cherry-pick 4c805e2
+</code></pre>
+<p>（6）小结</p>
+<p>​		修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
+<p>​		当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场；</p>
+<p>​		在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick <commit>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。</p>
+<h2 id="5feature分支">5.feature分支</h2>
+<p>添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。</p>
+<p>开发一个新feature，最好新建一个分支；</p>
+<p>如果要丢弃一个没有被合并过的分支，可以通过<code>git branch -D &lt;name&gt;</code>强行删除。</p>
+<h2 id="6多人协作">6.多人协作</h2>
+<p>（1）要查看远程库的信息，用git remote；用git remote -v显示更详细的信息</p>
+<p>（2）推送分支</p>
+<pre><code>$ git push origin 分支名字
+</code></pre>
+<p>（3）需要推送的分支：</p>
+<p>​		master分支是主分支，因此要时刻与远程同步；</p>
+<p>​		dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</p>
+<p>​		bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；</p>
+<p>​		feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。</p>
+<p>（4）其他人要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支</p>
+<pre><code>$ git checkout -b dev origin/dev
+</code></pre>
+<p>（5）若其他人的最新提交和你试图推送的提交有冲突，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送。</p>
+<p>（6）多人协作的工作模式</p>
+<p>​		首先，可以试图用<code>git push origin &lt;branch-name&gt;</code>推送自己的修改；</p>
+<p>​		如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；</p>
+<p>​		如果合并有冲突，则解决冲突，并在本地提交；</p>
+<p>​		没有冲突或者解决掉冲突后，再用<code>git push origin &lt;branch-name&gt;</code>推送就能成功！</p>
+<p>​		如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;。</code></p>
+<p>（7）小结</p>
+<p>​		查看远程库信息，使用<code>git remote -v</code>；</p>
+<p>​		本地新建的分支如果不推送到远程，对其他人就是不可见的；</p>
+<p>​		从本地推送分支，使用<code>git push origin branch-name</code>，如果推送失败，先用git pull抓取远程的新提交；</p>
+<p>​		在本地创建和远程分支对应的分支，使用<code>git checkout -b branch-name origin/branch-name</code>，本地和远程分支的名称最好一致；</p>
+<p>​		建立本地分支和远程分支的关联，使用<code>git branch --set-upstream branch-name origin/branch-name</code>；</p>
+<p>​		从远程抓取分支，使用<code>git pull</code>，如果有冲突，要先处理冲突。</p>
+<h2 id="7rebase">7.Rebase</h2>
+<p>​    （1）rebase操作可以把本地未push的分叉提交历史整理成直线<br>
+​    （2）rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zzddl.github.io/zdl.github.io/tag/3DREVt4bN/" class="tag">
+                    git
+                  </a>
+                
+                  <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="tag">
+                    学习
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-3yuan-cheng-cang-ku/">
+                  <h3 class="post-title">
+                    git学习（3）远程仓库
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

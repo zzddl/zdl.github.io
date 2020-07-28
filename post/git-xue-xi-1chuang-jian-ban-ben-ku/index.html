@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | zdl&#39;s blog</title>
+<title>git学习（1）创建版本库 | zdl&#39;s blog</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,7 +18,17 @@
 
 
 
-    <meta name="description" content="温故而知新">
+    <meta name="description" content="1.创建版本库
+（1）选择一个合适的地方创建一个空的目录
+$ mkdir learngit
+
+$ cd learngit  
+
+$ pwd  命令用于显示当前目录
+
+（2）通过git init命令把这个目录变成Git可以管理的仓库
+$ gi..." />
+    <meta name="keywords" content="git,学习" />
   </head>
   <body>
     <div id="app" class="main">
@@ -88,80 +98,55 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">git学习（1）创建版本库</h2>
+            <div class="post-date">2020-07-28</div>
+            
+              <div class="feature-container" style="background-image: url('https://zzddl.github.io/zdl.github.io//post-images/git-xue-xi-1chuang-jian-ban-ben-ku.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="1创建版本库">1.创建版本库</h2>
+<p>（1）选择一个合适的地方创建一个空的目录</p>
+<pre><code>$ mkdir learngit
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+$ cd learngit  
+
+$ pwd  命令用于显示当前目录
+</code></pre>
+<p>（2）通过git init命令把这个目录变成Git可以管理的仓库</p>
+<pre><code>$ git init
+
+Initialized empty Git repository in /Users/michael/learngit/.git/
+</code></pre>
+<h2 id="2添加文件到文本库">2.添加文件到文本库</h2>
+<p>（1）用命令git add告诉Git，把文件添加到仓库</p>
+<pre><code>$ git add 文件名字
+</code></pre>
+<p>（2）用命令git commit告诉Git，把文件提交到仓库</p>
+<pre><code>$ git commit -m &quot;wrote a readme file&quot;横线部分文件描述
+</code></pre>
+<p>commit可以一次提交很多文件，所以你可以多次add不同的文件</p>
+
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2020</h2>
-              
+              <div class="tag-container">
                 
-                  <article class="post">
-                    <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-6zi-ding-yi-git/">
-                      <h2 class="post-title">
-                        git学习（6）自定义Git
-                      </h2>
-                    </a>
-                  </article>
+                  <a href="https://zzddl.github.io/zdl.github.io/tag/3DREVt4bN/" class="tag">
+                    git
+                  </a>
                 
-              
+                  <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="tag">
+                    学习
+                  </a>
                 
-                  <article class="post">
-                    <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-5biao-qian-guan-li/">
-                      <h2 class="post-title">
-                        git学习（5）标签管理
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-4fen-zhi-guan-li/">
-                      <h2 class="post-title">
-                        git学习（4）分支管理
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-3yuan-cheng-cang-ku/">
-                      <h2 class="post-title">
-                        git学习（3）远程仓库
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-2shi-guang-ji-chuan-suo/">
-                      <h2 class="post-title">
-                        git学习（2）时光机穿梭
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-1chuang-jian-ban-ben-ku/">
-                      <h2 class="post-title">
-                        git学习（1）创建版本库
-                      </h2>
-                    </a>
-                  </article>
-                
-              
+              </div>
             
+            
+
+            
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>

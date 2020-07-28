@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>git学习（5）标签管理 | zdl&#39;s blog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1595902367584">
+<link rel="stylesheet" href="https://zzddl.github.io/zdl.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="1.创建标签
+（1）首先，切换到需要打标签的分支上
+（2）然后，敲命令git tag &lt;name&gt;就可以打一个新标签
+（3）可以用命令git tag查看所有标签
+（4）$ git log --pretty=oneline --a..." />
+    <meta name="keywords" content="git,学习" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zzddl.github.io/zdl.github.io/">
+        <img src="https://zzddl.github.io/zdl.github.io//images/avatar.png?v=1595902367584" class="site-logo">
+        <h1 class="site-title">zdl&#39;s blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zzddl.github.io/zdl.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">git学习（5）标签管理</h2>
+            <div class="post-date">2020-07-28</div>
+            
+              <div class="feature-container" style="background-image: url('https://zzddl.github.io/zdl.github.io//post-images/git-xue-xi-5biao-qian-guan-li.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="1创建标签">1.创建标签</h2>
+<p>（1）首先，切换到需要打标签的分支上</p>
+<p>（2）然后，敲命令<code>git tag &lt;name&gt;</code>就可以打一个新标签</p>
+<p>（3）可以用命令git tag查看所有标签</p>
+<p>（4）<code>$ git log --pretty=oneline --abbrev-commit</code>找到commit id 后</p>
+<pre><code>$ git tag v0.9 f52c633（v0.9是标签名，f52c633是commit id）`
+</code></pre>
+<p>（5）标签不是按时间顺序列出，而是按字母排序的。可以用git show <tagname>查看标签信息</p>
+<p>（6）创建带有说明的标签，用-a指定标签名，-m指定说明文字</p>
+<pre><code>    $ git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb
+</code></pre>
+<p>（7）小结</p>
+<p>命令<code>git tag &lt;tagname&gt;</code>用于新建一个标签，默认为HEAD，也可以指定一个commit id；</p>
+<p>命令<code>git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;</code>可以指定标签信息；</p>
+<p>命令<code>git tag</code>可以查看所有标签。</p>
+<h2 id="2操作标签">2.操作标签</h2>
+<p>（1）删除标签</p>
+<pre><code>$ git tag -d v0.1
+</code></pre>
+<p>创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除</p>
+<p>​    （2）要推送某个标签到远程，使用命令git push origin <tagname></p>
+<p>​    （3）一次性推送全部尚未推送到远程的本地标签</p>
+<pre><code>$ git push origin –tags
+</code></pre>
+<p>​    （4）若标签已经推送到远程</p>
+<p>​       		首先，从本地删除</p>
+<pre><code>$ git tag -d v0.9
+</code></pre>
+<p>​       		然后从远程删除</p>
+<pre><code>$ git push origin :refs/tags/v0.9
+</code></pre>
+<p>​    （5）小结</p>
+<p>​        	命令<code>git push origin &lt;tagname&gt;</code>可以推送一个本地标签；5</p>
+<p>​			命令<code>git push origin --tags</code>可以推送全部未推送过的本地标签；</p>
+<p>​			命令<code>git tag -d &lt;tagname&gt;</code>可以删除一个本地标签；</p>
+<p>​			命令<code>git push origin :refs/tags/&lt;tagname&gt;</code>可以删除一个远程标签。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zzddl.github.io/zdl.github.io/tag/3DREVt4bN/" class="tag">
+                    git
+                  </a>
+                
+                  <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="tag">
+                    学习
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-4fen-zhi-guan-li/">
+                  <h3 class="post-title">
+                    git学习（4）分支管理
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
