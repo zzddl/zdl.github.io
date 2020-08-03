@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>git学习（5）标签管理 | zdl&#39;s blog</title>
+<title> html学习8.3 -- HTML链接、图像、表格 | zdl&#39;s blog</title>
 
 <link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1596469140230">
 
@@ -83,15 +83,15 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    git学习（5）标签管理
+                     html学习8.3 -- HTML链接、图像、表格
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-07-28 ·
+                        · 2020-08-03 ·
                     </time>
                     
-                        <a href="https://zzddl.github.io/zdl.github.io/tag/3DREVt4bN/" class="post-tags">
-                            # git
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/ebA9k3wZg/" class="post-tags">
+                            # HTML
                         </a>
                     
                         <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
@@ -100,42 +100,71 @@
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="1创建标签">1.创建标签</h2>
-<p>（1）首先，切换到需要打标签的分支上</p>
-<p>（2）然后，敲命令<code>git tag &lt;name&gt;</code>就可以打一个新标签</p>
-<p>（3）可以用命令git tag查看所有标签</p>
-<p>（4）<code>$ git log --pretty=oneline --abbrev-commit</code>找到commit id 后</p>
-<pre><code>$ git tag v0.9 f52c633（v0.9是标签名，f52c633是commit id）`
+                    <h2 id="链接">链接</h2>
+<p>1.使用 &lt; a&gt; 标签在 HTML 中创建链接</p>
+<p>2.有两种使用 &lt; a&gt; 标签的方式：</p>
+<ul>
+<li>通过使用 href 属性 - 创建指向另一个文档的链接</li>
+<li>通过使用 name 属性 - 创建文档内的书签</li>
+</ul>
+<p>3.html链接语法</p>
+<pre><code>&lt;a href=&quot;url&quot;&gt;Link text&lt;/a&gt;
 </code></pre>
-<p>（5）标签不是按时间顺序列出，而是按字母排序的。可以用git show <tagname>查看标签信息</p>
-<p>（6）创建带有说明的标签，用-a指定标签名，-m指定说明文字</p>
-<pre><code>    $ git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb
+<p>​	href 属性规定链接的目标。</p>
+<p><strong>提示：</strong>&quot;链接文本&quot; 不必一定是文本。图片或其他 HTML 元素都可以成为链接。</p>
+<p>4.target属性</p>
+<p>​	使用 Target 属性，你可以定义被链接的文档在何处显示。</p>
+<pre><code>&lt;a href=&quot;http://www.w3school.com.cn/&quot; target=&quot;_blank&quot;&gt;Visit W3School!&lt;/a&gt;
 </code></pre>
-<p>（7）小结</p>
-<p>命令<code>git tag &lt;tagname&gt;</code>用于新建一个标签，默认为HEAD，也可以指定一个commit id；</p>
-<p>命令<code>git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;</code>可以指定标签信息；</p>
-<p>命令<code>git tag</code>可以查看所有标签。</p>
-<h2 id="2操作标签">2.操作标签</h2>
-<p>（1）删除标签</p>
-<pre><code>$ git tag -d v0.1
+<p>​	以上代码会在新窗口打开文档</p>
+<p>5.name属性</p>
+<p>​	（1）name 属性规定锚（anchor）的名称。</p>
+<p>​	（2）您可以使用 name 属性创建 HTML 页面中的书签。</p>
+<p>​	（3）书签不会以任何特殊方式显示，它对读者是不可见的。</p>
+<p>​	（4）当使用命名锚（named anchors）时，我们可以创建直接跳至该命名锚（比如页面中某个小节）的链接，这样使用者就无需不停地滚动页面来寻找他们需要的信息了。</p>
+<p>​	（5）命名锚的语法：</p>
+<pre><code>&lt;a name=&quot;label&quot;&gt;锚（显示在页面上的文本）&lt;/a&gt;
 </code></pre>
-<p>创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除</p>
-<p>​    （2）要推送某个标签到远程，使用命令git push origin <tagname></p>
-<p>​    （3）一次性推送全部尚未推送到远程的本地标签</p>
-<pre><code>$ git push origin –tags
+<p>**	提示：**您可以使用 id 属性来替代 name 属性，命名锚同样有效。</p>
+<p>​	（6）实例</p>
+<p>​		首先，我们在 HTML 文档中对锚进行命名（创建一个书签）：</p>
+<pre><code>&lt;a name=&quot;tips&quot;&gt;基本的注意事项 - 有用的提示&lt;/a&gt;
 </code></pre>
-<p>​    （4）若标签已经推送到远程</p>
-<p>​       		首先，从本地删除</p>
-<pre><code>$ git tag -d v0.9
+<p>​		然后，我们在同一个文档中创建指向该锚的链接：</p>
+<pre><code>&lt;a href=&quot;#tips&quot;&gt;有用的提示&lt;/a&gt;
 </code></pre>
-<p>​       		然后从远程删除</p>
-<pre><code>$ git push origin :refs/tags/v0.9
+<p>​		您也可以在其他页面中创建指向该锚的链接：</p>
+<pre><code>&lt;a href=&quot;http://www.w3school.com.cn/html/html_links.asp#tips&quot;&gt;有用的提示&lt;/a&gt;
 </code></pre>
-<p>​    （5）小结</p>
-<p>​        	命令<code>git push origin &lt;tagname&gt;</code>可以推送一个本地标签；5</p>
-<p>​			命令<code>git push origin --tags</code>可以推送全部未推送过的本地标签；</p>
-<p>​			命令<code>git tag -d &lt;tagname&gt;</code>可以删除一个本地标签；</p>
-<p>​			命令<code>git push origin :refs/tags/&lt;tagname&gt;</code>可以删除一个远程标签。</p>
+<p>​		在上面的代码中，我们将 # 符号和锚名称添加到 URL 的末端，就可以直接链接到 tips 这个命名锚了。</p>
+<p>​	（7）注意事项</p>
+<p>**	注释：**请始终将正斜杠添加到子文件夹。假如这样书写链接：href=&quot;http://www.w3school.com.cn/html&quot;，就会向服务器产生两次 HTTP 请求。这是因为服务器会添加正斜杠到这个地址，然后创建一个新的请求，就像这样：href=&quot;http://www.w3school.com.cn/html/&quot;。</p>
+<p>**	提示：**命名锚经常用于在大型文档开始位置上创建目录。可以为每个章节赋予一个命名锚，然后把链接到这些锚的链接放到文档的上部。如果您经常访问百度百科，您会发现其中几乎每个词条都采用这样的导航方式。</p>
+<p>**	提示：**假如浏览器找不到已定义的命名锚，那么就会定位到文档的顶端。不会有错误发生。</p>
+<h2 id="图像">图像</h2>
+<p>1.&lt; img&gt;是空标签，只包含属性，没有闭合标签</p>
+<p>2.定义图像的语法</p>
+<pre><code>&lt;img src=&quot;url&quot; /&gt;
+</code></pre>
+<p>3.替换文本属性（Alt）</p>
+<p>alt 属性用来为图像定义一串预备的可替换的文本。替换文本属性的值是用户定义的。</p>
+<pre><code>&lt;img src=&quot;boat.gif&quot; alt=&quot;Big Boat&quot;&gt;
+</code></pre>
+<p>在浏览器无法载入图像时，替换文本属性告诉读者她们失去的信息。</p>
+<h2 id="表格">表格</h2>
+<p>1.表格由 &lt; table&gt; 标签来定义。每个表格均有若干行（由 &lt; tr&gt; 标签定义），每行被分割为若干单元格（由 &lt; td&gt; 标签定义）。</p>
+<p>2.如果不定义边框属性，表格将不显示边框。</p>
+<p>使用边框属性来显示一个带有边框的表格：</p>
+<pre><code>&lt;table border=&quot;1&quot;&gt;
+</code></pre>
+<p>3.表格的表头使用 &lt; th&gt; 标签进行定义。</p>
+<pre><code>&lt;th&gt;Heading&lt;/th&gt;
+&lt;th&gt;Another Heading&lt;/th&gt;
+</code></pre>
+<p>4.表格中的空单元格</p>
+<pre><code>&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+</code></pre>
+<p>不可以直接空着，要添加一个空格站位符</p>
 
                 </div>
             </article>
@@ -144,14 +173,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-4fen-zhi-guan-li/" class="post-title gt-a-link">
-                    git学习（4）分支管理
+                <a href="https://zzddl.github.io/zdl.github.io/post/ming-zhao-na-xie-shi-er-si/" class="post-title gt-a-link">
+                    明朝那些事儿（肆）
                 </a>
             </div>
         
 
         
-            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="git学习（5）标签管理">
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title=" html学习8.3 -- HTML链接、图像、表格">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>

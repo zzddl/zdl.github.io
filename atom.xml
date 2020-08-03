@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-03T10:56:15.186Z</updated>
+    <updated>2020-08-03T15:39:03.695Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,79 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[ html学习8.3 -- HTML链接、图像、表格]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-83-html-lian-jie-tu-xiang-biao-ge/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-83-html-lian-jie-tu-xiang-biao-ge/">
+        </link>
+        <updated>2020-08-03T15:38:14.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="链接">链接</h2>
+<p>1.使用 &lt; a&gt; 标签在 HTML 中创建链接</p>
+<p>2.有两种使用 &lt; a&gt; 标签的方式：</p>
+<ul>
+<li>通过使用 href 属性 - 创建指向另一个文档的链接</li>
+<li>通过使用 name 属性 - 创建文档内的书签</li>
+</ul>
+<p>3.html链接语法</p>
+<pre><code>&lt;a href=&quot;url&quot;&gt;Link text&lt;/a&gt;
+</code></pre>
+<p>​	href 属性规定链接的目标。</p>
+<p><strong>提示：</strong>&quot;链接文本&quot; 不必一定是文本。图片或其他 HTML 元素都可以成为链接。</p>
+<p>4.target属性</p>
+<p>​	使用 Target 属性，你可以定义被链接的文档在何处显示。</p>
+<pre><code>&lt;a href=&quot;http://www.w3school.com.cn/&quot; target=&quot;_blank&quot;&gt;Visit W3School!&lt;/a&gt;
+</code></pre>
+<p>​	以上代码会在新窗口打开文档</p>
+<p>5.name属性</p>
+<p>​	（1）name 属性规定锚（anchor）的名称。</p>
+<p>​	（2）您可以使用 name 属性创建 HTML 页面中的书签。</p>
+<p>​	（3）书签不会以任何特殊方式显示，它对读者是不可见的。</p>
+<p>​	（4）当使用命名锚（named anchors）时，我们可以创建直接跳至该命名锚（比如页面中某个小节）的链接，这样使用者就无需不停地滚动页面来寻找他们需要的信息了。</p>
+<p>​	（5）命名锚的语法：</p>
+<pre><code>&lt;a name=&quot;label&quot;&gt;锚（显示在页面上的文本）&lt;/a&gt;
+</code></pre>
+<p>**	提示：**您可以使用 id 属性来替代 name 属性，命名锚同样有效。</p>
+<p>​	（6）实例</p>
+<p>​		首先，我们在 HTML 文档中对锚进行命名（创建一个书签）：</p>
+<pre><code>&lt;a name=&quot;tips&quot;&gt;基本的注意事项 - 有用的提示&lt;/a&gt;
+</code></pre>
+<p>​		然后，我们在同一个文档中创建指向该锚的链接：</p>
+<pre><code>&lt;a href=&quot;#tips&quot;&gt;有用的提示&lt;/a&gt;
+</code></pre>
+<p>​		您也可以在其他页面中创建指向该锚的链接：</p>
+<pre><code>&lt;a href=&quot;http://www.w3school.com.cn/html/html_links.asp#tips&quot;&gt;有用的提示&lt;/a&gt;
+</code></pre>
+<p>​		在上面的代码中，我们将 # 符号和锚名称添加到 URL 的末端，就可以直接链接到 tips 这个命名锚了。</p>
+<p>​	（7）注意事项</p>
+<p>**	注释：**请始终将正斜杠添加到子文件夹。假如这样书写链接：href=&quot;http://www.w3school.com.cn/html&quot;，就会向服务器产生两次 HTTP 请求。这是因为服务器会添加正斜杠到这个地址，然后创建一个新的请求，就像这样：href=&quot;http://www.w3school.com.cn/html/&quot;。</p>
+<p>**	提示：**命名锚经常用于在大型文档开始位置上创建目录。可以为每个章节赋予一个命名锚，然后把链接到这些锚的链接放到文档的上部。如果您经常访问百度百科，您会发现其中几乎每个词条都采用这样的导航方式。</p>
+<p>**	提示：**假如浏览器找不到已定义的命名锚，那么就会定位到文档的顶端。不会有错误发生。</p>
+<h2 id="图像">图像</h2>
+<p>1.&lt; img&gt;是空标签，只包含属性，没有闭合标签</p>
+<p>2.定义图像的语法</p>
+<pre><code>&lt;img src=&quot;url&quot; /&gt;
+</code></pre>
+<p>3.替换文本属性（Alt）</p>
+<p>alt 属性用来为图像定义一串预备的可替换的文本。替换文本属性的值是用户定义的。</p>
+<pre><code>&lt;img src=&quot;boat.gif&quot; alt=&quot;Big Boat&quot;&gt;
+</code></pre>
+<p>在浏览器无法载入图像时，替换文本属性告诉读者她们失去的信息。</p>
+<h2 id="表格">表格</h2>
+<p>1.表格由 &lt; table&gt; 标签来定义。每个表格均有若干行（由 &lt; tr&gt; 标签定义），每行被分割为若干单元格（由 &lt; td&gt; 标签定义）。</p>
+<p>2.如果不定义边框属性，表格将不显示边框。</p>
+<p>使用边框属性来显示一个带有边框的表格：</p>
+<pre><code>&lt;table border=&quot;1&quot;&gt;
+</code></pre>
+<p>3.表格的表头使用 &lt; th&gt; 标签进行定义。</p>
+<pre><code>&lt;th&gt;Heading&lt;/th&gt;
+&lt;th&gt;Another Heading&lt;/th&gt;
+</code></pre>
+<p>4.表格中的空单元格</p>
+<pre><code>&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+</code></pre>
+<p>不可以直接空着，要添加一个空格站位符</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[明朝那些事儿（肆）]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/ming-zhao-na-xie-shi-er-si/</id>
@@ -1018,35 +1091,6 @@ Are you sure you want to continue connecting (yes/no)?
 <p>​		二是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本，<code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
 <p>（2）小结：</p>
 <p>​		命令<code>git rm</code>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[git学习（1）创建版本库]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/git-xue-xi-1chuang-jian-ban-ben-ku/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-1chuang-jian-ban-ben-ku/">
-        </link>
-        <updated>2020-07-28T02:02:14.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1创建版本库">1.创建版本库</h2>
-<p>（1）选择一个合适的地方创建一个空的目录</p>
-<pre><code>$ mkdir learngit
-
-$ cd learngit  
-
-$ pwd  命令用于显示当前目录
-</code></pre>
-<p>（2）通过git init命令把这个目录变成Git可以管理的仓库</p>
-<pre><code>$ git init
-
-Initialized empty Git repository in /Users/michael/learngit/.git/
-</code></pre>
-<h2 id="2添加文件到文本库">2.添加文件到文本库</h2>
-<p>（1）用命令git add告诉Git，把文件添加到仓库</p>
-<pre><code>$ git add 文件名字
-</code></pre>
-<p>（2）用命令git commit告诉Git，把文件提交到仓库</p>
-<pre><code>$ git commit -m &quot;wrote a readme file&quot;横线部分文件描述
-</code></pre>
-<p>commit可以一次提交很多文件，所以你可以多次add不同的文件</p>
 ]]></content>
     </entry>
 </feed>
