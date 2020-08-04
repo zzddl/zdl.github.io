@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-03T15:53:15.060Z</updated>
+    <updated>2020-08-04T14:25:46.570Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[跳绳8.4]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/tiao-sheng-84/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/tiao-sheng-84/">
+        </link>
+        <updated>2020-08-04T14:24:00.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596551046010.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Educated]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/educated/</id>
@@ -997,48 +1006,6 @@ $ git checkout -b bug分支名字
 <h2 id="7rebase">7.Rebase</h2>
 <p>​    （1）rebase操作可以把本地未push的分叉提交历史整理成直线<br>
 ​    （2）rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[git学习（3）远程仓库]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/git-xue-xi-3yuan-cheng-cang-ku/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-3yuan-cheng-cang-ku/">
-        </link>
-        <updated>2020-07-28T02:04:40.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1添加远程库">1.添加远程库</h2>
-<p>（1）关联远程库</p>
-<pre><code>$ git remote add origin [git@github.com:zzddl](mailto:git@github.com:zzddl)(用户名字)/learngit.git
-</code></pre>
-<p>（2）推送本地库的内容到远程库</p>
-<pre><code>$ git push -u origin master
-</code></pre>
-<p>在之后的提交中只需要输入</p>
-<pre><code>$ git push origin master
-</code></pre>
-<p>（3）由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令</p>
-<p>（4）当你第一次使用Git的clone或者push命令连接GitHub时，会得到一个警告：</p>
-<pre><code>The authenticity of host 'github.com (xx.xx.xx.xx)' can't be established.
-
-RSA key fingerprint is xx.xx.xx.xx.xx.
-
-Are you sure you want to continue connecting (yes/no)?
-</code></pre>
-<p>​		这是因为Git使用SSH连接，而SSH连接在第一次验证GitHub服务器的Key时，需要你确认GitHub的Key的指纹信息是否真的来自GitHub的服务器，输入yes回车即可。</p>
-<p>​		Git会输出一个警告，告诉你已经把GitHub的Key添加到本机的一个信任列表里了（这个警告只会出现一次）：</p>
-<pre><code>Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
-</code></pre>
-<p>（5）小结</p>
-<p>​		要关联一个远程库，使用命令</p>
-<pre><code>git remote add origin [git@server-name:path/repo-name.git](mailto:git@server-name:path/repo-name.git)
-</code></pre>
-<p>​		关联后，使用命令<code>git push -u origin master</code>第一次推送master分支的所有内容。</p>
-<p>​		此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改</p>
-<p>2.从远程库克隆</p>
-<p>（1）在创建时，需要勾选Initialize this repository with a README选项</p>
-<p>（2）克隆命令</p>
-<pre><code>$ git clone [git@github.com:zzddl](mailto:git@github.com:zzddl)(用户名)/gitskills.git
-</code></pre>
-<p>（3）git支持多种协议，也包括https，但是ssh协议最快.</p>
 ]]></content>
     </entry>
 </feed>
