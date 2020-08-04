@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-04T14:29:18.727Z</updated>
+    <updated>2020-08-04T14:52:38.282Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,200 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[ html学习8.4 -- html列表、块、类]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-84-html-lie-biao-kuai-lei/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-84-html-lie-biao-kuai-lei/">
+        </link>
+        <updated>2020-08-04T14:49:22.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="html列表">html列表</h2>
+<h3 id="无序列表">无序列表</h3>
+<p>无序列表是一个项目的列表，此列项目使用粗体圆点（典型的小黑圆圈）进行标记。</p>
+<p>无序列表始于 &lt; ul&gt; 标签。每个列表项始于 &lt; li&gt;。</p>
+<pre><code>&lt;ul&gt;
+&lt;li&gt;Coffee&lt;/li&gt;
+&lt;li&gt;Milk&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>浏览器显示如下：</p>
+<ul>
+<li>Coffee</li>
+<li>Milk</li>
+</ul>
+<h3 id="有序列表">有序列表</h3>
+<p>有序列表也是一列项目，列表项目使用数字进行标记。</p>
+<p>有序列表始于 &lt; ol&gt; 标签。每个列表项始于 &lt; li&gt; 标签。</p>
+<pre><code>&lt;ol&gt;
+&lt;li&gt;Coffee&lt;/li&gt;
+&lt;li&gt;Milk&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<p>浏览器显示如下：</p>
+<ol>
+<li>Coffee</li>
+<li>Milk</li>
+</ol>
+<h3 id="定义列表">定义列表</h3>
+<p>自定义列表不仅仅是一列项目，而是项目及其注释的组合。</p>
+<p>自定义列表以 <dl> 标签开始。每个自定义列表项以 <dt> 开始。每个自定义列表项的定义以 <dd> 开始。</p>
+<pre><code>&lt;dl&gt;
+&lt;dt&gt;Coffee&lt;/dt&gt;
+&lt;dd&gt;Black hot drink&lt;/dd&gt;
+&lt;dt&gt;Milk&lt;/dt&gt;
+&lt;dd&gt;White cold drink&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+<p>浏览器显示如下：</p>
+<p>Coffee</p>
+<p>Black hot drink</p>
+<p>Milk</p>
+<p>White cold drink</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt; ol&gt;</td>
+<td>定义有序列表。</td>
+</tr>
+<tr>
+<td>&lt; ul&gt;</td>
+<td>定义无序列表。</td>
+</tr>
+<tr>
+<td>&lt; li&gt;</td>
+<td>定义列表项。</td>
+</tr>
+<tr>
+<td>&lt; dl&gt;</td>
+<td>定义定义列表。</td>
+</tr>
+<tr>
+<td>&lt; dt&gt;</td>
+<td>定义定义项目。</td>
+</tr>
+<tr>
+<td>&lt; dd&gt;</td>
+<td>定义定义的描述。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="html块">html块</h2>
+<p><strong>可以通过 &lt; div&gt; 和 &lt; span&gt; 将 HTML 元素组合起来。</strong></p>
+<h3 id="html-块元素">HTML 块元素</h3>
+<p>大多数 HTML 元素被定义为块级元素或内联元素。</p>
+<p>编者注：“块级元素”译为 block level element，“内联元素”译为 inline element。</p>
+<p>块级元素在浏览器显示时，通常会以新行来开始（和结束）。</p>
+<p>例子：&lt; h1&gt;, &lt; p&gt;, &lt; ul&gt;, &lt; table&gt;</p>
+<h3 id="html-内联元素">HTML 内联元素</h3>
+<p>内联元素在显示时通常不会以新行开始。</p>
+<p>例子：&lt; b&gt;, &lt; td&gt;, &lt; a&gt;, &lt; img&gt;</p>
+<h3 id="html-div-元素">HTML &lt; div&gt; 元素</h3>
+<p>HTML &lt; div&gt; 元素是块级元素，它是可用于组合其他 HTML 元素的容器。</p>
+<p>&lt; div&gt; 元素没有特定的含义。除此之外，由于它属于块级元素，浏览器会在其前后显示折行。</p>
+<p>如果与 CSS 一同使用，&lt; div&gt; 元素可用于对大的内容块设置样式属性。</p>
+<p>&lt; div&gt; 元素的另一个常见的用途是文档布局。它取代了使用表格定义布局的老式方法。使用 &lt; table&gt; 元素进行文档布局不是表格的正确用法。&lt; table&gt; 元素的作用是显示表格化的数据。</p>
+<h3 id="html-span-元素">HTML &lt; span&gt; 元素</h3>
+<p>HTML &lt; span&gt; 元素是内联元素，可用作文本的容器。</p>
+<p>当与 CSS 一同使用时，&lt; span&gt; 元素可用于为部分文本设置样式属性。</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt; div&gt;</td>
+<td>定义文档中的分区或节（division/section）。</td>
+</tr>
+<tr>
+<td>&lt; span&gt;</td>
+<td>定义 span，用来组合文档中的行内元素。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="html类">html类</h2>
+<p>对 HTML 进行分类（设置类），使我们能够为元素的类定义 CSS 样式。</p>
+<h3 id="分类块级元素">分类块级元素</h3>
+<p>HTML &lt; div&gt; 元素是<em>块级元素</em>。它能够用作其他 HTML 元素的容器。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+.cities {
+    background-color:black;
+    color:white;
+    margin:20px;
+    padding:20px;
+}	
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;div class=&quot;cities&quot;&gt;
+&lt;h2&gt;London&lt;/h2&gt;
+
+&lt;p&gt;London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.&lt;/p&gt;
+
+&lt;p&gt;Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.&lt;/p&gt;
+&lt;/div&gt; 
+
+&lt;div class=&quot;cities&quot;&gt;
+&lt;h2&gt;Paris&lt;/h2&gt;
+
+&lt;p&gt;Paris is the capital and most populous city of France.&lt;/p&gt;
+
+&lt;p&gt;Situated on the Seine River, it is at the heart of the 蝜e-de-France region, also known as the r間ion parisienne.&lt;/p&gt;
+
+&lt;p&gt;Within its metropolitan area is one of the largest population centers in Europe, with over 12 million inhabitants.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;cities&quot;&gt;
+&lt;h2&gt;Tokyo&lt;/h2&gt;
+
+&lt;p&gt;Tokyo is the capital of Japan, the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.&lt;/p&gt;
+
+&lt;p&gt;It is the seat of the Japanese government and the Imperial Palace, and the home of the Japanese Imperial Family.&lt;/p&gt;
+
+&lt;p&gt;The Tokyo prefecture is part of the world's most populous metropolitan area with 38 million people and the world's largest urban economy.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>效果如下：</p>
+<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596552706849.jpg" alt="" loading="lazy"></figure>
+<h3 id="分类行内元素">分类行内元素</h3>
+<p>HTML &lt; span&gt; 元素是行内元素，能够用作文本的容器。</p>
+<p>设置 &lt; span&gt; 元素的类，能够为相同的 &lt; span&gt; 元素设置相同的样式。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+span.red {
+    color:red;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;我的&lt;span class=&quot;red&quot;&gt;重要的&lt;/span&gt;标题&lt;/h1&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>效果如下：</p>
+<figure data-type="image" tabindex="2"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596552748638.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[跳绳8.4]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/tiao-sheng-84/</id>
@@ -906,106 +1100,6 @@
 <p>​			命令<code>git push origin --tags</code>可以推送全部未推送过的本地标签；</p>
 <p>​			命令<code>git tag -d &lt;tagname&gt;</code>可以删除一个本地标签；</p>
 <p>​			命令<code>git push origin :refs/tags/&lt;tagname&gt;</code>可以删除一个远程标签。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[git学习（4）分支管理]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/git-xue-xi-4fen-zhi-guan-li/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-4fen-zhi-guan-li/">
-        </link>
-        <updated>2020-07-28T02:05:32.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1创建与合并分支">1.创建与合并分支</h2>
-<p>（1）HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支<br>
-<img src="https://zzddl.github.io/zdl.github.io//post-images/1595902329718.png" alt="" loading="lazy"><br>
-（2）当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上<br>
-<img src="https://zzddl.github.io/zdl.github.io//post-images/1595902336627.png" alt="" loading="lazy"><br>
-dev向前移动的时候，master指向不变。<br>
-合并就是master指向dev所指向的。<br>
-<img src="https://zzddl.github.io/zdl.github.io//post-images/1595902342976.png" alt="" loading="lazy"><br>
-（3）命令：</p>
-<p>查看分支：git branch</p>
-<p>创建分支：git branch <name></p>
-<p>切换分支：git checkout <name>或者git switch <name></p>
-<p>创建+切换分支：git checkout -b <name>或者git switch -c <name></p>
-<p>合并某分支到当前分支：git merge <name></p>
-<p>删除分支：git branch -d <name></p>
-<h2 id="2解决冲突">2.解决冲突</h2>
-<p>（1）发生冲突后的图示：<br>
-<img src="https://zzddl.github.io/zdl.github.io//post-images/1595902353205.png" alt="" loading="lazy"><br>
-（2）冲突解决后<br>
-<img src="https://zzddl.github.io/zdl.github.io//post-images/1595902361532.png" alt="" loading="lazy"><br>
-（3）用带参数的git log也可以看到分支合并情况，如：</p>
-<pre><code>$ git log --graph --pretty=oneline --abbrev-commit
-</code></pre>
-<p>（4）最后要删除分支</p>
-<p>（5）小结：</p>
-<p>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。</p>
-<p>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。</p>
-<p>用<code>git log --graph</code>命令可以看到分支合并图。</p>
-<h2 id="3分支管理策略">3.分支管理策略</h2>
-<p>（1）</p>
-<pre><code>$ git merge --no-ff -m &quot;merge with no-ff&quot; dev
-</code></pre>
-<p>​		dev是分支名字，--no-ff表示禁用Fast forward</p>
-<p>（2）合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。</p>
-<p>（3）退出<code>git log</code>需要输入命令q</p>
-<h2 id="4bug分支">4.Bug分支</h2>
-<p>（1）Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作（即把未完成的其他分支的工作先保存起来，然后完成其他事后再继续）</p>
-<pre><code>$ git stash
-</code></pre>
-<p>（2）首先确定要在哪个分支上修复bug，假定需要在master分支上修复，就从master创建临时分支</p>
-<pre><code>$ git checkout master
-
-$ git checkout -b bug分支名字
-</code></pre>
-<p>修复并且提交完成后，切换到master分支，完成合并，然后删除bug分支</p>
-<p>（3）保存的工作可以用<code>$ git stash list</code>来查看</p>
-<p>（4）Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：</p>
-<p>​		一是用<code>git stash apply</code>恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；</p>
-<pre><code>$ git stash apply stash@{0}
-</code></pre>
-<p>​		另一种方式是用<code>git stash pop</code>，恢复的同时把stash内容也删了</p>
-<p>（5）Git专门提供了一个<code>cherry-pick</code>命令，让我们能复制一个特定的提交到当前分支（在另外一个分支修复相同的bug）</p>
-<pre><code>$ git cherry-pick 4c805e2
-</code></pre>
-<p>（6）小结</p>
-<p>​		修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
-<p>​		当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场；</p>
-<p>​		在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick <commit>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。</p>
-<h2 id="5feature分支">5.feature分支</h2>
-<p>添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。</p>
-<p>开发一个新feature，最好新建一个分支；</p>
-<p>如果要丢弃一个没有被合并过的分支，可以通过<code>git branch -D &lt;name&gt;</code>强行删除。</p>
-<h2 id="6多人协作">6.多人协作</h2>
-<p>（1）要查看远程库的信息，用git remote；用git remote -v显示更详细的信息</p>
-<p>（2）推送分支</p>
-<pre><code>$ git push origin 分支名字
-</code></pre>
-<p>（3）需要推送的分支：</p>
-<p>​		master分支是主分支，因此要时刻与远程同步；</p>
-<p>​		dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</p>
-<p>​		bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；</p>
-<p>​		feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。</p>
-<p>（4）其他人要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支</p>
-<pre><code>$ git checkout -b dev origin/dev
-</code></pre>
-<p>（5）若其他人的最新提交和你试图推送的提交有冲突，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送。</p>
-<p>（6）多人协作的工作模式</p>
-<p>​		首先，可以试图用<code>git push origin &lt;branch-name&gt;</code>推送自己的修改；</p>
-<p>​		如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；</p>
-<p>​		如果合并有冲突，则解决冲突，并在本地提交；</p>
-<p>​		没有冲突或者解决掉冲突后，再用<code>git push origin &lt;branch-name&gt;</code>推送就能成功！</p>
-<p>​		如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;。</code></p>
-<p>（7）小结</p>
-<p>​		查看远程库信息，使用<code>git remote -v</code>；</p>
-<p>​		本地新建的分支如果不推送到远程，对其他人就是不可见的；</p>
-<p>​		从本地推送分支，使用<code>git push origin branch-name</code>，如果推送失败，先用git pull抓取远程的新提交；</p>
-<p>​		在本地创建和远程分支对应的分支，使用<code>git checkout -b branch-name origin/branch-name</code>，本地和远程分支的名称最好一致；</p>
-<p>​		建立本地分支和远程分支的关联，使用<code>git branch --set-upstream branch-name origin/branch-name</code>；</p>
-<p>​		从远程抓取分支，使用<code>git pull</code>，如果有冲突，要先处理冲突。</p>
-<h2 id="7rebase">7.Rebase</h2>
-<p>​    （1）rebase操作可以把本地未push的分叉提交历史整理成直线<br>
-​    （2）rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</p>
 ]]></content>
     </entry>
 </feed>
