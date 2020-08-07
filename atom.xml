@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-04T14:54:42.342Z</updated>
+    <updated>2020-08-07T15:25:37.189Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,301 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[ html学习8.7 -- 布局、响应式设计]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-87-bu-ju-xiang-ying-shi-she-ji/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-87-bu-ju-xiang-ying-shi-she-ji/">
+        </link>
+        <updated>2020-08-07T15:19:39.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="html学习87-布局-响应式设计">html学习8.7 -- 布局、响应式设计</h1>
+<h2 id="html学习">html学习</h2>
+<h3 id="使用-div-元素的-html-布局">使用 &lt; div&gt; 元素的 HTML 布局</h3>
+<p><strong>注释：</strong>&lt; div&gt; 元素常用作布局工具，因为能够轻松地通过 CSS 对其进行定位。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+&lt;style&gt;
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+#section {
+    width:350px;
+    float:left;
+    padding:10px;	 	 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;div id=&quot;header&quot;&gt;
+&lt;h1&gt;City Gallery&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;nav&quot;&gt;
+London&lt;br&gt;
+Paris&lt;br&gt;
+Tokyo&lt;br&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;section&quot;&gt;
+&lt;h2&gt;London&lt;/h2&gt;
+&lt;p&gt;
+London is the capital city of England. It is the most populous city in the United Kingdom,
+with a metropolitan area of over 13 million inhabitants.
+&lt;/p&gt;
+&lt;p&gt;
+Standing on the River Thames, London has been a major settlement for two millennia,
+its history going back to its founding by the Romans, who named it Londinium.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;footer&quot;&gt;
+Copyright ? W3Schools.com
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596813849570.jpg" alt="" loading="lazy"></figure>
+<h3 id="使用-html5-的网站布局">使用 HTML5 的网站布局</h3>
+<h4 id="html5-语义元素">HTML5 语义元素</h4>
+<table>
+<thead>
+<tr>
+<th>header</th>
+<th>定义文档或节的页眉</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nav</td>
+<td>定义导航链接的容器</td>
+</tr>
+<tr>
+<td>section</td>
+<td>定义文档中的节</td>
+</tr>
+<tr>
+<td>article</td>
+<td>定义独立的自包含文章</td>
+</tr>
+<tr>
+<td>aside</td>
+<td>定义内容之外的内容（比如侧栏）</td>
+</tr>
+<tr>
+<td>footer</td>
+<td>定义文档或节的页脚</td>
+</tr>
+<tr>
+<td>details</td>
+<td>定义额外的细节</td>
+</tr>
+<tr>
+<td>summary</td>
+<td>定义 details 元素的标题</td>
+</tr>
+</tbody>
+</table>
+<p>实例</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+&lt;style&gt;
+header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;	 
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+section {
+    width:350px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;header&gt;
+&lt;h1&gt;City Gallery&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+London&lt;br&gt;
+Paris&lt;br&gt;
+Tokyo&lt;br&gt;
+&lt;/nav&gt;
+
+&lt;section&gt;
+&lt;h1&gt;London&lt;/h1&gt;
+&lt;p&gt;
+London is the capital city of England. It is the most populous city in the United Kingdom,
+with a metropolitan area of over 13 million inhabitants.
+&lt;/p&gt;
+&lt;p&gt;
+Standing on the River Thames, London has been a major settlement for two millennia,
+its history going back to its founding by the Romans, who named it Londinium.
+&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;footer&gt;
+Copyright W3Schools.com
+&lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="使用表格的-html-布局">使用表格的 HTML 布局</h3>
+<p>注释：&lt; table&gt; 元素不是作为布局工具而设计的。&lt; table&gt; 元素的作用是显示表格化的数据。</p>
+<pre><code>&lt;body&gt;
+
+&lt;table class=&quot;lamp&quot;&gt;
+&lt;tr&gt;
+  &lt;th&gt;
+    &lt;img src=&quot;/images/lamp.jpg&quot; alt=&quot;Note&quot; style=&quot;height:32px;width:32px&quot;&gt;
+  &lt;/th&gt;
+  &lt;td&gt;
+    The table element was not designed to be a layout tool.
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+</code></pre>
+<h2 id="响应式web设计">响应式web设计</h2>
+<h3 id="什么是响应式web设计">什么是响应式web设计？</h3>
+<ul>
+<li>RWD 指的是响应式 Web 设计（Responsive Web Design）</li>
+<li>RWD 能够以可变尺寸传递网页</li>
+<li>RWD 对于平板和移动设备是必需的</li>
+</ul>
+<h3 id="创建您自己的响应式设计">创建您自己的响应式设计</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en-US&quot;&gt;
+&lt;head&gt;
+&lt;style&gt;
+.city {
+float: left;
+margin: 5px;
+padding: 15px;
+width: 300px;
+height: 300px;
+border: 1px solid black;
+} 
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;W3School Demo&lt;/h1&gt;
+&lt;h2&gt;Resize this responsive page!&lt;/h2&gt;
+&lt;br&gt;
+
+&lt;div class=&quot;city&quot;&gt;
+&lt;h2&gt;London&lt;/h2&gt;
+&lt;p&gt;London is the capital city of England.&lt;/p&gt;
+&lt;p&gt;It is the most populous city in the United Kingdom,
+with a metropolitan area of over 13 million inhabitants.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;city&quot;&gt;
+&lt;h2&gt;Paris&lt;/h2&gt;
+&lt;p&gt;Paris is the capital and most populous city of France.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;city&quot;&gt;
+&lt;h2&gt;Tokyo&lt;/h2&gt;
+&lt;p&gt;Tokyo is the capital of Japan, the center of the Greater Tokyo Area,
+and the most populous metropolitan area in the world.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596813920641.jpg" alt="" loading="lazy"></figure>
+<h3 id="使用-bootstrap">使用 Bootstrap</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; 
+  href=&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+&lt;div class=&quot;jumbotron&quot;&gt;
+  &lt;h1&gt;W3School Demo&lt;/h1&gt; 
+  &lt;p&gt;Resize this responsive page!&lt;/p&gt; 
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-md-4&quot;&gt;
+    &lt;h2&gt;London&lt;/h2&gt;
+    &lt;p&gt;London is the capital city of England.&lt;/p&gt;
+    &lt;p&gt;It is the most populous city in the United Kingdom,
+    with a metropolitan area of over 13 million inhabitants.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-md-4&quot;&gt;
+    &lt;h2&gt;Paris&lt;/h2&gt;
+    &lt;p&gt;Paris is the capital and most populous city of France.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-md-4&quot;&gt;
+    &lt;h2&gt;Tokyo&lt;/h2&gt;
+    &lt;p&gt;Tokyo is the capital of Japan, the center of the Greater Tokyo Area,
+    and the most populous metropolitan area in the world.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596813926231.jpg" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ html学习8.4 -- html列表、块、类]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-84-html-lie-biao-kuai-lei/</id>
@@ -1056,50 +1351,6 @@ span.red {
 <p>（3）配置Git的时候，加上<code>--global</code>是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。</p>
 <p>（4）每个仓库的Git配置文件都放在<code>.git/config</code>文件中</p>
 <p>（5）别名就在<code>[alias]</code>后面，要删除别名，直接把对应的行删掉即可。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[git学习（5）标签管理]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/git-xue-xi-5biao-qian-guan-li/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-5biao-qian-guan-li/">
-        </link>
-        <updated>2020-07-28T02:06:46.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1创建标签">1.创建标签</h2>
-<p>（1）首先，切换到需要打标签的分支上</p>
-<p>（2）然后，敲命令<code>git tag &lt;name&gt;</code>就可以打一个新标签</p>
-<p>（3）可以用命令git tag查看所有标签</p>
-<p>（4）<code>$ git log --pretty=oneline --abbrev-commit</code>找到commit id 后</p>
-<pre><code>$ git tag v0.9 f52c633（v0.9是标签名，f52c633是commit id）`
-</code></pre>
-<p>（5）标签不是按时间顺序列出，而是按字母排序的。可以用git show <tagname>查看标签信息</p>
-<p>（6）创建带有说明的标签，用-a指定标签名，-m指定说明文字</p>
-<pre><code>    $ git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb
-</code></pre>
-<p>（7）小结</p>
-<p>命令<code>git tag &lt;tagname&gt;</code>用于新建一个标签，默认为HEAD，也可以指定一个commit id；</p>
-<p>命令<code>git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;</code>可以指定标签信息；</p>
-<p>命令<code>git tag</code>可以查看所有标签。</p>
-<h2 id="2操作标签">2.操作标签</h2>
-<p>（1）删除标签</p>
-<pre><code>$ git tag -d v0.1
-</code></pre>
-<p>创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除</p>
-<p>​    （2）要推送某个标签到远程，使用命令git push origin <tagname></p>
-<p>​    （3）一次性推送全部尚未推送到远程的本地标签</p>
-<pre><code>$ git push origin –tags
-</code></pre>
-<p>​    （4）若标签已经推送到远程</p>
-<p>​       		首先，从本地删除</p>
-<pre><code>$ git tag -d v0.9
-</code></pre>
-<p>​       		然后从远程删除</p>
-<pre><code>$ git push origin :refs/tags/v0.9
-</code></pre>
-<p>​    （5）小结</p>
-<p>​        	命令<code>git push origin &lt;tagname&gt;</code>可以推送一个本地标签；5</p>
-<p>​			命令<code>git push origin --tags</code>可以推送全部未推送过的本地标签；</p>
-<p>​			命令<code>git tag -d &lt;tagname&gt;</code>可以删除一个本地标签；</p>
-<p>​			命令<code>git push origin :refs/tags/&lt;tagname&gt;</code>可以删除一个远程标签。</p>
 ]]></content>
     </entry>
 </feed>
