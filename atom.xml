@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-08T03:23:14.188Z</updated>
+    <updated>2020-08-08T04:26:15.408Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,91 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[ html学习8.8 -- 背景、脚本、文件路径]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-bei-jing-jiao-ben-wen-jian-lu-jing/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-bei-jing-jiao-ben-wen-jian-lu-jing/">
+        </link>
+        <updated>2020-08-08T04:25:22.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="背景">背景</h2>
+<p>&lt; body&gt; 拥有两个配置背景的标签。背景可以是颜色或者图像。</p>
+<h3 id="背景颜色bgcolor">背景颜色（Bgcolor）</h3>
+<p>背景属性值可以是十六进制数、RGB 值或颜色名。</p>
+<pre><code class="language-html">&lt;body bgcolor=&quot;#000000&quot;&gt;
+&lt;body bgcolor=&quot;rgb(0,0,0)&quot;&gt;
+&lt;body bgcolor=&quot;black&quot;&gt;
+</code></pre>
+<h3 id="背景background">背景（Background）</h3>
+<p>背景属性将背景设置为图像。属性值为图像的URL。如果图像尺寸小于浏览器窗口，那么图像将在整个浏览器窗口进行复制。</p>
+<pre><code class="language-html">&lt;body background=&quot;clouds.gif&quot;&gt;
+&lt;body background=&quot;http://www.w3school.com.cn/clouds.gif&quot;&gt;
+</code></pre>
+<p>第一行相对地址；第二行绝对地址</p>
+<h2 id="脚本">脚本</h2>
+<h3 id="html-script-元素">HTML script 元素</h3>
+<p>&lt; script&gt; 标签用于定义客户端脚本，比如 JavaScript。</p>
+<p>script 元素既可包含脚本语句，也可通过 src 属性指向外部脚本文件。</p>
+<p>必需的 type 属性规定脚本的 MIME 类型。</p>
+<p>JavaScript 最常用于图片操作、表单验证以及内容动态更新。</p>
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
+document.write(&quot;Hello World!&quot;)
+&lt;/script&gt;
+</code></pre>
+<p>以上代码输出hello world！</p>
+<h3 id="noscript-标签">&lt; noscript&gt; 标签</h3>
+<p>&lt; noscript&gt; 标签提供无法使用脚本时的替代内容，比方在浏览器禁用脚本时，或浏览器不支持客户端脚本时。</p>
+<p>noscript 元素可包含普通 HTML 页面的 body 元素中能够找到的所有元素。</p>
+<p>只有在浏览器不支持脚本或者禁用脚本时，才会显示 noscript 元素中的内容：</p>
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
+document.write(&quot;Hello World!&quot;)
+&lt;/script&gt;
+&lt;noscript&gt;Your browser does not support JavaScript!&lt;/noscript&gt;
+</code></pre>
+<h3 id="老式浏览器">老式浏览器</h3>
+<p>老式的浏览器会忽略掉注释，新的浏览器能读懂并且执行，即使是被写在标签内</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+&lt;!--
+document.write(&quot;Hello World!&quot;)
+//--&gt;
+&lt;/script&gt;
+</code></pre>
+<h2 id="文件路径">文件路径</h2>
+<h3 id="html文件路径">html文件路径</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">路径</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt; img src=&quot;picture.jpg&quot;&gt;</td>
+<td style="text-align:left">picture.jpg 位于与当前网页相同的文件夹</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; img src=&quot;images/picture.jpg&quot;&gt;</td>
+<td style="text-align:left">picture.jpg 位于当前文件夹的 images 文件夹中</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; img src=&quot;/images/picture.jpg&quot;&gt;</td>
+<td style="text-align:left">picture.jpg 当前站点根目录的 images 文件夹中</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; img src=&quot;../picture.jpg&quot;&gt;</td>
+<td style="text-align:left">picture.jpg 位于当前文件夹的上一级文件夹中</td>
+</tr>
+</tbody>
+</table>
+<h3 id="绝对文件路径">绝对文件路径</h3>
+<pre><code class="language-html">&lt;img src=&quot;https://www.w3school.com.cn/images/picture.jpg&quot; alt=&quot;flower&quot;&gt;
+</code></pre>
+<h3 id="相对路径">相对路径</h3>
+<pre><code class="language-html">&lt;img src=&quot;../images/picture.jpg&quot; alt=&quot;flower&quot;&gt;
+</code></pre>
+<p>如果使用了相对路径，那么您的网页就不会与当前的基准 URL 进行绑定。所有链接在您的电脑上 (localhost) 或未来的公共域中均可正常工作。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.8 -- 框架、内联框架]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-kuang-jia-nei-lian-kuang-jia/</id>
@@ -1468,16 +1553,6 @@ span.red {
 <li>&lt; h1&gt; 与 &lt; /h1&gt; 之间的文本被显示为标题</li>
 <li>&lt; p&gt; 与 &lt; /p&gt; 之间的文本被显示为段落</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Git常用命令]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/git-chang-yong-ming-ling/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/git-chang-yong-ming-ling/">
-        </link>
-        <updated>2020-07-28T03:44:43.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://zzddl.github.io/zdl.github.io//post-images/1595907899082.jpg" alt="" loading="lazy"><br>
-<img src="https://zzddl.github.io/zdl.github.io//post-images/1595907904558.jpg" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>

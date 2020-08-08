@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>git学习（2）时光机穿梭 | zdl&#39;s blog</title>
+<title> html学习8.8 -- 背景、脚本、文件路径 | zdl&#39;s blog</title>
 
 <link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1596860761397">
 
@@ -83,15 +83,15 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    git学习（2）时光机穿梭
+                     html学习8.8 -- 背景、脚本、文件路径
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-07-28 ·
+                        · 2020-08-08 ·
                     </time>
                     
-                        <a href="https://zzddl.github.io/zdl.github.io/tag/3DREVt4bN/" class="post-tags">
-                            # git
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/ebA9k3wZg/" class="post-tags">
+                            # HTML
                         </a>
                     
                         <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
@@ -100,68 +100,83 @@
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="1版本回退">1.版本回退</h2>
-<p>（1）git log命令显示从最近到最远的提交日志</p>
-<p>（2）简短的显示提交日志</p>
-<pre><code>$ git log --pretty=oneline
+                    <h2 id="背景">背景</h2>
+<p>&lt; body&gt; 拥有两个配置背景的标签。背景可以是颜色或者图像。</p>
+<h3 id="背景颜色bgcolor">背景颜色（Bgcolor）</h3>
+<p>背景属性值可以是十六进制数、RGB 值或颜色名。</p>
+<pre><code class="language-html">&lt;body bgcolor=&quot;#000000&quot;&gt;
+&lt;body bgcolor=&quot;rgb(0,0,0)&quot;&gt;
+&lt;body bgcolor=&quot;black&quot;&gt;
 </code></pre>
-<p>（3）</p>
-<pre><code>$ git reset --hard HEAD^ 
+<h3 id="背景background">背景（Background）</h3>
+<p>背景属性将背景设置为图像。属性值为图像的URL。如果图像尺寸小于浏览器窗口，那么图像将在整个浏览器窗口进行复制。</p>
+<pre><code class="language-html">&lt;body background=&quot;clouds.gif&quot;&gt;
+&lt;body background=&quot;http://www.w3school.com.cn/clouds.gif&quot;&gt;
 </code></pre>
-<p>上一个版本就是HEAD<sup>，上上一个版本就是HEAD</sup><sup>，当然往上100个版本写100个</sup>比较容易数不过来，所以写成HEAD~100。</p>
-<p>（4） 查看版本的内容</p>
-<pre><code>$ cat readme.txt
+<p>第一行相对地址；第二行绝对地址</p>
+<h2 id="脚本">脚本</h2>
+<h3 id="html-script-元素">HTML script 元素</h3>
+<p>&lt; script&gt; 标签用于定义客户端脚本，比如 JavaScript。</p>
+<p>script 元素既可包含脚本语句，也可通过 src 属性指向外部脚本文件。</p>
+<p>必需的 type 属性规定脚本的 MIME 类型。</p>
+<p>JavaScript 最常用于图片操作、表单验证以及内容动态更新。</p>
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
+document.write(&quot;Hello World!&quot;)
+&lt;/script&gt;
 </code></pre>
-<p>（5）</p>
-<pre><code>$ git reset --hard 1094a 已经删除的版本号的前几位就可以
+<p>以上代码输出hello world！</p>
+<h3 id="noscript-标签">&lt; noscript&gt; 标签</h3>
+<p>&lt; noscript&gt; 标签提供无法使用脚本时的替代内容，比方在浏览器禁用脚本时，或浏览器不支持客户端脚本时。</p>
+<p>noscript 元素可包含普通 HTML 页面的 body 元素中能够找到的所有元素。</p>
+<p>只有在浏览器不支持脚本或者禁用脚本时，才会显示 noscript 元素中的内容：</p>
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
+document.write(&quot;Hello World!&quot;)
+&lt;/script&gt;
+&lt;noscript&gt;Your browser does not support JavaScript!&lt;/noscript&gt;
 </code></pre>
-<p>（6）用来记录每一次命令：</p>
-<pre><code>$ git reflog
+<h3 id="老式浏览器">老式浏览器</h3>
+<p>老式的浏览器会忽略掉注释，新的浏览器能读懂并且执行，即使是被写在标签内</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+&lt;!--
+document.write(&quot;Hello World!&quot;)
+//--&gt;
+&lt;/script&gt;
 </code></pre>
-<p>（7）HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令</p>
-<pre><code>$ git reset --hard commit_id
+<h2 id="文件路径">文件路径</h2>
+<h3 id="html文件路径">html文件路径</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">路径</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt; img src=&quot;picture.jpg&quot;&gt;</td>
+<td style="text-align:left">picture.jpg 位于与当前网页相同的文件夹</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; img src=&quot;images/picture.jpg&quot;&gt;</td>
+<td style="text-align:left">picture.jpg 位于当前文件夹的 images 文件夹中</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; img src=&quot;/images/picture.jpg&quot;&gt;</td>
+<td style="text-align:left">picture.jpg 当前站点根目录的 images 文件夹中</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; img src=&quot;../picture.jpg&quot;&gt;</td>
+<td style="text-align:left">picture.jpg 位于当前文件夹的上一级文件夹中</td>
+</tr>
+</tbody>
+</table>
+<h3 id="绝对文件路径">绝对文件路径</h3>
+<pre><code class="language-html">&lt;img src=&quot;https://www.w3school.com.cn/images/picture.jpg&quot; alt=&quot;flower&quot;&gt;
 </code></pre>
-<p>（8）穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。</p>
-<p>（9）要重返未来，用<code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本。</p>
-<h2 id="2工作区和暂存区">2.工作区和暂存区</h2>
-<p>（1）工作区（working directory）</p>
-<p>​		在电脑里面能看到的目录。例如learngit文件夹</p>
-<p>（2）版本库</p>
-<p>​		工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。</p>
-<p>​		git的版本库中最重要的是叫stage的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD</p>
-<p>（3）往版本库中添加的时候分两步：</p>
-<p>​		第一步，用<code>git add</code>把文件添加进去，实际上就是把文件修改添加到暂存区。</p>
-<p>​		第二步，用<code>git commit</code>提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
-<p>​		简单理解：需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改</p>
-<p><code>git status</code> 是查看工作区的状态<br>
-（4）关系图示</p>
-<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1595902302037.jpg" alt="" loading="lazy"></figure>
-<h2 id="3管理修改">3.管理修改</h2>
-<p>（1）用<code>git diff HEAD -- readme.txt</code>命令可以查看工作区和版本库里面最新版本的区别</p>
-<p>（2）第一次修改 -&gt; git add -&gt; 第二次修改 -&gt; git add -&gt; git commit</p>
-<p>（3）每次修改，如果不用git add到暂存区，那就不会加入到commit中</p>
-<h2 id="4撤销修改">4.撤销修改</h2>
-<p>（1）丢弃工作区的修改</p>
-<pre><code>$ git checkout -- file
+<h3 id="相对路径">相对路径</h3>
+<pre><code class="language-html">&lt;img src=&quot;../images/picture.jpg&quot; alt=&quot;flower&quot;&gt;
 </code></pre>
-<p>（2）撤销有两种情况：</p>
-<p>​			第一种，自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态。</p>
-<pre><code>	 第二种，已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
-
-	 总之，就是让这个文件回到最近一次`git commit`或`git add`时的状态。
-</code></pre>
-<p>（3）<code>git checkout -- file</code>命令中的--很重要，没有--，就变成了“切换到另一个分支”的命令，我们在后面的分支管理中会再次遇到git checkout命令</p>
-<p>（4）命令<code>git reset HEAD &lt;file&gt;</code>可以把暂存区的修改撤销掉（unstage），重新放回工作区</p>
-<p>（5）小结：</p>
-<p>​		场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。</p>
-<p>​		场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD &lt;file&gt;</code>，就回到了场景1，第二步按场景1操作。</p>
-<p>​		场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。</p>
-<h2 id="5删除文件">5.删除文件</h2>
-<p>（1）两种情况：</p>
-<p>​		一是确实要从版本库中删除该文件，那就用命令<code>git rm</code>删掉，并且<code>git commit</code>，这样就不可以恢复了。</p>
-<p>​		二是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本，<code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
-<p>（2）小结：</p>
-<p>​		命令<code>git rm</code>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。</p>
+<p>如果使用了相对路径，那么您的网页就不会与当前的基准 URL 进行绑定。所有链接在您的电脑上 (localhost) 或未来的公共域中均可正常工作。</p>
 
                 </div>
             </article>
@@ -170,14 +185,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-1chuang-jian-ban-ben-ku/" class="post-title gt-a-link">
-                    git学习（1）创建版本库
+                <a href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-kuang-jia-nei-lian-kuang-jia/" class="post-title gt-a-link">
+                    html学习8.8 -- 框架、内联框架
                 </a>
             </div>
         
 
         
-            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="git学习（2）时光机穿梭">
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title=" html学习8.8 -- 背景、脚本、文件路径">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
