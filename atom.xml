@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-08T09:20:55.437Z</updated>
+    <updated>2020-08-08T10:00:58.631Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,23 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[html学习8.8 -- 颜色]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-yan-se/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-yan-se/">
+        </link>
+        <updated>2020-08-08T09:59:41.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>颜色由红色、绿色、蓝色混合而成。</strong></p>
+<h2 id="颜色值">颜色值</h2>
+<p>颜色由一个十六进制符号来定义，这个符号由红色、绿色和蓝色的值组成（RGB）。</p>
+<p>每种颜色的最小值是0（十六进制：#00）。最大值是255（十六进制：#FF）。<br>
+<img src="https://zzddl.github.io/zdl.github.io//post-images/1596880831118.jpg" alt="" loading="lazy"></p>
+<h2 id="颜色名">颜色名</h2>
+<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596880839246.jpg" alt="" loading="lazy"></figure>
+<h2 id="web安全色">Web安全色</h2>
+<p>数年以前，当大多数计算机仅支持 256 种颜色的时候，一系列 216 种 Web 安全色作为 Web 标准被建议使用。其中的原因是，微软和 Mac 操作系统使用了 40 种不同的保留的固定系统颜色（双方大约各使用 20 种）。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.8 -- 实体、URL、URL编码]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-shi-ti-urlurl-bian-ma/</id>
@@ -1176,49 +1193,6 @@ span.red {
 <pre><code>&lt;td&gt;&amp;nbsp;&lt;/td&gt;
 </code></pre>
 <p>不可以直接空着，要添加一个空格站位符</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[明朝那些事儿（肆）]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/ming-zhao-na-xie-shi-er-si/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/ming-zhao-na-xie-shi-er-si/">
-        </link>
-        <updated>2020-07-30T15:34:26.000Z</updated>
-        <content type="html"><![CDATA[<p>朱佑樘就是这样一个人，一个了不起的人，他不复仇，只报恩。他比朱棣更有自信，因为他不需要暴力来维护自己的权威；他比朱瞻基更为明智，因为他不但清楚种田老农的痛苦，也了解自己敌人的悲哀；他比朱厚熜更聪明，因为他不需要权谋，只用仁厚就能征服人心。</p>
-<p>两京十二部，独有一王恕。</p>
-<p>他的家教收到了良好效果，八十八年后，他的儿子的儿子的儿子出世，取名徐振之，此人不爱读书，只喜欢旅游，别号徐霞客。</p>
-<p>玩，怎么好玩，翻过来覆过去，天翻地覆，鬼哭神嚎，也只是为了一个字——玩。</p>
-<p>九卿——六位尚书，都察院最高长官，通政司最高长官，大理寺最高长官</p>
-<p>有时候，屈辱的活着比悲壮的死去更需要勇气。</p>
-<p>一生俯首拜阳明。</p>
-<p>格物穷理</p>
-<p>所谓道，是天下所有规律的总和，是最基本的法则，只要能够了解道，就可以明白世间所有的一切。</p>
-<p>穷诸玄辨，若一毫置于太虚；竭世枢机，似一滴投于巨壑。</p>
-<p>唯天下至诚，能尽其性；能尽其性，则能尽人之性；能尽人之性，则能尽物之性；能尽物之性，则可赞天下之化育；可以赞天下之化育，则可以与天地参矣。</p>
-<p>中国哲学史上著名的“守仁格竹”，但这绝不仅仅是一个故事，在故事背后，还有着一个人对未知的执著和探索。</p>
-<p>无论何时、何地，有何种理由，人性都是不能、也不会被泯灭的，他将永远屹立于天地之间。</p>
-<p>夺走你的一切，只因为我要给你的更多。</p>
-<p>给你荣华富贵，锦衣玉食，只为让你知晓世间百态。</p>
-<p>使你穷困潦倒，深处绝境，只为让你通明人间冷暖。</p>
-<p>只有夺走你所拥有的一切，你才能摆脱人世间之一切浮躁与诱惑，经受千锤百炼，心如止水，透悟天地。</p>
-<p>因为我给你的并非富甲一方的财富，也不是号令天下的权势，确是这世间最为珍贵神秘的宝物——终极的智慧。</p>
-<p>空山无人，水流花开。</p>
-<p>万古长空，一朝风月。</p>
-<p>随心而动，随意而行，万法自然，便是圣贤之道!</p>
-<p>天理即是人欲。</p>
-<p>知我者谓我心忧，不知我者谓我何求！</p>
-<p>懂得道理是重要的，但实际运用也是重要的。</p>
-<p>在暴力和死亡面前，沉默的永远是大多数。</p>
-<p>他痛恨践踏人命的暴力，因为在他的哲学体系里，人性是最为根本的一切，是这个世界的本源。</p>
-<p>此心不动，随机而行。</p>
-<p>父亲的训斥、竹子的执著、瑾的廷仗、龙场的悲凉、悟道的喜悦、悲愤的逃亡、平叛的奋战，如此多的官场风波，刀光剑影，几起几落，世上再也没有一样东西，可以扰乱他的心弦。</p>
-<p>无善无恶心之体，有善有恶意之动。</p>
-<p>知善知恶是良知，为善去恶是格物。</p>
-<p>彪炳显赫，自明之后，唯此一人而已。</p>
-<p>后生可畏，焉知来者不如今！</p>
-<p>没有竞争的市场只存在于理论想象之中。</p>
-<p>权利的膨胀意味着灭亡的加速。</p>
-<p>在那座山的顶峰，只能容纳一个人的存在，永远如此。</p>
 ]]></content>
     </entry>
 </feed>
