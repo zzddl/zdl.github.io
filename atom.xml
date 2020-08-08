@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://localhost:4000</id>
+    <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-08T08:58:02.796Z</updated>
+    <updated>2020-08-08T08:58:38.910Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://localhost:4000"/>
-    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
+    <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>http://localhost:4000/images/avatar.png</logo>
-    <icon>http://localhost:4000/favicon.ico</icon>
+    <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
+    <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
     <entry>
-        <title type="html"><![CDATA[ html学习8.8 -- 头部、实体]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-88-tou-bu-shi-ti/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-88-tou-bu-shi-ti/">
+        <title type="html"><![CDATA[ html学习8.8 -- 头部]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-tou-bu-shi-ti/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-tou-bu-shi-ti/">
         </link>
         <updated>2020-08-08T08:56:28.000Z</updated>
         <content type="html"><![CDATA[<h2 id="html头部元素">html头部元素</h2>
@@ -129,8 +129,8 @@ p {color:blue}
     </entry>
     <entry>
         <title type="html"><![CDATA[ html学习8.8 -- 背景、脚本、文件路径]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-88-bei-jing-jiao-ben-wen-jian-lu-jing/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-88-bei-jing-jiao-ben-wen-jian-lu-jing/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-bei-jing-jiao-ben-wen-jian-lu-jing/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-bei-jing-jiao-ben-wen-jian-lu-jing/">
         </link>
         <updated>2020-08-08T04:25:22.000Z</updated>
         <content type="html"><![CDATA[<h2 id="背景">背景</h2>
@@ -214,8 +214,8 @@ document.write(&quot;Hello World!&quot;)
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.8 -- 框架、内联框架]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-88-kuang-jia-nei-lian-kuang-jia/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-88-kuang-jia-nei-lian-kuang-jia/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-kuang-jia-nei-lian-kuang-jia/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-kuang-jia-nei-lian-kuang-jia/">
         </link>
         <updated>2020-08-08T03:11:01.000Z</updated>
         <content type="html"><![CDATA[<h2 id="框架">框架</h2>
@@ -377,8 +377,8 @@ document.write(&quot;Hello World!&quot;)
     </entry>
     <entry>
         <title type="html"><![CDATA[ html学习8.7 -- 布局、响应式设计]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-87-bu-ju-xiang-ying-shi-she-ji/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-87-bu-ju-xiang-ying-shi-she-ji/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-87-bu-ju-xiang-ying-shi-she-ji/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-87-bu-ju-xiang-ying-shi-she-ji/">
         </link>
         <updated>2020-08-07T15:19:39.000Z</updated>
         <content type="html"><![CDATA[<h1 id="html学习87-布局-响应式设计">html学习8.7 -- 布局、响应式设计</h1>
@@ -450,7 +450,7 @@ Copyright ? W3Schools.com
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="http://localhost:4000/post-images/1596813849570.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596813849570.jpg" alt="" loading="lazy"></figure>
 <h3 id="使用-html5-的网站布局">使用 HTML5 的网站布局</h3>
 <h4 id="html5-语义元素">HTML5 语义元素</h4>
 <table>
@@ -624,7 +624,7 @@ and the most populous metropolitan area in the world.&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<figure data-type="image" tabindex="2"><img src="http://localhost:4000/post-images/1596813920641.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596813920641.jpg" alt="" loading="lazy"></figure>
 <h3 id="使用-bootstrap">使用 Bootstrap</h3>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -667,13 +667,13 @@ and the most populous metropolitan area in the world.&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<figure data-type="image" tabindex="3"><img src="http://localhost:4000/post-images/1596813926231.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596813926231.jpg" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[ html学习8.4 -- html列表、块、类]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-84-html-lie-biao-kuai-lei/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-84-html-lie-biao-kuai-lei/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-84-html-lie-biao-kuai-lei/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-84-html-lie-biao-kuai-lei/">
         </link>
         <updated>2020-08-04T14:49:22.000Z</updated>
         <content type="html"><![CDATA[<h2 id="html列表">html列表</h2>
@@ -839,7 +839,7 @@ and the most populous metropolitan area in the world.&lt;/p&gt;
 &lt;/html&gt;
 </code></pre>
 <p>效果如下：</p>
-<figure data-type="image" tabindex="1"><img src="http://localhost:4000/post-images/1596552706849.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596552706849.jpg" alt="" loading="lazy"></figure>
 <h3 id="分类行内元素">分类行内元素</h3>
 <p>HTML &lt; span&gt; 元素是行内元素，能够用作文本的容器。</p>
 <p>设置 &lt; span&gt; 元素的类，能够为相同的 &lt; span&gt; 元素设置相同的样式。</p>
@@ -861,22 +861,22 @@ span.red {
 &lt;/html&gt;
 </code></pre>
 <p>效果如下：</p>
-<figure data-type="image" tabindex="2"><img src="http://localhost:4000/post-images/1596552748638.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596552748638.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[跳绳8.4]]></title>
-        <id>http://localhost:4000/post/tiao-sheng-84/</id>
-        <link href="http://localhost:4000/post/tiao-sheng-84/">
+        <id>https://zzddl.github.io/zdl.github.io/post/tiao-sheng-84/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/tiao-sheng-84/">
         </link>
         <updated>2020-08-04T14:24:00.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="http://localhost:4000/post-images/1596551046010.png" alt="" loading="lazy"></figure>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596551046010.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Educated]]></title>
-        <id>http://localhost:4000/post/educated/</id>
-        <link href="http://localhost:4000/post/educated/">
+        <id>https://zzddl.github.io/zdl.github.io/post/educated/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/educated/">
         </link>
         <updated>2020-08-03T15:45:14.000Z</updated>
         <content type="html"><![CDATA[<p>我站在谷仓边废弃的红色火车车厢上。狂风呼啸，将我的头发吹过脸颊，把一般寒气 注入我敞开的衬衫领子.在这种靠山近的地方，风力强劲，仿佛山顶自己在呼气。往下， 山谷宁静，不受干扰。与此同时，我们的农场在舞蹈：粗壮的针叶树缓缓摇摆，而山艾和 蓟丛则瑟瑟发抖，在每一次气流充涌和喷发时弓下身去。在我身后，一座平缓的山倾斜而 上，继而将自己与山胸缝合。如果抬头望去，我便能辨认出印第安公主的黑色身形.</p>
@@ -893,8 +893,8 @@ span.red {
     </entry>
     <entry>
         <title type="html"><![CDATA[ html学习8.3 -- HTML链接、图像、表格]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-83-html-lian-jie-tu-xiang-biao-ge/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-83-html-lian-jie-tu-xiang-biao-ge/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-83-html-lian-jie-tu-xiang-biao-ge/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-83-html-lian-jie-tu-xiang-biao-ge/">
         </link>
         <updated>2020-08-03T15:38:14.000Z</updated>
         <content type="html"><![CDATA[<h2 id="链接">链接</h2>
@@ -966,8 +966,8 @@ span.red {
     </entry>
     <entry>
         <title type="html"><![CDATA[明朝那些事儿（肆）]]></title>
-        <id>http://localhost:4000/post/ming-zhao-na-xie-shi-er-si/</id>
-        <link href="http://localhost:4000/post/ming-zhao-na-xie-shi-er-si/">
+        <id>https://zzddl.github.io/zdl.github.io/post/ming-zhao-na-xie-shi-er-si/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/ming-zhao-na-xie-shi-er-si/">
         </link>
         <updated>2020-07-30T15:34:26.000Z</updated>
         <content type="html"><![CDATA[<p>朱佑樘就是这样一个人，一个了不起的人，他不复仇，只报恩。他比朱棣更有自信，因为他不需要暴力来维护自己的权威；他比朱瞻基更为明智，因为他不但清楚种田老农的痛苦，也了解自己敌人的悲哀；他比朱厚熜更聪明，因为他不需要权谋，只用仁厚就能征服人心。</p>
@@ -1009,8 +1009,8 @@ span.red {
     </entry>
     <entry>
         <title type="html"><![CDATA[HTML参考手册]]></title>
-        <id>http://localhost:4000/post/html-can-kao-shou-ce/</id>
-        <link href="http://localhost:4000/post/html-can-kao-shou-ce/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-can-kao-shou-ce/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-can-kao-shou-ce/">
         </link>
         <updated>2020-07-28T15:59:42.000Z</updated>
         <content type="html"><![CDATA[<p><strong>注：加下划线标签为HTML5中新标签</strong></p>
