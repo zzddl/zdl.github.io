@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>git学习（2）时光机穿梭 | zdl&#39;s blog</title>
+<title> html学习8.8 -- 头部、实体 | zdl&#39;s blog</title>
 
 <link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1596877021624">
 
@@ -83,15 +83,15 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    git学习（2）时光机穿梭
+                     html学习8.8 -- 头部、实体
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-07-28 ·
+                        · 2020-08-08 ·
                     </time>
                     
-                        <a href="https://zzddl.github.io/zdl.github.io/tag/3DREVt4bN/" class="post-tags">
-                            # git
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/ebA9k3wZg/" class="post-tags">
+                            # HTML
                         </a>
                     
                         <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
@@ -100,68 +100,115 @@
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="1版本回退">1.版本回退</h2>
-<p>（1）git log命令显示从最近到最远的提交日志</p>
-<p>（2）简短的显示提交日志</p>
-<pre><code>$ git log --pretty=oneline
-</code></pre>
-<p>（3）</p>
-<pre><code>$ git reset --hard HEAD^ 
-</code></pre>
-<p>上一个版本就是HEAD<sup>，上上一个版本就是HEAD</sup><sup>，当然往上100个版本写100个</sup>比较容易数不过来，所以写成HEAD~100。</p>
-<p>（4） 查看版本的内容</p>
-<pre><code>$ cat readme.txt
-</code></pre>
-<p>（5）</p>
-<pre><code>$ git reset --hard 1094a 已经删除的版本号的前几位就可以
-</code></pre>
-<p>（6）用来记录每一次命令：</p>
-<pre><code>$ git reflog
-</code></pre>
-<p>（7）HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令</p>
-<pre><code>$ git reset --hard commit_id
-</code></pre>
-<p>（8）穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。</p>
-<p>（9）要重返未来，用<code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本。</p>
-<h2 id="2工作区和暂存区">2.工作区和暂存区</h2>
-<p>（1）工作区（working directory）</p>
-<p>​		在电脑里面能看到的目录。例如learngit文件夹</p>
-<p>（2）版本库</p>
-<p>​		工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。</p>
-<p>​		git的版本库中最重要的是叫stage的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD</p>
-<p>（3）往版本库中添加的时候分两步：</p>
-<p>​		第一步，用<code>git add</code>把文件添加进去，实际上就是把文件修改添加到暂存区。</p>
-<p>​		第二步，用<code>git commit</code>提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
-<p>​		简单理解：需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改</p>
-<p><code>git status</code> 是查看工作区的状态<br>
-（4）关系图示</p>
-<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1595902302037.jpg" alt="" loading="lazy"></figure>
-<h2 id="3管理修改">3.管理修改</h2>
-<p>（1）用<code>git diff HEAD -- readme.txt</code>命令可以查看工作区和版本库里面最新版本的区别</p>
-<p>（2）第一次修改 -&gt; git add -&gt; 第二次修改 -&gt; git add -&gt; git commit</p>
-<p>（3）每次修改，如果不用git add到暂存区，那就不会加入到commit中</p>
-<h2 id="4撤销修改">4.撤销修改</h2>
-<p>（1）丢弃工作区的修改</p>
-<pre><code>$ git checkout -- file
-</code></pre>
-<p>（2）撤销有两种情况：</p>
-<p>​			第一种，自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态。</p>
-<pre><code>	 第二种，已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+                    <h2 id="html头部元素">html头部元素</h2>
+<h3 id="html-head-元素">HTML &lt; head&gt; 元素</h3>
+<p>&lt; head&gt; 元素是所有头部元素的容器。&lt; head&gt; 内的元素可包含脚本，指示浏览器在何处可以找到样式表，提供元信息，等等。</p>
+<p>以下标签都可以添加到 head 部分：&lt; title&gt;、&lt; base&gt;、&lt; link&gt;、&lt; meta&gt;、&lt; script&gt; 以及 &lt; style&gt;。</p>
+<h3 id="html-title-元素">HTML &lt; title&gt; 元素</h3>
+<p>&lt; title&gt; 标签定义文档的标题。</p>
+<p><strong>title 元素在所有 HTML/XHTML 文档中都是必需的。</strong></p>
+<p>title 元素能够：</p>
+<ul>
+<li>定义浏览器工具栏中的标题</li>
+<li>提供页面被添加到收藏夹时显示的标题</li>
+<li>显示在搜索引擎结果中的页面标题</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Title of the document&lt;/title&gt;
+&lt;/head&gt;
 
-	 总之，就是让这个文件回到最近一次`git commit`或`git add`时的状态。
+&lt;body&gt;
+The content of the document......
+&lt;/body&gt;
+
+&lt;/html&gt;
 </code></pre>
-<p>（3）<code>git checkout -- file</code>命令中的--很重要，没有--，就变成了“切换到另一个分支”的命令，我们在后面的分支管理中会再次遇到git checkout命令</p>
-<p>（4）命令<code>git reset HEAD &lt;file&gt;</code>可以把暂存区的修改撤销掉（unstage），重新放回工作区</p>
-<p>（5）小结：</p>
-<p>​		场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。</p>
-<p>​		场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD &lt;file&gt;</code>，就回到了场景1，第二步按场景1操作。</p>
-<p>​		场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。</p>
-<h2 id="5删除文件">5.删除文件</h2>
-<p>（1）两种情况：</p>
-<p>​		一是确实要从版本库中删除该文件，那就用命令<code>git rm</code>删掉，并且<code>git commit</code>，这样就不可以恢复了。</p>
-<p>​		二是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本，<code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
-<p>（2）小结：</p>
-<p>​		命令<code>git rm</code>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。</p>
+<h3 id="html-base-元素">HTML &lt; base&gt; 元素</h3>
+<p>&lt; base&gt; 标签为页面上的所有链接规定默认地址或默认目标（target）：</p>
+<pre><code class="language-html">&lt;head&gt;
+&lt;base href=&quot;http://www.w3school.com.cn/images/&quot; /&gt;
+&lt;base target=&quot;_blank&quot; /&gt;
+&lt;/head&gt;
+</code></pre>
+<h3 id="html-link-元素">HTML &lt; link&gt; 元素</h3>
+<p>&lt; link&gt; 标签定义文档与外部资源之间的关系。</p>
+<p>&lt; link&gt; 标签最常用于连接样式表：</p>
+<pre><code class="language-html">&lt;head&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mystyle.css&quot; /&gt;
+&lt;/head&gt;
+</code></pre>
+<h3 id="html-style-元素">HTML &lt; style&gt; 元素</h3>
+<p>&lt; style&gt; 标签用于为 HTML 文档定义样式信息。</p>
+<p>您可以在 style 元素内规定 HTML 元素在浏览器中呈现的样式：</p>
+<pre><code class="language-html">&lt;head&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+body {background-color:yellow}
+p {color:blue}
+&lt;/style&gt;
+&lt;/head&gt;
+</code></pre>
+<h3 id="html-meta-元素">HTML &lt; meta&gt; 元素</h3>
+<p>元数据（metadata）是关于数据的信息。</p>
+<p>&lt; meta&gt; 标签提供关于 HTML 文档的元数据。元数据不会显示在页面上，但是对于机器是可读的。</p>
+<p>典型的情况是，meta 元素被用于规定页面的描述、关键词、文档的作者、最后修改时间以及其他元数据。</p>
+<p>&lt; meta&gt; 标签始终位于 head 元素中。</p>
+<p>元数据可用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他 web 服务。</p>
+<h4 id="针对搜索引擎的关键词">针对搜索引擎的关键词</h4>
+<p><strong>一些搜索引擎会利用 meta 元素的 name 和 content 属性来索引您的页面。</strong></p>
+<ol>
+<li>meta元素定义页面描述</li>
+</ol>
+<pre><code class="language-html">&lt;meta name=&quot;description&quot; content=&quot;Free Web tutorials on HTML, CSS, XML&quot; /&gt;
+</code></pre>
+<ol start="2">
+<li>meta元素定义页面关键词</li>
+</ol>
+<pre><code class="language-html">&lt;meta name=&quot;keywords&quot; content=&quot;HTML, CSS, XML&quot; /&gt;
+</code></pre>
+<p>name 和 content 属性的作用是描述页面的内容。</p>
+<h3 id="html-script-元素">HTML &lt; script&gt; 元素</h3>
+<p>&lt; script&gt; 标签用于定义客户端脚本，比如 JavaScript。</p>
+<h3 id="头部元素表">头部元素表</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标签</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt; head&gt;</td>
+<td style="text-align:left">定义关于文档的信息。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; title&gt;</td>
+<td style="text-align:left">定义文档标题。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; base&gt;</td>
+<td style="text-align:left">定义页面上所有链接的默认地址或默认目标。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; link&gt;</td>
+<td style="text-align:left">定义文档与外部资源之间的关系。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; meta&gt;</td>
+<td style="text-align:left">定义关于 HTML 文档的元数据。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; script&gt;</td>
+<td style="text-align:left">定义客户端脚本。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; style&gt;</td>
+<td style="text-align:left">定义文档的样式信息。</td>
+</tr>
+</tbody>
+</table>
 
                 </div>
             </article>
@@ -170,14 +217,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-1chuang-jian-ban-ben-ku/" class="post-title gt-a-link">
-                    git学习（1）创建版本库
+                <a href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-bei-jing-jiao-ben-wen-jian-lu-jing/" class="post-title gt-a-link">
+                     html学习8.8 -- 背景、脚本、文件路径
                 </a>
             </div>
         
 
         
-            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="git学习（2）时光机穿梭">
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title=" html学习8.8 -- 头部、实体">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
