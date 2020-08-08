@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>HTML简介 | zdl&#39;s blog</title>
+<title>html学习8.8 -- 框架、内联框架 | zdl&#39;s blog</title>
 
 <link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1596856319015">
 
@@ -83,11 +83,11 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    HTML简介
+                    html学习8.8 -- 框架、内联框架
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-07-28 ·
+                        · 2020-08-08 ·
                     </time>
                     
                         <a href="https://zzddl.github.io/zdl.github.io/tag/ebA9k3wZg/" class="post-tags">
@@ -100,46 +100,161 @@
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="什么是-html">什么是 HTML？</h2>
-<p>HTML 是用来描述网页的一种语言。</p>
+                    <h2 id="框架">框架</h2>
+<h3 id="框架-2">框架</h3>
+<ol>
+<li>
+<p>通过使用框架，你可以在同一个浏览器窗口中显示不止一个页面。每份HTML文档称为一个框架，并且每个框架都独立于其他的框架。</p>
+<p>使用框架的坏处：</p>
+</li>
+</ol>
 <ul>
-<li>HTML 指的是超文本标记语言 (<strong>H</strong>yper <strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage)</li>
-<li>HTML 不是一种编程语言，而是一种<strong>标记语言</strong> (markup language)</li>
-<li>标记语言是一套<strong>标记标签</strong> (markup tag)</li>
-<li>HTML 使用<strong>标记标签</strong>来描述网页</li>
+<li>开发人员必须同时跟踪更多的HTML文档</li>
+<li>很难打印整张页面</li>
 </ul>
-<h2 id="html-标签">HTML 标签</h2>
-<p>HTML 标记标签通常被称为 HTML 标签 (HTML tag)。</p>
+<ol start="2">
+<li>框架结构标签（&lt; frameset&gt;）</li>
+</ol>
 <ul>
-<li>HTML 标签是由<strong>尖括号</strong>包围的关键词，比如 &lt; html&gt;</li>
-<li>HTML 标签通常是<strong>成对出现</strong>的，比如 &lt; b&gt; 和 &lt; /b&gt;</li>
-<li>标签对中的第一个标签是<strong>开始标签</strong>，第二个标签是<strong>结束标签</strong></li>
-<li>开始和结束标签也被称为<strong>开放标签</strong>和<strong>闭合标签</strong></li>
+<li>框架结构标签（&lt; frameset&gt;）定义如何将窗口分割为框架</li>
+<li>每个 frameset 定义了一系列行<em>或</em>列</li>
+<li>rows/columns 的值规定了每行或每列占据屏幕的面积</li>
 </ul>
-<h2 id="html文档-网页">HTML文档 = 网页</h2>
-<ul>
-<li>HTML 文档<strong>描述网页</strong></li>
-<li>HTML 文档<strong>包含 HTML 标签</strong>和<strong>纯文本</strong></li>
-<li>HTML 文档也被称为<strong>网页</strong></li>
-<li>web浏览器的作用是读取html文档，并且以网页的形式显示。浏览器不会显示HTML标签，而是用标签解释页面内容</li>
-</ul>
+<h3 id="框架标签frame">框架标签（Frame）</h3>
+<p>Frame 标签定义了放置在每个框架中的 HTML 文档。</p>
+<pre><code class="language-html">&lt;frameset cols=&quot;25%,75%&quot;&gt;
+   &lt;frame src=&quot;frame_a.htm&quot;&gt;
+   &lt;frame src=&quot;frame_b.htm&quot;&gt;
+&lt;/frameset&gt;
+</code></pre>
+<p>这是一个两列的框架集，第一列占据25%，第二列占据75%</p>
+<p>假如一个框架有可见边框，用户可以拖动边框来改变它的大小。为了避免这种情况发生，可以在 <frame> 标签中加入：noresize=&quot;noresize&quot;。</p>
 <pre><code class="language-html">&lt;html&gt;
+
+&lt;frameset cols=&quot;50%,*,25%&quot;&gt;
+  &lt;frame src=&quot;/example/html/frame_a.html&quot; noresize=&quot;noresize&quot; /&gt;
+  &lt;frame src=&quot;/example/html/frame_b.html&quot; /&gt;
+  &lt;frame src=&quot;/example/html/frame_c.html&quot; /&gt;
+&lt;/frameset&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>为不支持框架的浏览器添加 &lt; noframes&gt; 标签。</p>
+<pre><code class="language-html">&lt;html&gt;
+
+&lt;frameset cols=&quot;25%,50%,25%&quot;&gt;
+  &lt;frame src=&quot;/example/html/frame_a.html&quot;&gt;
+  &lt;frame src=&quot;/example/html/frame_b.html&quot;&gt;
+  &lt;frame src=&quot;/example/html/frame_c.html&quot;&gt;
+
+&lt;noframes&gt;
+&lt;body&gt;您的浏览器无法处理框架！&lt;/body&gt;
+&lt;/noframes&gt;
+
+&lt;/frameset&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>**重要提示：**不能将 &lt; body&gt;&lt; /body&gt; 标签与 &lt; frameset&gt;&lt; /frameset&gt; 标签同时使用！不过，假如你添加包含一段文本的 &lt; noframes&gt; 标签，就必须将这段文字嵌套于 &lt; body&gt;&lt; /body&gt; 标签内。（在下面的第一个实例中，可以查看它是如何实现的。）</p>
+<p>实例：</p>
+<ol>
+<li>内联框架</li>
+</ol>
+<pre><code class="language-html">&lt;html&gt;
+
 &lt;body&gt;
 
-&lt;h1&gt;My first Heading&lt;/h1&gt;
+&lt;iframe src=&quot;/i/eg_landscape.jpg&quot;&gt;&lt;/iframe&gt;
 
-&lt;p&gt;My first paragraph.&lt;/p&gt;
+&lt;p&gt;一些老的浏览器不支持 iframe。&lt;/p&gt;
+&lt;p&gt;如果得不到支持，iframe 是不可见的。&lt;/p&gt;
+
 
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<h2 id="例子解释">例子解释</h2>
-<ul>
-<li>&lt; html&gt; 与 &lt; /html&gt; 之间的文本描述网页</li>
-<li>&lt; body&gt; 与 &lt; /body&gt; 之间的文本是可见的页面内容</li>
-<li>&lt; h1&gt; 与 &lt; /h1&gt; 之间的文本被显示为标题</li>
-<li>&lt; p&gt; 与 &lt; /p&gt; 之间的文本被显示为段落</li>
-</ul>
+<ol start="2">
+<li>导航框架</li>
+</ol>
+<pre><code class="language-html">&lt;html&gt;
+
+&lt;frameset cols=&quot;120,*&quot;&gt;
+
+  &lt;frame src=&quot;/example/html/html_contents.html&quot;&gt;
+  &lt;frame src=&quot;/example/html/frame_a.html&quot; name=&quot;showframe&quot;&gt;
+
+&lt;/frameset&gt;
+
+&lt;/html&gt;
+</code></pre>
+<ol start="3">
+<li>跳转至框架中的一个指定的节</li>
+</ol>
+<pre><code class="language-html">&lt;html&gt;
+
+&lt;frameset cols=&quot;20%,80%&quot;&gt;
+
+ &lt;frame src=&quot;/example/html/frame_a.html&quot;&gt;
+ &lt;frame src=&quot;/example/html/link.html#C10&quot;&gt;
+
+&lt;/frameset&gt;
+
+&lt;/html&gt;
+</code></pre>
+<ol start="4">
+<li>使用框架导航跳转至指定的节</li>
+</ol>
+<pre><code class="language-html">&lt;html&gt;
+
+&lt;frameset cols=&quot;20%,80%&quot;&gt;
+
+ &lt;frame src=&quot;/example/html/frame_a.html&quot;&gt;
+ &lt;frame src=&quot;/example/html/link.html#C10&quot;&gt;
+
+&lt;/frameset&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="内联框架iframe">内联框架iframe</h2>
+<p><strong>iframe 用于在网页内显示网页。</strong></p>
+<h3 id="语法">语法</h3>
+<pre><code class="language-html">&lt;iframe src=&quot;URL&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+<h3 id="iframe-设置高度和宽度">Iframe - 设置高度和宽度</h3>
+<p>height 和 width 属性用于规定 iframe 的高度和宽度。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;iframe src=&quot;/example/html/demo_iframe.html&quot; width=&quot;200&quot; height=&quot;200&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;某些老式的浏览器不支持内联框架。&lt;/p&gt;
+&lt;p&gt;如果不支持，则 iframe 是不可见的。&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="iframe-删除边框">Iframe - 删除边框</h3>
+<p>frameborder 属性规定是否显示 iframe 周围的边框。</p>
+<p>设置属性值为 &quot;0&quot; 就可以移除边框：</p>
+<pre><code class="language-html">&lt;iframe src=&quot;demo_iframe.htm&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+<h3 id="使用-iframe-作为链接的目标">使用 iframe 作为链接的目标</h3>
+<p>iframe 可用作链接的目标（target）。</p>
+<p>链接的 target 属性必须引用 iframe 的 name 属性：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;iframe src=&quot;/example/html/demo_iframe.html&quot; name=&quot;iframe_a&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.w3school.com.cn&quot; target=&quot;iframe_a&quot;&gt;W3School.com.cn&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;由于链接的目标匹配 iframe 的名称，所以链接会在 iframe 中打开。&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 
                 </div>
             </article>
@@ -148,14 +263,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://zzddl.github.io/zdl.github.io/post/git-chang-yong-ming-ling/" class="post-title gt-a-link">
-                    Git常用命令
+                <a href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-87-bu-ju-xiang-ying-shi-she-ji/" class="post-title gt-a-link">
+                     html学习8.7 -- 布局、响应式设计
                 </a>
             </div>
         
 
         
-            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="HTML简介">
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="html学习8.8 -- 框架、内联框架">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
