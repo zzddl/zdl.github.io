@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-08T10:03:09.961Z</updated>
+    <updated>2020-08-08T10:07:58.830Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,120 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[html4.01速查手册]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html401-su-cha-shou-ce/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html401-su-cha-shou-ce/">
+        </link>
+        <updated>2020-08-08T10:07:22.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="html-basic-document">HTML Basic Document</h2>
+<pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Document name goes here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+Visible text goes here
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="text-elements">Text Elements</h2>
+<pre><code class="language-html">&lt;p&gt;This is a paragraph&lt;/p&gt;
+&lt;br&gt; (line break)
+&lt;hr&gt; (horizontal rule)
+&lt;pre&gt;This text is preformatted&lt;/pre&gt;
+</code></pre>
+<h2 id="logical-styles">Logical Styles</h2>
+<pre><code class="language-html">&lt;em&gt;This text is emphasized&lt;/em&gt;
+&lt;strong&gt;This text is strong&lt;/strong&gt;
+&lt;code&gt;This is some computer code&lt;/code&gt;
+</code></pre>
+<h2 id="physical-styles">Physical Styles</h2>
+<pre><code class="language-html">&lt;b&gt;This text is bold&lt;/b&gt;
+&lt;i&gt;This text is italic&lt;/i&gt;
+</code></pre>
+<h2 id="links-anchors-and-image-elements">Links, Anchors, and Image Elements</h2>
+<pre><code class="language-html">&lt;a href=&quot;http://www.example.com/&quot;&gt;This is a Link&lt;/a&gt;
+&lt;a href=&quot;http://www.example.com/&quot;&gt;&lt;img src=&quot;URL&quot;
+alt=&quot;Alternate Text&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;mailto:webmaster@example.com&quot;&gt;Send e-mail&lt;/a&gt;A named anchor:
+&lt;a name=&quot;tips&quot;&gt;Useful Tips Section&lt;/a&gt;
+&lt;a href=&quot;#tips&quot;&gt;Jump to the Useful Tips Section&lt;/a&gt;
+</code></pre>
+<h2 id="unordered-list">Unordered list</h2>
+<pre><code class="language-html">&lt;ul&gt;
+&lt;li&gt;First item&lt;/li&gt;
+&lt;li&gt;Next item&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h2 id="ordered-list">Ordered list</h2>
+<pre><code class="language-html">&lt;ol&gt;
+&lt;li&gt;First item&lt;/li&gt;
+&lt;li&gt;Next item&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<h2 id="definition-list">Definition list</h2>
+<pre><code class="language-html">&lt;dl&gt;
+&lt;dt&gt;First term&lt;/dt&gt;
+&lt;dd&gt;Definition&lt;/dd&gt;
+&lt;dt&gt;Next term&lt;/dt&gt;
+&lt;dd&gt;Definition&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+<h2 id="tables">Tables</h2>
+<pre><code class="language-html">&lt;table border=&quot;1&quot;&gt;
+&lt;tr&gt;
+  &lt;th&gt;someheader&lt;/th&gt;
+  &lt;th&gt;someheader&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;sometext&lt;/td&gt;
+  &lt;td&gt;sometext&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<h2 id="frames">Frames</h2>
+<pre><code class="language-html">&lt;frameset cols=&quot;25%,75%&quot;&gt;
+  &lt;frame src=&quot;page1.htm&quot;&gt;
+  &lt;frame src=&quot;page2.htm&quot;&gt;
+&lt;/frameset&gt;
+</code></pre>
+<h2 id="forms">Forms</h2>
+<pre><code class="language-html">&lt;form action=&quot;http://www.example.com/test.asp&quot; method=&quot;post/get&quot;&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot;
+value=&quot;Nixon&quot; size=&quot;30&quot; maxlength=&quot;50&quot;&gt;
+&lt;input type=&quot;password&quot;&gt;
+&lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;&gt;
+&lt;input type=&quot;radio&quot; checked=&quot;checked&quot;&gt;
+&lt;input type=&quot;submit&quot;&gt;
+&lt;input type=&quot;reset&quot;&gt;
+&lt;input type=&quot;hidden&quot;&gt;
+&lt;select&gt;
+&lt;option&gt;Apples
+&lt;option selected&gt;Bananas
+&lt;option&gt;Cherries
+&lt;/select&gt;
+&lt;textarea name=&quot;Comment&quot; rows=&quot;60&quot;
+cols=&quot;20&quot;&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+</code></pre>
+<h2 id="entities">Entities</h2>
+<pre><code class="language-html">&amp;lt; is the same as &lt;
+&amp;gt; is the same as &gt;
+&amp;#169; is the same as ©
+</code></pre>
+<h2 id="other-elements">Other Elements</h2>
+<pre><code class="language-html">&lt;!-- This is a comment --&gt;
+&lt;blockquote&gt;
+Text quoted from some source.
+&lt;/blockquote&gt;
+&lt;address&gt;
+Address 1&lt;br&gt;
+Address 2&lt;br&gt;
+City&lt;br&gt;
+&lt;/address&gt;
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.8 -- 颜色]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-yan-se/</id>
@@ -1120,79 +1234,6 @@ span.red {
 <p>父亲曾经讲过一个关于那座山峰的故事。她古老而庄严，是一座山的大教堂。连绵的 山脉中，巴克峰不是最高、最壮观的山峰，却最为精巧.它的底部横亘逾一英里，黒暗的 形体从地面隆起，上升，伸入一个完美无瑕的尖顶。从远处，你可以看到一个女人的身形 在山体正面显现：巨大的峡谷构成她的双腿，北部山脊扇形散布的松林是她的秀发。她的 姿态威风凛凛，一条腿强有力地伸向前方，比起迈步，用阔步形容更准确。</p>
 <p>父亲称她为“印第安公主”。每年积雪开始融化时，她便显现，面朝南方，望着野牛返 回山谷。父亲说，游牧的印第安人留意看她的出现，将那视为春天的标志，山川融雪的信 号，冬天结束了，该回家了。</p>
 <p>父亲所有的故爭都关乎我们的山，我们的山谷，我们呈锯齿状的爱达荷州。他从来没 有告诉过我，如果我离开这座山，如果我漂洋过海，发现自己置身于陌生的地面，再也无 法在地平线上搜寻那位公主时，我该怎么办。他从未告诉过我如何知道，我该回家了。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ html学习8.3 -- HTML链接、图像、表格]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-83-html-lian-jie-tu-xiang-biao-ge/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-83-html-lian-jie-tu-xiang-biao-ge/">
-        </link>
-        <updated>2020-08-03T15:38:14.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="链接">链接</h2>
-<p>1.使用 &lt; a&gt; 标签在 HTML 中创建链接</p>
-<p>2.有两种使用 &lt; a&gt; 标签的方式：</p>
-<ul>
-<li>通过使用 href 属性 - 创建指向另一个文档的链接</li>
-<li>通过使用 name 属性 - 创建文档内的书签</li>
-</ul>
-<p>3.html链接语法</p>
-<pre><code>&lt;a href=&quot;url&quot;&gt;Link text&lt;/a&gt;
-</code></pre>
-<p>​	href 属性规定链接的目标。</p>
-<p><strong>提示：</strong>&quot;链接文本&quot; 不必一定是文本。图片或其他 HTML 元素都可以成为链接。</p>
-<p>4.target属性</p>
-<p>​	使用 Target 属性，你可以定义被链接的文档在何处显示。</p>
-<pre><code>&lt;a href=&quot;http://www.w3school.com.cn/&quot; target=&quot;_blank&quot;&gt;Visit W3School!&lt;/a&gt;
-</code></pre>
-<p>​	以上代码会在新窗口打开文档</p>
-<p>5.name属性</p>
-<p>​	（1）name 属性规定锚（anchor）的名称。</p>
-<p>​	（2）您可以使用 name 属性创建 HTML 页面中的书签。</p>
-<p>​	（3）书签不会以任何特殊方式显示，它对读者是不可见的。</p>
-<p>​	（4）当使用命名锚（named anchors）时，我们可以创建直接跳至该命名锚（比如页面中某个小节）的链接，这样使用者就无需不停地滚动页面来寻找他们需要的信息了。</p>
-<p>​	（5）命名锚的语法：</p>
-<pre><code>&lt;a name=&quot;label&quot;&gt;锚（显示在页面上的文本）&lt;/a&gt;
-</code></pre>
-<p>**	提示：**您可以使用 id 属性来替代 name 属性，命名锚同样有效。</p>
-<p>​	（6）实例</p>
-<p>​		首先，我们在 HTML 文档中对锚进行命名（创建一个书签）：</p>
-<pre><code>&lt;a name=&quot;tips&quot;&gt;基本的注意事项 - 有用的提示&lt;/a&gt;
-</code></pre>
-<p>​		然后，我们在同一个文档中创建指向该锚的链接：</p>
-<pre><code>&lt;a href=&quot;#tips&quot;&gt;有用的提示&lt;/a&gt;
-</code></pre>
-<p>​		您也可以在其他页面中创建指向该锚的链接：</p>
-<pre><code>&lt;a href=&quot;http://www.w3school.com.cn/html/html_links.asp#tips&quot;&gt;有用的提示&lt;/a&gt;
-</code></pre>
-<p>​		在上面的代码中，我们将 # 符号和锚名称添加到 URL 的末端，就可以直接链接到 tips 这个命名锚了。</p>
-<p>​	（7）注意事项</p>
-<p>**	注释：**请始终将正斜杠添加到子文件夹。假如这样书写链接：href=&quot;http://www.w3school.com.cn/html&quot;，就会向服务器产生两次 HTTP 请求。这是因为服务器会添加正斜杠到这个地址，然后创建一个新的请求，就像这样：href=&quot;http://www.w3school.com.cn/html/&quot;。</p>
-<p>**	提示：**命名锚经常用于在大型文档开始位置上创建目录。可以为每个章节赋予一个命名锚，然后把链接到这些锚的链接放到文档的上部。如果您经常访问百度百科，您会发现其中几乎每个词条都采用这样的导航方式。</p>
-<p>**	提示：**假如浏览器找不到已定义的命名锚，那么就会定位到文档的顶端。不会有错误发生。</p>
-<h2 id="图像">图像</h2>
-<p>1.&lt; img&gt;是空标签，只包含属性，没有闭合标签</p>
-<p>2.定义图像的语法</p>
-<pre><code>&lt;img src=&quot;url&quot; /&gt;
-</code></pre>
-<p>3.替换文本属性（Alt）</p>
-<p>alt 属性用来为图像定义一串预备的可替换的文本。替换文本属性的值是用户定义的。</p>
-<pre><code>&lt;img src=&quot;boat.gif&quot; alt=&quot;Big Boat&quot;&gt;
-</code></pre>
-<p>在浏览器无法载入图像时，替换文本属性告诉读者她们失去的信息。</p>
-<h2 id="表格">表格</h2>
-<p>1.表格由 &lt; table&gt; 标签来定义。每个表格均有若干行（由 &lt; tr&gt; 标签定义），每行被分割为若干单元格（由 &lt; td&gt; 标签定义）。</p>
-<p>2.如果不定义边框属性，表格将不显示边框。</p>
-<p>使用边框属性来显示一个带有边框的表格：</p>
-<pre><code>&lt;table border=&quot;1&quot;&gt;
-</code></pre>
-<p>3.表格的表头使用 &lt; th&gt; 标签进行定义。</p>
-<pre><code>&lt;th&gt;Heading&lt;/th&gt;
-&lt;th&gt;Another Heading&lt;/th&gt;
-</code></pre>
-<p>4.表格中的空单元格</p>
-<pre><code>&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-</code></pre>
-<p>不可以直接空着，要添加一个空格站位符</p>
 ]]></content>
     </entry>
 </feed>
