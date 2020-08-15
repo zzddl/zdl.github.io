@@ -1,0 +1,617 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>html学习8.15 -- html输入属性 | zdl&#39;s blog</title>
+
+<link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1597503898579">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zzddl.github.io/zdl.github.io//styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            zdl&#39;s blog
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    html学习8.15 -- html输入属性
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-08-15 ·
+                    </time>
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/ebA9k3wZg/" class="post-tags">
+                            # HTML
+                        </a>
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
+                            # 学习
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="html输入属性">html输入属性</h2>
+<h3 id="value-属性">value 属性</h3>
+<p>规定输入字段的初始值</p>
+<pre><code class="language-html">&lt;form action=&quot;&quot;&gt;
+ First name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value=&quot;John&quot;&gt;
+&lt;br&gt;
+ Last name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="readonly-属性">readonly 属性</h3>
+<p>输入字段为只读（不能修改）</p>
+<pre><code class="language-html">&lt;form action=&quot;&quot;&gt;
+ First name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value=&quot;John&quot; readonly&gt;
+&lt;br&gt;
+ Last name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<p>readonly 属性不需要值。它等同于 readonly=&quot;readonly&quot;。</p>
+<h3 id="disabled-属性">disabled 属性</h3>
+<p><em>disabled</em> 属性规定输入字段是禁用的，不可用、不可点击、不会被提交</p>
+<pre><code class="language-html">&lt;form action=&quot;&quot;&gt;
+ First name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value=&quot;John&quot; disabled&gt;
+&lt;br&gt;
+ Last name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<p>disabled 属性不需要值。它等同于 disabled=&quot;disabled&quot;。</p>
+<h3 id="size-属性">size 属性</h3>
+<p>输入字段的尺寸（以字符计）</p>
+<pre><code class="language-html">&lt;form action=&quot;&quot;&gt;
+ First name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value=&quot;John&quot; size=&quot;40&quot;&gt;
+&lt;br&gt;
+ Last name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="maxlength-属性">maxlength 属性</h3>
+<p>输入字段允许的最大长度</p>
+<pre><code class="language-html">&lt;form action=&quot;&quot;&gt;
+ First name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;firstname&quot; maxlength=&quot;10&quot;&gt;
+&lt;br&gt;
+ Last name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<p>该属性不会提供任何反馈。如果需要提醒用户，则必须编写 JavaScript 代码。</p>
+<h2 id="html5-属性">HTML5 属性</h2>
+<h3 id="autocomplete-属性">autocomplete 属性</h3>
+<p>autocomplete 属性规定表单或输入字段是否应该自动完成。</p>
+<p>**提示：**可以把表单的 autocomplete 设置为 on，同时把特定的输入字段设置为 off，反之亦然。</p>
+<p>autocomplete 属性适用于 &lt; form&gt; 以及如下 &lt; input&gt; 类型：text、search、url、tel、email、password、datepickers、range 以及 color。</p>
+<p>自动完成开启的 HTML 表单（某个输入字段为 off）：</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot; autocomplete=&quot;on&quot;&gt;
+   First name:&lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;&lt;br&gt;
+   Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot;&gt;&lt;br&gt;
+   E-mail: &lt;input type=&quot;email&quot; name=&quot;email&quot; autocomplete=&quot;off&quot;&gt;&lt;br&gt;
+   &lt;input type=&quot;submit&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="novalidate-属性">novalidate 属性</h3>
+<p>novalidate 属性属于 &lt; form&gt; 属性。</p>
+<p>如果设置，则 novalidate 规定在提交表单时不对表单数据进行验证。</p>
+<p>不进行验证：</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot; novalidate&gt;
+   E-mail: &lt;input type=&quot;email&quot; name=&quot;user_email&quot;&gt;
+   &lt;input type=&quot;submit&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="autofocus-属性">autofocus 属性</h3>
+<p>autofocus 属性是布尔属性。</p>
+<p>如果设置，则规定当页面加载时 &lt; input&gt; 元素应该自动获得焦点。</p>
+<pre><code class="language-html">First name:&lt;input type=&quot;text&quot; name=&quot;fname&quot; autofocus&gt;
+</code></pre>
+<h3 id="form-属性">form 属性</h3>
+<p>form 属性规定 &lt; input&gt; 元素所属的一个或多个表单。</p>
+<p>**提示：**如需引用一个以上的表单，请使用空格分隔的表单 id 列表。</p>
+<p>输入字段位于 HTML 表单之外（但仍属表单）：</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot; id=&quot;form1&quot;&gt;
+   First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;&lt;br&gt;
+   &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+&lt;/form&gt;
+
+ Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot; form=&quot;form1&quot;&gt;
+</code></pre>
+<h3 id="formaction-属性">formaction 属性</h3>
+<ul>
+<li>formaction 属性规定当提交表单时处理该输入控件的文件的 URL。</li>
+<li>formaction 属性覆盖 &lt; form&gt; 元素的 action 属性。</li>
+<li>formaction 属性适用于 type=&quot;submit&quot; 以及 type=&quot;image&quot;。</li>
+</ul>
+<p>拥有两个两个提交按钮并对于不同动作的 HTML 表单：</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot;&gt;
+   First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;&lt;br&gt;
+   Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot;&gt;&lt;br&gt;
+   &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;&lt;br&gt;
+   &lt;input type=&quot;submit&quot; formaction=&quot;demo_admin.asp&quot;
+   value=&quot;Submit as admin&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="formenctype-属性">formenctype 属性</h3>
+<ul>
+<li>formenctype 属性规定当把表单数据（form-data）提交至服务器时如何对其进行编码（仅针对 method=&quot;post&quot; 的表单）。</li>
+<li>formenctype 属性覆盖 &lt; form&gt; 元素的 enctype 属性。</li>
+<li>formenctype 属性适用于 type=&quot;submit&quot; 以及 type=&quot;image&quot;。</li>
+</ul>
+<pre><code class="language-html">&lt;form action=&quot;demo_post_enctype.asp&quot; method=&quot;post&quot;&gt;
+   First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;&lt;br&gt;
+   &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+   &lt;input type=&quot;submit&quot; formenctype=&quot;multipart/form-data&quot;
+   value=&quot;Submit as Multipart/form-data&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="formmethod-属性">formmethod 属性</h3>
+<ul>
+<li>formmethod 属性定义用以向 action URL 发送表单数据（form-data）的 HTTP 方法。</li>
+<li>formmethod 属性覆盖 &lt; form&gt; 元素的 method 属性。</li>
+<li>formmethod 属性适用于 type=&quot;submit&quot; 以及 type=&quot;image&quot;。</li>
+</ul>
+<p>第二个提交按钮覆盖表单的 HTTP 方法：</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot; method=&quot;get&quot;&gt;
+   First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;&lt;br&gt;
+   Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot;&gt;&lt;br&gt;
+   &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+   &lt;input type=&quot;submit&quot; formmethod=&quot;post&quot; formaction=&quot;demo_post.asp&quot;
+   value=&quot;Submit using POST&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="formnovalidate-属性">formnovalidate 属性</h3>
+<ul>
+<li>novalidate 属性是布尔属性。</li>
+<li>如果设置，则规定在提交表单时不对 &lt; input&gt; 元素进行验证。</li>
+<li>formnovalidate 属性覆盖 &lt; form&gt; 元素的 novalidate 属性。</li>
+<li>formnovalidate 属性可用于 type=&quot;submit&quot;。</li>
+</ul>
+<p>拥有两个提交按钮的表单（验证和不验证）：</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot;&gt;
+   E-mail: &lt;input type=&quot;email&quot; name=&quot;userid&quot;&gt;&lt;br&gt;
+   &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;&lt;br&gt;
+   &lt;input type=&quot;submit&quot; formnovalidate value=&quot;Submit without validation&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="formtarget-属性">formtarget 属性</h3>
+<ul>
+<li>formtarget 属性规定的名称或关键词指示提交表单后在何处显示接收到的响应。</li>
+<li>formtarget 属性会覆盖 &lt; form&gt; 元素的 target 属性。</li>
+<li>formtarget 属性可与 type=&quot;submit&quot; 和 type=&quot;image&quot; 使用。</li>
+</ul>
+<p>这个表单有两个提交按钮，对应不同的目标窗口：</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot;&gt;
+   First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;&lt;br&gt;
+   Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot;&gt;&lt;br&gt;
+   &lt;input type=&quot;submit&quot; value=&quot;Submit as normal&quot;&gt;
+   &lt;input type=&quot;submit&quot; formtarget=&quot;_blank&quot;
+   value=&quot;Submit to a new window&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="height-和-width-属性">height 和 width 属性</h3>
+<p>height 和 width 属性规定 &lt; input&gt; 元素的高度和宽度。</p>
+<p>height 和 width 属性仅用于 &lt; input type=&quot;image&quot;&gt;。</p>
+<p>**注释：**请始终规定图像的尺寸。如果浏览器不清楚图像尺寸，则页面会在图像加载时闪烁。</p>
+<pre><code class="language-html">&lt;input type=&quot;image&quot; src=&quot;img_submit.gif&quot; alt=&quot;Submit&quot; width=&quot;48&quot; height=&quot;48&quot;&gt;
+</code></pre>
+<h3 id="list-属性">list 属性</h3>
+<p>list 属性引用的 &lt; datalist&gt; 元素中包含了 &lt; input&gt; 元素的预定义选项。</p>
+<p>使用 &lt; datalist&gt; 设置预定义值的 &lt; input&gt; 元素：</p>
+<pre><code class="language-html">&lt;input list=&quot;browsers&quot;&gt;
+
+&lt;datalist id=&quot;browsers&quot;&gt;
+   &lt;option value=&quot;Internet Explorer&quot;&gt;
+   &lt;option value=&quot;Firefox&quot;&gt;
+   &lt;option value=&quot;Chrome&quot;&gt;
+   &lt;option value=&quot;Opera&quot;&gt;
+   &lt;option value=&quot;Safari&quot;&gt;
+&lt;/datalist&gt; 
+</code></pre>
+<h3 id="min-和-max-属性">min 和 max 属性</h3>
+<p>min 和 max 属性适用于如需输入类型：number、range、date、datetime、datetime-local、month、time 以及 week。</p>
+<pre><code class="language-html">Enter a date before 1980-01-01:
+&lt;input type=&quot;date&quot; name=&quot;bday&quot; max=&quot;1979-12-31&quot;&gt;
+
+ Enter a date after 2000-01-01:
+&lt;input type=&quot;date&quot; name=&quot;bday&quot; min=&quot;2000-01-02&quot;&gt;
+
+ Quantity (between 1 and 5):
+&lt;input type=&quot;number&quot; name=&quot;quantity&quot; min=&quot;1&quot; max=&quot;5&quot;&gt;
+</code></pre>
+<h3 id="multiple-属性">multiple 属性</h3>
+<p>multiple 属性是布尔属性。</p>
+<p>如果设置，则规定允许用户在 &lt; input&gt; 元素中输入一个以上的值。</p>
+<p>multiple 属性适用于以下输入类型：email 和 file。</p>
+<p>接受多个值的文件上传字段：</p>
+<pre><code class="language-html">Select images: &lt;input type=&quot;file&quot; name=&quot;img&quot; multiple&gt;
+</code></pre>
+<h3 id="pattern-属性">pattern 属性</h3>
+<p>pattern 属性规定用于检查 &lt; input&gt; 元素值的正则表达式。</p>
+<p>pattern 属性适用于以下输入类型：text、search、url、tel、email、and password。</p>
+<p>只能包含三个字母的输入字段（无数字或特殊字符）：</p>
+<pre><code class="language-html">Country code: 
+&lt;input type=&quot;text&quot; name=&quot;country_code&quot; pattern=&quot;[A-Za-z]{3}&quot; title=&quot;Three letter country code&quot;&gt;
+</code></pre>
+<h3 id="placeholder-属性">placeholder 属性</h3>
+<p>placeholder 属性规定用以描述输入字段预期值的提示（样本值或有关格式的简短描述）。</p>
+<p>该提示会在用户输入值之前显示在输入字段中。</p>
+<p>placeholder 属性适用于以下输入类型：text、search、url、tel、email 以及 password。</p>
+<p>拥有占位符文本的输入字段：</p>
+<pre><code class="language-html">&lt;input type=&quot;text&quot; name=&quot;fname&quot; placeholder=&quot;First name&quot;&gt;
+</code></pre>
+<h3 id="required-属性">required 属性</h3>
+<p>required 属性是布尔属性。</p>
+<p>如果设置，则规定在提交表单之前必须填写输入字段。</p>
+<p>required 属性适用于以下输入类型：text、search、url、tel、email、password、date pickers、number、checkbox、radio、and file.</p>
+<p>必填的输入字段：</p>
+<pre><code class="language-html">Username: &lt;input type=&quot;text&quot; name=&quot;usrname&quot; required&gt;
+</code></pre>
+<h3 id="step-属性">step 属性</h3>
+<p>step 属性规定 &lt; input&gt; 元素的合法数字间隔。</p>
+<p>step 属性适用于以下输入类型：number、range、date、datetime、datetime-local、month、time 以及 week。</p>
+<p>**提示：**step 属性可与 max 以及 min 属性一同使用，来创建合法值的范围。</p>
+<pre><code class="language-html">&lt;input type=&quot;number&quot; name=&quot;points&quot; step=&quot;3&quot;&gt;
+</code></pre>
+<h3 id="练习代码">练习代码</h3>
+<pre><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+	&lt;!--value属性--&gt;
+	&lt;form action=&quot;&quot;&gt;
+		First name:&lt;br&gt;
+		&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value=&quot;John&quot;&gt;&lt;!--字段的初始值--&gt;
+		&lt;br&gt;
+		Last name:&lt;br&gt;
+		&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--readonly属性--&gt;
+	&lt;form action=&quot;&quot;&gt;
+		First name:&lt;br&gt;
+		&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value =&quot;John&quot; readonly&gt;&lt;!--只读不可修改--&gt;
+		&lt;br&gt;
+		Last name:&lt;br&gt;
+		&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--disabled--&gt;
+	&lt;form action=&quot;&quot;&gt;
+		First name:&lt;br&gt;
+		&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value =&quot;John&quot; disabled&gt;
+		&lt;br&gt;
+		Last name:&lt;br&gt;
+		&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--size属性--&gt;
+	&lt;form action=&quot;&quot;&gt;
+		First name:&lt;br&gt;
+		&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value =&quot;John&quot; size = &quot;40&quot;&gt;
+		&lt;br&gt;
+		Last name:&lt;br&gt;
+		&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--maxlength--&gt;
+	&lt;form action=&quot;&quot;&gt;
+		First name:&lt;br&gt;
+		&lt;input type=&quot;text&quot; name=&quot;firstname&quot; maxlength = &quot;10&quot;&gt;
+		&lt;br&gt;
+		Last name:&lt;br&gt;
+		&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--autocomplete--&gt;
+	&lt;form action = &quot;/example/html5/demo_form.asp&quot; method = &quot;get&quot; autocomplete = &quot;on&quot;&gt;
+		First name:&lt;input type = &quot;text&quot; name = &quot;fname&quot; /&gt;&lt;br /&gt;
+		Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot; /&gt;&lt;br /&gt;
+		E-mail:&lt;input type = &quot;email&quot; name = &quot;email&quot; autocomplete = &quot;off&quot;&gt;&lt;br /&gt;
+		&lt;input type = &quot;submit&quot; /&gt;
+	&lt;/form&gt;
+	&lt;p&gt;填写并提交表单，然后重新加载该页面，看看自动完成功能是如何工作的。&lt;/p&gt;
+	&lt;p&gt;注意，表单的自动完成功能是打开的，但是 e-mail 字段的自动完成功能是关闭的。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--novalidate--&gt;
+	&lt;form action = &quot;/example/html5/demo_form.asp&quot; method = &quot;get&quot; novalidate = &quot;novalidate&quot;&gt;
+		E-mail:&lt;input type = &quot;email&quot; name = &quot;user_email&quot;&gt;
+		&lt;input type = &quot;submit&quot; /&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--autofocus--&gt;
+	&lt;form action = &quot;&quot;&gt;
+		First name:&lt;input type = &quot;text&quot; name = &quot;fname&quot; autofocus&gt;&lt;br&gt;
+		Last name:&lt;input type = &quot;text&quot; name = &quot;lname&quot;&gt;&lt;br&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;Internet Explorer 9 以及更早的版本不支持 input 标签的 autofocus 属性。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--form--&gt;
+	&lt;form action=&quot;/example/html5/demo_form.asp&quot; method=&quot;get&quot; id=&quot;form1&quot;&gt;
+		First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot; /&gt;&lt;br /&gt;
+		&lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+	&lt;/form&gt;
+
+	&lt;p&gt;下面的 &quot;Last name&quot; 字段位于 form 元素之外，但仍然是表单的一部分。&lt;/p&gt;
+
+		Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot; form=&quot;form1&quot; /&gt;
+	&lt;hr /&gt;
+
+	&lt;!--formaction--&gt;
+	&lt;form action = &quot;/example/html5/demo_form.asp&quot; method = &quot;get&quot;&gt;
+		First name:&lt;input type = &quot;text&quot; name = &quot;fname&quot; /&gt;&lt;br /&gt;
+		Last name:&lt;input type = &quot;text&quot; name = &quot;fname&quot; /&gt;&lt;br /&gt;
+		&lt;input type = &quot;submit&quot; value = &quot;提交&quot; /&gt;&lt;br /&gt;
+		&lt;input type = &quot;submit&quot; formaction = &quot;/example/html5/demo_admin.asp&quot; value = &quot;以管理员身份提交&quot; /&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--formenctype--&gt;
+	&lt;form action = &quot;&quot; method = &quot;post&quot;&gt;
+		First name:&lt;input type = &quot;text&quot; name = &quot;fname&quot; /&gt;&lt;br /&gt;
+		&lt;input type = &quot;submit&quot; value = &quot;提交&quot;&gt;
+		&lt;input type = &quot;submit&quot; formenctype = &quot;multipart/form-data&quot; value = &quot;以multipart/form-data编码提交&quot;&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--formmethod--&gt;
+	&lt;form action = &quot;&quot; method = &quot;get&quot;&gt;
+		First name:&lt;input type = &quot;text&quot; name = &quot;fname&quot; /&gt;&lt;br /&gt;
+		Last name:&lt;input type = &quot;text&quot; name = &quot;lname&quot; /&gt;&lt;br /&gt;
+		&lt;input type = &quot;submit&quot; value = &quot;提交&quot;&gt;
+		&lt;input type = &quot;submit&quot; formmethod = &quot;post&quot; formaction = &quot;&quot; value = &quot;使用post提交&quot; /&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--formnovalidate--&gt;
+	&lt;form action=&quot;/example/html5/demo_form.asp&quot; method=&quot;get&quot;&gt;
+		E-mail:&lt;input type = &quot;email&quot; name = &quot;userid&quot; /&gt;&lt;br /&gt;
+		&lt;input type = &quot;submit&quot; value = &quot;提交&quot; /&gt;&lt;br /&gt;
+		&lt;input type = &quot;submit&quot; formnovaliddate = &quot;formnovalidate&quot; value = &quot;进行没有验证的提交&quot; /&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--formtarget--&gt;
+	&lt;form action=&quot;/example/html5/demo_form.asp&quot; method=&quot;get&quot;&gt;
+		First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot; /&gt;&lt;br /&gt;
+		Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot; /&gt;&lt;br /&gt;
+		&lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+		&lt;input type = &quot;submit&quot; formtarget = &quot;_blank&quot; value = &quot;提交到新窗口/选项卡&quot;&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--height和width--&gt;
+	&lt;form action=&quot;/example/html5/demo_form.asp&quot; method=&quot;get&quot;&gt;
+		First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot; /&gt;&lt;br /&gt;
+	    Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot; /&gt;&lt;br /&gt;
+	    &lt;input type = &quot;image&quot; src = &quot;/i/eg_submit.jpg&quot; alt = &quot;Submit&quot; width = &quot;128&quot; height = &quot;128&quot; /&gt;
+	&lt;/form&gt;
+	&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;默认地，image 输入类型会发生点击图像按钮时的 X 和 Y 坐标。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--list属性--&gt;
+	&lt;input list = &quot;cars&quot; /&gt;
+	&lt;datalist id = &quot;cars&quot;&gt;&lt;!--设置预定义选项--&gt;
+		&lt;option value = &quot;bmw&quot;&gt;
+		&lt;option value = &quot;ford&quot;&gt;
+		&lt;option value = &quot;volvo&quot;&gt;
+	&lt;/datalist&gt;
+	&lt;hr /&gt;
+
+	&lt;!--min&amp;max--&gt;
+	&lt;form action = &quot;/example/html5/demo_form.asp&quot; method = &quot;get&quot;&gt;
+		Points:&lt;input type = &quot;number&quot; name = &quot;points&quot; min = &quot;0&quot; max = &quot;10&quot;&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--multiple--&gt;
+	&lt;form action = &quot;/example/html5/demo_form.asp&quot; method = &quot;get&quot;&gt;
+		选择图片:&lt;input type = &quot;file&quot; name = &quot;img&quot; multiple = &quot;multiple&quot; /&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;请尝试在浏览文件时选取一个以上的文件。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--pattern--&gt;
+	&lt;form action=&quot;/example/html5/demo_form.asp&quot; method=&quot;get&quot;&gt;
+		国家代码：&lt;input type = &quot;text&quot; name = &quot;country_code&quot; pattern = &quot;[A-z]{3}&quot;
+		title = &quot;三个字母的国家代码&quot; /&gt;
+		&lt;input type = &quot;submit&quot; /&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--placeholder--&gt;
+	&lt;form action=&quot;/example/html5/demo_form.asp&quot; method=&quot;get&quot;&gt;
+		&lt;input type = &quot;search&quot; name = &quot;user_search&quot; placeholder = &quot;Search W3School&quot; /&gt;
+		&lt;input type = &quot;submit&quot; /&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--required--&gt;
+	&lt;form action=&quot;/example/html5/demo_form.asp&quot; method=&quot;get&quot;&gt;
+		Name:&lt;input type = &quot;text&quot; name = &quot;usr_name&quot; required = &quot;required&quot; /&gt;
+		&lt;input type = &quot;submit&quot; value = &quot;提交&quot; /&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+	&lt;!--step--&gt;
+	&lt;form action=&quot;/example/html5/demo_form.asp&quot; method=&quot;get&quot;&gt;
+		&lt;input type = &quot;number&quot; name = &quot;points&quot; step = &quot;3&quot; /&gt;
+		&lt;input type = &quot;submit&quot; /&gt;
+	&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+</code></pre>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-shu-ru-lei-xing/" class="post-title gt-a-link">
+                    html学习8.15 -- html输入类型
+                </a>
+            </div>
+        
+
+        
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="html学习8.15 -- html输入属性">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'xBznEMVwmKi5pMvS26moB6yz-gzGzoHsz',
+		appKey: 'ILjXmvK87TpdMtG39nt8eXJF',
+		avatar: 'mp',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: true,
+	});
+</script>
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">温故而知新</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+                <a href="https://weibo.com/u/5666236540/home?wvr=5&amp;sudaref=www.baidu.com&amp;display=0&amp;retcode=6102&amp;sudaref=passport.weibo.com" target="_blank">
+                    <i class="fab fa-weibo gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://zzddl.github.io/zdl.github.io//atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
