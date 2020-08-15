@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-15T14:34:28.539Z</updated>
+    <updated>2020-08-15T14:49:49.474Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,461 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[html学习8.15 -- html输入类型]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-shu-ru-lei-xing/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-shu-ru-lei-xing/">
+        </link>
+        <updated>2020-08-15T14:48:46.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="html输入类型">HTML输入类型</h2>
+<p><strong>&lt; input&gt; 元素的输入类型。</strong></p>
+<h3 id="输入类型text">输入类型：text</h3>
+<p><em>&lt; input type=&quot;text&quot;&gt;</em> 定义供<em>文本输入</em>的单行输入字段：</p>
+<pre><code class="language-html">&lt;form&gt;
+ First name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;firstname&quot;&gt;
+&lt;br&gt;
+ Last name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="输入类型password">输入类型：password</h3>
+<p><em>&lt; input type=&quot;password&quot;&gt;</em> 定义<em>密码字段</em>：</p>
+<pre><code class="language-html">&lt;form&gt;
+ User name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;
+&lt;br&gt;
+ User password:&lt;br&gt;
+&lt;input type=&quot;password&quot; name=&quot;psw&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<p>**注释：**password 字段中的字符会被做掩码处理（显示为星号或实心圆）。</p>
+<h3 id="输入类型submit">输入类型：submit</h3>
+<p><em>&lt; input type=&quot;submit&quot;&gt;</em> 定义<em>提交</em>表单数据至<em>表单处理程序</em>的按钮。</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot;&gt;
+First name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value=&quot;Mickey&quot;&gt;
+&lt;br&gt;
+Last name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot; value=&quot;Mouse&quot;&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<p>如果您省略了提交按钮的 value 属性，那么该按钮将获得默认文本</p>
+<h3 id="输入类型-radio">输入类型: radio</h3>
+<p>&lt; input type=&quot;radio&quot;&gt; 定义单选按钮。</p>
+<pre><code class="language-html">&lt;form&gt;
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;male&quot; checked&gt;Male
+&lt;br&gt;
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;female&quot;&gt;Female
+&lt;/form&gt; 
+</code></pre>
+<h3 id="输入类型-checkbox">输入类型: checkbox</h3>
+<p>&lt; input type=&quot;checkbox&quot;&gt; 定义复选框。</p>
+<p>允许选零个或者多个。</p>
+<pre><code class="language-html">&lt;form&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;vehicle&quot; value=&quot;Bike&quot;&gt;I have a bike
+&lt;br&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;vehicle&quot; value=&quot;Car&quot;&gt;I have a car 
+&lt;/form&gt; 
+</code></pre>
+<h3 id="输入类型-button">输入类型: button</h3>
+<p><em>&lt; input type=&quot;button&gt;</em> 定义<em>按钮</em>。</p>
+<pre><code class="language-html">&lt;input type=&quot;button&quot; onclick=&quot;alert('Hello World!')&quot; value=&quot;Click Me!&quot;&gt;
+</code></pre>
+<h3 id="输入类型number">输入类型：number</h3>
+<p><em>&lt; input type=&quot;number&quot;&gt;</em> 用于应该包含数字值的输入字段。</p>
+<p>可以对数字进行限制</p>
+<pre><code class="language-html">&lt;form&gt;
+  Quantity (between 1 and 5):
+  &lt;input type=&quot;number&quot; name=&quot;quantity&quot; min=&quot;1&quot; max=&quot;5&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="输入限制">输入限制</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">disabled</td>
+<td style="text-align:left">规定输入字段应该被禁用。</td>
+</tr>
+<tr>
+<td style="text-align:left">max</td>
+<td style="text-align:left">规定输入字段的最大值。</td>
+</tr>
+<tr>
+<td style="text-align:left">maxlength</td>
+<td style="text-align:left">规定输入字段的最大字符数。</td>
+</tr>
+<tr>
+<td style="text-align:left">min</td>
+<td style="text-align:left">规定输入字段的最小值。</td>
+</tr>
+<tr>
+<td style="text-align:left">pattern</td>
+<td style="text-align:left">规定通过其检查输入值的正则表达式。</td>
+</tr>
+<tr>
+<td style="text-align:left">readonly</td>
+<td style="text-align:left">规定输入字段为只读（无法修改）。</td>
+</tr>
+<tr>
+<td style="text-align:left">required</td>
+<td style="text-align:left">规定输入字段是必需的（必需填写）。</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">规定输入字段的宽度（以字符计）。</td>
+</tr>
+<tr>
+<td style="text-align:left">step</td>
+<td style="text-align:left">规定输入字段的合法数字间隔。</td>
+</tr>
+<tr>
+<td style="text-align:left">value</td>
+<td style="text-align:left">规定输入字段的默认值。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="输入类型date">输入类型：date</h3>
+<p><em>&lt; input type=&quot;date&quot;&gt;</em> 用于应该包含日期的输入字段。</p>
+<p>根据浏览器类型，会出现日期选择器。</p>
+<pre><code class="language-html">&lt;form&gt;
+  Birthday:
+  &lt;input type=&quot;date&quot; name=&quot;bday&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<p>向输入添加限制：</p>
+<pre><code class="language-html">&lt;form&gt;
+  Enter a date before 1980-01-01:
+  &lt;input type=&quot;date&quot; name=&quot;bday&quot; max=&quot;1979-12-31&quot;&gt;&lt;br&gt;
+  Enter a date after 2000-01-01:
+  &lt;input type=&quot;date&quot; name=&quot;bday&quot; min=&quot;2000-01-02&quot;&gt;&lt;br&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="输入类型color">输入类型：color</h3>
+<p><em>&lt; input type=&quot;color&quot;&gt;</em> 用于应该包含颜色的输入字段。</p>
+<p>根据浏览器类型出现颜色选择器</p>
+<pre><code class="language-html">&lt;form&gt;
+  Select your favorite color:
+  &lt;input type=&quot;color&quot; name=&quot;favcolor&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="输入类型range">输入类型：range</h3>
+<p><em>&lt; input type=&quot;range&quot;&gt;</em> 用于应该包含一定范围内的值的输入字段。</p>
+<p>滑块控件</p>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;input type=&quot;range&quot; name=&quot;points&quot; min=&quot;0&quot; max=&quot;10&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="输入类型month">输入类型：month</h3>
+<p><em>&lt; input type=&quot;month&quot;&gt;</em> 允许用户选择月份和年份。</p>
+<pre><code class="language-html">&lt;form&gt;
+  Birthday (month and year):
+  &lt;input type=&quot;month&quot; name=&quot;bdaymonth&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="输入类型week">输入类型：week</h3>
+<p><em>&lt; input type=&quot;week&quot;&gt;</em> 允许用户选择周和年。</p>
+<pre><code class="language-html">&lt;form&gt;
+  Select a week:
+  &lt;input type=&quot;week&quot; name=&quot;week_year&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="输入类型time">输入类型：time</h3>
+<p><em>&lt; input type=&quot;time&quot;&gt;</em> 允许用户选择时间（无时区）。</p>
+<pre><code class="language-html">&lt;form&gt;
+  Select a time:
+  &lt;input type=&quot;time&quot; name=&quot;usr_time&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="输入类型datetime">输入类型：datetime</h3>
+<p><em>&lt; input type=&quot;datetime&quot;&gt;</em> 允许用户选择日期和时间（有时区）。</p>
+<pre><code class="language-html">&lt;form&gt;
+  Birthday (date and time):
+  &lt;input type=&quot;datetime&quot; name=&quot;bdaytime&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="输入类型datetime-local">输入类型：datetime-local</h3>
+<p><em>&lt; input type=&quot;datetime-local&quot;&gt;</em> 允许用户选择日期和时间（无时区）。</p>
+<pre><code class="language-html">&lt;form&gt;
+  Birthday (date and time):
+  &lt;input type=&quot;datetime-local&quot; name=&quot;bdaytime&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="输入类型email">输入类型：email</h3>
+<p><em>&lt; input type=&quot;email&quot;&gt;</em> 用于应该包含电子邮件地址的输入字段。</p>
+<p>根据浏览器支持，能够在被提交时自动对电子邮件地址进行验证。</p>
+<pre><code class="language-html">&lt;form&gt;
+  E-mail:
+  &lt;input type=&quot;email&quot; name=&quot;email&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="输入类型search">输入类型：search</h3>
+<p><em>&lt; input type=&quot;search&quot;&gt;</em> 用于搜索字段（搜索字段的表现类似常规文本字段）。</p>
+<pre><code class="language-html">&lt;form&gt;
+  Search Google:
+  &lt;input type=&quot;search&quot; name=&quot;googlesearch&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="输入类型tel">输入类型：tel</h3>
+<p><em>&lt; input type=&quot;tel&quot;&gt;</em> 用于应该包含电话号码的输入字段。</p>
+<p>目前只有 <strong>Safari 8 支持</strong> tel 类型。</p>
+<pre><code class="language-html">&lt;form&gt;
+  Telephone:
+  &lt;input type=&quot;tel&quot; name=&quot;usrtel&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="输入类型url">输入类型：url</h3>
+<p><em>&lt; input type=&quot;url&quot;&gt;</em> 用于应该包含 URL 地址的输入字段。</p>
+<pre><code class="language-html">&lt;form&gt;
+  Add your homepage:
+  &lt;input type=&quot;url&quot; name=&quot;homepage&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="练习代码">练习代码</h3>
+<pre><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+	&lt;!--text--&gt;
+	&lt;form action = &quot;/demo/demo_form.asp&quot;&gt;
+		First name:&lt;br&gt;
+		&lt;input type = &quot;text&quot; name = &quot;firstname&quot;&gt;
+		&lt;br&gt;
+		Last name:&lt;br&gt;
+		&lt;input type = &quot;text&quot; name = &quot;lastname&quot;&gt;
+		&lt;br&gt;&lt;br&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;请注意表单本身是不可见的。&lt;/p&gt;
+	&lt;p&gt;同时请注意文本字段的默认宽度是 20 个字符。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--password--&gt;
+	&lt;form action = &quot;&quot;&gt;
+		&lt;input type = &quot;text&quot; name = &quot;userid&quot;&gt;
+		&lt;br&gt;
+		user password:&lt;br&gt;
+		&lt;input type = &quot;password&quot; name = &quot;psw&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;密码字段中的字符被掩码（显示为星号或圆点）。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--submit--&gt;
+	&lt;form action = &quot;/demo/demo_form.asp&quot;&gt;
+		First name:&lt;br&gt;
+		&lt;input type = &quot;text&quot; name = &quot;firstname&quot; value = &quot;mickey&quot;&gt;
+		&lt;br&gt;
+		Last name:&lt;br&gt;
+		&lt;input type = &quot;text&quot; name = &quot;lastname&quot; value = &quot;Mouse&quot;&gt;
+		&lt;br&gt;&lt;br&gt;
+		&lt;input type = &quot;submit&quot; value = &quot;Submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;如果您点击提交，表单数据会被发送到名为 demo_form.asp 的页面。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--input type:radio--&gt;
+	&lt;form action=&quot;/demo/demo_form.asp&quot;&gt;
+		&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;male&quot; checked&gt;Male
+		&lt;br&gt;
+		&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;female&quot;&gt;Female
+		&lt;br&gt;&lt;br&gt;
+		&lt;input type=&quot;submit&quot;&gt;
+	&lt;/form&gt; 
+
+	&lt;!--input type:checkbox--&gt;
+	&lt;form action = &quot;/demo/demo_form.asp&quot;&gt;
+		&lt;input type = &quot;checkbox&quot; name = &quot;vehicle&quot; value = &quot;Bike&quot;&gt;i have a bike
+		&lt;br&gt;
+		&lt;input type = &quot;checkbox&quot; name = &quot;vehicle&quot; value = &quot;Car&quot;&gt;i have a car
+		&lt;br&gt;&lt;br&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--input type:button--&gt;
+	&lt;button type = &quot;button&quot; onclick = &quot;alert('hello world!')&quot;&gt;click me!&lt;/button&gt;
+	&lt;hr /&gt;
+
+	&lt;!--number--&gt;
+	&lt;p&gt;
+		根据浏览器支持：&lt;br&gt;
+		数值约束会应用到输入字段中。
+	&lt;/p&gt;
+	&lt;form action = &quot;/demo/demo_form.asp&quot;&gt;
+		数量（1 到 5 之间）：
+		&lt;input type = &quot;number&quot; name = &quot;quantity&quot; min = &quot;1&quot; max = &quot;5&quot;&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;IE9 及早期版本不支持 type=&quot;number&quot;。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--输入限制--&gt;
+	&lt;html&gt;
+	&lt;body&gt;
+		&lt;p&gt;
+			depending on browser support:&lt;br&gt;
+			Fixed steps will apply in the input field.
+		&lt;/p&gt;
+		&lt;form action = &quot;action_page.php&quot;&gt;
+			Quantity:
+			&lt;input type = &quot;number&quot; name = &quot;points&quot;
+			min = &quot;0&quot; max = &quot;100&quot; step = &quot;10&quot; value = &quot;30&quot;&gt;
+			&lt;input type = &quot;submit&quot;&gt;
+		&lt;/form&gt;
+		&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt;type=&quot;number&quot; is not supported in IE9 and earlier.
+		&lt;/p&gt;
+		&lt;hr /&gt;
+
+	&lt;!--date--&gt;
+	&lt;p&gt;
+	根据浏览器支持：&lt;br&gt;
+	当您填写输入字段时会弹出日期选择器。
+	&lt;/p&gt;
+	&lt;form action=&quot;/demo/demo_form.asp&quot;&gt;
+		生日:
+		&lt;input type = &quot;date&quot; name = &quot;bbay&quot;&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;Firefox 或者
+	Internet Explorer 11 以及更早版本不支持 type=&quot;date&quot;。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;form action=&quot;/demo/demo_form.asp&quot;&gt;
+		请输入 1980-01-01 之前的日期：&lt;br&gt;
+		&lt;input type = &quot;date&quot; name = &quot;bday&quot; max = &quot;1979-12-31&quot;&gt;&lt;br&gt;&lt;br&gt;
+		请输入 2000-01-01 之后的日期：&lt;br&gt;
+		&lt;input type = &quot;date&quot; name = &quot;bday&quot; max = &quot;2000-01-02&quot;&gt;&lt;br&gt;&lt;br&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;
+	Internet Explorer 不支持 type=&quot;date&quot;。&lt;/p&gt;
+	&lt;hr /&gt;
+	
+	&lt;!--color--&gt;
+	&lt;p&gt;
+	Depending on browser support:&lt;br&gt;
+	A color picker can pop-up when you enter the input field.
+	&lt;/p&gt;
+	&lt;form action = &quot;action_page.php&quot;&gt;
+		select your favourite color:
+		&lt;input type = &quot;color&quot; name = &quot;favcolor&quot; value = &quot;#ff0000&quot;&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; type=&quot;color&quot; is not supported in Internet Explorer.&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--range--&gt;
+	&lt;p&gt;
+		根据浏览器支持：&lt;br&gt;
+		输入类型 &quot;range&quot; 可显示为滑动控件。
+	&lt;/p&gt;
+	&lt;form action = &quot;/demo/demo_form.asp&quot; method = &quot;get&quot;&gt;
+		Points:
+		&lt;input type = &quot;range&quot; name = &quot;points&quot; min = &quot;0&quot; max = &quot;10&quot;&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;IE9 及早期版本不支持 type=&quot;range&quot;。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--month--&gt;
+	&lt;p&gt;
+		根据浏览器支持：&lt;br&gt;
+		当您填写输入字段时会弹出日期选择器。
+	&lt;/p&gt;
+	&lt;form action = &quot;/demo/demo_form.asp&quot;&gt;
+		生日(月和年)：
+		&lt;input type = &quot;month&quot; name = &quot;bdaymonth&quot;&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;Firefox 或者
+	Internet Explorer 11 以及更早版本不支持 type=&quot;month&quot;。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--week--&gt;
+	&lt;form action=&quot;action_page.php&quot;&gt;
+  		Select a week:
+  		&lt;input type = &quot;week&quot; name = &quot;year_week&quot;&gt;
+  		&lt;input type = &quot;submit&quot;&gt;
+  	&lt;/form&gt;
+  	&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;
+	Internet Explorer 不支持 type=&quot;week&quot;。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--time--&gt;
+	&lt;form action=&quot;/demo/demo_form.asp&quot;&gt;
+	    请选取一个时间：
+	    &lt;input type = &quot;time&quot; name = &quot;usr_name&quot;&gt;
+	    &lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;Firefox 或者
+	Internet Explorer 11 以及更早版本不支持 type=&quot;time&quot;。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--datetime--&gt;
+	&lt;form action=&quot;action_page.php&quot;&gt;
+	    生日（日期和时间）：
+	    &lt;input type=&quot;datetime&quot; name=&quot;bdaytime&quot;&gt;
+	    &lt;input type=&quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+	&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;Chrome、Firefox 或 Internet Explorer 不支持 type=&quot;datetime&quot;。&lt;/p&gt;
+
+	&lt;!--datetime-local--&gt;
+	&lt;form action=&quot;/demo/demo_form.asp&quot;&gt;
+		生日（日期和时间）：
+		&lt;input type = &quot;datetime-local&quot; name = &quot;bdaytime&quot;&gt;
+		&lt;input type = &quot;submit&quot; value = &quot;Send&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;Firefox 或者
+	Internet Explorer 不支持 type=&quot;datetime-local&quot;。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--email--&gt;
+	&lt;form action=&quot;/demo/demo_form.asp&quot;&gt;
+		E-mail:
+		&lt;input type = &quot;email&quot; name = &quot;email&quot;&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;
+	&lt;b&gt;注释：&lt;/b&gt;IE9 及更早版本不支持 type=&quot;email&quot;。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--search--&gt;
+	&lt;form action=&quot;/demo/demo_form.asp&quot;&gt;
+		搜索谷歌：
+		&lt;input type = &quot;search&quot; name = &quot;googlesearch&quot;&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;hr /&gt;
+
+	&lt;!--tel--&gt;
+	&lt;form action = &quot;action_page.php&quot;&gt;
+		telephone:
+		&lt;input type = &quot;tel&quot; name = &quot;usrtel&quot;&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;Safari 8 及更新版本支持 type=&quot;tel&quot;。&lt;/p&gt;
+	&lt;hr /&gt;
+
+	&lt;!--url--&gt;
+	&lt;form action=&quot;action_page.php&quot;&gt;
+		请添加您的首页：
+		&lt;input type = &quot;url&quot; name = &quot;homepage&quot;&gt;
+		&lt;input type = &quot;submit&quot;&gt;
+	&lt;/form&gt;
+	&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt;IE9 及其更早版本不支持 type=&quot;url&quot;。&lt;/p&gt;
+	&lt;hr /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.15 -- html表单元素]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-biao-dan-yuan-su/</id>
@@ -1410,15 +1865,6 @@ span.red {
 </code></pre>
 <p>效果如下：</p>
 <figure data-type="image" tabindex="2"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596552748638.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[跳绳8.4]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/tiao-sheng-84/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/tiao-sheng-84/">
-        </link>
-        <updated>2020-08-04T14:24:00.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596551046010.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
