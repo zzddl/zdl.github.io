@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-08T10:09:19.498Z</updated>
+    <updated>2020-08-15T14:34:28.539Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,209 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[html学习8.15 -- html表单元素]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-biao-dan-yuan-su/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-biao-dan-yuan-su/">
+        </link>
+        <updated>2020-08-15T14:33:41.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="html表单">HTML表单</h1>
+<p><strong>HTML 表单用于搜集不同类型的用户输入。</strong></p>
+<h2 id="html表单-2">html表单</h2>
+<h3 id="form-元素">&lt; form&gt; 元素</h3>
+<p>&lt; form&gt; 元素定义 HTML 表单：</p>
+<pre><code class="language-html">&lt;form&gt;
+ .
+form elements
+ .
+&lt;/form&gt;
+</code></pre>
+<h3 id="input-元素">&lt; input&gt; 元素</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">text</td>
+<td style="text-align:left">定义常规文本输入。</td>
+</tr>
+<tr>
+<td style="text-align:left">radio</td>
+<td style="text-align:left">定义单选按钮输入（选择多个选择之一）</td>
+</tr>
+<tr>
+<td style="text-align:left">submit</td>
+<td style="text-align:left">定义提交按钮（提交表单）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="文本输入">文本输入</h3>
+<p><em>&lt; input type=&quot;text&quot;&gt;</em> 定义用于<em>文本输入</em>的单行输入字段：</p>
+<pre><code class="language-html">&lt;form&gt;
+ First name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;firstname&quot;&gt;
+&lt;br&gt;
+ Last name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="单选按钮输入">单选按钮输入</h3>
+<p><em>&lt; input type=&quot;radio&quot;&gt;</em> 定义<em>单选按钮</em>。</p>
+<pre><code class="language-html">&lt;form&gt;
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;male&quot; checked&gt;Male
+&lt;br&gt;
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;female&quot;&gt;Female
+&lt;/form&gt; 
+</code></pre>
+<h3 id="提交按钮">提交按钮</h3>
+<p><em>&lt; input type=&quot;submit&quot;&gt;</em> 定义用于向<em>表单处理程序</em>（form-handler）<em>提交</em>表单的按钮。</p>
+<p>表单处理程序通常是包含用来处理输入数据的脚本的服务器页面。</p>
+<p>表单处理程序在表单的 <em>action</em> 属性中指定：</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot;&gt;
+First name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value=&quot;Mickey&quot;&gt;
+&lt;br&gt;
+Last name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot; value=&quot;Mouse&quot;&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="action-属性">Action 属性</h3>
+<p><em>action 属性</em>定义在提交表单时执行的动作。</p>
+<p>如果省略 action 属性，则 action 会被设置为当前页面。</p>
+<h3 id="method-属性">Method 属性</h3>
+<p><em>method 属性</em>规定在提交表单时所用的 HTTP 方法（<em>GET</em> 或 <em>POST</em>）：</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot; method=&quot;GET&quot;&gt;
+</code></pre>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot; method=&quot;POST&quot;&gt;
+</code></pre>
+<h4 id="何时使用-get">何时使用 GET？</h4>
+<p>如果表单提交是被动的（比如搜索引擎查询），并且没有敏感信息。</p>
+<p>当您使用 GET 时，表单数据在页面地址栏中是可见的：</p>
+<p>**注释：**GET 最适合少量数据的提交。浏览器会设定容量限制。</p>
+<h4 id="何时使用-post">何时使用 POST？</h4>
+<p>如果表单正在更新数据，或者包含敏感信息（例如密码）。</p>
+<p>POST 的安全性更加，因为在页面地址栏中被提交的数据是不可见的。</p>
+<h3 id="name-属性">Name 属性</h3>
+<p>如果要正确地被提交，每个输入字段必须设置一个 name 属性。</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot;&gt;
+First name:&lt;br&gt;
+&lt;input type=&quot;text&quot; value=&quot;Mickey&quot;&gt;
+&lt;br&gt;
+Last name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot; value=&quot;Mouse&quot;&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="用-fieldset-组合表单数据">用 &lt; fieldset&gt; 组合表单数据</h3>
+<p><em>&lt; fieldset&gt;</em> 元素组合表单中的相关数据</p>
+<p><em>&lt; legend&gt;</em> 元素为 &lt; fieldset&gt; 元素定义标题。</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot;&gt;
+&lt;fieldset&gt;
+&lt;legend&gt;Personal information:&lt;/legend&gt;
+First name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value=&quot;Mickey&quot;&gt;
+&lt;br&gt;
+Last name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot; value=&quot;Mouse&quot;&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;&lt;/fieldset&gt;
+&lt;/form&gt; 
+</code></pre>
+<h3 id="html-form-属性">HTML Form 属性</h3>
+<p>&lt; form&gt; 属性的列表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">accept-charset</td>
+<td style="text-align:left">规定在被提交表单中使用的字符集（默认：页面字符集）。</td>
+</tr>
+<tr>
+<td style="text-align:left">action</td>
+<td style="text-align:left">规定向何处提交表单的地址（URL）（提交页面）。</td>
+</tr>
+<tr>
+<td style="text-align:left">autocomplete</td>
+<td style="text-align:left">规定浏览器应该自动完成表单（默认：开启）。</td>
+</tr>
+<tr>
+<td style="text-align:left">enctype</td>
+<td style="text-align:left">规定被提交数据的编码（默认：url-encoded）。</td>
+</tr>
+<tr>
+<td style="text-align:left">method</td>
+<td style="text-align:left">规定在提交表单时所用的 HTTP 方法（默认：GET）。</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">规定识别表单的名称（对于 DOM 使用：document.forms.name）。</td>
+</tr>
+<tr>
+<td style="text-align:left">novalidate</td>
+<td style="text-align:left">规定浏览器不验证表单。</td>
+</tr>
+<tr>
+<td style="text-align:left">target</td>
+<td style="text-align:left">规定 action 属性中地址的目标（默认：_self）。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="html表单元素">html表单元素</h2>
+<h3 id="input-元素-2">&lt; input&gt; 元素</h3>
+<p>最重要</p>
+<p>&lt; input&gt; 元素根据不同的 <em>type</em> 属性，可以变化为多种形态。</p>
+<h3 id="select-元素下拉列表">&lt; select&gt; 元素（下拉列表）</h3>
+<pre><code class="language-html">&lt;select name=&quot;cars&quot;&gt;
+&lt;option value=&quot;volvo&quot;&gt;Volvo&lt;/option&gt;
+&lt;option value=&quot;saab&quot;&gt;Saab&lt;/option&gt;
+&lt;option value=&quot;fiat&quot;&gt;Fiat&lt;/option&gt;
+&lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<p><em>&lt; option&gt;</em> 元素定义待选择的选项。</p>
+<p>列表通常会把首个选项显示为被选选项。</p>
+<p>通过添加selected可以定义预定义选项。</p>
+<pre><code class="language-html">&lt;option value=&quot;fiat&quot; selected&gt;Fiat&lt;/option&gt;
+</code></pre>
+<h3 id="textarea-元素">&lt; textarea&gt; 元素</h3>
+<p><em>&lt; textarea&gt;</em> 元素定义多行输入字段（<em>文本域</em>）：</p>
+<pre><code class="language-html">&lt;textarea name=&quot;message&quot; rows=&quot;10&quot; cols=&quot;30&quot;&gt;
+The cat was playing in the garden.
+&lt;/textarea&gt;
+</code></pre>
+<h3 id="button-元素">&lt; button&gt; 元素</h3>
+<pre><code class="language-html">&lt;button type=&quot;button&quot; onclick=&quot;alert('Hello World!')&quot;&gt;Click Me!&lt;/button&gt;
+</code></pre>
+<h2 id="html5-表单元素">HTML5 表单元素</h2>
+<h3 id="html5-datalist-元素">HTML5 &lt; datalist&gt; 元素</h3>
+<p><em>&lt; datalist&gt;</em> 元素为 &lt; input&gt; 元素规定预定义选项列表。</p>
+<p>用户会在他们输入数据时看到预定义选项的下拉列表。</p>
+<p>&lt; input&gt; 元素的 <em>list</em> 属性必须引用 &lt; datalist&gt; 元素的 <em>id</em> 属性。</p>
+<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot;&gt;
+&lt;input list=&quot;browsers&quot;&gt;
+&lt;datalist id=&quot;browsers&quot;&gt;
+   &lt;option value=&quot;Internet Explorer&quot;&gt;
+   &lt;option value=&quot;Firefox&quot;&gt;
+   &lt;option value=&quot;Chrome&quot;&gt;
+   &lt;option value=&quot;Opera&quot;&gt;
+   &lt;option value=&quot;Safari&quot;&gt;
+&lt;/datalist&gt; 
+&lt;/form&gt;
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[html4.01速查手册]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/html401-su-cha-shou-ce/</id>
@@ -1216,24 +1419,6 @@ span.red {
         </link>
         <updated>2020-08-04T14:24:00.000Z</updated>
         <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596551046010.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Educated]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/educated/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/educated/">
-        </link>
-        <updated>2020-08-03T15:45:14.000Z</updated>
-        <content type="html"><![CDATA[<p>我站在谷仓边废弃的红色火车车厢上。狂风呼啸，将我的头发吹过脸颊，把一般寒气 注入我敞开的衬衫领子.在这种靠山近的地方，风力强劲，仿佛山顶自己在呼气。往下， 山谷宁静，不受干扰。与此同时，我们的农场在舞蹈：粗壮的针叶树缓缓摇摆，而山艾和 蓟丛则瑟瑟发抖，在每一次气流充涌和喷发时弓下身去。在我身后，一座平缓的山倾斜而 上，继而将自己与山胸缝合。如果抬头望去，我便能辨认出印第安公主的黑色身形.</p>
-<p>漫山遍野铺满了野生小麦。如果说针叶树和山艾是独舞演员，那么麦田就是一个芭蕾 舞团。大风刮过，每根麦秆都跟随大彖一起律动，宛如无数位芭蕾舞者一个接一个弯下腰 来，在金黄的麦田表面留下凹痕。那凹痕的形状稍纵即逝，和风一样倏忽不见。</p>
-<p>朝我们山坡上的房子望去，我又看到另一种不同的动作。高大的身影僵硬地在气流中 艰难行进。是我的哥哥们醒了,在那里试探天气。我想象母亲站在炉子旁，忙者煎麦鉄薄 饼。我勾画着父亲弓背站在后门，系上钢头靴的鞋带，把长满老茧的双手伸进焊接手套 里.下面的高速公路上，校车驶过，没有停留。</p>
-<p>我只有七岁，但我懂御相比其他任何事，最令我们家与众不同的是这个事实：我们不 去上学。</p>
-<p>爸爸担心政府会强制我们去上学，但并没有，因为政府压根儿不知道我们的存在.我 们家有七个孩子，其中四个没有出生证明。我们没有医疗记隶，因为我们都是在家里出生 的，从未去医院看过医生或护士。4我们没有入学记录，因为我们从未踏进教室一步。我 九岁时才会有一张延期出生证明，但在这一刻，对爱达荷州和联邦政府而言，我不存在。</p>
-<p>那时我当然存在。我成长中一直在为末日降临也做准备，提防太阳变睛，提防血月出 现。夏天我把桃子装罐储蔽，冬天更换应急补给。人类世界崩塌之时，我们家会继续存 活，不受影响。<br>
-我被山间的节律养育，在这节律中没有根本性的变化，只有周而复始的转变。太阳每 天清晨照常升起，扫过山谷，最后坠入山峰后面。冬天落下的雪总是在春天融化。我们的 生活在轮回——四季轮回，昼夜轮回一永恒的变换中轮回，每完成一次轮回，就意味 着一切未有任何改变。我曾相信我们一家是这不朽模式中的一部分，相信从某种总义上来说，我们会永生。但永生只属于大山。</p>
-<p>父亲曾经讲过一个关于那座山峰的故事。她古老而庄严，是一座山的大教堂。连绵的 山脉中，巴克峰不是最高、最壮观的山峰，却最为精巧.它的底部横亘逾一英里，黒暗的 形体从地面隆起，上升，伸入一个完美无瑕的尖顶。从远处，你可以看到一个女人的身形 在山体正面显现：巨大的峡谷构成她的双腿，北部山脊扇形散布的松林是她的秀发。她的 姿态威风凛凛，一条腿强有力地伸向前方，比起迈步，用阔步形容更准确。</p>
-<p>父亲称她为“印第安公主”。每年积雪开始融化时，她便显现，面朝南方，望着野牛返 回山谷。父亲说，游牧的印第安人留意看她的出现，将那视为春天的标志，山川融雪的信 号，冬天结束了，该回家了。</p>
-<p>父亲所有的故爭都关乎我们的山，我们的山谷，我们呈锯齿状的爱达荷州。他从来没 有告诉过我，如果我离开这座山，如果我漂洋过海，发现自己置身于陌生的地面，再也无 法在地平线上搜寻那位公主时，我该怎么办。他从未告诉过我如何知道，我该回家了。</p>
 ]]></content>
     </entry>
 </feed>
