@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>git学习（5）标签管理 | zdl&#39;s blog</title>
+<title>你当像鸟飞往你的山（educated） | zdl&#39;s blog</title>
 
 <link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1597592019949">
 
@@ -83,59 +83,54 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    git学习（5）标签管理
+                    你当像鸟飞往你的山（educated）
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-07-28 ·
+                        · 2020-08-16 ·
                     </time>
                     
-                        <a href="https://zzddl.github.io/zdl.github.io/tag/3DREVt4bN/" class="post-tags">
-                            # git
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/UqepJyS-W/" class="post-tags">
+                            # Educated
                         </a>
                     
-                        <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
-                            # 学习
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/afL6QAz5v/" class="post-tags">
+                            # 读书
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="1创建标签">1.创建标签</h2>
-<p>（1）首先，切换到需要打标签的分支上</p>
-<p>（2）然后，敲命令<code>git tag &lt;name&gt;</code>就可以打一个新标签</p>
-<p>（3）可以用命令git tag查看所有标签</p>
-<p>（4）<code>$ git log --pretty=oneline --abbrev-commit</code>找到commit id 后</p>
-<pre><code>$ git tag v0.9 f52c633（v0.9是标签名，f52c633是commit id）`
-</code></pre>
-<p>（5）标签不是按时间顺序列出，而是按字母排序的。可以用git show <tagname>查看标签信息</p>
-<p>（6）创建带有说明的标签，用-a指定标签名，-m指定说明文字</p>
-<pre><code>    $ git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb
-</code></pre>
-<p>（7）小结</p>
-<p>命令<code>git tag &lt;tagname&gt;</code>用于新建一个标签，默认为HEAD，也可以指定一个commit id；</p>
-<p>命令<code>git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;</code>可以指定标签信息；</p>
-<p>命令<code>git tag</code>可以查看所有标签。</p>
-<h2 id="2操作标签">2.操作标签</h2>
-<p>（1）删除标签</p>
-<pre><code>$ git tag -d v0.1
-</code></pre>
-<p>创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除</p>
-<p>​    （2）要推送某个标签到远程，使用命令git push origin <tagname></p>
-<p>​    （3）一次性推送全部尚未推送到远程的本地标签</p>
-<pre><code>$ git push origin –tags
-</code></pre>
-<p>​    （4）若标签已经推送到远程</p>
-<p>​       		首先，从本地删除</p>
-<pre><code>$ git tag -d v0.9
-</code></pre>
-<p>​       		然后从远程删除</p>
-<pre><code>$ git push origin :refs/tags/v0.9
-</code></pre>
-<p>​    （5）小结</p>
-<p>​        	命令<code>git push origin &lt;tagname&gt;</code>可以推送一个本地标签；5</p>
-<p>​			命令<code>git push origin --tags</code>可以推送全部未推送过的本地标签；</p>
-<p>​			命令<code>git tag -d &lt;tagname&gt;</code>可以删除一个本地标签；</p>
-<p>​			命令<code>git push origin :refs/tags/&lt;tagname&gt;</code>可以删除一个远程标签。</p>
+                    <p>教育意味着获得不同的视角，理解不同的人、经历和历史。接受教育，但不要让你的教育僵化成傲慢。教育应该是思想的拓展，同理心的深化，视野的开阔。教育不应该使你的偏见变得更顽固。如果人们受过教育，他们应该变得不那么确定，而不是更确定。他们应该多听，少说，对差异满怀激情，热爱那些不同于他们的想法。<br>
+——塔拉・韦斯特弗《福布斯杂志》访谈</p>
+<p>无论你成为谁，无论你把自己变成了什么，那就是你本来的样子。它一直在你心中。不是在剑桥，而是在于你自已。你就是黄金。回到杨百翰大学，甚至回到你家乡的那座从地山，都不会改变你是谁。那可能会改变别人对你的看法，甚至也会改变你对自己的看法一即便是就金，在某些光线下也会显得晦暗， 但那只是错觉。金子一直是金子。<br>
+——卖花女</p>
+<p>先找出你的能力所在，然后再决定你是谁。<br>
+——假如我是女人</p>
+<p>过去总是美好的，因为一个人从来都意识不到当时的情绪；它后来扩展开来，因此我们只对过去，而非现在，拥有完整的情绪。<br>
+——序</p>
+<p>想起汇而构成人一生的所有决定——人们共同或者独自做出的那些决定，聚合起来，制造了每一桩单独事件。沙粒不可计数，叠压成沉积物，然后成为岩石。<br>
+——阿帕奇女人</p>
+<p>这一刻定义了我对那一晚的记忆，以及之后长达十年之久很多类似的夜晚的记忆。在这样的记忆中，我看到的是一个坚不可摧、像石头一样难以对付的自己。起初我仅仅是让自己相信这一点，直到有一天它变成了现实。然后我才能坦诚地告诉自己，这对我没有影响，他没有影响到我，因为没有什么可以影响我。我不明白我的这种正确是多么病态，不明白自己是如何掏空了自己。尽管我一直被那晚的后果所困扰，但我误解了最重要的事实：它没有影响我，这本身就是它的影响。<br>
+——鱼眼睛</p>
+<p>她把目光转向我。我已多年未感受到她目光的力量了，为此我惊呆了。“在我所有的孩子中，”她说，“我原以为你才是那个穿越熊熊大火冲出这里的人。我从没料到会是泰勒——那令人意外——而不是你。你不要留下。走吧。不要让任何事阻止你走。”<br>
+——不再是孩子</p>
+<p>我的羞耻感源自我有一个将我朝吱嘎作响的大剪刀刀刃推去，而不是将我拉走远离它们的父亲；我的羞耻感源自我躺在地上的那些时刻，源自知道母亲就在隔壁房间闭目塞听，那一刻完全没有选择去尽一个母亲的责任。<br>
+——悲剧之后的闹剧</p>
+<p>好奇心是一种奢侈品，只有经济上有保障的人才有权享有。</p>
+<p>我在学习的这个技能至关重要，那就是对不懂的东西耐心阅读。<br>
+——大小盾牌</p>
+<p>对我来说重要的不是爱情或友情，而是我自欺欺人的能力：相信自己很坚强。<br>
+——我们的低语，我们的尖叫</p>
+<p>我所有的奋斗，我多年的学习，一直为了让自己特权得到这样一种：见证和体验超越父母所给予我的更多的真理，并用这些真理构建我自己的思想。我开始相信，评价多种思想、多种历史和多种观点的能力是自我创造力为核心。如果现在让步，我失去的将不仅仅是一次争论。我会失去对自己思想的掌控权。<br>
+——两双挥舞的手臂</p>
+<p>我属于那座山，是那座山塑造了我。只是随着年龄的增长，我开始思考，我的起点是否就是我的终点——个人初具的雏形是否就是他唯一真实的样貌。<br>
+——教育</p>
+<p>泰勒起身要走。“外面有一个世界，塔拉，” 他说，“一旦爸爸不再在你耳边灌输他的观点，世界就会看起来大不一样。”<br>
+——沉默的教堂</p>
+<p>书并非儿戏，我也并不软弱。<br>
+——卖花女</p>
+<p>承认不确定性，就是被迫承认自己的软弱和无能，但也意味着你相信你自己。<br>
+——我们的低语，我们的尖叫</p>
 
                 </div>
             </article>
@@ -144,14 +139,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-4fen-zhi-guan-li/" class="post-title gt-a-link">
-                    git学习（4）分支管理
+                <a href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-shu-ru-shu-xing/" class="post-title gt-a-link">
+                    html学习8.15 -- html输入属性
                 </a>
             </div>
         
 
         
-            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="git学习（5）标签管理">
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="你当像鸟飞往你的山（educated）">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
