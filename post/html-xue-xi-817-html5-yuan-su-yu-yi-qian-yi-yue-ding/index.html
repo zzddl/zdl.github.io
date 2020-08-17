@@ -1,0 +1,762 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>html学习8.17 -- HTML5元素、语义、迁移、约定 | zdl&#39;s blog</title>
+
+<link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1597677862732">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zzddl.github.io/zdl.github.io//styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            zdl&#39;s blog
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    html学习8.17 -- HTML5元素、语义、迁移、约定
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-08-17 ·
+                    </time>
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/ebA9k3wZg/" class="post-tags">
+                            # HTML
+                        </a>
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
+                            # 学习
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="html5-新元素">HTML5 新元素</h2>
+<h3 id="新的语义结构元素">新的语义/结构元素</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标签</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt; article&gt;</td>
+<td style="text-align:left">定义文档内的文章。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; aside&gt;</td>
+<td style="text-align:left">定义页面内容之外的内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; bdi&gt;</td>
+<td style="text-align:left">定义与其他文本不同的文本方向。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; details&gt;</td>
+<td style="text-align:left">定义用户可查看或隐藏的额外细节。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; dialog&gt;</td>
+<td style="text-align:left">定义对话框或窗口。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; figcaption&gt;</td>
+<td style="text-align:left">定义 &lt; figure&gt; 元素的标题。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; figure&gt;</td>
+<td style="text-align:left">定义自包含内容，比如图示、图表、照片、代码清单等等。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; footer&gt;</td>
+<td style="text-align:left">定义文档或节的页脚。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; header&gt;</td>
+<td style="text-align:left">定义文档或节的页眉。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; main&gt;</td>
+<td style="text-align:left">定义文档的主内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; mark&gt;</td>
+<td style="text-align:left">定义重要或强调的内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; menuitem&gt;</td>
+<td style="text-align:left">定义用户能够从弹出菜单调用的命令/菜单项目。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; meter&gt;</td>
+<td style="text-align:left">定义已知范围（尺度）内的标量测量。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; nav&gt;</td>
+<td style="text-align:left">定义文档内的导航链接。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; progress&gt;</td>
+<td style="text-align:left">定义任务进度。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; rp&gt;</td>
+<td style="text-align:left">定义在不支持 ruby 注释的浏览器中显示什么。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; rt&gt;</td>
+<td style="text-align:left">定义关于字符的解释/发音（用于东亚字体）。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; ruby&gt;</td>
+<td style="text-align:left">定义 ruby 注释（用于东亚字体）。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; section&gt;</td>
+<td style="text-align:left">定义文档中的节。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; summary&gt;</td>
+<td style="text-align:left">定义 &lt; details&gt; 元素的可见标题。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; time&gt;</td>
+<td style="text-align:left">定义日期/时间。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; wbr&gt;</td>
+<td style="text-align:left">定义可能的折行（line-break）。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="新的表单元素">新的表单元素</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标签</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt; datalist&gt;</td>
+<td style="text-align:left">定义输入控件的预定义选项。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; keygen&gt;</td>
+<td style="text-align:left">定义键对生成器字段（用于表单）。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; output&gt;</td>
+<td style="text-align:left">定义计算结果。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="新的输入类型">新的输入类型</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">新的输入类型</th>
+<th>新的输入属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">color <br />data<br />datatime<br />datatime-local<br />email<br />month<br />number<br />range<br />search<br />tel<br />time<br />url<br />week</td>
+<td>autocomplete<br />autofocus<br />form<br />formaction<br />formenctype<br />formmethod<br />formnovalidate<br />formtarget<br />height &amp; width<br />list<br />min&amp;max<br />multiple<br />pattern(regexp)<br />placeholder<br />required<br />step</td>
+</tr>
+</tbody>
+</table>
+<h3 id="html5-新的属性语法">HTML5 - 新的属性语法</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标签</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Empty</td>
+<td style="text-align:left">&lt; input type=&quot;text&quot; value=&quot;John Doe&quot; disabled&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Unquoted</td>
+<td style="text-align:left">&lt; input type=&quot;text&quot; value=John&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Double-quoted</td>
+<td style="text-align:left">&lt; input type=&quot;text&quot; value=&quot;John Doe&quot;&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Single-quoted</td>
+<td style="text-align:left">&lt; input type=&quot;text&quot; value='John Doe'&gt;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="html5-图像">HTML5 图像</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标签</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt; canvas&gt;</td>
+<td style="text-align:left">定义使用 JavaScript 的图像绘制。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; svg&gt;</td>
+<td style="text-align:left">定义使用 SVG 的图像绘制。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="新的媒介元素">新的媒介元素</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标签</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt; audio&gt;</td>
+<td style="text-align:left">定义声音或音乐内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; embed&gt;</td>
+<td style="text-align:left">定义外部应用程序的容器（比如插件）。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; source&gt;</td>
+<td style="text-align:left">定义 &lt; video&gt; 和 &lt; audio&gt; 的来源。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; track&gt;</td>
+<td style="text-align:left">定义 &lt; video&gt; 和 &lt; audio&gt; 的轨道。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; video&gt;</td>
+<td style="text-align:left">定义视频或影片内容。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="html5-语义元素">HTML5 语义元素</h2>
+<h3 id="什么是语义元素">什么是语义元素？</h3>
+<p>语义元素清楚地向浏览器和开发者描述其意义。</p>
+<p><em>非语义</em>元素的例子：&lt; div&gt; 和 &lt; span&gt; - 无法提供关于其内容的信息。</p>
+<p><em>语义</em>元素的例子：&lt; form&gt;、&lt; table&gt; 以及 &lt; img&gt; - 清晰地定义其内容。</p>
+<figure data-type="image" tabindex="1"><img src="E:%5C%E5%BC%A0%E4%B8%81%E9%BE%99%5Cweb%E5%89%8D%E7%AB%AF%5C%E5%9B%BE%5Cct_sem_elements.png" alt="" loading="lazy"></figure>
+<h3 id="html5-section-元素">HTML5 &lt; section&gt; 元素</h3>
+<p>&lt; section&gt; 元素定义文档中的节。</p>
+<p>节（section）是有主题的内容组，通常具有标题</p>
+<pre><code class="language-html">&lt;section&gt;
+   &lt;h1&gt;WWF&lt;/h1&gt;
+   &lt;p&gt;The World Wide Fund for Nature (WWF) is....&lt;/p&gt;
+&lt;/section&gt; 
+</code></pre>
+<h3 id="html5-article-元素">HTML5 &lt; article&gt; 元素</h3>
+<p>&lt; article&gt; 元素规定独立的自包含内容。</p>
+<p>文档有其自身的意义，并且可以独立于网站其他内容进行阅读。</p>
+<p>论坛、博客、新闻常用</p>
+<pre><code class="language-html">&lt;article&gt;
+   &lt;h1&gt;What Does WWF Do?&lt;/h1&gt;
+   &lt;p&gt;WWF's mission is to stop the degradation of our planet's natural environment,
+  and build a future in which humans live in harmony with nature.&lt;/p&gt;
+&lt;/article&gt; 
+</code></pre>
+<h3 id="html5-header-元素">HTML5 &lt; header&gt; 元素</h3>
+<p>&lt; header&gt; 元素为文档或节规定页眉。</p>
+<p>&lt; header&gt; 元素应该被用作介绍性内容的容器。</p>
+<p>一个文档中可以有多个 &lt; header&gt; 元素。</p>
+<pre><code class="language-html">&lt;article&gt;
+   &lt;header&gt;
+     &lt;h1&gt;What Does WWF Do?&lt;/h1&gt;
+     &lt;p&gt;WWF's mission:&lt;/p&gt;
+   &lt;/header&gt;
+   &lt;p&gt;WWF's mission is to stop the degradation of our planet's natural environment,
+  and build a future in which humans live in harmony with nature.&lt;/p&gt;
+&lt;/article&gt; 
+</code></pre>
+<h3 id="html5-footer-元素">HTML5 &lt; footer&gt; 元素</h3>
+<p>&lt; footer&gt; 元素为文档或节规定页脚。</p>
+<p>您可以在一个文档中使用多个 &lt; footer&gt; 元素。</p>
+<pre><code class="language-html">&lt;footer&gt;
+   &lt;p&gt;Posted by: Hege Refsnes&lt;/p&gt;
+   &lt;p&gt;Contact information: &lt;a href=&quot;mailto:someone@example.com&quot;&gt;
+  someone@example.com&lt;/a&gt;.&lt;/p&gt;
+&lt;/footer&gt; 
+</code></pre>
+<h3 id="html5-nav-元素">HTML5 &lt; nav&gt; 元素</h3>
+<p>&lt; nav&gt; 元素定义导航链接集合。</p>
+<p>&lt; nav&gt; 元素旨在定义大型的导航链接块</p>
+<p><strong>不是文档中所有链接都应该位于 &lt; nav&gt; 元素中</strong></p>
+<pre><code class="language-html">&lt;nav&gt;
+&lt;a href=&quot;/html/&quot;&gt;HTML&lt;/a&gt; |
+&lt;a href=&quot;/css/&quot;&gt;CSS&lt;/a&gt; |
+&lt;a href=&quot;/js/&quot;&gt;JavaScript&lt;/a&gt; |
+&lt;a href=&quot;/jquery/&quot;&gt;jQuery&lt;/a&gt;
+&lt;/nav&gt; 
+</code></pre>
+<h3 id="html5-aside-元素">HTML5 &lt; aside&gt; 元素</h3>
+<p>&lt; aside&gt; 元素页面主内容之外的某些内容（比如侧栏）。</p>
+<pre><code class="language-html">&lt;p&gt;My family and I visited The Epcot center this summer.&lt;/p&gt;
+
+&lt;aside&gt;
+   &lt;h4&gt;Epcot Center&lt;/h4&gt;
+   &lt;p&gt;The Epcot Center is a theme park in Disney World, Florida.&lt;/p&gt;
+&lt;/aside&gt; 
+</code></pre>
+<h3 id="html5-figure-和-figcaption-元素">HTML5 &lt; figure&gt; 和 &lt; figcaption&gt; 元素</h3>
+<p>将图片和文字结合</p>
+<p>通过 HTML5，图片和标题能够被组合在 <em>&lt; figure&gt;</em> 元素中：</p>
+<pre><code class="language-html">&lt;figure&gt;
+   &lt;img src=&quot;pic_mountain.jpg&quot; alt=&quot;The Pulpit Rock&quot; width=&quot;304&quot; height=&quot;228&quot;&gt;
+   &lt;figcaption&gt;Fig1. - The Pulpit Pock, Norway.&lt;/figcaption&gt;
+&lt;/figure&gt; 
+</code></pre>
+<h2 id="html5-迁移">HTML5 迁移</h2>
+<h3 id="更改为-html5-doctype">更改为 HTML5 Doctype</h3>
+<p>HTML4：</p>
+<pre><code class="language-html">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; 
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+</code></pre>
+<p>改为HTML5后：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+</code></pre>
+<h3 id="更改为-html5-编码">更改为 HTML5 编码</h3>
+<p>HTML4：</p>
+<pre><code class="language-html">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;
+</code></pre>
+<p>改为 HTML5：</p>
+<pre><code class="language-html">&lt;meta charset=&quot;utf-8&quot;&gt;
+</code></pre>
+<h3 id="添加-shiv">添加 shiv</h3>
+<pre><code class="language-html">&lt;!--[if lt IE 9]&gt;
+  &lt;script src=&quot;http://html5shiv.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre>
+<h3 id="为-html5-语义元素添加-css">为 HTML5 语义元素添加 CSS</h3>
+<p>HTML4：</p>
+<pre><code class="language-html">div#header,div#footer,div#content,div#post {
+    border:1px solid grey;margin:5px;margin-bottom:15px;padding:8px;background-color:white;
+}
+div#header,div#footer {
+    color:white;background-color:#444;margin-bottom:5px;
+}
+div#content {
+    background-color:#ddd;
+}
+div#menu ul {
+    margin:0;padding:0;
+}
+div#menu ul li {
+    display:inline; margin:5px;
+}
+</code></pre>
+<p>改为HTML5：</p>
+<pre><code class="language-html">header,footer,section,article {
+    border:1px solid grey;margin:5px;margin-bottom:15px;padding:8px;background-color:white;
+}
+header,footer {
+    color:white;background-color:#444;margin-bottom:5px;
+}
+section {
+    background-color:#ddd;
+}
+nav ul  {
+    margin:0;padding:0;
+}
+nav ul li {
+    display:inline; margin:5px;
+}
+</code></pre>
+<h2 id="更改为-html5-header-和-footer">更改为 HTML5 &lt; header&gt; 和 &lt; footer&gt;</h2>
+<p>HTML4：</p>
+<pre><code class="language-php+HTML">&lt;div id=&quot;header&quot;&gt;
+  &lt;h1&gt;Monday Times&lt;/h1&gt;
+&lt;/div&gt;
+.
+.
+.
+&lt;div id=&quot;footer&quot;&gt;
+  &lt;p&gt;&amp;copy; 2014 W3Schools. All rights reserved.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>改为HTML5：</p>
+<pre><code class="language-html">&lt;header&gt;
+  &lt;h1&gt;Monday Times&lt;/h1&gt;
+&lt;/header&gt;
+.
+.
+.
+&lt;footer&gt;
+  &lt;p&gt;© 2014 W3Schools. All rights reserved.&lt;/p&gt;
+&lt;/footer&gt;
+</code></pre>
+<h3 id="更改为-html5-nav">更改为 HTML5 &lt; nav&gt;</h3>
+<p>HTML4：</p>
+<pre><code class="language-html">&lt;div id=&quot;menu&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;News&lt;/li&gt;
+    &lt;li&gt;Sports&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Weather&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<p>改为HTML5：</p>
+<pre><code class="language-html">&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;News&lt;/li&gt;
+    &lt;li&gt;Sports&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Weather&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+<h3 id="更改为-html5-section">更改为 HTML5 &lt; section&gt;</h3>
+<p>HTML4：</p>
+<pre><code class="language-html">&lt;div id=&quot;content&quot;&gt;
+.
+.
+.
+&lt;/div&gt;
+</code></pre>
+<p>改为HTML5：</p>
+<pre><code class="language-html">&lt;section&gt;
+.
+.
+.
+&lt;/section&gt;
+</code></pre>
+<h3 id="更改为-html5-article">更改为 HTML5 &lt; article&gt;</h3>
+<p>HTML4：</p>
+<pre><code class="language-html">&lt;div class=&quot;post&quot;&gt;
+  &lt;h2&gt;News Article&lt;/h2&gt;
+  &lt;p&gt;Ipsum lurum hurum turum ipsum lurum hurum turum ipsum lurum hurum turum ipsum 
+  lurum hurum turum.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>改为HTML5：</p>
+<pre><code class="language-html">&lt;article&gt;
+  &lt;h2&gt;News Article&lt;/h2&gt;
+  &lt;p&gt;Ipsum lurum hurum turum ipsum lurum hurum turum ipsum lurum hurum turum ipsum 
+  lurum hurum turum.&lt;/p&gt;
+&lt;/article&gt;
+</code></pre>
+<h3 id="article-section-与-div-之间的差异">&lt; article&gt; &lt; section&gt; 与 &lt; div&gt; 之间的差异</h3>
+<p>在 HTML5 标准中，&lt; section&gt; 元素被定位为相关元素的块。</p>
+<p>&lt; article&gt; 元素被定义为相关元素的完整的自包含块。</p>
+<p>&lt; div&gt; 元素被定义为子元素的块。</p>
+<p>&lt; article&gt; 可以作为&lt; article&gt;的容器</p>
+<p>&lt; article&gt;也可以作为&lt; div&gt;的容器</p>
+<p>&lt; article&gt; 包含 &lt; section&gt; 包含&lt; div&gt;</p>
+<pre><code class="language-html">&lt;article&gt; 中的 &lt;section&gt; 中的 &lt;div&gt;：
+
+&lt;article&gt;
+
+&lt;section&gt;
+&lt;h2&gt;Famous Cities&lt;/h2&gt;
+
+&lt;div class=&quot;city&quot;&gt;
+&lt;h2&gt;London&lt;/h2&gt;
+&lt;p&gt;London is the capital city of England. It is the most populous city in the United Kingdom,
+with a metropolitan area of over 13 million inhabitants.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;city&quot;&gt;
+&lt;h2&gt;Paris&lt;/h2&gt;
+&lt;p&gt;Paris is the capital and most populous city of France.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;city&quot;&gt;
+&lt;h2&gt;Tokyo&lt;/h2&gt;
+&lt;p&gt;Tokyo is the capital of Japan, the center of the Greater Tokyo Area,
+and the most populous metropolitan area in the world.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+&lt;h2&gt;Famous Countries&lt;/h2&gt;
+
+&lt;div class=&quot;country&quot;&gt;
+&lt;h2&gt;England&lt;/h2&gt;
+&lt;p&gt;London is the capital city of England. It is the most populous city in the United Kingdom,
+with a metropolitan area of over 13 million inhabitants.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;country&quot;&gt;
+&lt;h2&gt;France&lt;/h2&gt;
+&lt;p&gt;Paris is the capital and most populous city of France.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;country&quot;&gt;
+&lt;h2&gt;Japan&lt;/h2&gt;
+&lt;p&gt;Tokyo is the capital of Japan, the center of the Greater Tokyo Area,
+and the most populous metropolitan area in the world.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;/article&gt;
+</code></pre>
+<h3 id="典型的-html5-页面">典型的 HTML5 页面</h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;title&gt;HTML5&lt;/title&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+
+&lt;!--[if lt IE 9]&gt;
+&lt;script src=&quot;http://html5shiv.googlecode.com/svn/trunk/html5.js&quot;&gt;
+&lt;/script&gt;
+&lt;![endif]--&gt;
+
+&lt;style&gt;
+body {
+    font-family:Verdana,sans-serif;font-size:0.8em;
+}
+header,footer,section,article {
+    border:1px solid grey;
+    margin:5px;margin-bottom:15px;padding:8px;
+    background-color:white;
+}
+header,footer {
+    color:white;background-color:#444;margin-bottom:5px;
+}
+section {
+    background-color:#ddd;
+}
+nav ul {
+    margin:0;padding:0;
+}
+nav ul li {
+    display:inline; margin:5px;
+}
+&lt;/style&gt;
+&lt;body&gt;
+
+&lt;header&gt;
+  &lt;h1&gt;Monday Times&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;News&lt;/li&gt;
+    &lt;li&gt;Sports&lt;/li&gt;
+    &lt;li&gt;Weather&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;section&gt;
+&lt;h2&gt;News Section&lt;/h2&gt;
+
+&lt;div id=&quot;post&quot;&gt;
+  &lt;h2&gt;News Article&lt;/h2&gt;
+  &lt;p&gt;Ipsum lurum hurum turum ipsum lurum hurum turum ipsum lurum hurum turum ipsum 
+  lurum hurum turum.&lt;/p&gt;
+  &lt;p&gt;Ipsum lurum hurum turum ipsum lurum hurum turum ipsum lurum hurum turum ipsum 
+  lurum hurum turum.&lt;/p&gt;
+  &lt;p&gt;Ipsum lurum hurum turum ipsum lurum hurum turum ipsum lurum hurum turum ipsum 
+  lurum hurum turum.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;post&quot;&gt;
+&lt;h2&gt;News Article&lt;/h2&gt;
+  &lt;p&gt;Ipsum lurum hurum turum ipsum lurum hurum turum ipsum lurum hurum turum ipsum 
+  lurum hurum turum.&lt;/p&gt;
+  &lt;p&gt;Ipsum lurum hurum turum ipsum lurum hurum turum ipsum lurum hurum turum ipsum 
+  lurum hurum turum.&lt;/p&gt;
+  &lt;p&gt;Ipsum lurum hurum turum ipsum lurum hurum turum ipsum lurum hurum turum ipsum 
+  lurum hurum turum.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/section&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;&amp;copy; 2014 Monday Times. All rights reserved.&lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="html5代码约定">HTML5代码约定</h2>
+<ul>
+<li>小写元素名</li>
+<li>声明正确的文档类型</li>
+<li>关闭所有 HTML 元素</li>
+<li>关闭空的 HTML 元素</li>
+<li>小写属性名</li>
+<li>属性值加引号</li>
+<li>必需的属性，例如图片中的alt</li>
+<li>空格和等号</li>
+<li>避免长代码行（80个字符）</li>
+<li>空行和缩进</li>
+<li>省略 &lt; html&gt; 和 &lt; body&gt;（尽量不省略）</li>
+<li>省略 &lt; head&gt; HTML5中默认&lt; body&gt;之前的为head元素</li>
+<li>元数据，在文档中对语言和字符编码的定义越早越好</li>
+<li>HTML 注释，短注释应该在单行中书写，并在 &lt;!-- 之后增加一个空格，在 &lt;!-- 之前增加一个空格：</li>
+<li>样式表</li>
+<li>小写文件名</li>
+</ul>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-817-html5-jian-jie-zhi-chi/" class="post-title gt-a-link">
+                    html学习8.17 -- html5简介、支持
+                </a>
+            </div>
+        
+
+        
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="html学习8.17 -- HTML5元素、语义、迁移、约定">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'xBznEMVwmKi5pMvS26moB6yz-gzGzoHsz',
+		appKey: 'ILjXmvK87TpdMtG39nt8eXJF',
+		avatar: 'mp',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: true,
+	});
+</script>
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">温故而知新</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+                <a href="https://weibo.com/u/5666236540/home?wvr=5&amp;sudaref=www.baidu.com&amp;display=0&amp;retcode=6102&amp;sudaref=passport.weibo.com" target="_blank">
+                    <i class="fab fa-weibo gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://zzddl.github.io/zdl.github.io//atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

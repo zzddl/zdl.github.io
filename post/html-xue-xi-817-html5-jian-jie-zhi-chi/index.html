@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>html学习8.8 -- 框架、内联框架 | zdl&#39;s blog</title>
+<title>html学习8.17 -- html5简介、支持 | zdl&#39;s blog</title>
 
 <link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1597677862732">
 
@@ -83,11 +83,11 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    html学习8.8 -- 框架、内联框架
+                    html学习8.17 -- html5简介、支持
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-08-08 ·
+                        · 2020-08-17 ·
                     </time>
                     
                         <a href="https://zzddl.github.io/zdl.github.io/tag/ebA9k3wZg/" class="post-tags">
@@ -100,157 +100,172 @@
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="框架">框架</h2>
-<h3 id="框架-2">框架</h3>
-<ol>
-<li>
-<p>通过使用框架，你可以在同一个浏览器窗口中显示不止一个页面。每份HTML文档称为一个框架，并且每个框架都独立于其他的框架。</p>
-<p>使用框架的坏处：</p>
-</li>
-</ol>
+                    <h2 id="html5简介">HTML5简介</h2>
+<h3 id="html5-新的属性语法">HTML5 - 新的属性语法</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Empty</td>
+<td style="text-align:left">&lt; input type=&quot;text&quot; value=&quot;John Doe&quot; disabled&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Unquoted</td>
+<td style="text-align:left">&lt; input type=&quot;text&quot; value=John Doe&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Double-quoted</td>
+<td style="text-align:left">&lt; input type=&quot;text&quot; value=&quot;John Doe&quot;&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Single-quoted</td>
+<td style="text-align:left">&lt; input type=&quot;text&quot; value='John Doe'&gt;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="html5-新特性">HTML5 - 新特性</h3>
 <ul>
-<li>开发人员必须同时跟踪更多的HTML文档</li>
-<li>很难打印整张页面</li>
+<li>新的语义元素，比如 &lt; header&gt;, &lt; footer&gt;, &lt; article&gt;, and &lt; section&gt;。</li>
+<li>新的表单控件，比如数字、日期、时间、日历和滑块。</li>
+<li>强大的图像支持（借由 &lt; canvas&gt; 和 &lt; svg&gt;）</li>
+<li>强大的多媒体支持（借由 &lt; video&gt; 和 &lt; audio&gt;）</li>
+<li>强大的新 API，比如用本地存储取代 cookie。</li>
 </ul>
-<ol start="2">
-<li>框架结构标签（&lt; frameset&gt;）</li>
-</ol>
-<ul>
-<li>框架结构标签（&lt; frameset&gt;）定义如何将窗口分割为框架</li>
-<li>每个 frameset 定义了一系列行<em>或</em>列</li>
-<li>rows/columns 的值规定了每行或每列占据屏幕的面积</li>
-</ul>
-<h3 id="框架标签frame">框架标签（Frame）</h3>
-<p>Frame 标签定义了放置在每个框架中的 HTML 文档。</p>
-<pre><code class="language-html">&lt;frameset cols=&quot;25%,75%&quot;&gt;
-   &lt;frame src=&quot;frame_a.htm&quot;&gt;
-   &lt;frame src=&quot;frame_b.htm&quot;&gt;
-&lt;/frameset&gt;
+<h2 id="html5支持">HTML5支持</h2>
+<h3 id="把-html5-元素定义为块级元素">把 HTML5 元素定义为块级元素</h3>
+<p>HTML5 定义了八个新的<em>语义</em> HTML 元素。所有都是<em>块级</em>元素。</p>
+<p>您可以把 CSS <em>display</em> 属性设置为 <em>block</em>，以确保老式浏览器中正确的行为：</p>
+<pre><code class="language-html">header, section, footer, aside, nav, main, article, figure {
+    display: block; 
+}
 </code></pre>
-<p>这是一个两列的框架集，第一列占据25%，第二列占据75%</p>
-<p>假如一个框架有可见边框，用户可以拖动边框来改变它的大小。为了避免这种情况发生，可以在 <frame> 标签中加入：noresize=&quot;noresize&quot;。</p>
-<pre><code class="language-html">&lt;html&gt;
+<h3 id="向-html-添加新元素">向 HTML 添加新元素</h3>
+<p>添加一个&lt; myhero&gt;元素，并且自定义样式</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
 
-&lt;frameset cols=&quot;50%,*,25%&quot;&gt;
-  &lt;frame src=&quot;/example/html/frame_a.html&quot; noresize=&quot;noresize&quot; /&gt;
-  &lt;frame src=&quot;/example/html/frame_b.html&quot; /&gt;
-  &lt;frame src=&quot;/example/html/frame_c.html&quot; /&gt;
-&lt;/frameset&gt;
-
-&lt;/html&gt;
-</code></pre>
-<p>为不支持框架的浏览器添加 &lt; noframes&gt; 标签。</p>
-<pre><code class="language-html">&lt;html&gt;
-
-&lt;frameset cols=&quot;25%,50%,25%&quot;&gt;
-  &lt;frame src=&quot;/example/html/frame_a.html&quot;&gt;
-  &lt;frame src=&quot;/example/html/frame_b.html&quot;&gt;
-  &lt;frame src=&quot;/example/html/frame_c.html&quot;&gt;
-
-&lt;noframes&gt;
-&lt;body&gt;您的浏览器无法处理框架！&lt;/body&gt;
-&lt;/noframes&gt;
-
-&lt;/frameset&gt;
-
-&lt;/html&gt;
-</code></pre>
-<p>**重要提示：**不能将 &lt; body&gt;&lt; /body&gt; 标签与 &lt; frameset&gt;&lt; /frameset&gt; 标签同时使用！不过，假如你添加包含一段文本的 &lt; noframes&gt; 标签，就必须将这段文字嵌套于 &lt; body&gt;&lt; /body&gt; 标签内。（在下面的第一个实例中，可以查看它是如何实现的。）</p>
-<p>实例：</p>
-<ol>
-<li>内联框架</li>
-</ol>
-<pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Styling the article element&lt;/title&gt;
+  &lt;script&gt;document.createElement(&quot;myHero&quot;)&lt;/script&gt;
+  &lt;style&gt;
+      myHero {
+        display:block;
+        background-color:#ddd;
+        padding: 50px;
+        font-size: 30px;
+      }  
+  &lt;/style&gt;
+&lt;/head&gt;
 
 &lt;body&gt;
 
-&lt;iframe src=&quot;/i/eg_landscape.jpg&quot;&gt;&lt;/iframe&gt;
+&lt;h1&gt;My First Heading&lt;/h1&gt;
 
-&lt;p&gt;一些老的浏览器不支持 iframe。&lt;/p&gt;
-&lt;p&gt;如果得不到支持，iframe 是不可见的。&lt;/p&gt;
+&lt;p&gt;My first paragraph.&lt;/p&gt;
 
+&lt;myHero&gt;My First Hero&lt;/myHero&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<ol start="2">
-<li>导航框架</li>
-</ol>
-<pre><code class="language-html">&lt;html&gt;
-
-&lt;frameset cols=&quot;120,*&quot;&gt;
-
-  &lt;frame src=&quot;/example/html/html_contents.html&quot;&gt;
-  &lt;frame src=&quot;/example/html/frame_a.html&quot; name=&quot;showframe&quot;&gt;
-
-&lt;/frameset&gt;
-
-&lt;/html&gt;
+<p>已添加的 JavaScript 语句 document.createElement(&quot;myHero&quot;)，仅适用于 IE。</p>
+<h3 id="internet-explorer-的问题">Internet Explorer 的问题</h3>
+<p>**注意：**Internet Explorer 8 以及更早的版本，不允许对未知元素添加样式。幸运的是，Sjoerd Visscher 创造了 &quot;HTML5 Enabling JavaScript&quot;, <em>&quot;the shiv&quot;</em>：</p>
+<pre><code class="language-html">&lt;!--[if lt IE 9]&gt;
+  &lt;script src=&quot;http://html5shiv.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
 </code></pre>
-<ol start="3">
-<li>跳转至框架中的一个指定的节</li>
-</ol>
-<pre><code class="language-html">&lt;html&gt;
-
-&lt;frameset cols=&quot;20%,80%&quot;&gt;
-
- &lt;frame src=&quot;/example/html/frame_a.html&quot;&gt;
- &lt;frame src=&quot;/example/html/link.html#C10&quot;&gt;
-
-&lt;/frameset&gt;
-
-&lt;/html&gt;
-</code></pre>
-<ol start="4">
-<li>使用框架导航跳转至指定的节</li>
-</ol>
-<pre><code class="language-html">&lt;html&gt;
-
-&lt;frameset cols=&quot;20%,80%&quot;&gt;
-
- &lt;frame src=&quot;/example/html/frame_a.html&quot;&gt;
- &lt;frame src=&quot;/example/html/link.html#C10&quot;&gt;
-
-&lt;/frameset&gt;
-
-&lt;/html&gt;
-</code></pre>
-<h2 id="内联框架iframe">内联框架iframe</h2>
-<p><strong>iframe 用于在网页内显示网页。</strong></p>
-<h3 id="语法">语法</h3>
-<pre><code class="language-html">&lt;iframe src=&quot;URL&quot;&gt;&lt;/iframe&gt;
-</code></pre>
-<h3 id="iframe-设置高度和宽度">Iframe - 设置高度和宽度</h3>
-<p>height 和 width 属性用于规定 iframe 的高度和宽度。</p>
+<p>IE9 的早期版本会读取它（并理解它）</p>
+<h3 id="完整shiv解决方案">完整shiv解决方案</h3>
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
+
+&lt;head&gt;
+  &lt;title&gt;Styling HTML5&lt;/title&gt;
+  &lt;!--[if lt IE 9]&gt;
+  &lt;script src=&quot;http://html5shiv.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt;
+  &lt;![endif]--&gt;
+&lt;/head&gt;
+
 &lt;body&gt;
 
-&lt;iframe src=&quot;/example/html/demo_iframe.html&quot; width=&quot;200&quot; height=&quot;200&quot;&gt;&lt;/iframe&gt;
+&lt;h1&gt;My First Article&lt;/h1&gt;
 
-&lt;p&gt;某些老式的浏览器不支持内联框架。&lt;/p&gt;
-&lt;p&gt;如果不支持，则 iframe 是不可见的。&lt;/p&gt;
+&lt;article&gt;
+London is the capital city of England. 
+It is the most populous city in the United Kingdom, 
+with a metropolitan area of over 13 million inhabitants.
+&lt;/article&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<h3 id="iframe-删除边框">Iframe - 删除边框</h3>
-<p>frameborder 属性规定是否显示 iframe 周围的边框。</p>
-<p>设置属性值为 &quot;0&quot; 就可以移除边框：</p>
-<pre><code class="language-html">&lt;iframe src=&quot;demo_iframe.htm&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
-</code></pre>
-<h3 id="使用-iframe-作为链接的目标">使用 iframe 作为链接的目标</h3>
-<p>iframe 可用作链接的目标（target）。</p>
-<p>链接的 target 属性必须引用 iframe 的 name 属性：</p>
+<h3 id="html5-skeleton">HTML5 Skeleton</h3>
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;title&gt;HTML5 Skeleton&lt;/title&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+
+&lt;!--[if lt IE 9]&gt;
+&lt;script src=&quot;http://html5shiv.googlecode.com/svn/trunk/html5.js&quot;&gt;
+&lt;/script&gt;
+&lt;![endif]--&gt;
+
+&lt;style&gt;
+body {font-family: Verdana, sans-serif; font-size:0.8em;}
+header,nav, section,article,footer
+{border:1px solid grey; margin:5px; padding:8px;}
+nav ul {margin:0; padding:0;}
+nav ul li {display:inline; margin:5px;}
+&lt;/style&gt;
+&lt;/head&gt;
+
 &lt;body&gt;
 
-&lt;iframe src=&quot;/example/html/demo_iframe.html&quot; name=&quot;iframe_a&quot;&gt;&lt;/iframe&gt;
+&lt;header&gt;
+  &lt;h1&gt;HTML5 SKeleton&lt;/h1&gt;
+&lt;/header&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.w3school.com.cn&quot; target=&quot;iframe_a&quot;&gt;W3School.com.cn&lt;/a&gt;&lt;/p&gt;
+&lt;nav&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;html5_semantic_elements.asp&quot;&gt;HTML5 Semantic&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;html5_geolocation.asp&quot;&gt;HTML5 Geolocation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;html5_canvas.asp&quot;&gt;HTML5 Graphics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
 
-&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;由于链接的目标匹配 iframe 的名称，所以链接会在 iframe 中打开。&lt;/p&gt;
+&lt;section&gt;
+
+&lt;h1&gt;Famous Cities&lt;/h1&gt;
+
+&lt;article&gt;
+&lt;h2&gt;London&lt;/h2&gt;
+&lt;p&gt;London is the capital city of England. It is the most populous city in the United Kingdom,
+with a metropolitan area of over 13 million inhabitants.&lt;/p&gt;
+&lt;/article&gt;
+
+&lt;article&gt;
+&lt;h2&gt;Paris&lt;/h2&gt;
+&lt;p&gt;Paris is the capital and most populous city of France.&lt;/p&gt;
+&lt;/article&gt;
+
+&lt;article&gt;
+&lt;h2&gt;Tokyo&lt;/h2&gt;
+&lt;p&gt;Tokyo is the capital of Japan, the center of the Greater Tokyo Area,
+and the most populous metropolitan area in the world.&lt;/p&gt;
+&lt;/article&gt;
+
+&lt;/section&gt;
+
+&lt;footer&gt;
+&lt;p&gt;© 2014 W3Schools. All rights reserved.&lt;/p&gt;
+&lt;/footer&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;
@@ -263,14 +278,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-87-bu-ju-xiang-ying-shi-she-ji/" class="post-title gt-a-link">
-                     html学习8.7 -- 布局、响应式设计
+                <a href="https://zzddl.github.io/zdl.github.io/post/ni-dang-xiang-niao-fei-wang-ni-de-shan-educated/" class="post-title gt-a-link">
+                    你当像鸟飞往你的山（educated）
                 </a>
             </div>
         
 
         
-            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="html学习8.8 -- 框架、内联框架">
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="html学习8.17 -- html5简介、支持">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
