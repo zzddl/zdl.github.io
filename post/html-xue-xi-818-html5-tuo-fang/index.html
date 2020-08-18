@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>html学习8.8 -- 颜色 | zdl&#39;s blog</title>
+<title>html学习8.18 -- HTML5拖放 | zdl&#39;s blog</title>
 
 <link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1597764906661">
 
@@ -83,11 +83,11 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    html学习8.8 -- 颜色
+                    html学习8.18 -- HTML5拖放
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-08-08 ·
+                        · 2020-08-18 ·
                     </time>
                     
                         <a href="https://zzddl.github.io/zdl.github.io/tag/ebA9k3wZg/" class="post-tags">
@@ -100,15 +100,101 @@
                     
                 </div>
                 <div class="post-content">
-                    <p><strong>颜色由红色、绿色、蓝色混合而成。</strong></p>
-<h2 id="颜色值">颜色值</h2>
-<p>颜色由一个十六进制符号来定义，这个符号由红色、绿色和蓝色的值组成（RGB）。</p>
-<p>每种颜色的最小值是0（十六进制：#00）。最大值是255（十六进制：#FF）。<br>
-<img src="https://zzddl.github.io/zdl.github.io//post-images/1596880831118.jpg" alt="" loading="lazy"></p>
-<h2 id="颜色名">颜色名</h2>
-<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596880839246.jpg" alt="" loading="lazy"></figure>
-<h2 id="web安全色">Web安全色</h2>
-<p>数年以前，当大多数计算机仅支持 256 种颜色的时候，一系列 216 种 Web 安全色作为 Web 标准被建议使用。其中的原因是，微软和 Mac 操作系统使用了 40 种不同的保留的固定系统颜色（双方大约各使用 20 种）。</p>
+                    <h3 id="html-拖放实例">HTML 拖放实例</h3>
+<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script&gt;
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData(&quot;text&quot;, ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData(&quot;text&quot;);
+    ev.target.appendChild(document.getElementById(data));
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;div1&quot; ondrop=&quot;drop(event)&quot; ondragover=&quot;allowDrop(event)&quot;&gt;&lt;/div&gt;
+
+&lt;img id=&quot;drag1&quot; src=&quot;img_logo.gif&quot; draggable=&quot;true&quot; ondragstart=&quot;drag(event)&quot; width=&quot;336&quot; height=&quot;69&quot;&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="把元素设置为可拖放">把元素设置为可拖放</h3>
+<pre><code class="language-html">&lt;img draggable=&quot;true&quot;&gt;
+</code></pre>
+<h3 id="拖放的内容-ondragstart-和-setdata">拖放的内容 - ondragstart 和 setData()</h3>
+<p>ondragstart 属性调用了一个 drag(event) 函数，规定拖动什么数据</p>
+<p>dataTransfer.setData() 方法设置被拖动数据的数据类型和值</p>
+<pre><code class="language-html">function drag(ev) {
+    ev.dataTransfer.setData(&quot;text&quot;, ev.target.id);
+}
+</code></pre>
+<h3 id="拖到何处-ondragover">拖到何处 - ondragover</h3>
+<p>由 ondragover 事件的 event.preventDefault() 方法完成</p>
+<pre><code class="language-html">event.preventDefault()
+</code></pre>
+<h3 id="进行放置-ondrop">进行放置 - ondrop</h3>
+<p>ondrop 属性调用了一个函数，drop(event)</p>
+<pre><code class="language-html">function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData(&quot;text&quot;);
+    ev.target.appendChild(document.getElementById(data));
+}
+</code></pre>
+<p>解释：</p>
+<ul>
+<li>调用 preventDefault() 来阻止数据的浏览器默认处理方式（drop 事件的默认行为是以链接形式打开）</li>
+<li>通过 dataTransfer.getData() 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据</li>
+<li>被拖数据是被拖元素的 id (&quot;drag1&quot;)</li>
+<li>把被拖元素追加到放置元素中</li>
+</ul>
+<h3 id="来回拖放图片">来回拖放图片</h3>
+<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+#div1, #div2
+{float:left; width:198px; height:66px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+&lt;/style&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+
+function drag(ev)
+{
+ev.dataTransfer.setData(&quot;Text&quot;,ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData(&quot;Text&quot;);
+ev.target.appendChild(document.getElementById(data));
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;div1&quot; ondrop=&quot;drop(event)&quot; ondragover=&quot;allowDrop(event)&quot;&gt;
+  &lt;img src=&quot;/i/eg_dragdrop_w3school.gif&quot; draggable=&quot;true&quot; ondragstart=&quot;drag(event)&quot; id=&quot;drag1&quot; /&gt;
+&lt;/div&gt;
+&lt;div id=&quot;div2&quot; ondrop=&quot;drop(event)&quot; ondragover=&quot;allowDrop(event)&quot;&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 
                 </div>
             </article>
@@ -117,14 +203,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-shi-ti-urlurl-bian-ma/" class="post-title gt-a-link">
-                    html学习8.8 -- 实体、URL、URL编码
+                <a href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-di-li-wei-zhi/" class="post-title gt-a-link">
+                    html学习8.18 -- html5地理位置
                 </a>
             </div>
         
 
         
-            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="html学习8.8 -- 颜色">
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="html学习8.18 -- HTML5拖放">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>

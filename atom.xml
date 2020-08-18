@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-18T15:27:33.135Z</updated>
+    <updated>2020-08-18T15:35:09.991Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,109 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[html学习8.18 -- HTML5拖放]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-tuo-fang/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-tuo-fang/">
+        </link>
+        <updated>2020-08-18T15:34:39.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="html-拖放实例">HTML 拖放实例</h3>
+<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script&gt;
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData(&quot;text&quot;, ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData(&quot;text&quot;);
+    ev.target.appendChild(document.getElementById(data));
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;div1&quot; ondrop=&quot;drop(event)&quot; ondragover=&quot;allowDrop(event)&quot;&gt;&lt;/div&gt;
+
+&lt;img id=&quot;drag1&quot; src=&quot;img_logo.gif&quot; draggable=&quot;true&quot; ondragstart=&quot;drag(event)&quot; width=&quot;336&quot; height=&quot;69&quot;&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="把元素设置为可拖放">把元素设置为可拖放</h3>
+<pre><code class="language-html">&lt;img draggable=&quot;true&quot;&gt;
+</code></pre>
+<h3 id="拖放的内容-ondragstart-和-setdata">拖放的内容 - ondragstart 和 setData()</h3>
+<p>ondragstart 属性调用了一个 drag(event) 函数，规定拖动什么数据</p>
+<p>dataTransfer.setData() 方法设置被拖动数据的数据类型和值</p>
+<pre><code class="language-html">function drag(ev) {
+    ev.dataTransfer.setData(&quot;text&quot;, ev.target.id);
+}
+</code></pre>
+<h3 id="拖到何处-ondragover">拖到何处 - ondragover</h3>
+<p>由 ondragover 事件的 event.preventDefault() 方法完成</p>
+<pre><code class="language-html">event.preventDefault()
+</code></pre>
+<h3 id="进行放置-ondrop">进行放置 - ondrop</h3>
+<p>ondrop 属性调用了一个函数，drop(event)</p>
+<pre><code class="language-html">function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData(&quot;text&quot;);
+    ev.target.appendChild(document.getElementById(data));
+}
+</code></pre>
+<p>解释：</p>
+<ul>
+<li>调用 preventDefault() 来阻止数据的浏览器默认处理方式（drop 事件的默认行为是以链接形式打开）</li>
+<li>通过 dataTransfer.getData() 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据</li>
+<li>被拖数据是被拖元素的 id (&quot;drag1&quot;)</li>
+<li>把被拖元素追加到放置元素中</li>
+</ul>
+<h3 id="来回拖放图片">来回拖放图片</h3>
+<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+#div1, #div2
+{float:left; width:198px; height:66px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+&lt;/style&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+
+function drag(ev)
+{
+ev.dataTransfer.setData(&quot;Text&quot;,ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData(&quot;Text&quot;);
+ev.target.appendChild(document.getElementById(data));
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;div1&quot; ondrop=&quot;drop(event)&quot; ondragover=&quot;allowDrop(event)&quot;&gt;
+  &lt;img src=&quot;/i/eg_dragdrop_w3school.gif&quot; draggable=&quot;true&quot; ondragstart=&quot;drag(event)&quot; id=&quot;drag1&quot; /&gt;
+&lt;/div&gt;
+&lt;div id=&quot;div2&quot; ondrop=&quot;drop(event)&quot; ondragover=&quot;allowDrop(event)&quot;&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.18 -- html5地理位置]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-di-li-wei-zhi/</id>
@@ -2304,209 +2407,6 @@ Last name:&lt;br&gt;
 	&lt;hr /&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[html学习8.15 -- html表单元素]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-biao-dan-yuan-su/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-biao-dan-yuan-su/">
-        </link>
-        <updated>2020-08-15T14:33:41.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="html表单">HTML表单</h1>
-<p><strong>HTML 表单用于搜集不同类型的用户输入。</strong></p>
-<h2 id="html表单-2">html表单</h2>
-<h3 id="form-元素">&lt; form&gt; 元素</h3>
-<p>&lt; form&gt; 元素定义 HTML 表单：</p>
-<pre><code class="language-html">&lt;form&gt;
- .
-form elements
- .
-&lt;/form&gt;
-</code></pre>
-<h3 id="input-元素">&lt; input&gt; 元素</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">text</td>
-<td style="text-align:left">定义常规文本输入。</td>
-</tr>
-<tr>
-<td style="text-align:left">radio</td>
-<td style="text-align:left">定义单选按钮输入（选择多个选择之一）</td>
-</tr>
-<tr>
-<td style="text-align:left">submit</td>
-<td style="text-align:left">定义提交按钮（提交表单）</td>
-</tr>
-</tbody>
-</table>
-<h3 id="文本输入">文本输入</h3>
-<p><em>&lt; input type=&quot;text&quot;&gt;</em> 定义用于<em>文本输入</em>的单行输入字段：</p>
-<pre><code class="language-html">&lt;form&gt;
- First name:&lt;br&gt;
-&lt;input type=&quot;text&quot; name=&quot;firstname&quot;&gt;
-&lt;br&gt;
- Last name:&lt;br&gt;
-&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
-&lt;/form&gt; 
-</code></pre>
-<h3 id="单选按钮输入">单选按钮输入</h3>
-<p><em>&lt; input type=&quot;radio&quot;&gt;</em> 定义<em>单选按钮</em>。</p>
-<pre><code class="language-html">&lt;form&gt;
-&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;male&quot; checked&gt;Male
-&lt;br&gt;
-&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;female&quot;&gt;Female
-&lt;/form&gt; 
-</code></pre>
-<h3 id="提交按钮">提交按钮</h3>
-<p><em>&lt; input type=&quot;submit&quot;&gt;</em> 定义用于向<em>表单处理程序</em>（form-handler）<em>提交</em>表单的按钮。</p>
-<p>表单处理程序通常是包含用来处理输入数据的脚本的服务器页面。</p>
-<p>表单处理程序在表单的 <em>action</em> 属性中指定：</p>
-<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot;&gt;
-First name:&lt;br&gt;
-&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value=&quot;Mickey&quot;&gt;
-&lt;br&gt;
-Last name:&lt;br&gt;
-&lt;input type=&quot;text&quot; name=&quot;lastname&quot; value=&quot;Mouse&quot;&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
-&lt;/form&gt; 
-</code></pre>
-<h3 id="action-属性">Action 属性</h3>
-<p><em>action 属性</em>定义在提交表单时执行的动作。</p>
-<p>如果省略 action 属性，则 action 会被设置为当前页面。</p>
-<h3 id="method-属性">Method 属性</h3>
-<p><em>method 属性</em>规定在提交表单时所用的 HTTP 方法（<em>GET</em> 或 <em>POST</em>）：</p>
-<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot; method=&quot;GET&quot;&gt;
-</code></pre>
-<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot; method=&quot;POST&quot;&gt;
-</code></pre>
-<h4 id="何时使用-get">何时使用 GET？</h4>
-<p>如果表单提交是被动的（比如搜索引擎查询），并且没有敏感信息。</p>
-<p>当您使用 GET 时，表单数据在页面地址栏中是可见的：</p>
-<p>**注释：**GET 最适合少量数据的提交。浏览器会设定容量限制。</p>
-<h4 id="何时使用-post">何时使用 POST？</h4>
-<p>如果表单正在更新数据，或者包含敏感信息（例如密码）。</p>
-<p>POST 的安全性更加，因为在页面地址栏中被提交的数据是不可见的。</p>
-<h3 id="name-属性">Name 属性</h3>
-<p>如果要正确地被提交，每个输入字段必须设置一个 name 属性。</p>
-<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot;&gt;
-First name:&lt;br&gt;
-&lt;input type=&quot;text&quot; value=&quot;Mickey&quot;&gt;
-&lt;br&gt;
-Last name:&lt;br&gt;
-&lt;input type=&quot;text&quot; name=&quot;lastname&quot; value=&quot;Mouse&quot;&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
-&lt;/form&gt; 
-</code></pre>
-<h3 id="用-fieldset-组合表单数据">用 &lt; fieldset&gt; 组合表单数据</h3>
-<p><em>&lt; fieldset&gt;</em> 元素组合表单中的相关数据</p>
-<p><em>&lt; legend&gt;</em> 元素为 &lt; fieldset&gt; 元素定义标题。</p>
-<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot;&gt;
-&lt;fieldset&gt;
-&lt;legend&gt;Personal information:&lt;/legend&gt;
-First name:&lt;br&gt;
-&lt;input type=&quot;text&quot; name=&quot;firstname&quot; value=&quot;Mickey&quot;&gt;
-&lt;br&gt;
-Last name:&lt;br&gt;
-&lt;input type=&quot;text&quot; name=&quot;lastname&quot; value=&quot;Mouse&quot;&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;&lt;/fieldset&gt;
-&lt;/form&gt; 
-</code></pre>
-<h3 id="html-form-属性">HTML Form 属性</h3>
-<p>&lt; form&gt; 属性的列表：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">属性</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">accept-charset</td>
-<td style="text-align:left">规定在被提交表单中使用的字符集（默认：页面字符集）。</td>
-</tr>
-<tr>
-<td style="text-align:left">action</td>
-<td style="text-align:left">规定向何处提交表单的地址（URL）（提交页面）。</td>
-</tr>
-<tr>
-<td style="text-align:left">autocomplete</td>
-<td style="text-align:left">规定浏览器应该自动完成表单（默认：开启）。</td>
-</tr>
-<tr>
-<td style="text-align:left">enctype</td>
-<td style="text-align:left">规定被提交数据的编码（默认：url-encoded）。</td>
-</tr>
-<tr>
-<td style="text-align:left">method</td>
-<td style="text-align:left">规定在提交表单时所用的 HTTP 方法（默认：GET）。</td>
-</tr>
-<tr>
-<td style="text-align:left">name</td>
-<td style="text-align:left">规定识别表单的名称（对于 DOM 使用：document.forms.name）。</td>
-</tr>
-<tr>
-<td style="text-align:left">novalidate</td>
-<td style="text-align:left">规定浏览器不验证表单。</td>
-</tr>
-<tr>
-<td style="text-align:left">target</td>
-<td style="text-align:left">规定 action 属性中地址的目标（默认：_self）。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="html表单元素">html表单元素</h2>
-<h3 id="input-元素-2">&lt; input&gt; 元素</h3>
-<p>最重要</p>
-<p>&lt; input&gt; 元素根据不同的 <em>type</em> 属性，可以变化为多种形态。</p>
-<h3 id="select-元素下拉列表">&lt; select&gt; 元素（下拉列表）</h3>
-<pre><code class="language-html">&lt;select name=&quot;cars&quot;&gt;
-&lt;option value=&quot;volvo&quot;&gt;Volvo&lt;/option&gt;
-&lt;option value=&quot;saab&quot;&gt;Saab&lt;/option&gt;
-&lt;option value=&quot;fiat&quot;&gt;Fiat&lt;/option&gt;
-&lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;
-&lt;/select&gt;
-</code></pre>
-<p><em>&lt; option&gt;</em> 元素定义待选择的选项。</p>
-<p>列表通常会把首个选项显示为被选选项。</p>
-<p>通过添加selected可以定义预定义选项。</p>
-<pre><code class="language-html">&lt;option value=&quot;fiat&quot; selected&gt;Fiat&lt;/option&gt;
-</code></pre>
-<h3 id="textarea-元素">&lt; textarea&gt; 元素</h3>
-<p><em>&lt; textarea&gt;</em> 元素定义多行输入字段（<em>文本域</em>）：</p>
-<pre><code class="language-html">&lt;textarea name=&quot;message&quot; rows=&quot;10&quot; cols=&quot;30&quot;&gt;
-The cat was playing in the garden.
-&lt;/textarea&gt;
-</code></pre>
-<h3 id="button-元素">&lt; button&gt; 元素</h3>
-<pre><code class="language-html">&lt;button type=&quot;button&quot; onclick=&quot;alert('Hello World!')&quot;&gt;Click Me!&lt;/button&gt;
-</code></pre>
-<h2 id="html5-表单元素">HTML5 表单元素</h2>
-<h3 id="html5-datalist-元素">HTML5 &lt; datalist&gt; 元素</h3>
-<p><em>&lt; datalist&gt;</em> 元素为 &lt; input&gt; 元素规定预定义选项列表。</p>
-<p>用户会在他们输入数据时看到预定义选项的下拉列表。</p>
-<p>&lt; input&gt; 元素的 <em>list</em> 属性必须引用 &lt; datalist&gt; 元素的 <em>id</em> 属性。</p>
-<pre><code class="language-html">&lt;form action=&quot;action_page.php&quot;&gt;
-&lt;input list=&quot;browsers&quot;&gt;
-&lt;datalist id=&quot;browsers&quot;&gt;
-   &lt;option value=&quot;Internet Explorer&quot;&gt;
-   &lt;option value=&quot;Firefox&quot;&gt;
-   &lt;option value=&quot;Chrome&quot;&gt;
-   &lt;option value=&quot;Opera&quot;&gt;
-   &lt;option value=&quot;Safari&quot;&gt;
-&lt;/datalist&gt; 
-&lt;/form&gt;
 </code></pre>
 ]]></content>
     </entry>
