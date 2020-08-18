@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-18T14:41:17.233Z</updated>
+    <updated>2020-08-18T15:27:33.135Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,430 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[html学习8.18 -- html5地理位置]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-di-li-wei-zhi/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-di-li-wei-zhi/">
+        </link>
+        <updated>2020-08-18T15:26:47.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="html5-使用地理定位">HTML5 - 使用地理定位</h3>
+<p>getCurrentPosition() 方法来获得用户的位置。</p>
+<pre><code class="language-HTML">&lt;script&gt;
+var x=document.getElementById(&quot;demo&quot;);
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML=&quot;Geolocation is not supported by this browser.&quot;;}
+  }
+function showPosition(position)
+  {
+  x.innerHTML=&quot;Latitude: &quot; + position.coords.latitude +
+  &quot;&lt;br /&gt;Longitude: &quot; + position.coords.longitude;
+  }
+&lt;/script&gt;
+</code></pre>
+<p>如果getCurrentPosition()运行成功，则向参数showPosition中规定的函数返回一个coordinates对象</p>
+<p>showPosition() 函数获得并显示经度和纬度</p>
+<h3 id="处理错误和拒绝">处理错误和拒绝</h3>
+<p>getCurrentPosition() 方法的第二个参数用于处理错误。它规定当获取用户位置失败时运行的函数：</p>
+<pre><code class="language-html">function showError(error)
+  {
+  switch(error.code)
+    {
+    case error.PERMISSION_DENIED:
+      x.innerHTML=&quot;User denied the request for Geolocation.&quot;
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML=&quot;Location information is unavailable.&quot;
+      break;
+    case error.TIMEOUT:
+      x.innerHTML=&quot;The request to get user location timed out.&quot;
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML=&quot;An unknown error occurred.&quot;
+      break;
+    }
+  }
+</code></pre>
+<p>错误代码：</p>
+<ul>
+<li>Permission denied - 用户不允许地理定位</li>
+<li>Position unavailable - 无法获取当前位置</li>
+<li>Timeout - 操作超时</li>
+</ul>
+<h3 id="在地图中显示结果">在地图中显示结果</h3>
+<p>如需在地图中显示结果，您需要访问可使用经纬度的地图服务，比如谷歌地图或百度地图：</p>
+<pre><code class="language-html">function showPosition(position)
+{
+var latlon=position.coords.latitude+&quot;,&quot;+position.coords.longitude;
+
+var img_url=&quot;http://maps.googleapis.com/maps/api/staticmap?center=&quot;
++latlon+&quot;&amp;zoom=14&amp;size=400x300&amp;sensor=false&quot;;
+
+document.getElementById(&quot;mapholder&quot;).innerHTML=&quot;&lt;img src='&quot;+img_url+&quot;' /&gt;&quot;;
+}
+</code></pre>
+<h3 id="getcurrentposition-方法-返回数据">getCurrentPosition() 方法 - 返回数据</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">coords.latitude</td>
+<td style="text-align:left">十进制数的纬度</td>
+</tr>
+<tr>
+<td style="text-align:left">coords.longitude</td>
+<td style="text-align:left">十进制数的经度</td>
+</tr>
+<tr>
+<td style="text-align:left">coords.accuracy</td>
+<td style="text-align:left">位置精度</td>
+</tr>
+<tr>
+<td style="text-align:left">coords.altitude</td>
+<td style="text-align:left">海拔，海平面以上以米计</td>
+</tr>
+<tr>
+<td style="text-align:left">coords.altitudeAccuracy</td>
+<td style="text-align:left">位置的海拔精度</td>
+</tr>
+<tr>
+<td style="text-align:left">coords.heading</td>
+<td style="text-align:left">方向，从正北开始以度计</td>
+</tr>
+<tr>
+<td style="text-align:left">coords.speed</td>
+<td style="text-align:left">速度，以米/每秒计</td>
+</tr>
+<tr>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left">响应的日期/时间</td>
+</tr>
+</tbody>
+</table>
+<h3 id="geolocation-对象-其他有趣的方法">Geolocation 对象 - 其他有趣的方法</h3>
+<p>watchPosition() - 返回用户的当前位置，并继续返回用户移动时的更新位置。</p>
+<p>clearWatch() - 停止 watchPosition() 方法</p>
+<pre><code class="language-html">&lt;script&gt;
+var x=document.getElementById(&quot;demo&quot;);
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.watchPosition(showPosition);
+    }
+  else{x.innerHTML=&quot;Geolocation is not supported by this browser.&quot;;}
+  }
+function showPosition(position)
+  {
+  x.innerHTML=&quot;Latitude: &quot; + position.coords.latitude +
+  &quot;&lt;br /&gt;Longitude: &quot; + position.coords.longitude;
+  }
+&lt;/script&gt;
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[html学习8.18 -- HTML媒体]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html-mei-ti/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html-mei-ti/">
+        </link>
+        <updated>2020-08-18T15:14:24.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="html多媒体">HTML多媒体</h2>
+<h3 id="视频格式">视频格式</h3>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AVI</td>
+<td>.avi</td>
+</tr>
+<tr>
+<td>WMV</td>
+<td>.wmv</td>
+</tr>
+<tr>
+<td>MPEG</td>
+<td>.mpg<br />.mpeg</td>
+</tr>
+<tr>
+<td>QuickTime</td>
+<td>.mov</td>
+</tr>
+<tr>
+<td>RealVideo</td>
+<td>.rm<br />.ram</td>
+</tr>
+<tr>
+<td>Flash</td>
+<td>.swf <br />.flv</td>
+</tr>
+<tr>
+<td>Mpeg-4</td>
+<td>.mp4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="声音格式">声音格式</h3>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIDI</td>
+<td>.mid<br /> .midi</td>
+</tr>
+<tr>
+<td>RealAudio</td>
+<td>.rm<br />.ram</td>
+</tr>
+<tr>
+<td>Wave</td>
+<td>.wav</td>
+</tr>
+<tr>
+<td>WMA</td>
+<td>.wma</td>
+</tr>
+<tr>
+<td>MP3</td>
+<td>.mp3 <br />.mpga</td>
+</tr>
+</tbody>
+</table>
+<h2 id="html对象">HTML对象</h2>
+<h3 id="html-object-元素">HTML Object 元素</h3>
+<p><strong>&lt; object&gt; 的作用是支持 HTML 助手（插件）。</strong></p>
+<h3 id="使用-quicktime-来播放-wave-音频">使用 QuickTime 来播放 Wave 音频</h3>
+<pre><code class="language-html">&lt;object width=&quot;420&quot; height=&quot;360&quot;
+classid=&quot;clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B&quot;
+codebase=&quot;http://www.apple.com/qtactivex/qtplugin.cab&quot;&gt;
+&lt;param name=&quot;src&quot; value=&quot;bird.wav&quot; /&gt;
+&lt;param name=&quot;controller&quot; value=&quot;true&quot; /&gt;
+&lt;/object&gt;
+</code></pre>
+<h3 id="使用-quicktime-来播放-mp4-视频">使用 QuickTime 来播放 MP4 视频</h3>
+<pre><code class="language-html">&lt;object width=&quot;420&quot; height=&quot;360&quot;
+classid=&quot;clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B&quot;
+codebase=&quot;http://www.apple.com/qtactivex/qtplugin.cab&quot;&gt;
+&lt;param name=&quot;src&quot; value=&quot;movie.mp4&quot; /&gt;
+&lt;param name=&quot;controller&quot; value=&quot;true&quot; /&gt;
+&lt;/object&gt;
+</code></pre>
+<h3 id="使用-flash-来播放-swf-视频">使用 Flash 来播放 SWF 视频</h3>
+<pre><code class="language-html">&lt;object width=&quot;400&quot; height=&quot;40&quot;
+classid=&quot;clsid:d27cdb6e-ae6d-11cf-96b8-444553540000&quot;
+codebase=&quot;http://fpdownload.macromedia.com/
+pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0&quot;&gt;
+&lt;param name=&quot;SRC&quot; value=&quot;bookmark.swf&quot;&gt;
+&lt;embed src=&quot;bookmark.swf&quot; width=&quot;400&quot; height=&quot;40&quot;&gt;&lt;/embed&gt;
+&lt;/object&gt;
+</code></pre>
+<h3 id="使用-windows-media-player-来播放-wmv-影片">使用 Windows Media Player 来播放 WMV 影片</h3>
+<pre><code class="language-html">&lt;object width=&quot;100%&quot; height=&quot;100%&quot;
+type=&quot;video/x-ms-asf&quot; url=&quot;3d.wmv&quot; data=&quot;3d.wmv&quot;
+classid=&quot;CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6&quot;&gt;
+&lt;param name=&quot;url&quot; value=&quot;3d.wmv&quot;&gt;
+&lt;param name=&quot;filename&quot; value=&quot;3d.wmv&quot;&gt;
+&lt;param name=&quot;autostart&quot; value=&quot;1&quot;&gt;
+&lt;param name=&quot;uiMode&quot; value=&quot;full&quot; /&gt;
+&lt;param name=&quot;autosize&quot; value=&quot;1&quot;&gt;
+&lt;param name=&quot;playcount&quot; value=&quot;1&quot;&gt;
+&lt;embed type=&quot;application/x-mplayer2&quot; src=&quot;3d.wmv&quot; width=&quot;100%&quot;
+ height=&quot;100%&quot; autostart=&quot;true&quot; showcontrols=&quot;true&quot; 
+pluginspage=&quot;http://www.microsoft.com/Windows/MediaPlayer/&quot;&gt;&lt;/embed&gt;
+&lt;/object&gt;
+</code></pre>
+<h2 id="html-音频">HTML 音频</h2>
+<h3 id="使用-embed-元素">使用 &lt; embed&gt; 元素</h3>
+<p>&lt; embed&gt; 标签定义外部（非 HTML）内容的容器。</p>
+<p>这个标签只能在HTML5中使用。</p>
+<pre><code class="language-html">&lt;embed height=&quot;100&quot; width=&quot;100&quot; src=&quot;song.mp3&quot; /&gt;
+</code></pre>
+<p>&lt; embed&gt;的问题</p>
+<ul>
+<li>&lt; embed&gt; 标签在 HTML 4 中是无效的。页面无法通过 HTML 4 验证。</li>
+<li>不同的浏览器对音频格式的支持也不同。</li>
+<li>如果浏览器不支持该文件格式，没有插件的话就无法播放该音频。</li>
+<li>如果未安装插件，无法播放音频。</li>
+<li>如果把该文件转换为其他格式，仍然无法在所有浏览器中播放。</li>
+</ul>
+<h3 id="使用-object-元素">使用 &lt; object&gt; 元素</h3>
+<p>&lt; object tag&gt; 标签也可以定义外部（非 HTML）内容的容器。</p>
+<pre><code class="language-html">&lt;object height=&quot;100&quot; width=&quot;100&quot; data=&quot;song.mp3&quot;&gt;&lt;/object&gt;
+</code></pre>
+<p>&lt; object&gt;的问题：</p>
+<ul>
+<li>不同的浏览器对音频格式的支持也不同。</li>
+<li>如果浏览器不支持该文件格式，没有插件的话就无法播放该音频。</li>
+<li>如果未安装插件，无法播放音频。</li>
+<li>如果把该文件转换为其他格式，仍然无法在所有浏览器中播放。</li>
+</ul>
+<h3 id="使用-html5-audio-元素">使用 HTML5 &lt; audio&gt; 元素</h3>
+<p>&lt; audio&gt; 元素是一个 HTML5 元素，在 HTML 4 中是非法的</p>
+<pre><code class="language-html">&lt;audio controls=&quot;controls&quot;&gt;
+  &lt;source src=&quot;song.mp3&quot; type=&quot;audio/mp3&quot; /&gt;
+  &lt;source src=&quot;song.ogg&quot; type=&quot;audio/ogg&quot; /&gt;
+Your browser does not support this audio format.
+&lt;/audio&gt;
+</code></pre>
+<p>&lt; audio&gt;的问题：</p>
+<ul>
+<li>&lt; audio&gt; 标签在 HTML 4 中是无效的。页面无法通过 HTML 4 验证。</li>
+<li>您必须把音频文件转换为不同的格式。</li>
+<li>&lt; audio&gt; 元素在老式浏览器中不起作用。</li>
+</ul>
+<h3 id="最好的-html-解决方法">最好的 HTML 解决方法</h3>
+<pre><code class="language-html">&lt;audio controls=&quot;controls&quot; height=&quot;100&quot; width=&quot;100&quot;&gt;
+  &lt;source src=&quot;song.mp3&quot; type=&quot;audio/mp3&quot; /&gt;
+  &lt;source src=&quot;song.ogg&quot; type=&quot;audio/ogg&quot; /&gt;
+&lt;embed height=&quot;100&quot; width=&quot;100&quot; src=&quot;song.mp3&quot; /&gt;
+&lt;/audio&gt;
+</code></pre>
+<p>HTML5 &lt; audio&gt; 元素会尝试以 mp3 或 ogg 来播放音频。如果失败，代码将回退尝试 &lt; embed&gt; 元素。</p>
+<p>问题：</p>
+<ul>
+<li>必须把音频转换为不同的格式。</li>
+<li>&lt; audio&gt; 元素无法通过 HTML 4 和 XHTML 验证。</li>
+<li>&lt; embed&gt; 元素无法通过 HTML 4 和 XHTML 验证。</li>
+<li>&lt; embed&gt; 元素无法回退来显示错误消息。</li>
+</ul>
+<h3 id="雅虎媒体播放器">雅虎媒体播放器</h3>
+<pre><code class="language-html">&lt;a href=&quot;song.mp3&quot;&gt;Play Sound&lt;/a&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://mediaplayer.yahoo.com/js&quot;&gt;
+&lt;/script&gt;
+</code></pre>
+<h3 id="使用超链接">使用超链接</h3>
+<p>如果网页包含指向媒体文件的超链接，大多数浏览器会使用“<strong>辅助应用程序</strong>”来播放文件。</p>
+<pre><code class="language-html">&lt;a href=&quot;song.mp3&quot;&gt;Play the sound&lt;/a&gt;
+</code></pre>
+<h3 id="html-401-多媒体标签">HTML 4.01 多媒体标签</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标签</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt; applet&gt;</td>
+<td style="text-align:left">不赞成。定义内嵌 applet。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; embed&gt;</td>
+<td style="text-align:left">HTML4 中不赞成，HTML5 中允许。定义内嵌对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; object&gt;</td>
+<td style="text-align:left">定义内嵌对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; param&gt;</td>
+<td style="text-align:left">定义对象的参数。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="html-5-多媒体标签">HTML 5 多媒体标签</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标签</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt; audio&gt;</td>
+<td style="text-align:left">标签定义声音，比如音乐或其他音频流。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; embed&gt;</td>
+<td style="text-align:left">标签定义嵌入的内容，比如插件。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="html-视频">HTML 视频</h2>
+<h3 id="使用-embed-标签">使用 &lt; embed&gt; 标签</h3>
+<pre><code class="language-html">&lt;embed src=&quot;movie.swf&quot; height=&quot;200&quot; width=&quot;200&quot;/&gt;
+</code></pre>
+<p>问题:</p>
+<ul>
+<li>HTML4 无法识别 &lt; embed&gt; 标签。您的页面无法通过验证。</li>
+<li>如果浏览器不支持 Flash，那么视频将无法播放</li>
+<li>iPad 和 iPhone 不能显示 Flash 视频。</li>
+<li>如果您将视频转换为其他格式，那么它仍然不能在所有浏览器中播放。</li>
+</ul>
+<h3 id="使用-object-标签">使用 &lt; object&gt; 标签</h3>
+<pre><code class="language-html">&lt;object data=&quot;movie.swf&quot; height=&quot;200&quot; width=&quot;200&quot;/&gt;
+</code></pre>
+<p>问题：</p>
+<ul>
+<li>如果浏览器不支持 Flash，将无法播放视频。</li>
+<li>iPad 和 iPhone 不能显示 Flash 视频。</li>
+<li>如果您将视频转换为其他格式，那么它仍然不能在所有浏览器中播放。</li>
+</ul>
+<h3 id="使用-video-标签">使用 &lt; video&gt; 标签</h3>
+<p>&lt; video&gt; 是 HTML 5 中的新标签。</p>
+<pre><code class="language-html">&lt;video width=&quot;320&quot; height=&quot;240&quot; controls=&quot;controls&quot;&gt;
+  &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;source src=&quot;movie.ogg&quot; type=&quot;video/ogg&quot; /&gt;
+  &lt;source src=&quot;movie.webm&quot; type=&quot;video/webm&quot; /&gt;
+Your browser does not support the video tag.
+&lt;/video&gt;
+</code></pre>
+<p>问题：</p>
+<ul>
+<li>必须把视频转换为很多不同的格式。</li>
+<li>&lt; video&gt; 元素在老式浏览器中无效。</li>
+<li>&lt; video&gt; 元素无法通过 HTML 4 和 XHTML 验证。</li>
+</ul>
+<h3 id="最好的-html-解决方法-2">最好的 HTML 解决方法</h3>
+<p>HTML 5 + &lt; object&gt; + &lt; embed&gt;</p>
+<pre><code class="language-html">&lt;video width=&quot;320&quot; height=&quot;240&quot; controls=&quot;controls&quot;&gt;
+  &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;source src=&quot;movie.ogg&quot; type=&quot;video/ogg&quot; /&gt;
+  &lt;source src=&quot;movie.webm&quot; type=&quot;video/webm&quot; /&gt;
+  &lt;object data=&quot;movie.mp4&quot; width=&quot;320&quot; height=&quot;240&quot;&gt;
+    &lt;embed src=&quot;movie.swf&quot; width=&quot;320&quot; height=&quot;240&quot; /&gt;
+  &lt;/object&gt;
+&lt;/video&gt;
+</code></pre>
+<p>问题：</p>
+<ul>
+<li>必须把视频转换为很多不同的格式</li>
+<li>&lt; video&gt; 元素无法通过 HTML 4 和 XHTML 验证。</li>
+<li>&lt; embed&gt; 元素无法通过 HTML 4 和 XHTML 验证。</li>
+</ul>
+<h3 id="优酷解决方案">优酷解决方案</h3>
+<pre><code class="language-html">&lt;embed src=&quot;http://player.youku.com/player.php/sid/XMzI2NTc4NTMy/v.swf&quot; 
+width=&quot;480&quot; height=&quot;400&quot; 
+type=&quot;application/x-shockwave-flash&quot;&gt;
+&lt;/embed&gt;
+</code></pre>
+<h3 id="使用超链接-2">使用超链接</h3>
+<pre><code class="language-html">&lt;a href=&quot;movie.swf&quot;&gt;Play a video file&lt;/a&gt;
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.18 -- html图形（2）SVG]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html-tu-xing-2svg/</id>
@@ -2084,137 +2508,6 @@ The cat was playing in the garden.
 &lt;/datalist&gt; 
 &lt;/form&gt;
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[html4.01速查手册]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/html401-su-cha-shou-ce/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/html401-su-cha-shou-ce/">
-        </link>
-        <updated>2020-08-08T10:07:22.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="html-basic-document">HTML Basic Document</h2>
-<pre><code class="language-html">&lt;html&gt;
-&lt;head&gt;
-&lt;title&gt;Document name goes here&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-Visible text goes here
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h2 id="text-elements">Text Elements</h2>
-<pre><code class="language-html">&lt;p&gt;This is a paragraph&lt;/p&gt;
-&lt;br&gt; (line break)
-&lt;hr&gt; (horizontal rule)
-&lt;pre&gt;This text is preformatted&lt;/pre&gt;
-</code></pre>
-<h2 id="logical-styles">Logical Styles</h2>
-<pre><code class="language-html">&lt;em&gt;This text is emphasized&lt;/em&gt;
-&lt;strong&gt;This text is strong&lt;/strong&gt;
-&lt;code&gt;This is some computer code&lt;/code&gt;
-</code></pre>
-<h2 id="physical-styles">Physical Styles</h2>
-<pre><code class="language-html">&lt;b&gt;This text is bold&lt;/b&gt;
-&lt;i&gt;This text is italic&lt;/i&gt;
-</code></pre>
-<h2 id="links-anchors-and-image-elements">Links, Anchors, and Image Elements</h2>
-<pre><code class="language-html">&lt;a href=&quot;http://www.example.com/&quot;&gt;This is a Link&lt;/a&gt;
-&lt;a href=&quot;http://www.example.com/&quot;&gt;&lt;img src=&quot;URL&quot;
-alt=&quot;Alternate Text&quot;&gt;&lt;/a&gt;
-&lt;a href=&quot;mailto:webmaster@example.com&quot;&gt;Send e-mail&lt;/a&gt;A named anchor:
-&lt;a name=&quot;tips&quot;&gt;Useful Tips Section&lt;/a&gt;
-&lt;a href=&quot;#tips&quot;&gt;Jump to the Useful Tips Section&lt;/a&gt;
-</code></pre>
-<h2 id="unordered-list">Unordered list</h2>
-<pre><code class="language-html">&lt;ul&gt;
-&lt;li&gt;First item&lt;/li&gt;
-&lt;li&gt;Next item&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
-<h2 id="ordered-list">Ordered list</h2>
-<pre><code class="language-html">&lt;ol&gt;
-&lt;li&gt;First item&lt;/li&gt;
-&lt;li&gt;Next item&lt;/li&gt;
-&lt;/ol&gt;
-</code></pre>
-<h2 id="definition-list">Definition list</h2>
-<pre><code class="language-html">&lt;dl&gt;
-&lt;dt&gt;First term&lt;/dt&gt;
-&lt;dd&gt;Definition&lt;/dd&gt;
-&lt;dt&gt;Next term&lt;/dt&gt;
-&lt;dd&gt;Definition&lt;/dd&gt;
-&lt;/dl&gt;
-</code></pre>
-<h2 id="tables">Tables</h2>
-<pre><code class="language-html">&lt;table border=&quot;1&quot;&gt;
-&lt;tr&gt;
-  &lt;th&gt;someheader&lt;/th&gt;
-  &lt;th&gt;someheader&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-  &lt;td&gt;sometext&lt;/td&gt;
-  &lt;td&gt;sometext&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-</code></pre>
-<h2 id="frames">Frames</h2>
-<pre><code class="language-html">&lt;frameset cols=&quot;25%,75%&quot;&gt;
-  &lt;frame src=&quot;page1.htm&quot;&gt;
-  &lt;frame src=&quot;page2.htm&quot;&gt;
-&lt;/frameset&gt;
-</code></pre>
-<h2 id="forms">Forms</h2>
-<pre><code class="language-html">&lt;form action=&quot;http://www.example.com/test.asp&quot; method=&quot;post/get&quot;&gt;
-&lt;input type=&quot;text&quot; name=&quot;lastname&quot;
-value=&quot;Nixon&quot; size=&quot;30&quot; maxlength=&quot;50&quot;&gt;
-&lt;input type=&quot;password&quot;&gt;
-&lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;&gt;
-&lt;input type=&quot;radio&quot; checked=&quot;checked&quot;&gt;
-&lt;input type=&quot;submit&quot;&gt;
-&lt;input type=&quot;reset&quot;&gt;
-&lt;input type=&quot;hidden&quot;&gt;
-&lt;select&gt;
-&lt;option&gt;Apples
-&lt;option selected&gt;Bananas
-&lt;option&gt;Cherries
-&lt;/select&gt;
-&lt;textarea name=&quot;Comment&quot; rows=&quot;60&quot;
-cols=&quot;20&quot;&gt;&lt;/textarea&gt;
-&lt;/form&gt;
-</code></pre>
-<h2 id="entities">Entities</h2>
-<pre><code class="language-html">&amp;lt; is the same as &lt;
-&amp;gt; is the same as &gt;
-&amp;#169; is the same as ©
-</code></pre>
-<h2 id="other-elements">Other Elements</h2>
-<pre><code class="language-html">&lt;!-- This is a comment --&gt;
-&lt;blockquote&gt;
-Text quoted from some source.
-&lt;/blockquote&gt;
-&lt;address&gt;
-Address 1&lt;br&gt;
-Address 2&lt;br&gt;
-City&lt;br&gt;
-&lt;/address&gt;
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[html学习8.8 -- 颜色]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-yan-se/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-88-yan-se/">
-        </link>
-        <updated>2020-08-08T09:59:41.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>颜色由红色、绿色、蓝色混合而成。</strong></p>
-<h2 id="颜色值">颜色值</h2>
-<p>颜色由一个十六进制符号来定义，这个符号由红色、绿色和蓝色的值组成（RGB）。</p>
-<p>每种颜色的最小值是0（十六进制：#00）。最大值是255（十六进制：#FF）。<br>
-<img src="https://zzddl.github.io/zdl.github.io//post-images/1596880831118.jpg" alt="" loading="lazy"></p>
-<h2 id="颜色名">颜色名</h2>
-<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1596880839246.jpg" alt="" loading="lazy"></figure>
-<h2 id="web安全色">Web安全色</h2>
-<p>数年以前，当大多数计算机仅支持 256 种颜色的时候，一系列 216 种 Web 安全色作为 Web 标准被建议使用。其中的原因是，微软和 Mac 操作系统使用了 40 种不同的保留的固定系统颜色（双方大约各使用 20 种）。</p>
 ]]></content>
     </entry>
 </feed>
