@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-19T02:32:14.920Z</updated>
+    <updated>2020-08-19T02:54:36.798Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,176 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[html学习8.19 -- HTML5 SSE]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-sse/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-sse/">
+        </link>
+        <updated>2020-08-19T02:54:00.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>Server-Sent 事件允许网页从服务器获得更新。</strong></p>
+<h3 id="接收-server-sent-事件通知">接收 Server-Sent 事件通知</h3>
+<p>EventSource 对象用于接收服务器发送事件通知：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h1&gt;获得服务器更新&lt;/h1&gt;
+&lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+if(typeof(EventSource)!==&quot;undefined&quot;)
+  {
+  var source=new EventSource(&quot;/example/html5/demo_sse.php&quot;);
+  source.onmessage=function(event)
+    {
+    document.getElementById(&quot;result&quot;).innerHTML+=event.data + &quot;&lt;br /&gt;&quot;;
+    };
+  }
+else
+  {
+  document.getElementById(&quot;result&quot;).innerHTML=&quot;抱歉，您的浏览器不支持 server-sent 事件 ...&quot;;
+  }
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>解释：</p>
+<ul>
+<li>创建一个新的 EventSource 对象，然后规定发送更新的页面的 URL（本例中是 &quot;demo_sse.php&quot;）</li>
+<li>每当接收到一次更新，就会发生 onmessage 事件</li>
+<li>当 onmessage 事件发生时，把已接收的数据推入 id 为 &quot;result&quot; 的元素中</li>
+</ul>
+<h3 id="检测-server-sent-事件支持">检测 Server-Sent 事件支持</h3>
+<pre><code class="language-html">if(typeof(EventSource) !== &quot;undefined&quot;) {
+    // 是的！支持服务器发送事件！
+    // 一些代码.....
+} else {
+    // 抱歉！不支持服务器发送事件！
+}
+</code></pre>
+<h3 id="eventsource-对象">EventSource 对象</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">onopen</td>
+<td style="text-align:left">当通往服务器的连接被打开</td>
+</tr>
+<tr>
+<td style="text-align:left">onmessage</td>
+<td style="text-align:left">当接收到消息</td>
+</tr>
+<tr>
+<td style="text-align:left">onerror</td>
+<td style="text-align:left">当发生错误</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[html学习8.19 -- HTML5 web workers]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-web-workers/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-web-workers/">
+        </link>
+        <updated>2020-08-19T02:49:44.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="web-worker">Web Worker</h3>
+<p>当在 HTML 页面中执行脚本时，页面是不可响应的，直到脚本已完成。</p>
+<p>Web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能</p>
+<h3 id="检测-web-worker-支持">检测 Web Worker 支持</h3>
+<pre><code class="language-html">if (typeof(Worker) !== &quot;undefined&quot;) {
+    // 是的！支持 Web worker！
+    // 一些代码.....
+} else {
+    // 抱歉！不支持 Web Worker！
+}
+</code></pre>
+<h3 id="创建-web-worker-文件">创建 Web Worker 文件</h3>
+<p>让我们在一个外部 JavaScript 文件中创建我们的 web worker。</p>
+<p>创建计数脚本。该脚本存储于 &quot;demo_workers.js&quot; 文件中：</p>
+<pre><code class="language-html">var i = 0;
+
+function timedCount() {
+    i = i + 1;
+    postMessage(i);
+    setTimeout(&quot;timedCount()&quot;,500);
+}
+
+timedCount();
+</code></pre>
+<p>以上代码中重要的部分是 postMessage() 方法 - 它用于向 HTML 页面传回一段消息。</p>
+<h3 id="创建-web-worker-对象">创建 Web Worker 对象</h3>
+<p>已经有 web worker 文件，需要从 HTML 页面调用它。</p>
+<p>检测是否存在 worker，如果不存在，- 它会创建一个新的 web worker 对象，然后运行 &quot;demo_workers.js&quot; 中的代码：</p>
+<pre><code class="language-html">if (typeof(w) == &quot;undefined&quot;) {
+    w = new Worker(&quot;demo_workers.js&quot;);
+}
+</code></pre>
+<p>然后我们就可以从 web worker 发生和接收消息了。</p>
+<p>向 web worker 添加一个 &quot;onmessage&quot; 事件监听器：</p>
+<pre><code class="language-html">w.onmessage = function(event){
+    document.getElementById(&quot;result&quot;).innerHTML = event.data;
+};
+</code></pre>
+<p>当 web worker 传送消息时，会执行事件监听器中的代码。来自 web worker 的数据会存储于 event.data 中。</p>
+<h3 id="终止-web-worker">终止 Web Worker</h3>
+<p>当创建 web worker 后，它会继续监听消息（即使在外部脚本完成后）直到其被终止为止。</p>
+<p>终止并且释放资源，使用 terminate() 方法：</p>
+<pre><code class="language-html">w.terminate();
+</code></pre>
+<h3 id="复用-web-worker">复用 Web Worker</h3>
+<p>把 worker 变量设置为 undefined，在其被终止后，可以重复使用该代码：</p>
+<pre><code class="language-html">w = undefined;
+</code></pre>
+<h3 id="完整的-web-worker-实例代码">完整的 Web Worker 实例代码</h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;p&gt;Count numbers: &lt;output id=&quot;result&quot;&gt;&lt;/output&gt;&lt;/p&gt;
+&lt;button onclick=&quot;startWorker()&quot;&gt;Start Worker&lt;/button&gt; 
+&lt;button onclick=&quot;stopWorker()&quot;&gt;Stop Worker&lt;/button&gt;
+&lt;br&gt;&lt;br&gt;
+
+&lt;script&gt;
+var w;
+
+function startWorker() {
+    if(typeof(Worker) !== &quot;undefined&quot;) {
+        if(typeof(w) == &quot;undefined&quot;) {
+            w = new Worker(&quot;demo_workers.js&quot;);
+        }
+        w.onmessage = function(event) {
+            document.getElementById(&quot;result&quot;).innerHTML = event.data;
+        };
+    } else {
+        document.getElementById(&quot;result&quot;).innerHTML = &quot;Sorry! No Web Worker support.&quot;;
+    }
+}
+
+function stopWorker() { 
+    w.terminate();
+    w = undefined;
+}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="web-worker-和-dom">Web Worker 和 DOM</h3>
+<p>由于 web worker 位于外部文件中，它们无法访问下例 JavaScript 对象：</p>
+<ul>
+<li>window 对象</li>
+<li>document 对象</li>
+<li>parent 对象</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.19 -- HTML5应用缓存]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-ying-yong-huan-cun/</id>
@@ -1562,223 +1732,6 @@ nav ul li {
 <li>样式表</li>
 <li>小写文件名</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[html学习8.17 -- html5简介、支持]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-817-html5-jian-jie-zhi-chi/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-817-html5-jian-jie-zhi-chi/">
-        </link>
-        <updated>2020-08-17T15:22:17.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="html5简介">HTML5简介</h2>
-<h3 id="html5-新的属性语法">HTML5 - 新的属性语法</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Empty</td>
-<td style="text-align:left">&lt; input type=&quot;text&quot; value=&quot;John Doe&quot; disabled&gt;</td>
-</tr>
-<tr>
-<td style="text-align:left">Unquoted</td>
-<td style="text-align:left">&lt; input type=&quot;text&quot; value=John Doe&gt;</td>
-</tr>
-<tr>
-<td style="text-align:left">Double-quoted</td>
-<td style="text-align:left">&lt; input type=&quot;text&quot; value=&quot;John Doe&quot;&gt;</td>
-</tr>
-<tr>
-<td style="text-align:left">Single-quoted</td>
-<td style="text-align:left">&lt; input type=&quot;text&quot; value='John Doe'&gt;</td>
-</tr>
-</tbody>
-</table>
-<h3 id="html5-新特性">HTML5 - 新特性</h3>
-<ul>
-<li>新的语义元素，比如 &lt; header&gt;, &lt; footer&gt;, &lt; article&gt;, and &lt; section&gt;。</li>
-<li>新的表单控件，比如数字、日期、时间、日历和滑块。</li>
-<li>强大的图像支持（借由 &lt; canvas&gt; 和 &lt; svg&gt;）</li>
-<li>强大的多媒体支持（借由 &lt; video&gt; 和 &lt; audio&gt;）</li>
-<li>强大的新 API，比如用本地存储取代 cookie。</li>
-</ul>
-<h2 id="html5支持">HTML5支持</h2>
-<h3 id="把-html5-元素定义为块级元素">把 HTML5 元素定义为块级元素</h3>
-<p>HTML5 定义了八个新的<em>语义</em> HTML 元素。所有都是<em>块级</em>元素。</p>
-<p>您可以把 CSS <em>display</em> 属性设置为 <em>block</em>，以确保老式浏览器中正确的行为：</p>
-<pre><code class="language-html">header, section, footer, aside, nav, main, article, figure {
-    display: block; 
-}
-</code></pre>
-<h3 id="向-html-添加新元素">向 HTML 添加新元素</h3>
-<p>添加一个&lt; myhero&gt;元素，并且自定义样式</p>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-
-&lt;head&gt;
-  &lt;title&gt;Styling the article element&lt;/title&gt;
-  &lt;script&gt;document.createElement(&quot;myHero&quot;)&lt;/script&gt;
-  &lt;style&gt;
-      myHero {
-        display:block;
-        background-color:#ddd;
-        padding: 50px;
-        font-size: 30px;
-      }  
-  &lt;/style&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&lt;h1&gt;My First Heading&lt;/h1&gt;
-
-&lt;p&gt;My first paragraph.&lt;/p&gt;
-
-&lt;myHero&gt;My First Hero&lt;/myHero&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p>已添加的 JavaScript 语句 document.createElement(&quot;myHero&quot;)，仅适用于 IE。</p>
-<h3 id="internet-explorer-的问题">Internet Explorer 的问题</h3>
-<p>**注意：**Internet Explorer 8 以及更早的版本，不允许对未知元素添加样式。幸运的是，Sjoerd Visscher 创造了 &quot;HTML5 Enabling JavaScript&quot;, <em>&quot;the shiv&quot;</em>：</p>
-<pre><code class="language-html">&lt;!--[if lt IE 9]&gt;
-  &lt;script src=&quot;http://html5shiv.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt;
-&lt;![endif]--&gt;
-</code></pre>
-<p>IE9 的早期版本会读取它（并理解它）</p>
-<h3 id="完整shiv解决方案">完整shiv解决方案</h3>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-
-&lt;head&gt;
-  &lt;title&gt;Styling HTML5&lt;/title&gt;
-  &lt;!--[if lt IE 9]&gt;
-  &lt;script src=&quot;http://html5shiv.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt;
-  &lt;![endif]--&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&lt;h1&gt;My First Article&lt;/h1&gt;
-
-&lt;article&gt;
-London is the capital city of England. 
-It is the most populous city in the United Kingdom, 
-with a metropolitan area of over 13 million inhabitants.
-&lt;/article&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h3 id="html5-skeleton">HTML5 Skeleton</h3>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;title&gt;HTML5 Skeleton&lt;/title&gt;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-
-&lt;!--[if lt IE 9]&gt;
-&lt;script src=&quot;http://html5shiv.googlecode.com/svn/trunk/html5.js&quot;&gt;
-&lt;/script&gt;
-&lt;![endif]--&gt;
-
-&lt;style&gt;
-body {font-family: Verdana, sans-serif; font-size:0.8em;}
-header,nav, section,article,footer
-{border:1px solid grey; margin:5px; padding:8px;}
-nav ul {margin:0; padding:0;}
-nav ul li {display:inline; margin:5px;}
-&lt;/style&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&lt;header&gt;
-  &lt;h1&gt;HTML5 SKeleton&lt;/h1&gt;
-&lt;/header&gt;
-
-&lt;nav&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;html5_semantic_elements.asp&quot;&gt;HTML5 Semantic&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;html5_geolocation.asp&quot;&gt;HTML5 Geolocation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;html5_canvas.asp&quot;&gt;HTML5 Graphics&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
-&lt;section&gt;
-
-&lt;h1&gt;Famous Cities&lt;/h1&gt;
-
-&lt;article&gt;
-&lt;h2&gt;London&lt;/h2&gt;
-&lt;p&gt;London is the capital city of England. It is the most populous city in the United Kingdom,
-with a metropolitan area of over 13 million inhabitants.&lt;/p&gt;
-&lt;/article&gt;
-
-&lt;article&gt;
-&lt;h2&gt;Paris&lt;/h2&gt;
-&lt;p&gt;Paris is the capital and most populous city of France.&lt;/p&gt;
-&lt;/article&gt;
-
-&lt;article&gt;
-&lt;h2&gt;Tokyo&lt;/h2&gt;
-&lt;p&gt;Tokyo is the capital of Japan, the center of the Greater Tokyo Area,
-and the most populous metropolitan area in the world.&lt;/p&gt;
-&lt;/article&gt;
-
-&lt;/section&gt;
-
-&lt;footer&gt;
-&lt;p&gt;© 2014 W3Schools. All rights reserved.&lt;/p&gt;
-&lt;/footer&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[你当像鸟飞往你的山（educated）]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/ni-dang-xiang-niao-fei-wang-ni-de-shan-educated/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/ni-dang-xiang-niao-fei-wang-ni-de-shan-educated/">
-        </link>
-        <updated>2020-08-16T15:15:48.000Z</updated>
-        <content type="html"><![CDATA[<p>教育意味着获得不同的视角，理解不同的人、经历和历史。接受教育，但不要让你的教育僵化成傲慢。教育应该是思想的拓展，同理心的深化，视野的开阔。教育不应该使你的偏见变得更顽固。如果人们受过教育，他们应该变得不那么确定，而不是更确定。他们应该多听，少说，对差异满怀激情，热爱那些不同于他们的想法。<br>
-——塔拉・韦斯特弗《福布斯杂志》访谈</p>
-<p>无论你成为谁，无论你把自己变成了什么，那就是你本来的样子。它一直在你心中。不是在剑桥，而是在于你自已。你就是黄金。回到杨百翰大学，甚至回到你家乡的那座从地山，都不会改变你是谁。那可能会改变别人对你的看法，甚至也会改变你对自己的看法一即便是就金，在某些光线下也会显得晦暗， 但那只是错觉。金子一直是金子。<br>
-——卖花女</p>
-<p>先找出你的能力所在，然后再决定你是谁。<br>
-——假如我是女人</p>
-<p>过去总是美好的，因为一个人从来都意识不到当时的情绪；它后来扩展开来，因此我们只对过去，而非现在，拥有完整的情绪。<br>
-——序</p>
-<p>想起汇而构成人一生的所有决定——人们共同或者独自做出的那些决定，聚合起来，制造了每一桩单独事件。沙粒不可计数，叠压成沉积物，然后成为岩石。<br>
-——阿帕奇女人</p>
-<p>这一刻定义了我对那一晚的记忆，以及之后长达十年之久很多类似的夜晚的记忆。在这样的记忆中，我看到的是一个坚不可摧、像石头一样难以对付的自己。起初我仅仅是让自己相信这一点，直到有一天它变成了现实。然后我才能坦诚地告诉自己，这对我没有影响，他没有影响到我，因为没有什么可以影响我。我不明白我的这种正确是多么病态，不明白自己是如何掏空了自己。尽管我一直被那晚的后果所困扰，但我误解了最重要的事实：它没有影响我，这本身就是它的影响。<br>
-——鱼眼睛</p>
-<p>她把目光转向我。我已多年未感受到她目光的力量了，为此我惊呆了。“在我所有的孩子中，”她说，“我原以为你才是那个穿越熊熊大火冲出这里的人。我从没料到会是泰勒——那令人意外——而不是你。你不要留下。走吧。不要让任何事阻止你走。”<br>
-——不再是孩子</p>
-<p>我的羞耻感源自我有一个将我朝吱嘎作响的大剪刀刀刃推去，而不是将我拉走远离它们的父亲；我的羞耻感源自我躺在地上的那些时刻，源自知道母亲就在隔壁房间闭目塞听，那一刻完全没有选择去尽一个母亲的责任。<br>
-——悲剧之后的闹剧</p>
-<p>好奇心是一种奢侈品，只有经济上有保障的人才有权享有。</p>
-<p>我在学习的这个技能至关重要，那就是对不懂的东西耐心阅读。<br>
-——大小盾牌</p>
-<p>对我来说重要的不是爱情或友情，而是我自欺欺人的能力：相信自己很坚强。<br>
-——我们的低语，我们的尖叫</p>
-<p>我所有的奋斗，我多年的学习，一直为了让自己特权得到这样一种：见证和体验超越父母所给予我的更多的真理，并用这些真理构建我自己的思想。我开始相信，评价多种思想、多种历史和多种观点的能力是自我创造力为核心。如果现在让步，我失去的将不仅仅是一次争论。我会失去对自己思想的掌控权。<br>
-——两双挥舞的手臂</p>
-<p>我属于那座山，是那座山塑造了我。只是随着年龄的增长，我开始思考，我的起点是否就是我的终点——个人初具的雏形是否就是他唯一真实的样貌。<br>
-——教育</p>
-<p>泰勒起身要走。“外面有一个世界，塔拉，” 他说，“一旦爸爸不再在你耳边灌输他的观点，世界就会看起来大不一样。”<br>
-——沉默的教堂</p>
-<p>书并非儿戏，我也并不软弱。<br>
-——卖花女</p>
-<p>承认不确定性，就是被迫承认自己的软弱和无能，但也意味着你相信你自己。<br>
-——我们的低语，我们的尖叫</p>
 ]]></content>
     </entry>
 </feed>
