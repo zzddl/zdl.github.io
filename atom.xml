@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://localhost:4000</id>
+    <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-18T15:43:07.194Z</updated>
+    <updated>2020-08-19T02:07:09.261Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://localhost:4000"/>
-    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
+    <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>http://localhost:4000/images/avatar.png</logo>
-    <icon>http://localhost:4000/favicon.ico</icon>
+    <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
+    <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
     <entry>
         <title type="html"><![CDATA[html学习8.18 -- HTML5拖放]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-818-html5-tuo-fang/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-818-html5-tuo-fang/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-tuo-fang/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-tuo-fang/">
         </link>
         <updated>2020-08-18T15:34:39.000Z</updated>
         <content type="html"><![CDATA[<h3 id="html-拖放实例">HTML 拖放实例</h3>
@@ -115,8 +115,8 @@ ev.target.appendChild(document.getElementById(data));
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.18 -- html5地理位置]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-818-html5-di-li-wei-zhi/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-818-html5-di-li-wei-zhi/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-di-li-wei-zhi/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-di-li-wei-zhi/">
         </link>
         <updated>2020-08-18T15:26:47.000Z</updated>
         <content type="html"><![CDATA[<h3 id="html5-使用地理定位">HTML5 - 使用地理定位</h3>
@@ -246,8 +246,8 @@ function showPosition(position)
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.18 -- HTML媒体]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-818-html-mei-ti/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-818-html-mei-ti/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html-mei-ti/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html-mei-ti/">
         </link>
         <updated>2020-08-18T15:14:24.000Z</updated>
         <content type="html"><![CDATA[<h2 id="html多媒体">HTML多媒体</h2>
@@ -539,8 +539,8 @@ type=&quot;application/x-shockwave-flash&quot;&gt;
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.18 -- html图形（2）SVG]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-818-html-tu-xing-2svg/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-818-html-tu-xing-2svg/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html-tu-xing-2svg/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html-tu-xing-2svg/">
         </link>
         <updated>2020-08-18T14:40:40.000Z</updated>
         <content type="html"><![CDATA[<h3 id="什么是svg">什么是SVG？</h3>
@@ -592,8 +592,8 @@ type=&quot;application/x-shockwave-flash&quot;&gt;
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.18 -- html图形（1）画布]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-818-html-tu-xing-1hua-bu/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-818-html-tu-xing-1hua-bu/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html-tu-xing-1hua-bu/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html-tu-xing-1hua-bu/">
         </link>
         <updated>2020-08-18T14:39:39.000Z</updated>
         <content type="html"><![CDATA[<h2 id="html5-canvas">HTML5 canvas</h2>
@@ -729,8 +729,8 @@ cxt.drawImage(img,0,0);
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.17 -- HTML5元素、语义、迁移、约定]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-817-html5-yuan-su-yu-yi-qian-yi-yue-ding/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-817-html5-yuan-su-yu-yi-qian-yi-yue-ding/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-817-html5-yuan-su-yu-yi-qian-yi-yue-ding/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-817-html5-yuan-su-yu-yi-qian-yi-yue-ding/">
         </link>
         <updated>2020-08-17T15:23:07.000Z</updated>
         <content type="html"><![CDATA[<h2 id="html5-新元素">HTML5 新元素</h2>
@@ -1307,8 +1307,8 @@ nav ul li {
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.17 -- html5简介、支持]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-817-html5-jian-jie-zhi-chi/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-817-html5-jian-jie-zhi-chi/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-817-html5-jian-jie-zhi-chi/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-817-html5-jian-jie-zhi-chi/">
         </link>
         <updated>2020-08-17T15:22:17.000Z</updated>
         <content type="html"><![CDATA[<h2 id="html5简介">HTML5简介</h2>
@@ -1485,8 +1485,8 @@ and the most populous metropolitan area in the world.&lt;/p&gt;
     </entry>
     <entry>
         <title type="html"><![CDATA[你当像鸟飞往你的山（educated）]]></title>
-        <id>http://localhost:4000/post/ni-dang-xiang-niao-fei-wang-ni-de-shan-educated/</id>
-        <link href="http://localhost:4000/post/ni-dang-xiang-niao-fei-wang-ni-de-shan-educated/">
+        <id>https://zzddl.github.io/zdl.github.io/post/ni-dang-xiang-niao-fei-wang-ni-de-shan-educated/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/ni-dang-xiang-niao-fei-wang-ni-de-shan-educated/">
         </link>
         <updated>2020-08-16T15:15:48.000Z</updated>
         <content type="html"><![CDATA[<p>教育意味着获得不同的视角，理解不同的人、经历和历史。接受教育，但不要让你的教育僵化成傲慢。教育应该是思想的拓展，同理心的深化，视野的开阔。教育不应该使你的偏见变得更顽固。如果人们受过教育，他们应该变得不那么确定，而不是更确定。他们应该多听，少说，对差异满怀激情，热爱那些不同于他们的想法。<br>
@@ -1524,8 +1524,8 @@ and the most populous metropolitan area in the world.&lt;/p&gt;
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.15 -- html输入属性]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-815-html-shu-ru-shu-xing/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-815-html-shu-ru-shu-xing/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-shu-ru-shu-xing/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-shu-ru-shu-xing/">
         </link>
         <updated>2020-08-15T15:04:23.000Z</updated>
         <content type="html"><![CDATA[<h2 id="html输入属性">html输入属性</h2>
@@ -1957,8 +1957,8 @@ and the most populous metropolitan area in the world.&lt;/p&gt;
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.15 -- html输入类型]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-815-html-shu-ru-lei-xing/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-815-html-shu-ru-lei-xing/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-shu-ru-lei-xing/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-815-html-shu-ru-lei-xing/">
         </link>
         <updated>2020-08-15T14:48:46.000Z</updated>
         <content type="html"><![CDATA[<h2 id="html输入类型">HTML输入类型</h2>
