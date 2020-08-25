@@ -1,0 +1,639 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>java核心类 | zdl&#39;s blog</title>
+
+<link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1598359965571">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zzddl.github.io/zdl.github.io//styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            zdl&#39;s blog
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    java核心类
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-08-25 ·
+                    </time>
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/hsZ5dP81f/" class="post-tags">
+                            # java
+                        </a>
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
+                            # 学习
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="java核心类">java核心类</h2>
+<h3 id="字符串和编码">字符串和编码</h3>
+<ol>
+<li>
+<p>当我们想要比较两个字符串是否相同时，要特别注意，我们实际上是想比较字符串的内容是否相同。必须使用<code>equals()</code>方法而不能用<code>==</code></p>
+</li>
+<li>
+<p>Java编译器在编译期，会自动把所有相同的字符串当作一个对象放入常量池</p>
+</li>
+<li>
+<p>要忽略大小写比较，使用<code>equalsIgnoreCase()</code>方法。</p>
+</li>
+<li>
+<p><code>contains()</code>方法的参数是<code>CharSequence</code>而不是<code>String</code>，因为<code>CharSequence</code>是<code>String</code>的父类。</p>
+</li>
+<li>
+<p>使用<code>trim()</code>方法可以移除字符串首尾空白字符。空白字符包括空格，<code>\t</code>，<code>\r</code>，<code>\n</code>：</p>
+</li>
+<li>
+<p><code>trim()</code>并没有改变字符串的内容，而是返回了一个新字符串。</p>
+</li>
+<li>
+<p><code>strip()</code>方法也可以移除字符串首尾空白字符。它和<code>trim()</code>不同的是，类似中文的空格字符<code>\u3000</code>也会被移除。</p>
+</li>
+<li>
+<p><code>String</code>还提供了<code>isEmpty()</code>和<code>isBlank()</code>来判断字符串是否为空和空白字符串</p>
+</li>
+<li>
+<p>字符串中替换子串，有两种方法</p>
+</li>
+</ol>
+<ul>
+<li>根据字符或字符串替换</li>
+</ul>
+<pre><code class="language-java">String s = &quot;hello&quot;;
+s.replace('l', 'w'); // &quot;hewwo&quot;，所有字符'l'被替换为'w'
+s.replace(&quot;ll&quot;, &quot;~~&quot;); // &quot;he~~o&quot;，所有子串&quot;ll&quot;被替换为&quot;~~&quot;
+</code></pre>
+<ul>
+<li>另一种是通过正则表达式替换：</li>
+</ul>
+<pre><code class="language-java">String s = &quot;A,,B;C ,D&quot;;
+s.replaceAll(&quot;[\\,\\;\\s]+&quot;, &quot;,&quot;); // &quot;A,B,C,D&quot;
+</code></pre>
+<ol start="10">
+<li>要分割字符串，使用<code>split()</code>方法，并且传入的也是正则表达式：</li>
+</ol>
+<pre><code class="language-java">String s = &quot;A,B,C,D&quot;;
+String[] ss = s.split(&quot;\\,&quot;); // {&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;}
+</code></pre>
+<ol start="11">
+<li>拼接字符串使用静态方法<code>join()</code>，它用指定的字符串连接字符串数组：</li>
+</ol>
+<pre><code class="language-java">String[] arr = {&quot;A&quot;, &quot;B&quot;, &quot;C&quot;};
+String s = String.join(&quot;***&quot;, arr); // &quot;A***B***C&quot;
+</code></pre>
+<ol start="12">
+<li>字符串提供了<code>formatted()</code>方法和<code>format()</code>静态方法，可以传入其他参数，替换占位符，然后生成新的字符串：</li>
+</ol>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        String s = &quot;Hi %s, your score is %d!&quot;;
+        System.out.println(s.formatted(&quot;Alice&quot;, 80));
+        System.out.println(String.format(&quot;Hi %s, your score is %.2f!&quot;, &quot;Bob&quot;, 59.5));
+    }
+}
+</code></pre>
+<p>常用的占位符：</p>
+<ul>
+<li><code>%s</code>：显示字符串；</li>
+<li><code>%d</code>：显示整数；</li>
+<li><code>%x</code>：显示十六进制整数；</li>
+<li><code>%f</code>：显示浮点数。</li>
+</ul>
+<ol start="13">
+<li>要把任意基本类型或引用类型转换为字符串，可以使用静态方法<code>valueOf()</code>。这是一个重载方法：</li>
+</ol>
+<pre><code class="language-java">String.valueOf(123); // &quot;123&quot;
+String.valueOf(45.67); // &quot;45.67&quot;
+String.valueOf(true); // &quot;true&quot;
+String.valueOf(new Object()); // 类似java.lang.Object@636be97c
+</code></pre>
+<ol start="14">
+<li>要把字符串转换为其他类型，就需要根据情况。例如，把字符串转换为<code>int</code>类型：</li>
+</ol>
+<pre><code class="language-java">int n1 = Integer.parseInt(&quot;123&quot;); // 123
+int n2 = Integer.parseInt(&quot;ff&quot;, 16); // 按十六进制转换，255
+</code></pre>
+<ol start="15">
+<li>把字符串转换为<code>boolean</code>类型：</li>
+</ol>
+<pre><code class="language-java">boolean b1 = Boolean.parseBoolean(&quot;true&quot;); // true
+boolean b2 = Boolean.parseBoolean(&quot;FALSE&quot;); // false
+</code></pre>
+<ol start="16">
+<li><code>Integer</code>有个<code>getInteger(String)</code>方法，它不是将字符串转换为<code>int</code>，而是把该字符串对应的系统变量转换为<code>Integer</code>：</li>
+</ol>
+<pre><code class="language-java">Integer.getInteger(&quot;java.version&quot;); // 版本号，11
+</code></pre>
+<ol start="17">
+<li><code>String</code>和<code>char[]</code>类型可以互相转换，方法是：</li>
+</ol>
+<pre><code class="language-java">char[] cs = &quot;Hello&quot;.toCharArray(); // String -&gt; char[]
+String s = new String(cs); // char[] -&gt; String
+</code></pre>
+<ol start="18">
+<li>
+<p>如果修改了<code>char[]</code>数组，<code>String</code>并不会改变：</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        char[] cs = &quot;Hello&quot;.toCharArray();
+        String s = new String(cs);
+        System.out.println(s);
+        cs[0] = 'X';
+        System.out.println(s);
+    }
+}
+</code></pre>
+<p>这是因为通过<code>new String(char[])</code>创建新的<code>String</code>实例时，它并不会直接引用传入的<code>char[]</code>数组，而是会复制一份，所以，修改外部的<code>char[]</code>数组不会影响<code>String</code>实例内部的<code>char[]</code>数组，因为这是两个不同的数组。</p>
+</li>
+<li>
+<p>UTF-8<code>编码的另一个好处是容错能力强。如果传输过程中某些字符出错，不会影响后续字符，因为</code>UTF-8`编码依靠高字节位来确定一个字符究竟是几个字节，它经常用来作为传输编码。</p>
+</li>
+</ol>
+<pre><code class="language-java">byte[] b1 = &quot;Hello&quot;.getBytes(); // 按系统默认编码转换，不推荐
+byte[] b2 = &quot;Hello&quot;.getBytes(&quot;UTF-8&quot;); // 按UTF-8编码转换
+byte[] b2 = &quot;Hello&quot;.getBytes(&quot;GBK&quot;); // 按GBK编码转换
+byte[] b3 = &quot;Hello&quot;.getBytes(StandardCharsets.UTF_8); // 按UTF-8编码转换
+</code></pre>
+<p>​		如果要把已知编码的<code>byte[]</code>转换为<code>String</code>，可以这样做：</p>
+<pre><code class="language-java">byte[] b = ...
+String s1 = new String(b, &quot;GBK&quot;); // 按GBK转换
+String s2 = new String(b, StandardCharsets.UTF_8); // 按UTF-8转换
+</code></pre>
+<ol start="20">
+<li>小结</li>
+</ol>
+<ul>
+<li>Java字符串<code>String</code>是不可变对象；</li>
+<li>字符串操作不改变原字符串内容，而是返回新字符串；</li>
+<li>常用的字符串操作：提取子串、查找、替换、大小写转换等；</li>
+<li>Java使用Unicode编码表示<code>String</code>和<code>char</code>；</li>
+<li>转换编码就是将<code>String</code>和<code>byte[]</code>转换，需要指定编码；</li>
+<li>转换为<code>byte[]</code>时，始终优先考虑<code>UTF-8</code>编码。</li>
+</ul>
+<h3 id="stringjoiner">StringJoiner</h3>
+<p>用指定分隔符拼接字符串数组时，使用<code>StringJoiner</code>或者<code>String.join()</code>更方便；</p>
+<p>用<code>StringJoiner</code>拼接字符串时，还可以额外附加一个“开头”和“结尾”。</p>
+<h3 id="包装类型">包装类型</h3>
+<p>1.Java的数据类型分两种：</p>
+<ul>
+<li>基本类型：<code>byte</code>，<code>short</code>，<code>int</code>，<code>long</code>，<code>boolean</code>，<code>float</code>，<code>double</code>，<code>char</code></li>
+<li>引用类型：所有<code>class</code>和<code>interface</code>类型</li>
+</ul>
+<p><strong>引用类型</strong>可以赋值为<code>null</code>，表示空，但<strong>基本类型</strong>不能赋值为<code>null</code></p>
+<p>2.想要把<code>int</code>基本类型变成一个引用类型，我们可以定义一个<code>Integer</code>类，它只包含一个实例字段<code>int</code>，这样，<code>Integer</code>类就可以视为<code>int</code>的包装类（Wrapper Class）：</p>
+<pre><code class="language-java">public class Integer {
+    private int value;
+
+    public Integer(int value) {
+        this.value = value;
+    }
+
+    public int intValue() {
+        return this.value;
+    }
+}
+</code></pre>
+<p>定义好了<code>Integer</code>类，我们就可以把<code>int</code>和<code>Integer</code>互相转换：</p>
+<pre><code class="language-java">Integer n = null;
+Integer n2 = new Integer(99);
+int n3 = n2.intValue();
+</code></pre>
+<ol start="3">
+<li></li>
+</ol>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        int i = 100;
+        // 通过new操作符创建Integer实例(不推荐使用,会有编译警告):
+        Integer n1 = new Integer(i);
+        // 通过静态方法valueOf(int)创建Integer实例:
+        Integer n2 = Integer.valueOf(i);
+        // 通过静态方法valueOf(String)创建Integer实例:
+        Integer n3 = Integer.valueOf(&quot;100&quot;);
+        System.out.println(n3.intValue());
+    }
+}
+</code></pre>
+<p>运行结果：</p>
+<p>Note: Main.java uses or overrides a deprecated API.<br>
+Note: Recompile with -Xlint:deprecation for details.<br>
+100</p>
+<p>4.Java编译器可以帮助我们自动在<code>int</code>和<code>Integer</code>之间转型：</p>
+<pre><code class="language-java">Integer n = 100; // 编译器自动使用Integer.valueOf(int)
+int x = n; // 编译器自动使用Integer.intValue()
+</code></pre>
+<p>这种直接把<code>int</code>变为<code>Integer</code>的赋值写法，称为自动装箱（Auto Boxing）</p>
+<p>把<code>Integer</code>变为<code>int</code>的赋值写法，称为自动拆箱（Auto Unboxing）</p>
+<p>5.<code>Integer</code>对象是不变的。</p>
+<p>6.<code>Integer</code>是引用类型，必须使用<code>equals()</code>比较</p>
+<p>7.<code>Integer</code>还可以把整数格式化为指定进制的字符串：</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        System.out.println(Integer.toString(100)); // &quot;100&quot;,表示为10进制
+        System.out.println(Integer.toString(100, 36)); // &quot;2s&quot;,表示为36进制
+        System.out.println(Integer.toHexString(100)); // &quot;64&quot;,表示为16进制
+        System.out.println(Integer.toOctalString(100)); // &quot;144&quot;,表示为8进制
+        System.out.println(Integer.toBinaryString(100)); // &quot;1100100&quot;,表示为2进制
+    }
+}
+</code></pre>
+<p>8.所有的整数和浮点数的包装类型都继承自<code>Number</code>，因此，可以非常方便地直接通过包装类型获取各种基本类型：</p>
+<pre><code class="language-java">// 向上转型为Number:
+Number num = new Integer(999);
+// 获取byte, int, long, float, double:
+byte b = num.byteValue();
+int n = num.intValue();
+long ln = num.longValue();
+float f = num.floatValue();
+double d = num.doubleValue();
+</code></pre>
+<p>9.小结</p>
+<ul>
+<li>Java核心库提供的包装类型可以把基本类型包装为<code>class</code>；</li>
+<li>自动装箱和自动拆箱都是在编译期完成的（JDK&gt;=1.5）；</li>
+<li>装箱和拆箱会影响执行效率，且拆箱时可能发生<code>NullPointerException</code>；</li>
+<li>包装类型的比较必须使用<code>equals()</code>；</li>
+<li>整数和浮点数的包装类型都继承自<code>Number</code>；</li>
+<li>包装类型提供了大量实用方法。</li>
+</ul>
+<h3 id="javabean">JavaBean</h3>
+<p>1.如果读写方法符合以下这种命名规范：</p>
+<pre><code class="language-java">// 读方法:
+public Type getXyz()
+// 写方法:
+public void setXyz(Type value)
+</code></pre>
+<p>那么这种<code>class</code>被称为<code>JavaBean</code></p>
+<p>2.<code>boolean</code>字段比较特殊，它的读方法一般命名为<code>isXyz()</code>：</p>
+<pre><code class="language-java">// 读方法:
+public boolean isChild()
+// 写方法:
+public void setChild(boolean value)
+</code></pre>
+<p>3.小结</p>
+<ul>
+<li>JavaBean是一种符合命名规范的<code>class</code>，它通过<code>getter</code>和<code>setter</code>来定义属性；</li>
+<li>属性是一种通用的叫法，并非Java语法规定；</li>
+<li>可以利用IDE快速生成<code>getter</code>和<code>setter</code>；</li>
+<li>使用<code>Introspector.getBeanInfo()</code>可以获取属性列表。</li>
+</ul>
+<h3 id="枚举类">枚举类</h3>
+<p>1.enum</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Weekday day = Weekday.SUN;
+        if (day == Weekday.SAT || day == Weekday.SUN) {
+            System.out.println(&quot;Work at home!&quot;);
+        } else {
+            System.out.println(&quot;Work at office!&quot;);
+        }
+    }
+}
+
+enum Weekday {
+    SUN, MON, TUE, WED, THU, FRI, SAT;
+}
+</code></pre>
+<p>2.不同类型的枚举不能互相比较或者赋值，因为类型不符</p>
+<p>3.<code>enum</code>定义的类型就是<code>class</code>，只不过它有以下几个特点:</p>
+<ul>
+<li>定义的<code>enum</code>类型总是继承自<code>java.lang.Enum</code>，且无法被继承；</li>
+<li>只能定义出<code>enum</code>的实例，而无法通过<code>new</code>操作符创建<code>enum</code>的实例；</li>
+<li>定义的每个实例都是引用类型的唯一实例；</li>
+<li>可以将<code>enum</code>类型用于<code>switch</code>语句。</li>
+</ul>
+<p>4.返回常量名，例如：</p>
+<pre><code class="language-java">String s = Weekday.SUN.name(); // &quot;SUN&quot;
+</code></pre>
+<p>5.返回定义的常量的顺序，从0开始计数，例如：</p>
+<pre><code class="language-java">int n = Weekday.MON.ordinal(); // 1
+</code></pre>
+<p>6.默认情况下，对枚举常量调用<code>toString()</code>会返回和<code>name()</code>一样的字符串。但是，<code>toString()</code>可以被覆写，而<code>name()</code>则不行。我们可以给<code>Weekday</code>添加<code>toString()</code>方法</p>
+<p>7.枚举类可以应用在<code>switch</code>语句中。因为枚举类天生具有类型信息和有限个枚举常量，所以比<code>int</code>、<code>String</code>类型更适合用在<code>switch</code>语句中, 加上<code>default</code>语句，可以在漏写某个枚举常量时自动报错，从而及时发现错误。</p>
+<p>8.小结</p>
+<ul>
+<li>Java使用<code>enum</code>定义枚举类型，它被编译器编译为<code>final class Xxx extends Enum { … }</code>；</li>
+<li>通过<code>name()</code>获取常量定义的字符串，注意不要使用<code>toString()</code>；</li>
+<li>通过<code>ordinal()</code>返回常量定义的顺序（无实质意义）；</li>
+<li>可以为<code>enum</code>编写构造方法、字段和方法</li>
+<li><code>enum</code>的构造方法要声明为<code>private</code>，字段强烈建议声明为<code>final</code>；</li>
+<li><code>enum</code>适合用在<code>switch</code>语句中。</li>
+</ul>
+<h3 id="记录类">记录类</h3>
+<p>1.使用<code>String</code>、<code>Integer</code>等类型的时候，这些类型都是不变类，一个不变类具有以下特点：</p>
+<ul>
+<li>定义class时使用<code>final</code>，无法派生子类；</li>
+<li>​	 每个字段使用<code>final</code>，保证创建实例后无法修改任何字段。</li>
+</ul>
+<p>2.小结</p>
+<p>从Java 14开始，提供新的<code>record</code>关键字，可以非常方便地定义Data Class：</p>
+<ul>
+<li>使用<code>record</code>定义的是不变类；</li>
+<li>可以编写Compact Constructor对参数进行验证；</li>
+<li>可以定义静态方法。</li>
+</ul>
+<h3 id="biginteger">BigInteger</h3>
+<p><code>BigInteger</code>用于表示任意大小的整数；</p>
+<p><code>BigInteger</code>是不变类，并且继承自<code>Number</code>；</p>
+<p>将<code>BigInteger</code>转换成基本类型时可使用<code>longValueExact()</code>等方法保证结果准确。</p>
+<h3 id="bigdecimal">BigDecimal</h3>
+<p>和<code>BigInteger</code>类似，<code>BigDecimal</code>可以表示一个任意大小且精度完全准确的浮点数。</p>
+<p>1.<code>BigDecimal</code>用<code>scale()</code>表示小数位数，例如：</p>
+<pre><code class="language-java">BigDecimal d1 = new BigDecimal(&quot;123.45&quot;);
+BigDecimal d2 = new BigDecimal(&quot;123.4500&quot;);
+BigDecimal d3 = new BigDecimal(&quot;1234500&quot;);
+System.out.println(d1.scale()); // 2,两位小数
+System.out.println(d2.scale()); // 4
+System.out.println(d3.scale()); // 0
+</code></pre>
+<p>2.通过<code>BigDecimal</code>的<code>stripTrailingZeros()</code>方法，可以将一个<code>BigDecimal</code>格式化为一个相等的，但去掉了末尾0的<code>BigDecimal</code></p>
+<pre><code class="language-java">BigDecimal d1 = new BigDecimal(&quot;123.4500&quot;);
+BigDecimal d2 = d1.stripTrailingZeros();
+System.out.println(d1.scale()); // 4
+System.out.println(d2.scale()); // 2,因为去掉了00
+
+BigDecimal d3 = new BigDecimal(&quot;1234500&quot;);
+BigDecimal d4 = d3.stripTrailingZeros();
+System.out.println(d3.scale()); // 0
+System.out.println(d4.scale()); // -2
+</code></pre>
+<p>如果一个<code>BigDecimal</code>的<code>scale()</code>返回负数，例如，<code>-2</code>，表示这个数是个整数，并且末尾有2个0。</p>
+<p>3.可以对一个<code>BigDecimal</code>设置它的<code>scale</code>，如果精度比原始值低，那么按照指定的方法进行四舍五入或者直接截断：</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        BigDecimal d1 = new BigDecimal(&quot;123.456789&quot;);
+        BigDecimal d2 = d1.setScale(4, RoundingMode.HALF_UP); // 四舍五入，123.4568
+        BigDecimal d3 = d1.setScale(4, RoundingMode.DOWN); // 直接截断，123.4567
+        System.out.println(d2);
+        System.out.println(d3);
+    }
+}
+
+</code></pre>
+<p>做除法时，存在无法除尽的情况，这时，就必须指定精度以及如何进行截断</p>
+<pre><code class="language-java">BigDecimal d1 = new BigDecimal(&quot;123.456&quot;);
+BigDecimal d2 = new BigDecimal(&quot;23.456789&quot;);
+BigDecimal d3 = d1.divide(d2, 10, RoundingMode.HALF_UP); // 保留10位小数并四舍五入
+BigDecimal d4 = d1.divide(d2); // 报错：ArithmeticException，因为除不尽
+</code></pre>
+<p>4.还可以对<code>BigDecimal</code>做除法的同时求余数：</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        BigDecimal n = new BigDecimal(&quot;12.345&quot;);
+        BigDecimal m = new BigDecimal(&quot;0.12&quot;);
+        BigDecimal[] dr = n.divideAndRemainder(m);
+        System.out.println(dr[0]); // 102
+        System.out.println(dr[1]); // 0.105
+    }
+}
+</code></pre>
+<p>5.比较BigDecimal</p>
+<p>必须使用<code>compareTo()</code>方法来比较，它根据两个值的大小分别返回负数、正数和<code>0</code>，分别表示小于、大于和等于。</p>
+<p>6.<code>BigDecimal</code>也是从<code>Number</code>继承的，也是不可变对象。</p>
+<p>7.小结</p>
+<p><code>BigDecimal</code>用于表示精确的小数，常用于财务计算；</p>
+<p>比较<code>BigDecimal</code>的值是否相等，必须使用<code>compareTo()</code>而不能使用<code>equals()</code>。</p>
+<h3 id="常用工具类">常用工具类</h3>
+<h4 id="math">Math</h4>
+<p>1.求绝对值：</p>
+<pre><code class="language-java">Math.abs(-100); // 100
+Math.abs(-7.8); // 7.8
+</code></pre>
+<p>2.最大、最小值</p>
+<pre><code class="language-java">Math.max(100, 99); // 100
+Math.min(1.2, 2.3); // 1.2
+</code></pre>
+<p>3.计算x的y次方</p>
+<pre><code class="language-java">Math.pow(2, 10); // 2的10次方=1024
+</code></pre>
+<p>4.x开平方</p>
+<pre><code class="language-java">Math.sqrt(2); // 1.414...
+</code></pre>
+<p>5.计算e的x次方</p>
+<pre><code class="language-java">Math.exp(2); // 7.389...
+</code></pre>
+<p>6.计算以e为底的对数</p>
+<pre><code class="language-java">Math.log(4); // 1.386...
+</code></pre>
+<p>7.计算以10为底的对数：</p>
+<pre><code class="language-java">Math.log10(100); // 2
+</code></pre>
+<p>8.三角函数：</p>
+<pre><code class="language-java">Math.sin(3.14); // 0.00159...
+Math.cos(3.14); // -0.9999...
+Math.tan(3.14); // -0.0015...
+Math.asin(1.0); // 1.57079...
+Math.acos(1.0); // 0.0
+</code></pre>
+<p>9.几个常量：</p>
+<pre><code class="language-java">double pi = Math.PI; // 3.14159...
+double e = Math.E; // 2.7182818...
+Math.sin(Math.PI / 6); // sin(π/6) = 0.5
+</code></pre>
+<h4 id="random">Random</h4>
+<p>1.<code>Random</code>用来创建伪随机数。所谓伪随机数，是指只要给定一个初始的种子，产生的随机数序列是完全一样的。</p>
+<pre><code class="language-java">Random r = new Random();
+r.nextInt(); // 2071575453,每次都不一样
+r.nextInt(10); // 5,生成一个[0,10)之间的int
+r.nextLong(); // 8811649292570369305,每次都不一样
+r.nextFloat(); // 0.54335...生成一个[0,1)之间的float
+r.nextDouble(); // 0.3716...生成一个[0,1)之间的double
+</code></pre>
+<p>创建<code>Random</code>实例时，如果不给定种子，就使用系统当前时间戳作为种子，因此每次运行时，种子不同，得到的伪随机数序列就不同</p>
+<p>如果我们在创建<code>Random</code>实例时指定一个种子，就会得到完全确定的随机数序列：</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Random r = new Random(12345);
+        for (int i = 0; i &lt; 10; i++) {
+            System.out.println(r.nextInt(100));
+        }
+        // 51, 80, 41, 28, 55...
+    }
+}
+</code></pre>
+<h4 id="securerandom">SecureRandom</h4>
+<p>1.<code>SecureRandom</code>就是用来创建安全的随机数的：</p>
+<pre><code class="language-java">SecureRandom sr = new SecureRandom();
+System.out.println(sr.nextInt(100));
+</code></pre>
+<p>2.<code>SecureRandom</code>无法指定种子，它使用RNG（random number generator）算法</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        SecureRandom sr = null;
+        try {
+            sr = SecureRandom.getInstanceStrong(); // 获取高强度安全随机数生成器
+        } catch (NoSuchAlgorithmException e) {
+            sr = new SecureRandom(); // 获取普通的安全随机数生成器
+        }
+        byte[] buffer = new byte[16];
+        sr.nextBytes(buffer); // 用安全随机数填充buffer
+        System.out.println(Arrays.toString(buffer));
+    }
+}
+</code></pre>
+<p>3.<code>SecureRandom</code>的安全性是通过操作系统提供的安全的随机种子来生成随机数。这个种子是通过CPU的热噪声、读写磁盘的字节、网络流量等各种随机事件产生的“熵”。</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-sse/" class="post-title gt-a-link">
+                    html学习8.19 -- HTML5 SSE
+                </a>
+            </div>
+        
+
+        
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="java核心类">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'xBznEMVwmKi5pMvS26moB6yz-gzGzoHsz',
+		appKey: 'ILjXmvK87TpdMtG39nt8eXJF',
+		avatar: 'mp',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: true,
+	});
+</script>
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">温故而知新</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+                <a href="https://weibo.com/u/5666236540/home?wvr=5&amp;sudaref=www.baidu.com&amp;display=0&amp;retcode=6102&amp;sudaref=passport.weibo.com" target="_blank">
+                    <i class="fab fa-weibo gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://zzddl.github.io/zdl.github.io//atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
