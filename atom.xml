@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-08-25T12:52:48.505Z</updated>
+    <updated>2020-09-01T07:36:31.910Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,23 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[大泥球（Big Ball of Mud）]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/da-ni-qiu-big-ball-of-mud/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/da-ni-qiu-big-ball-of-mud/">
+        </link>
+        <updated>2020-09-01T07:35:54.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="定义">定义：</h2>
+<p>大泥球是指一个随意化的杂乱的结构化系统，只是代码的堆砌和拼凑，往往会导致很多错误或者缺陷。</p>
+<h2 id="缺点">缺点：</h2>
+<p>无法使得系统内的信息得到更好的控制和共享，使得信息失去了应有的价值。大泥球般的系统的整体结构没有得到很好的界定，也就使得大泥球越发的复杂和杂乱无章。最终会使得这个系统的代码不被程序员理解，更无法对其修复，无法满足用户的需求变化。</p>
+<h2 id="产生的原因">产生的原因：</h2>
+<p>首先，程序员在编写程序或是系统时遇到问题后的解决方法，往往不是合适的或者最优的解法，而是方便修改的，变动最小的，这就为以后的系统架构的混乱甚至整个系统的奔溃埋下了隐患。其次，用户的需求或者编程的要求是在不断地变化的，任何一个已有的系统都随之会产生重大的变化，使得系统越来越复杂化，维护也越来越昂贵，另外编写人员的变动等等因素都会导致系统的退化，一步步变为大泥球。</p>
+<p>所以，可以将其产生的原因归结为：一次性代码，碎片式增长，缺少前期设计，应对需求和架构变化过晚，程序员的经验，技巧，眼界的限制。</p>
+<h2 id="避免或者修改大泥球的方法">避免或者修改大泥球的方法：</h2>
+<p>首先，程序员或者设计师为了在预算中并按时交付高质量的软件，就需要关注软件的特性和功能，然后集中在架构和性能，使得软件设计初步就避免产生小的问题或者方向的偏差。其次，程序员在编写软件时要及时的解决出现的小问题或者原型概念等等，这样不会使得问题堆积导致后期的无法修改。另外，应当及时处理用户需求的变化，由于需求往往会随着时间的推移而变化，所以应当逐步的解决，并且鼓励和积极面对变化而不是掩盖问题。另外，要保持一直工作的状态，不断地维护需求和系统。但不应当进行一次彻底的检查，这样很可能会破坏系统。当然，软件系统也是在变化的，但是不同的部分会以不同的速度变化，所以应当使得它们的变化率一致。最坏的结果就是代码已经下降到了无法修复甚至理解的地步，那么就扔掉，重新开始。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[java核心类]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/java-he-xin-lei/</id>
@@ -1472,143 +1489,6 @@ type=&quot;application/x-shockwave-flash&quot;&gt;
 <li>复杂度高会减慢渲染速度（过度使用DOM）</li>
 <li>不适合游戏应用</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[html学习8.18 -- html图形（1）画布]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html-tu-xing-1hua-bu/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html-tu-xing-1hua-bu/">
-        </link>
-        <updated>2020-08-18T14:39:39.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="html5-canvas">HTML5 canvas</h2>
-<h3 id="canvas">Canvas</h3>
-<p>HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。</p>
-<h3 id="创建-canvas-元素">创建 Canvas 元素</h3>
-<p>向 HTML5 页面添加 canvas 元素。</p>
-<pre><code class="language-html">&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;&lt;/canvas&gt;
-</code></pre>
-<h3 id="通过-javascript-来绘制">通过 JavaScript 来绘制</h3>
-<p>canvas 元素本身是没有绘图能力的。所有的绘制工作必须在 JavaScript 内部完成：</p>
-<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
-var c=document.getElementById(&quot;myCanvas&quot;);
-var cxt=c.getContext(&quot;2d&quot;);
-cxt.fillStyle=&quot;#FF0000&quot;;
-cxt.fillRect(0,0,150,75);
-&lt;/script&gt;
-</code></pre>
-<ol>
-<li>JavaScript 使用 id 来寻找 canvas 元素：</li>
-</ol>
-<pre><code class="language-html">var c=document.getElementById(&quot;myCanvas&quot;);
-</code></pre>
-<ol start="2">
-<li>创建 context 对象：</li>
-</ol>
-<pre><code class="language-html">var cxt=c.getContext(&quot;2d&quot;); 
-</code></pre>
-<p>下面的两行代码绘制一个红色的矩形：</p>
-<pre><code class="language-html">cxt.fillStyle=&quot;#FF0000&quot;;
-cxt.fillRect(0,0,150,75); 
-</code></pre>
-<p>fillStyle 方法将其染成红色，fillRect 方法规定了形状、位置和尺寸。</p>
-<h3 id="实例">实例</h3>
-<h4 id="线条">线条</h4>
-<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
-&lt;html&gt;
-&lt;body&gt;
-
-&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot; style=&quot;border:1px solid #c3c3c3;&quot;&gt;
-Your browser does not support the canvas element.
-&lt;/canvas&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-var c=document.getElementById(&quot;myCanvas&quot;);
-var cxt=c.getContext(&quot;2d&quot;);
-cxt.moveTo(10,10);
-cxt.lineTo(150,50);
-cxt.lineTo(10,50);
-cxt.stroke();
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="E:%5C%E5%BC%A0%E4%B8%81%E9%BE%99%5Cweb%E5%89%8D%E7%AB%AF%5C%E5%9B%BE%5C%E4%B8%8B%E8%BD%BD.png" alt="" loading="lazy"></figure>
-<h4 id="圆形">圆形</h4>
-<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
-&lt;html&gt;
-&lt;body&gt;
-
-&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot; style=&quot;border:1px solid #c3c3c3;&quot;&gt;
-Your browser does not support the canvas element.
-&lt;/canvas&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-var c=document.getElementById(&quot;myCanvas&quot;);
-var cxt=c.getContext(&quot;2d&quot;);
-cxt.fillStyle=&quot;#FF0000&quot;;
-cxt.beginPath();
-cxt.arc(70,18,15,0,Math.PI*2,true);
-cxt.closePath();
-cxt.fill();
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p>![](E:\张丁龙\web前端\图\下载 (1).png)</p>
-<h4 id="渐变">渐变</h4>
-<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
-&lt;html&gt;
-&lt;body&gt;
-
-&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot; style=&quot;border:1px solid #c3c3c3;&quot;&gt;
-Your browser does not support the canvas element.
-&lt;/canvas&gt;
-
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-var c=document.getElementById(&quot;myCanvas&quot;);
-var cxt=c.getContext(&quot;2d&quot;);
-var grd=cxt.createLinearGradient(0,0,175,50);
-grd.addColorStop(0,&quot;#FF0000&quot;);
-grd.addColorStop(1,&quot;#00FF00&quot;);
-cxt.fillStyle=grd;
-cxt.fillRect(0,0,175,50);
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p>![](E:\张丁龙\web前端\图\下载 (2).png)</p>
-<h4 id="图像">图像</h4>
-<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
-&lt;html&gt;
-&lt;body&gt;
-
-&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot; style=&quot;border:1px solid #c3c3c3;&quot;&gt;
-Your browser does not support the canvas element.
-&lt;/canvas&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-var c=document.getElementById(&quot;myCanvas&quot;);
-var cxt=c.getContext(&quot;2d&quot;);
-var img=new Image()
-img.src=&quot;/i/eg_flower.png&quot;
-cxt.drawImage(img,0,0);
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
 ]]></content>
     </entry>
 </feed>
