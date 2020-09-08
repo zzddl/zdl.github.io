@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>HTML简介 | zdl&#39;s blog</title>
+<title>STM32 位绑定操作 | zdl&#39;s blog</title>
 
 <link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1599531304735">
 
@@ -83,16 +83,12 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    HTML简介
+                    STM32 位绑定操作
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-07-28 ·
+                        · 2020-09-08 ·
                     </time>
-                    
-                        <a href="https://zzddl.github.io/zdl.github.io/tag/ebA9k3wZg/" class="post-tags">
-                            # HTML
-                        </a>
                     
                         <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
                             # 学习
@@ -100,46 +96,32 @@
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="什么是-html">什么是 HTML？</h2>
-<p>HTML 是用来描述网页的一种语言。</p>
+                    <h3 id="定义">定义</h3>
+<p>STM32将寄存器映射到了位绑定区（bit_band region），这样就可以通过统一的线性寻址空间直接操作寄存器了，这个空间就是0x00000000~0xFFFF FFFF共4GB大小，除去寄存器外，其他包括程序存储区、数据存储区、输入输出端口等。</p>
+<h3 id="支持位绑定操作的两个内存区">支持位绑定操作的两个内存区</h3>
+<p>0x2000 0000~0x200F FFFF（SRAM区中最低1MB）</p>
+<p>0x4000 0000~0x400F FFFF（片上外设区中最低1MB）</p>
+<h3 id="位绑定操作的理解">位绑定操作的理解</h3>
+<p>CPU是32位的，最方便快捷的是直接操作一个32位的地址，比如0x4200 ABCD这样，对这个地址赋值是最快捷的操作，只要一条指令。于是STM32又设计出别名区（Alias region）的概念，将一个32位地址空间对应到位带区（bit_band region）中的一个位。32位是STM32 CPU能独立访问的地址空间（称为字，即4个字节），将这个地址空间的起始位（bit0，其他bit1~bit31忽略）内容设为0或1就等于对位带区的相应位进行了操作，也相当于对寄存器进行了操作。</p>
+<p>映射关系：</p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdn.net/20170214140941826" alt="img" loading="lazy"></figure>
+<p>位绑定别名区一共有两个，每一个都是32MB，是位绑定区1MB的32倍，因为位绑定区是以位为单位，每8位有一个地址，位绑定别名区是以字为单位，一个字等于四个字节32位字长。</p>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdn.net/20170214140948727" alt="img" loading="lazy"></figure>
+<p>位绑定区0x2000 0000的第0位对应别名区地址0x22000000~0x2200 0003这4个字节，需要指出的是0x2200 0001、0x2200 0002、0x2200 0003这样的地址是不能直接被访问的，只有0x2200 0000、0x2200 0004、0x2200 0008…这样的起始地址（其实是4的倍数）才能被访问</p>
+<p><strong>别名区的地址映射就是计算起始地址</strong></p>
+<p>STM32别名区起始地址的计算：</p>
+<p>it_word_addr = bit_band_base + (byte_offset * 32) +(bit_number * 4)</p>
 <ul>
-<li>HTML 指的是超文本标记语言 (<strong>H</strong>yper <strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage)</li>
-<li>HTML 不是一种编程语言，而是一种<strong>标记语言</strong> (markup language)</li>
-<li>标记语言是一套<strong>标记标签</strong> (markup tag)</li>
-<li>HTML 使用<strong>标记标签</strong>来描述网页</li>
+<li>bit_word_addr：是位绑定区目标位映射到别名区的字的起始地址</li>
+<li>bit_band_base：是别名区的起始地址</li>
+<li>byte_offset：是位带区包含目标位的字节的地址偏移量。</li>
+<li>byte_offset * 32：是因为位带区的一个位要扩张到别名区的32个位，同样，一个位带区的地址也会扩张到别名区的32个地址。byte_offset * 32表示前面已经占用的地址。</li>
+<li>bit_number：是目标位所在的位的位置（0-7）</li>
+<li>bit_number*4是因为 1bit位要占用四个地址单元（四个字节，32 bit位）</li>
 </ul>
-<h2 id="html-标签">HTML 标签</h2>
-<p>HTML 标记标签通常被称为 HTML 标签 (HTML tag)。</p>
-<ul>
-<li>HTML 标签是由<strong>尖括号</strong>包围的关键词，比如 &lt; html&gt;</li>
-<li>HTML 标签通常是<strong>成对出现</strong>的，比如 &lt; b&gt; 和 &lt; /b&gt;</li>
-<li>标签对中的第一个标签是<strong>开始标签</strong>，第二个标签是<strong>结束标签</strong></li>
-<li>开始和结束标签也被称为<strong>开放标签</strong>和<strong>闭合标签</strong></li>
-</ul>
-<h2 id="html文档-网页">HTML文档 = 网页</h2>
-<ul>
-<li>HTML 文档<strong>描述网页</strong></li>
-<li>HTML 文档<strong>包含 HTML 标签</strong>和<strong>纯文本</strong></li>
-<li>HTML 文档也被称为<strong>网页</strong></li>
-<li>web浏览器的作用是读取html文档，并且以网页的形式显示。浏览器不会显示HTML标签，而是用标签解释页面内容</li>
-</ul>
-<pre><code class="language-html">&lt;html&gt;
-&lt;body&gt;
-
-&lt;h1&gt;My first Heading&lt;/h1&gt;
-
-&lt;p&gt;My first paragraph.&lt;/p&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h2 id="例子解释">例子解释</h2>
-<ul>
-<li>&lt; html&gt; 与 &lt; /html&gt; 之间的文本描述网页</li>
-<li>&lt; body&gt; 与 &lt; /body&gt; 之间的文本是可见的页面内容</li>
-<li>&lt; h1&gt; 与 &lt; /h1&gt; 之间的文本被显示为标题</li>
-<li>&lt; p&gt; 与 &lt; /p&gt; 之间的文本被显示为段落</li>
-</ul>
+<p>公式的变形：</p>
+<p>it_word_addr = bit_band_base + ((byte_offset * 8) + bit_number) * 4</p>
+<p>由于位绑定区每一个地址是8位，所以(byte_offset * 8)+ bit_number相当计算出了一个以字节为单位的偏移，再乘以4就是以字为单位的偏移了。</p>
 
                 </div>
             </article>
@@ -148,14 +130,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://zzddl.github.io/zdl.github.io/post/git-chang-yong-ming-ling/" class="post-title gt-a-link">
-                    Git常用命令
+                <a href="https://zzddl.github.io/zdl.github.io/post/da-ni-qiu-big-ball-of-mud/" class="post-title gt-a-link">
+                    大泥球（Big Ball of Mud）
                 </a>
             </div>
         
 
         
-            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="HTML简介">
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="STM32 位绑定操作">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
