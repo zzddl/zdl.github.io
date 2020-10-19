@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://localhost:4000</id>
+    <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-10-19T15:01:19.970Z</updated>
+    <updated>2020-10-19T15:05:12.371Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://localhost:4000"/>
-    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
+    <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>http://localhost:4000/images/avatar.png</logo>
-    <icon>http://localhost:4000/favicon.ico</icon>
+    <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
+    <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
     <entry>
         <title type="html"><![CDATA[pandas库loc和iloc]]></title>
-        <id>http://localhost:4000/post/pandas-ku-loc-he-iloc/</id>
-        <link href="http://localhost:4000/post/pandas-ku-loc-he-iloc/">
+        <id>https://zzddl.github.io/zdl.github.io/post/pandas-ku-loc-he-iloc/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/pandas-ku-loc-he-iloc/">
         </link>
         <updated>2020-10-19T14:59:34.000Z</updated>
         <content type="html"><![CDATA[<p>loc是指location的意思，iloc中的i是指integer</p>
@@ -110,13 +110,13 @@ df.iloc[[1,2,3,4],[3,4,5]]
     </entry>
     <entry>
         <title type="html"><![CDATA[如何解决failed to push some refs to git]]></title>
-        <id>http://localhost:4000/post/ru-he-jie-jue-failed-to-push-some-refs-to-git/</id>
-        <link href="http://localhost:4000/post/ru-he-jie-jue-failed-to-push-some-refs-to-git/">
+        <id>https://zzddl.github.io/zdl.github.io/post/ru-he-jie-jue-failed-to-push-some-refs-to-git/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/ru-he-jie-jue-failed-to-push-some-refs-to-git/">
         </link>
         <updated>2020-10-01T16:00:20.000Z</updated>
         <content type="html"><![CDATA[<h3 id="错误信息">错误信息</h3>
 <p>在使用git 对源代码进行push到gitHub时可能会出错，例如</p>
-<figure data-type="image" tabindex="1"><img src="http://localhost:4000/post-images/1601568150391.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1601568150391.jpg" alt="" loading="lazy"></figure>
 <h3 id="错误原因">错误原因</h3>
 <p>出现错误的主要原因是github中的README.md文件不在本地代码目录中</p>
 <h3 id="解决办法">解决办法</h3>
@@ -128,8 +128,8 @@ df.iloc[[1,2,3,4],[3,4,5]]
     </entry>
     <entry>
         <title type="html"><![CDATA[STM32 位绑定操作]]></title>
-        <id>http://localhost:4000/post/stm32-wei-bang-ding-cao-zuo/</id>
-        <link href="http://localhost:4000/post/stm32-wei-bang-ding-cao-zuo/">
+        <id>https://zzddl.github.io/zdl.github.io/post/stm32-wei-bang-ding-cao-zuo/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/stm32-wei-bang-ding-cao-zuo/">
         </link>
         <updated>2020-09-08T02:13:01.000Z</updated>
         <content type="html"><![CDATA[<h3 id="定义">定义</h3>
@@ -162,8 +162,8 @@ df.iloc[[1,2,3,4],[3,4,5]]
     </entry>
     <entry>
         <title type="html"><![CDATA[大泥球（Big Ball of Mud）]]></title>
-        <id>http://localhost:4000/post/da-ni-qiu-big-ball-of-mud/</id>
-        <link href="http://localhost:4000/post/da-ni-qiu-big-ball-of-mud/">
+        <id>https://zzddl.github.io/zdl.github.io/post/da-ni-qiu-big-ball-of-mud/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/da-ni-qiu-big-ball-of-mud/">
         </link>
         <updated>2020-09-01T07:35:54.000Z</updated>
         <content type="html"><![CDATA[<h2 id="定义">定义：</h2>
@@ -179,8 +179,8 @@ df.iloc[[1,2,3,4],[3,4,5]]
     </entry>
     <entry>
         <title type="html"><![CDATA[java核心类]]></title>
-        <id>http://localhost:4000/post/java-he-xin-lei/</id>
-        <link href="http://localhost:4000/post/java-he-xin-lei/">
+        <id>https://zzddl.github.io/zdl.github.io/post/java-he-xin-lei/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/java-he-xin-lei/">
         </link>
         <updated>2020-08-25T12:50:16.000Z</updated>
         <content type="html"><![CDATA[<h2 id="java核心类">java核心类</h2>
@@ -634,8 +634,8 @@ System.out.println(sr.nextInt(100));
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.19 -- HTML5 SSE]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-819-html5-sse/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-819-html5-sse/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-sse/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-sse/">
         </link>
         <updated>2020-08-19T02:54:00.000Z</updated>
         <content type="html"><![CDATA[<p><strong>Server-Sent 事件允许网页从服务器获得更新。</strong></p>
@@ -706,8 +706,8 @@ else
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.19 -- HTML5 web workers]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-819-html5-web-workers/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-819-html5-web-workers/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-web-workers/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-web-workers/">
         </link>
         <updated>2020-08-19T02:49:44.000Z</updated>
         <content type="html"><![CDATA[<h3 id="web-worker">Web Worker</h3>
@@ -804,8 +804,8 @@ function stopWorker() {
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.19 -- HTML5应用缓存]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-819-html5-ying-yong-huan-cun/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-819-html5-ying-yong-huan-cun/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-ying-yong-huan-cun/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-ying-yong-huan-cun/">
         </link>
         <updated>2020-08-19T02:31:29.000Z</updated>
         <content type="html"><![CDATA[<p><strong>使用应用程序缓存，通过创建 cache manifest 文件，可轻松创建 web 应用的离线版本。</strong></p>
@@ -896,8 +896,8 @@ FALLBACK:
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.19 -- html5本地存储]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-819-html5-ben-di-cun-chu/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-819-html5-ben-di-cun-chu/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-ben-di-cun-chu/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-ben-di-cun-chu/">
         </link>
         <updated>2020-08-19T02:15:50.000Z</updated>
         <content type="html"><![CDATA[<p><strong>HTML 本地存储：优于 cookies。</strong></p>
@@ -1063,8 +1063,8 @@ function clickCounter() {
     </entry>
     <entry>
         <title type="html"><![CDATA[html学习8.18 -- HTML5拖放]]></title>
-        <id>http://localhost:4000/post/html-xue-xi-818-html5-tuo-fang/</id>
-        <link href="http://localhost:4000/post/html-xue-xi-818-html5-tuo-fang/">
+        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-tuo-fang/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-tuo-fang/">
         </link>
         <updated>2020-08-18T15:34:39.000Z</updated>
         <content type="html"><![CDATA[<h3 id="html-拖放实例">HTML 拖放实例</h3>
