@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>HTML简介 | zdl&#39;s blog</title>
+<title>pandas库loc和iloc | zdl&#39;s blog</title>
 
 <link rel="shortcut icon" href="http://localhost:4000/favicon.ico?v=1603119673119">
 
@@ -83,62 +83,112 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    HTML简介
+                    pandas库loc和iloc
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-07-28 ·
+                        · 2020-10-19 ·
                     </time>
                     
-                        <a href="http://localhost:4000/tag/ebA9k3wZg/" class="post-tags">
-                            # HTML
+                        <a href="http://localhost:4000/tag/bA1mqIptz/" class="post-tags">
+                            # python
                         </a>
                     
-                        <a href="http://localhost:4000/tag/XmSEYpaqt/" class="post-tags">
-                            # 学习
+                        <a href="http://localhost:4000/tag/iC68fAjzi/" class="post-tags">
+                            # pandas
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="什么是-html">什么是 HTML？</h2>
-<p>HTML 是用来描述网页的一种语言。</p>
-<ul>
-<li>HTML 指的是超文本标记语言 (<strong>H</strong>yper <strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage)</li>
-<li>HTML 不是一种编程语言，而是一种<strong>标记语言</strong> (markup language)</li>
-<li>标记语言是一套<strong>标记标签</strong> (markup tag)</li>
-<li>HTML 使用<strong>标记标签</strong>来描述网页</li>
-</ul>
-<h2 id="html-标签">HTML 标签</h2>
-<p>HTML 标记标签通常被称为 HTML 标签 (HTML tag)。</p>
-<ul>
-<li>HTML 标签是由<strong>尖括号</strong>包围的关键词，比如 &lt; html&gt;</li>
-<li>HTML 标签通常是<strong>成对出现</strong>的，比如 &lt; b&gt; 和 &lt; /b&gt;</li>
-<li>标签对中的第一个标签是<strong>开始标签</strong>，第二个标签是<strong>结束标签</strong></li>
-<li>开始和结束标签也被称为<strong>开放标签</strong>和<strong>闭合标签</strong></li>
-</ul>
-<h2 id="html文档-网页">HTML文档 = 网页</h2>
-<ul>
-<li>HTML 文档<strong>描述网页</strong></li>
-<li>HTML 文档<strong>包含 HTML 标签</strong>和<strong>纯文本</strong></li>
-<li>HTML 文档也被称为<strong>网页</strong></li>
-<li>web浏览器的作用是读取html文档，并且以网页的形式显示。浏览器不会显示HTML标签，而是用标签解释页面内容</li>
-</ul>
-<pre><code class="language-html">&lt;html&gt;
-&lt;body&gt;
+                    <p>loc是指location的意思，iloc中的i是指integer</p>
+<p>loc是根据index来索引。</p>
+<p>iloc并不是根据index来索引，而是根据行号来索引，行号从0开始，逐次加1,并且只能用整数来取数。</p>
+<h3 id="loc的使用">loc的使用</h3>
+<p><strong>loc</strong>：loc的使用范围要远高于iloc, loc也能够做到iloc的切片取数, 除了df.loc[-1]</p>
+<p><strong>使用情况</strong>：使用切片、索引、列名称查找，按条件(bool)查找</p>
+<p><strong>数据源</strong>：</p>
+<pre><code class="language-python">&gt;&gt;&gt; df = pd.DataFrame([[1, 2], [4, 5], [7, 8]],
+...      index=['A', 'B', 'C'],
+...      columns=['col1', 'col2'])
 
-&lt;h1&gt;My first Heading&lt;/h1&gt;
-
-&lt;p&gt;My first paragraph.&lt;/p&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
+          col1   col2
+A          1       2
+B          4       5
+C          7       8
 </code></pre>
-<h2 id="例子解释">例子解释</h2>
+<p><strong>用法示例</strong>：</p>
+<p>（1）单独标签，返回一个单独的series</p>
+<pre><code class="language-python">&gt;&gt;&gt; df.loc['A']
+col1  1
+col2  2
+</code></pre>
+<p>（2）内嵌List，返回一个DataFrame</p>
+<pre><code class="language-python">&gt;&gt;&gt; df.loc['B','C']
+          col1   col2
+A          1       2
+C          7       8
+</code></pre>
+<p>（3）Single label for row and column，注意，先索引，再列名</p>
+<pre><code class="language-python">&gt;&gt;&gt; df.loc['B','col2']
+5
+</code></pre>
+<p>（4）多个索引加列名</p>
+<pre><code class="language-python">&gt;&gt;&gt; df.loc['A':'C','col2']
+A  2
+C  8
+</code></pre>
+<p>（5）用布尔值：针对行进行过滤。False表示不取这一行。True表示取出这一行</p>
+<pre><code class="language-PYTHON">&gt;&gt;&gt; df.loc[[FALSE,FALSE,TRUE]]
+          col1   col2
+C          7       8
+</code></pre>
+<p>（6）条件判断</p>
+<pre><code class="language-python">&gt;&gt;&gt; df.loc[df['col1'] &gt; 6]
+          col1   col2
+C          7       8
+
+&gt;&gt;&gt; df.loc[df['col1'] &gt; 6,['col1']]
+          col1   
+C          7      
+
+&gt;&gt;&gt; df.loc[lambda df: df['col2'] == 8]
+          col1   col2
+C          7       8
+</code></pre>
+<p>7）设置值：选中某些值；整行；整列</p>
+<pre><code class="language-python">&gt;&gt;&gt; df.loc[['A','B'],['col2']] == 20
+          col1   col2
+A          1       20
+B          4       20
+C          7       8
+
+&gt;&gt;&gt; df.loc['C'] == 10
+          col1   col2
+A          1       20
+B          4       20
+C          10       10
+
+&gt;&gt;&gt; df.loc[:,'col1'] == 30
+          col1   col2
+A          30       20
+B          30       20
+C          30       10
+</code></pre>
+<h3 id="iloc的使用">iloc的使用</h3>
+<p><strong>iloc</strong>: i可以看着Integer,因此iloc就是用整数(Integer)来取数据的.</p>
+<p><strong>使用情况</strong>：使用整数通过切片等方式取数</p>
+<p><strong>用法示例</strong>：</p>
+<pre><code class="language-python"># 切片
+# 下面两种方法有同样的效果; 表示取出df中1：5行(不包括5)和3：6列
+df.iloc[1:5,3:6] 
+df.iloc[[1,2,3,4],[3,4,5]] 
+# 另外 df.iloc[0]、df.iloc[1]、df.iloc[-1] 分别表示第一行、第二行、最后一行
+# 同理df.iloc[:,0]、df.iloc[:,1]、df.iloc[:,-1] 分别表示第一列、第二列、最后一列
+</code></pre>
+<h3 id="总结">总结</h3>
 <ul>
-<li>&lt; html&gt; 与 &lt; /html&gt; 之间的文本描述网页</li>
-<li>&lt; body&gt; 与 &lt; /body&gt; 之间的文本是可见的页面内容</li>
-<li>&lt; h1&gt; 与 &lt; /h1&gt; 之间的文本被显示为标题</li>
-<li>&lt; p&gt; 与 &lt; /p&gt; 之间的文本被显示为段落</li>
+<li>loc使用范围比iloc更广更实用，loc可以使用切片、名称(index,columns)、也可以切片和名称混合使用；但是loc不能使用不存在的索引来充当切片取值,像-1。</li>
+<li>iloc只能用整数来取数。</li>
 </ul>
 
                 </div>
@@ -148,14 +198,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="http://localhost:4000/post/git-chang-yong-ming-ling/" class="post-title gt-a-link">
-                    Git常用命令
+                <a href="http://localhost:4000/post/ru-he-jie-jue-failed-to-push-some-refs-to-git/" class="post-title gt-a-link">
+                    如何解决failed to push some refs to git
                 </a>
             </div>
         
 
         
-            <span id="/post/" class="leancloud_visitors" data-flag-title="HTML简介">
+            <span id="/post/" class="leancloud_visitors" data-flag-title="pandas库loc和iloc">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
