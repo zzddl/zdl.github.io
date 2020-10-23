@@ -1,0 +1,362 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Velocity和XmlDecoder | zdl&#39;s blog</title>
+
+<link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1603458245255">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zzddl.github.io/zdl.github.io//styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            zdl&#39;s blog
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Velocity和XmlDecoder
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-10-23 ·
+                    </time>
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/hsZ5dP81f/" class="post-tags">
+                            # java
+                        </a>
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
+                            # 学习
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="简介">简介</h2>
+<p>展示层有三大典型技术，分别是JSP、freemaker和velocity。</p>
+<p>Velocity是一个基于Java的模板引擎，通过特定的语法，Velocity可以获取在java语言中定义的对象，从而实现界面和java代码的真正分离，这意味着可以使用velocity替代jsp的开发模式了。这使得前端开发人员可以和 Java 程序开发人员同步开发一个遵循 MVC 架构的 web 站点。</p>
+<h2 id="maven依赖">MAVEN依赖</h2>
+<pre><code>&lt;!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
+    &lt;artifactId&gt;velocity&lt;/artifactId&gt;
+    &lt;version&gt;1.7&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h2 id="使用velocity">使用Velocity</h2>
+<h3 id="初始化velocity引擎">初始化Velocity引擎</h3>
+<pre><code class="language-java">public static void main(String[] args) {
+        try {
+            //读取xml文档
+            XMLDecoder d = new XMLDecoder(
+                    new BufferedInputStream(
+                            new FileInputStream(&quot;friends.xml&quot;)));
+            ArrayList&lt;Person&gt; result = (ArrayList&lt;Person&gt;) d.readObject();
+//            System.out.println(result.get(0).getFirstName());
+            d.close();
+
+            //初始化模板引擎
+            VelocityEngine ve = new VelocityEngine();
+            ve.setProperty(RuntimeConstants.RESOURCE_LOADER,&quot;classpath&quot;);
+            ve.setProperty(&quot;classpath.resource.loader.class&quot;, ClasspathResourceLoader.class.getName());
+            ve.init();
+            //获取模板文件
+            Template t = ve.getTemplate(&quot;data.vm&quot;);
+            FileOutputStream outputfile = new FileOutputStream(&quot;invitations.txt&quot;);
+            VelocityContext ctx = new VelocityContext();
+            for (int i = 0; i &lt; 8; i++) {
+                String fname = result.get(i).getFirstName();
+                String name = result.get(i).getName();
+                int addressnumber = result.get(i).getAddress().getNumber();
+                String addressstreet = result.get(i).getAddress().getStreet();
+                String addresstown = result.get(i).getAddress().getTown();
+                ctx.put(&quot;fname&quot;,fname);
+                ctx.put(&quot;name&quot;,name);
+                ctx.put(&quot;addressnumber&quot;,addressnumber);
+                ctx.put(&quot;addressstreet&quot;,addressstreet);
+                ctx.put(&quot;addresstown&quot;,addresstown);
+                StringWriter sw = new StringWriter();
+                t.merge(ctx,sw);
+//                System.out.println(sw.toString());
+                outputfile.write(sw.toString().getBytes(&quot;UTF-8&quot;));
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+</code></pre>
+<h3 id="xml文件">xml文件</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;java version=&quot;1.8.0_261&quot; class=&quot;java.beans.XMLDecoder&quot;&gt;
+ &lt;object class=&quot;java.util.ArrayList&quot;&gt;
+  &lt;void method=&quot;add&quot;&gt;
+   &lt;object class=&quot;templatesTutorial.Person&quot;&gt;
+    &lt;void property=&quot;address&quot;&gt;
+     &lt;object class=&quot;templatesTutorial.Address&quot;&gt;
+      &lt;void property=&quot;number&quot;&gt;
+       &lt;int&gt;100&lt;/int&gt;
+      &lt;/void&gt;
+      &lt;void property=&quot;street&quot;&gt;
+       &lt;string&gt;Main Street&lt;/string&gt;
+      &lt;/void&gt;
+      &lt;void property=&quot;town&quot;&gt;
+       &lt;string&gt;Palmerston North&lt;/string&gt;
+      &lt;/void&gt;
+     &lt;/object&gt;
+    &lt;/void&gt;
+    &lt;void property=&quot;firstName&quot;&gt;
+     &lt;string&gt;Tim&lt;/string&gt;
+    &lt;/void&gt;
+    &lt;void property=&quot;name&quot;&gt;
+     &lt;string&gt;MacDonald&lt;/string&gt;
+    &lt;/void&gt;
+   &lt;/object&gt;
+  &lt;/void&gt;
+  &lt;/object&gt;
+&lt;/java&gt;
+</code></pre>
+<h3 id="编写vm文件">编写.vm文件</h3>
+<pre><code>To
+$fname $name
+$addressnumber $addressstreet
+$addresstown
+
+Dear $fname,
+
+I would like to invite you to a party this Saturday, 8PM at my place.
+
+Cheers, me
+
+----------------------------------------------------------------
+</code></pre>
+<p>输出：</p>
+<pre><code>To
+Tim MacDonald
+100 Main Street
+Palmerston North
+
+Dear Tim,
+
+I would like to invite you to a party this Saturday, 8PM at my place.
+
+Cheers, me
+
+----------------------------------------------------------------
+</code></pre>
+<h2 id="velocity的基本语法">Velocity的基本语法</h2>
+<h3 id="变量">变量</h3>
+<pre><code class="language-velocity">#set($name =“velocity”)
+#set($hello =“hello $name”)
+</code></pre>
+<p>上面的这个等式将会给 $hello 赋值为“hello velocity”</p>
+<h3 id="循环">循环</h3>
+<p>在 Velocity 中循环语句的语法结构如下：</p>
+<pre><code class="language-velocity">#foreach($element in $list)
+ This is $element
+ $velocityCount
+#end
+</code></pre>
+<p>Velocity 引擎会将 list 中的值循环赋给 element 变量，同时会创建一个 $velocityCount 的变量作为计数，从 1 开始，每次循环都会加 1.</p>
+<h3 id="条件语句">条件语句</h3>
+<p>语法：</p>
+<pre><code class="language-velocity">#if(condition)
+#elseif(condition)
+#else
+#end
+</code></pre>
+<h3 id="关系操作符">关系操作符</h3>
+<p>Velocity 引擎提供了 AND、OR 和 NOT 操作符，分别对应&amp;&amp;、||和! 例如：</p>
+<pre><code class="language-velocity">#if($foo &amp;&amp; $bar)
+#end
+#if($foo || $bar)
+#end
+#if(!$foo)
+#end
+</code></pre>
+<h3 id="宏">宏</h3>
+<p>Velocity 中的宏可以理解为函数定义。定义的语法如下：</p>
+<pre><code class="language-velocity">#macro(macroName arg1 arg2 …)
+#end
+</code></pre>
+<p>调用这个宏的语法是：</p>
+<pre><code class="language-velocity">#macroName(arg1 arg2 …)
+</code></pre>
+<p>这里的参数之间使用空格隔开，下面是定义和使用 Velocity 宏的例子：</p>
+<pre><code class="language-velocity">#macro(sayHello $name)
+hello $name
+#end
+</code></pre>
+<pre><code class="language-velocity">#sayHello(“velocity”)
+</code></pre>
+<p>输出：hello velocity</p>
+<h3 id="parse和include指令">parse和include指令</h3>
+<p>在Velocity中可以通过parse或者include指令引入外部vm文件，但是二者存在区别：include指令会将外部文件原样输出，而parse指令会先对其进行解析再输出(即对外部文件中的vm语法解析)</p>
+<pre><code class="language-velocity">#parse(&quot;header.vm&quot;)
+#include(&quot;footer.vm&quot;)
+</code></pre>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://zzddl.github.io/zdl.github.io/post/pandas-ku-loc-he-iloc/" class="post-title gt-a-link">
+                    pandas库loc和iloc
+                </a>
+            </div>
+        
+
+        
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="Velocity和XmlDecoder">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'xBznEMVwmKi5pMvS26moB6yz-gzGzoHsz',
+		appKey: 'ILjXmvK87TpdMtG39nt8eXJF',
+		avatar: 'mp',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: true,
+	});
+</script>
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">温故而知新</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+                <a href="https://weibo.com/u/5666236540/home?wvr=5&amp;sudaref=www.baidu.com&amp;display=0&amp;retcode=6102&amp;sudaref=passport.weibo.com" target="_blank">
+                    <i class="fab fa-weibo gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://zzddl.github.io/zdl.github.io//atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

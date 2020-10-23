@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-10-20T13:11:36.670Z</updated>
+    <updated>2020-10-23T13:04:09.331Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,184 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Velocity和XmlDecoder]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/velocity-he-xmldecoder/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/velocity-he-xmldecoder/">
+        </link>
+        <updated>2020-10-23T13:03:18.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="简介">简介</h2>
+<p>展示层有三大典型技术，分别是JSP、freemaker和velocity。</p>
+<p>Velocity是一个基于Java的模板引擎，通过特定的语法，Velocity可以获取在java语言中定义的对象，从而实现界面和java代码的真正分离，这意味着可以使用velocity替代jsp的开发模式了。这使得前端开发人员可以和 Java 程序开发人员同步开发一个遵循 MVC 架构的 web 站点。</p>
+<h2 id="maven依赖">MAVEN依赖</h2>
+<pre><code>&lt;!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
+    &lt;artifactId&gt;velocity&lt;/artifactId&gt;
+    &lt;version&gt;1.7&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h2 id="使用velocity">使用Velocity</h2>
+<h3 id="初始化velocity引擎">初始化Velocity引擎</h3>
+<pre><code class="language-java">public static void main(String[] args) {
+        try {
+            //读取xml文档
+            XMLDecoder d = new XMLDecoder(
+                    new BufferedInputStream(
+                            new FileInputStream(&quot;friends.xml&quot;)));
+            ArrayList&lt;Person&gt; result = (ArrayList&lt;Person&gt;) d.readObject();
+//            System.out.println(result.get(0).getFirstName());
+            d.close();
+
+            //初始化模板引擎
+            VelocityEngine ve = new VelocityEngine();
+            ve.setProperty(RuntimeConstants.RESOURCE_LOADER,&quot;classpath&quot;);
+            ve.setProperty(&quot;classpath.resource.loader.class&quot;, ClasspathResourceLoader.class.getName());
+            ve.init();
+            //获取模板文件
+            Template t = ve.getTemplate(&quot;data.vm&quot;);
+            FileOutputStream outputfile = new FileOutputStream(&quot;invitations.txt&quot;);
+            VelocityContext ctx = new VelocityContext();
+            for (int i = 0; i &lt; 8; i++) {
+                String fname = result.get(i).getFirstName();
+                String name = result.get(i).getName();
+                int addressnumber = result.get(i).getAddress().getNumber();
+                String addressstreet = result.get(i).getAddress().getStreet();
+                String addresstown = result.get(i).getAddress().getTown();
+                ctx.put(&quot;fname&quot;,fname);
+                ctx.put(&quot;name&quot;,name);
+                ctx.put(&quot;addressnumber&quot;,addressnumber);
+                ctx.put(&quot;addressstreet&quot;,addressstreet);
+                ctx.put(&quot;addresstown&quot;,addresstown);
+                StringWriter sw = new StringWriter();
+                t.merge(ctx,sw);
+//                System.out.println(sw.toString());
+                outputfile.write(sw.toString().getBytes(&quot;UTF-8&quot;));
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+</code></pre>
+<h3 id="xml文件">xml文件</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;java version=&quot;1.8.0_261&quot; class=&quot;java.beans.XMLDecoder&quot;&gt;
+ &lt;object class=&quot;java.util.ArrayList&quot;&gt;
+  &lt;void method=&quot;add&quot;&gt;
+   &lt;object class=&quot;templatesTutorial.Person&quot;&gt;
+    &lt;void property=&quot;address&quot;&gt;
+     &lt;object class=&quot;templatesTutorial.Address&quot;&gt;
+      &lt;void property=&quot;number&quot;&gt;
+       &lt;int&gt;100&lt;/int&gt;
+      &lt;/void&gt;
+      &lt;void property=&quot;street&quot;&gt;
+       &lt;string&gt;Main Street&lt;/string&gt;
+      &lt;/void&gt;
+      &lt;void property=&quot;town&quot;&gt;
+       &lt;string&gt;Palmerston North&lt;/string&gt;
+      &lt;/void&gt;
+     &lt;/object&gt;
+    &lt;/void&gt;
+    &lt;void property=&quot;firstName&quot;&gt;
+     &lt;string&gt;Tim&lt;/string&gt;
+    &lt;/void&gt;
+    &lt;void property=&quot;name&quot;&gt;
+     &lt;string&gt;MacDonald&lt;/string&gt;
+    &lt;/void&gt;
+   &lt;/object&gt;
+  &lt;/void&gt;
+  &lt;/object&gt;
+&lt;/java&gt;
+</code></pre>
+<h3 id="编写vm文件">编写.vm文件</h3>
+<pre><code>To
+$fname $name
+$addressnumber $addressstreet
+$addresstown
+
+Dear $fname,
+
+I would like to invite you to a party this Saturday, 8PM at my place.
+
+Cheers, me
+
+----------------------------------------------------------------
+</code></pre>
+<p>输出：</p>
+<pre><code>To
+Tim MacDonald
+100 Main Street
+Palmerston North
+
+Dear Tim,
+
+I would like to invite you to a party this Saturday, 8PM at my place.
+
+Cheers, me
+
+----------------------------------------------------------------
+</code></pre>
+<h2 id="velocity的基本语法">Velocity的基本语法</h2>
+<h3 id="变量">变量</h3>
+<pre><code class="language-velocity">#set($name =“velocity”)
+#set($hello =“hello $name”)
+</code></pre>
+<p>上面的这个等式将会给 $hello 赋值为“hello velocity”</p>
+<h3 id="循环">循环</h3>
+<p>在 Velocity 中循环语句的语法结构如下：</p>
+<pre><code class="language-velocity">#foreach($element in $list)
+ This is $element
+ $velocityCount
+#end
+</code></pre>
+<p>Velocity 引擎会将 list 中的值循环赋给 element 变量，同时会创建一个 $velocityCount 的变量作为计数，从 1 开始，每次循环都会加 1.</p>
+<h3 id="条件语句">条件语句</h3>
+<p>语法：</p>
+<pre><code class="language-velocity">#if(condition)
+#elseif(condition)
+#else
+#end
+</code></pre>
+<h3 id="关系操作符">关系操作符</h3>
+<p>Velocity 引擎提供了 AND、OR 和 NOT 操作符，分别对应&amp;&amp;、||和! 例如：</p>
+<pre><code class="language-velocity">#if($foo &amp;&amp; $bar)
+#end
+#if($foo || $bar)
+#end
+#if(!$foo)
+#end
+</code></pre>
+<h3 id="宏">宏</h3>
+<p>Velocity 中的宏可以理解为函数定义。定义的语法如下：</p>
+<pre><code class="language-velocity">#macro(macroName arg1 arg2 …)
+#end
+</code></pre>
+<p>调用这个宏的语法是：</p>
+<pre><code class="language-velocity">#macroName(arg1 arg2 …)
+</code></pre>
+<p>这里的参数之间使用空格隔开，下面是定义和使用 Velocity 宏的例子：</p>
+<pre><code class="language-velocity">#macro(sayHello $name)
+hello $name
+#end
+</code></pre>
+<pre><code class="language-velocity">#sayHello(“velocity”)
+</code></pre>
+<p>输出：hello velocity</p>
+<h3 id="parse和include指令">parse和include指令</h3>
+<p>在Velocity中可以通过parse或者include指令引入外部vm文件，但是二者存在区别：include指令会将外部文件原样输出，而parse指令会先对其进行解析再输出(即对外部文件中的vm语法解析)</p>
+<pre><code class="language-velocity">#parse(&quot;header.vm&quot;)
+#include(&quot;footer.vm&quot;)
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[pandas库loc和iloc]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/pandas-ku-loc-he-iloc/</id>
@@ -1060,108 +1238,5 @@ function clickCounter() {
 <p>请关闭浏览器或标签页，然后再试一次，计数器会重置。</p>
 </body>
 </html>]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[html学习8.18 -- HTML5拖放]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-tuo-fang/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-818-html5-tuo-fang/">
-        </link>
-        <updated>2020-08-18T15:34:39.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="html-拖放实例">HTML 拖放实例</h3>
-<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;script&gt;
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData(&quot;text&quot;, ev.target.id);
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData(&quot;text&quot;);
-    ev.target.appendChild(document.getElementById(data));
-}
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;div id=&quot;div1&quot; ondrop=&quot;drop(event)&quot; ondragover=&quot;allowDrop(event)&quot;&gt;&lt;/div&gt;
-
-&lt;img id=&quot;drag1&quot; src=&quot;img_logo.gif&quot; draggable=&quot;true&quot; ondragstart=&quot;drag(event)&quot; width=&quot;336&quot; height=&quot;69&quot;&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h3 id="把元素设置为可拖放">把元素设置为可拖放</h3>
-<pre><code class="language-html">&lt;img draggable=&quot;true&quot;&gt;
-</code></pre>
-<h3 id="拖放的内容-ondragstart-和-setdata">拖放的内容 - ondragstart 和 setData()</h3>
-<p>ondragstart 属性调用了一个 drag(event) 函数，规定拖动什么数据</p>
-<p>dataTransfer.setData() 方法设置被拖动数据的数据类型和值</p>
-<pre><code class="language-html">function drag(ev) {
-    ev.dataTransfer.setData(&quot;text&quot;, ev.target.id);
-}
-</code></pre>
-<h3 id="拖到何处-ondragover">拖到何处 - ondragover</h3>
-<p>由 ondragover 事件的 event.preventDefault() 方法完成</p>
-<pre><code class="language-html">event.preventDefault()
-</code></pre>
-<h3 id="进行放置-ondrop">进行放置 - ondrop</h3>
-<p>ondrop 属性调用了一个函数，drop(event)</p>
-<pre><code class="language-html">function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData(&quot;text&quot;);
-    ev.target.appendChild(document.getElementById(data));
-}
-</code></pre>
-<p>解释：</p>
-<ul>
-<li>调用 preventDefault() 来阻止数据的浏览器默认处理方式（drop 事件的默认行为是以链接形式打开）</li>
-<li>通过 dataTransfer.getData() 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据</li>
-<li>被拖数据是被拖元素的 id (&quot;drag1&quot;)</li>
-<li>把被拖元素追加到放置元素中</li>
-</ul>
-<h3 id="来回拖放图片">来回拖放图片</h3>
-<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;style type=&quot;text/css&quot;&gt;
-#div1, #div2
-{float:left; width:198px; height:66px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
-&lt;/style&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-function allowDrop(ev)
-{
-ev.preventDefault();
-}
-
-function drag(ev)
-{
-ev.dataTransfer.setData(&quot;Text&quot;,ev.target.id);
-}
-
-function drop(ev)
-{
-ev.preventDefault();
-var data=ev.dataTransfer.getData(&quot;Text&quot;);
-ev.target.appendChild(document.getElementById(data));
-}
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;div id=&quot;div1&quot; ondrop=&quot;drop(event)&quot; ondragover=&quot;allowDrop(event)&quot;&gt;
-  &lt;img src=&quot;/i/eg_dragdrop_w3school.gif&quot; draggable=&quot;true&quot; ondragstart=&quot;drag(event)&quot; id=&quot;drag1&quot; /&gt;
-&lt;/div&gt;
-&lt;div id=&quot;div2&quot; ondrop=&quot;drop(event)&quot; ondragover=&quot;allowDrop(event)&quot;&gt;&lt;/div&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-]]></content>
     </entry>
 </feed>
