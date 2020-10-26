@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-10-23T13:04:09.331Z</updated>
+    <updated>2020-10-26T11:30:57.405Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,383 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[奇偶校验、海明校验和CRC冗余校验]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/qi-ou-xiao-yan-hai-ming-xiao-yan-he-crc-rong-yu-xiao-yan/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/qi-ou-xiao-yan-hai-ming-xiao-yan-he-crc-rong-yu-xiao-yan/">
+        </link>
+        <updated>2020-10-26T11:30:19.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="奇偶校验">奇偶校验</h2>
+<h3 id="两种校验规则">两种校验规则</h3>
+<p>奇校验——使完整编码（有效位和校验位）中的&quot;1&quot;的个数为奇数个；</p>
+<p>偶校验——使完整编码（有效位和校验位）中的&quot;1&quot;的个数为偶数个；</p>
+<h3 id="示例">示例</h3>
+<table>
+<thead>
+<tr>
+<th>原始数据</th>
+<th>奇校验码</th>
+<th>偶校验码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1011101</td>
+<td>10111010</td>
+<td>10111011</td>
+</tr>
+<tr>
+<td>1000111</td>
+<td>10001111</td>
+<td>10001110</td>
+</tr>
+</tbody>
+</table>
+<p>奇偶校验实际上就是对我们DnDn-1...D0进行<strong>异或运算</strong>（两两相同为0，不同为1），最后<strong>偶校验生成0，奇校验生成1，正确，反之错误。</strong></p>
+<h2 id="海明校验">海明校验</h2>
+<h3 id="概述">概述</h3>
+<p>海明码是在原数据中的一些固定位置，插入一位奇（或偶）校验位，虽然使原数据变长，但可使其拥有纠错能力。<br>
+能侦测并更正一个比特的错误；若有两个比特出错，则只能侦测，不能更正；若有三个或更多的比特出错，则不能侦测，更不能更正。</p>
+<h3 id="示例-2">示例</h3>
+<h4 id="校验位和数据位的位置">校验位和数据位的位置</h4>
+<table>
+<thead>
+<tr>
+<th>海明码中的位置</th>
+<th style="text-align:center">1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>15</th>
+<th>16</th>
+<th>17</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>是否为2的幂</td>
+<td style="text-align:center">2^0</td>
+<td>2^1</td>
+<td>数据</td>
+<td>2^2</td>
+<td>数据</td>
+<td>数据</td>
+<td>数据</td>
+<td>2^3</td>
+<td>数据</td>
+<td>数据</td>
+<td>数据</td>
+<td>数据</td>
+<td>数据</td>
+<td>数据</td>
+<td>数据</td>
+<td>2^4</td>
+<td>数据</td>
+</tr>
+<tr>
+<td>海明码的值</td>
+<td style="text-align:center"></td>
+<td></td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>海明码中，2的幂位都是校验位，其余为数据位。</p>
+<h4 id="计算校验位的值">计算校验位的值</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">海明码中的位置</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th>7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+<th style="text-align:center">11</th>
+<th style="text-align:center">12</th>
+<th style="text-align:center">13</th>
+<th style="text-align:center">14</th>
+<th style="text-align:center">15</th>
+<th style="text-align:center">16</th>
+<th style="text-align:center">17</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">是否为2的幂</td>
+<td style="text-align:center">2^0</td>
+<td style="text-align:center">2^1</td>
+<td style="text-align:center">数据</td>
+<td style="text-align:center">2^2</td>
+<td style="text-align:center">数据</td>
+<td style="text-align:center">数据</td>
+<td>数据</td>
+<td style="text-align:center">2^3</td>
+<td style="text-align:center">数据</td>
+<td style="text-align:center">数据</td>
+<td style="text-align:center">数据</td>
+<td style="text-align:center">数据</td>
+<td style="text-align:center">数据</td>
+<td style="text-align:center">数据</td>
+<td style="text-align:center">数据</td>
+<td style="text-align:center">2^4</td>
+<td style="text-align:center">数据</td>
+</tr>
+<tr>
+<td style="text-align:left">海明码的值</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td>1</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">参与R1校验</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td>√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:left">参与R2校验</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td>√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">参与R4校验</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td>√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">参与R8校验</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">参与R16校验</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+</tbody>
+</table>
+<p>位置为Rx的检验位，是从第x位开始（即从Rx开始），检验x位，跳过x位，再检验x位，在跳过x位，以此类推。</p>
+<p>R1 = 偶校验(R1, 1, 1, 1, 0) = 1<br>
+R2 = 偶校验(R2, 1, 0, 1) = 0<br>
+R4 = 偶校验(R4, 1, 0, 1) = 0<br>
+R8 = 偶校验(R8, 0) = 0</p>
+<p><strong>计算结果：</strong></p>
+<table>
+<thead>
+<tr>
+<th>海明码中的位置</th>
+<th style="text-align:center">1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>15</th>
+<th>16</th>
+<th>17</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>是否为2的幂</td>
+<td style="text-align:center">2^0</td>
+<td>2^1</td>
+<td>数据</td>
+<td>2^2</td>
+<td>数据</td>
+<td>数据</td>
+<td>数据</td>
+<td>2^3</td>
+<td>数据</td>
+<td>数据</td>
+<td>数据</td>
+<td>数据</td>
+<td>数据</td>
+<td>数据</td>
+<td>数据</td>
+<td>2^4</td>
+<td>数据</td>
+</tr>
+<tr>
+<td>海明码的值</td>
+<td style="text-align:center">1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>得到的海明码为：101010100</p>
+<h4 id="检测和更正">检测和更正</h4>
+<p>首先，按照编码的方式（奇校验或偶校验），依次检测校验位R1、R2、R4、R8……，然后，将出错的校验位的位置相加，比如发现R1、R8出现错误，则将1和8相加，得到9，即为位置D9的比特出错，最后，将该错误的比特取反就能更正错误。</p>
+<h5 id="示例-3">示例</h5>
+<p>如果上文中得出的校验码出错，变为“101010101”。</p>
+<p><strong>1.检测校验位</strong></p>
+<p>该海明码使用教研方式是偶校验，所以我们检验校验位时，也要使用偶校验。<br>
+R1 = 偶校验(R1, 1, 1, 1, 0) = 1 出错<br>
+R2 = 偶校验(R2, 1, 0, 1) = 0 正确<br>
+R4 = 偶校验(R4, 1, 0, 1) = 0 正确<br>
+R8 = 偶校验(R8, 0) = 0 错误</p>
+<p><strong>2.确定出错的位置</strong></p>
+<p>出错比特的位置 = R1的位置是1 + R8的位置是8 = 9</p>
+<p><strong>3.更正错误</strong></p>
+<p>把第九位取反</p>
+<h2 id="crc冗余校验">CRC冗余校验</h2>
+<h3 id="基本原理">基本原理</h3>
+<p>CRC检验原理实际上就是在一个p位二进制数据序列之后附加一个r位二进制检验码(序列)，从而构成一个总长为n＝p＋r位的二进制序列</p>
+<h3 id="基本概念">基本概念</h3>
+<p>1、帧检验序列FCS（Frame Check Sequence）：为了进行差错检验而添加的冗余码。</p>
+<p>2、多项式模2运算：实际上是按位异或(Exclusive OR)运算，即相同为0，相异为1，也就是不考虑进位、借位的二进制加减运算。如：10011011 + 11001010 = 01010001。</p>
+<p>3、生成多项式（generator polynomial）：当进行CRC检验时，发送方与接收方需要事先约定一个除数，即生成多项式，一般记作G（x）。生成多项式的最高位与最低位必须是1。常用的CRC码的生成多项式有：</p>
+<p>CRC8=X8+X5+X4+1</p>
+<p>每一个生成多项式都可以与一个代码相对应，如CRC8对应代码：100110001。</p>
+<h3 id="示例-4">示例</h3>
+<p>信息字段为K位，校验字段为R位，则码字长度为N(N=K+R)</p>
+<p>设需要发送的信息为M = 1010001101，G（x）= x5+x4+x2+1,则多项式产生的对应代码为110101，R=5。则在M后面添加5个0，对P进行模二除法运算，得余数r(x)对应的代码：01110。故实际需要发送的数据是101000110101110。</p>
+<img src="http://b34.photo.store.qq.com/http_imgload.cgi?/rurl4_b=ab7548a2157c272582205d4d7d2e2dbc535ad00f42244c51bc0b8087071c10c2683af72c72a71662a3c38b1ec09a258a88f288a64ddcf8f829e73fbb90cac9a7a7a2d749f09f2bdcabb97c2ab582ad46953b0e65&amp;a=34&amp;b=34" alt="img" style="zoom:50%;" />
+<h3 id="差错检测">差错检测</h3>
+<p>当接收方收到数据后，用收到的数据对P（事先约定的）进行模2除法，若余数为0，则认为数据传输无差错；若余数不为0，则认为数据传输出现了错误，由于不知道错误发生在什么地方，因而不能进行自动纠正，一般的做法是丢弃接收的数据。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Velocity和XmlDecoder]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/velocity-he-xmldecoder/</id>
@@ -1069,173 +1446,6 @@ FALLBACK:
 <p id="timePara"><button onclick="getDateTime()">获得日期和事件</button></p>
 <p><img src="/i/w3school_banner.gif" /></p>
 <p>请打开<a href="/example/html5/html5_html_manifest.html" target="_blank">这个页面</a>，然后脱机浏览，重新加载页面。页面中的脚本和图像依然可用。</p>
-</body>
-</html>]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[html学习8.19 -- html5本地存储]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-ben-di-cun-chu/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-ben-di-cun-chu/">
-        </link>
-        <updated>2020-08-19T02:15:50.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>HTML 本地存储：优于 cookies。</strong></p>
-<h3 id="html本地存储">html本地存储</h3>
-<p>通过本地存储（Local Storage），web 应用程序能够在用户浏览器中对数据进行本地的存储。</p>
-<p>存储限制比cookies大得多。</p>
-<h3 id="html-本地存储对象">HTML 本地存储对象</h3>
-<p>HTML 本地存储提供了两个在客户端存储数据的对象：</p>
-<ul>
-<li>window.localStorage - 存储没有截止日期的数据</li>
-<li>window.sessionStorage - 针对一个 session 来存储数据（当关闭浏览器标签页时数据会丢失）</li>
-</ul>
-<p>在使用本地存储时，请检测 localStorage 和 sessionStorage 的浏览器支持：</p>
-<pre><code class="language-html">if (typeof(Storage) !== &quot;undefined&quot;) {
-    // 针对 localStorage/sessionStorage 的代码
-} else {
-    // 抱歉！不支持 Web Storage ..
-}
-</code></pre>
-<h3 id="localstorage-对象">localStorage 对象</h3>
-<p>localStorage 对象存储的是没有截止日期的数据。当浏览器被关闭时数据不会被删除，在下一天、周或年中，都是可用的。</p>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;body&gt;
-
-&lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
-
-&lt;script&gt;
-// Check browser support
-if (typeof(Storage) !== &quot;undefined&quot;) {
-    // Store
-    localStorage.setItem(&quot;lastname&quot;, &quot;Gates&quot;);
-    // Retrieve
-    document.getElementById(&quot;result&quot;).innerHTML = localStorage.getItem(&quot;lastname&quot;);
-} else {
-    document.getElementById(&quot;result&quot;).innerHTML = &quot;抱歉！您的浏览器不支持 Web Storage ...&quot;;
-}
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p>解释：</p>
-<ul>
-<li>创建 localStorage 名称/值对，其中：name=&quot;lastname&quot;，value=&quot;Gates&quot;</li>
-<li>取回 &quot;lastname&quot; 的值，并把它插到 id=&quot;result&quot; 的元素中</li>
-</ul>
-<p>也可以这样：</p>
-<pre><code class="language-html">// 存储
-localStorage.lastname = &quot;Gates&quot;;
-// 取回
-document.getElementById(&quot;result&quot;).innerHTML = localStorage.lastname;
-</code></pre>
-<p>删除 &quot;lastname&quot; localStorage 项目的语法如下：</p>
-<pre><code class="language-html">localStorage.removeItem(&quot;lastname&quot;);
-</code></pre>
-<h3 id="实例-用户点击次数">实例-用户点击次数</h3>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;script&gt;
-function clickCounter() {
-    if(typeof(Storage) !== &quot;undefined&quot;) {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount)+1;
-        } else {
-            localStorage.clickcount = 1;
-        }
-        document.getElementById(&quot;result&quot;).innerHTML = &quot;您已经点击这个按钮 &quot; + localStorage.clickcount + &quot; 次。&quot;;
-    } else {
-        document.getElementById(&quot;result&quot;).innerHTML = &quot;抱歉！您的浏览器不支持 Web Storage ...&quot;;
-    }
-}
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;p&gt;&lt;button onclick=&quot;clickCounter()&quot; type=&quot;button&quot;&gt;请点击这里！&lt;/button&gt;&lt;/p&gt;
-&lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
-&lt;p&gt;请点击按钮使计数器递增。&lt;/p&gt;
-&lt;p&gt;请关闭浏览器或标签页，然后再试一次，计数器将继续计数（不会重置）。&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<!DOCTYPE html>
-<html>
-<head>
-<script>
-function clickCounter() {
-    if(typeof(Storage) !== "undefined") {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount)+1;
-        } else {
-            localStorage.clickcount = 1;
-        }
-        document.getElementById("result").innerHTML = "您已经点击这个按钮 " + localStorage.clickcount + " 次。";
-    } else {
-        document.getElementById("result").innerHTML = "抱歉！您的浏览器不支持 Web Storage ...";
-    }
-}
-</script>
-</head>
-<body>
-<p><button onclick="clickCounter()" type="button">请点击这里！</button></p>
-<div id="result"></div>
-<p>请点击按钮使计数器递增。</p>
-<p>请关闭浏览器或标签页，然后再试一次，计数器将继续计数（不会重置）。</p>
-</body>
-</html>
-<h3 id="sessionstorage-对象">sessionStorage 对象</h3>
-<p>sessionStorage 对象等同 localStorage 对象，不同之处在于只对一个 session 存储数据。如果用户关闭具体的浏览器标签页，数据也会被删除。</p>
-<p>当前session中用户点击次数：</p>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;script&gt;
-function clickCounter() {
-    if(typeof(Storage) !== &quot;undefined&quot;) {
-        if (sessionStorage.clickcount) {
-            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
-        } else {
-            sessionStorage.clickcount = 1;
-        }
-        document.getElementById(&quot;result&quot;).innerHTML = &quot;在本 session 中，您已经点击这个按钮 &quot; + sessionStorage.clickcount + &quot; 次。&quot;;
-    } else {
-        document.getElementById(&quot;result&quot;).innerHTML = &quot;抱歉！您的浏览器不支持 Web Storage ...&quot;;
-    }
-}
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;p&gt;&lt;button onclick=&quot;clickCounter()&quot; type=&quot;button&quot;&gt;请点击这里&lt;/button&gt;&lt;/p&gt;
-&lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
-&lt;p&gt;请点击按钮使计数器递增。&lt;/p&gt;
-&lt;p&gt;请关闭浏览器或标签页，然后再试一次，计数器会重置。&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<!DOCTYPE html>
-<html>
-<head>
-<script>
-function clickCounter() {
-    if(typeof(Storage) !== "undefined") {
-        if (sessionStorage.clickcount) {
-            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
-        } else {
-            sessionStorage.clickcount = 1;
-        }
-        document.getElementById("result").innerHTML = "在本 session 中，您已经点击这个按钮 " + sessionStorage.clickcount + " 次。";
-    } else {
-        document.getElementById("result").innerHTML = "抱歉！您的浏览器不支持 Web Storage ...";
-    }
-}
-</script>
-</head>
-<body>
-<p><button onclick="clickCounter()" type="button">请点击这里</button></p>
-<div id="result"></div>
-<p>请点击按钮使计数器递增。</p>
-<p>请关闭浏览器或标签页，然后再试一次，计数器会重置。</p>
 </body>
 </html>]]></content>
     </entry>
