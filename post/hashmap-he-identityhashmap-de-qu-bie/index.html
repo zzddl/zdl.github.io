@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>git学习（5）标签管理 | zdl&#39;s blog</title>
+<title>hashmap和identityhashmap的区别 | zdl&#39;s blog</title>
 
 <link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1603806108253">
 
@@ -83,15 +83,15 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    git学习（5）标签管理
+                    hashmap和identityhashmap的区别
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-07-28 ·
+                        · 2020-10-27 ·
                     </time>
                     
-                        <a href="https://zzddl.github.io/zdl.github.io/tag/3DREVt4bN/" class="post-tags">
-                            # git
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/hsZ5dP81f/" class="post-tags">
+                            # java
                         </a>
                     
                         <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
@@ -100,42 +100,134 @@
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="1创建标签">1.创建标签</h2>
-<p>（1）首先，切换到需要打标签的分支上</p>
-<p>（2）然后，敲命令<code>git tag &lt;name&gt;</code>就可以打一个新标签</p>
-<p>（3）可以用命令git tag查看所有标签</p>
-<p>（4）<code>$ git log --pretty=oneline --abbrev-commit</code>找到commit id 后</p>
-<pre><code>$ git tag v0.9 f52c633（v0.9是标签名，f52c633是commit id）`
+                    <p>IdentityHashMap利用Hash表来实现Map接口，比较键（和值）时使用引用相等性代替对象相等性，也就是说使用 <code>==</code> 而不是使用 <code>equals</code>。</p>
+<p>比如对于要保存的key，k1和k2，当且仅当k1== k2的时候，IdentityHashMap才会相等，而对于HashMap来说，相等的条件则是：(k1<mark>null ? k2</mark>null : k1.equals(k2))。</p>
+<p>IdentityHashMap不是Map的通用实现，它有意违反了Map的常规协定。并且IdentityHashMap允许key和value都为null。</p>
+<h2 id="代码示例">代码示例</h2>
+<h3 id="对象类">对象类</h3>
+<pre><code class="language-java">package testingTutorial;
+
+public class Student {
+
+	private int id = 0;
+	private String firstName = null;
+	private String name = &quot;&quot;;
+	
+	public Student(int id, String firstName, String name) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.name = name;
+	}
+	
+	public Student() {
+		super();
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return &quot;Student [id=&quot; + id + &quot;, firstName=&quot; + firstName + &quot;, name=&quot;
+				+ name + &quot;]&quot;;
+	}
+	
+
+}
+
 </code></pre>
-<p>（5）标签不是按时间顺序列出，而是按字母排序的。可以用git show <tagname>查看标签信息</p>
-<p>（6）创建带有说明的标签，用-a指定标签名，-m指定说明文字</p>
-<pre><code>    $ git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb
+<h3 id="hashmap">hashmap</h3>
+<pre><code class="language-java">public void testhash(){
+        Student alex = new Student(1,&quot;alex&quot;,&quot;a&quot;);
+        Student bob = new Student(1,&quot;alex&quot;,&quot;a&quot;);
+        Map&lt;Student,Integer&gt; hashmap = new HashMap&lt;&gt;();
+        hashmap.put(alex,1);
+        hashmap.put(bob,2);
+        System.out.println(hashmap.get(alex));
+        System.out.println(hashmap.get(bob));
+        assertEquals(hashmap.get(alex),hashmap.get(bob));
+    }
 </code></pre>
-<p>（7）小结</p>
-<p>命令<code>git tag &lt;tagname&gt;</code>用于新建一个标签，默认为HEAD，也可以指定一个commit id；</p>
-<p>命令<code>git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;</code>可以指定标签信息；</p>
-<p>命令<code>git tag</code>可以查看所有标签。</p>
-<h2 id="2操作标签">2.操作标签</h2>
-<p>（1）删除标签</p>
-<pre><code>$ git tag -d v0.1
+<p>测试结果：</p>
+<pre><code>2
+2
 </code></pre>
-<p>创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除</p>
-<p>​    （2）要推送某个标签到远程，使用命令git push origin <tagname></p>
-<p>​    （3）一次性推送全部尚未推送到远程的本地标签</p>
-<pre><code>$ git push origin –tags
+<p>可以看出hashmap中使用equals()来进行比较，所以put(bob,2)会把alex的value覆盖掉，因为二者key相同，就认为他们是同一个对象。</p>
+<h3 id="identityhashmap">identityhashmap</h3>
+<pre><code class="language-java">public void testidentityhash() {
+            Student alex = new Student(1,&quot;alex&quot;,&quot;a&quot;);
+            Student bob = new Student(1,&quot;alex&quot;,&quot;a&quot;);
+            Map&lt;Student,Integer&gt; identityHashMap = new IdentityHashMap&lt;&gt;();
+            identityHashMap.put(alex,1);
+            identityHashMap.put(bob,2);
+            System.out.println(identityHashMap.get(alex));
+            System.out.println(identityHashMap.get(bob));
+            assertEquals(identityHashMap.get(alex),identityHashMap.get(bob));
+        }
 </code></pre>
-<p>​    （4）若标签已经推送到远程</p>
-<p>​       		首先，从本地删除</p>
-<pre><code>$ git tag -d v0.9
+<p>测试结果：</p>
+<pre><code class="language-java">1
+2
+
+junit.framework.AssertionFailedError: 
+Expected :1
+Actual   :2
 </code></pre>
-<p>​       		然后从远程删除</p>
-<pre><code>$ git push origin :refs/tags/v0.9
-</code></pre>
-<p>​    （5）小结</p>
-<p>​        	命令<code>git push origin &lt;tagname&gt;</code>可以推送一个本地标签；5</p>
-<p>​			命令<code>git push origin --tags</code>可以推送全部未推送过的本地标签；</p>
-<p>​			命令<code>git tag -d &lt;tagname&gt;</code>可以删除一个本地标签；</p>
-<p>​			命令<code>git push origin :refs/tags/&lt;tagname&gt;</code>可以删除一个远程标签。</p>
+<p>identityhashmap是用==比较内存地址，alex和bob对应的内存地址不同，所以会认为是两个不同的对象。</p>
+<h2 id="总结">总结</h2>
+<p>IdentityHashMap的==操作是比较的内存地址，如果不是指向同一块内存，那这时候才可以保存相同的数据</p>
+<p>IdentityHashMap的hash的计算没有使用Object的hashCode方法，而是使用的System.identityHashCode方法，这是Object.hashCode方法根据对象的内存地址来计算散列码时所使用的方式。</p>
+<p>IdentityHashMap的实现不同于HashMap，虽然也是数组，不过IdentityHashMap中没有用到链表，解决冲突的方式是计算下一个有效索引，并且将数据key和value紧挨着存在map中，即table[i]=key，那么table[i+1]=value。</p>
 
                 </div>
             </article>
@@ -144,14 +236,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://zzddl.github.io/zdl.github.io/post/git-xue-xi-4fen-zhi-guan-li/" class="post-title gt-a-link">
-                    git学习（4）分支管理
+                <a href="https://zzddl.github.io/zdl.github.io/post/qi-ou-xiao-yan-hai-ming-xiao-yan-he-crc-rong-yu-xiao-yan/" class="post-title gt-a-link">
+                    奇偶校验、海明校验和CRC冗余校验
                 </a>
             </div>
         
 
         
-            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="git学习（5）标签管理">
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="hashmap和identityhashmap的区别">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
