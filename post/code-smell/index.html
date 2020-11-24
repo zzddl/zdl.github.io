@@ -1,0 +1,214 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Code Smell | zdl&#39;s blog</title>
+
+<link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1606225475518">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://zzddl.github.io/zdl.github.io//styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            zdl&#39;s blog
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+    </div>
+</nav>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Code Smell
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-11-24 ·
+                    </time>
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
+                            # 学习
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>Code Smell中文译名一般为“代码异味”，或“代码味道”，它是提示代码中某个地方存在错误的一个暗示，开发人员可以通过这种smell（异味）在代码中追捕到问题。</p>
+<p>一般包括：</p>
+<ul>
+<li>**Duplicated Code(重复的代码)：**代码重复几乎是最常见的异味了。他也是Refactoring 的主要目标之一。代码重复往往来自于copy-and-paste 的编程风格。与他相对应OAOO 是一个好系统的重要标志。</li>
+<li>**Long method(过长方法)：**它是传统结构化的“遗毒”。一个方法应当具有自我独立的意图，不要把几个意图放在一起，特别注意大类和长方法。</li>
+<li>**Large Class(过大的类)：**大类就是你把太多的责任交给了一个类。这里的规则是One Class One。</li>
+<li>**Long Parameter List(过长参数列)：**一个方法有超过三四个的参数。</li>
+<li>**Divergent Change(发散式修改)：**一个类里面的内容变化率不同。某些状态一个小时变一次，某些则几个月一年才变一次；某些状态因为这方面的原因发生变化，而另一些则因为其他方面的原因变一 次。面向对象的抽象就是把相对不变的和相对变化相隔离。把问题变化的一方面和另一方面相隔离。这使得这些相对不变的可以重用。问题变化的每个方面都可以单 独重用。这种相异变化的共存使得重用非常困难。</li>
+<li>**Shotgun Surgery(霰弹式改动)：**这正好和上面相反。对系统一个地方的改变涉及到其他许多地方的相关改变。这些变化率和变化内容相似的状态和行为通常应当放在同一个类中。</li>
+<li>**Feature Envy(依恋情结)：**对象的目的就是封装状态以及与这些状态紧密相关的行为。如果一个类的方法频繁用get 方法存取其他类的状态进行计算，那么你要考虑把行为移到涉及状态数目最多的那个类。</li>
+<li>**Data Clumps(数据泥团)：**某些数据通常像孩子一样成群玩耍：一起出现在很多类的成员变量中，一起出现在许多方法的参数中……，这些数据或许应该自己独立形成对象。</li>
+<li>**Primitive Obsession(基本类型偏执)：**面向对象的新手通常习惯使用几个原始类型的数据来表示一个概念。譬如对于范围，他们会使用两个数字。对于Money，他们会用一个浮点数来表示。因为你没 有使用对象来表达问题中存在的概念，这使得代码变的难以理解，解决问题的难度大大增加。好的习惯是扩充语言所能提供原始类型，用小对象来表示范围、金额、 转化率、邮政编码等等。</li>
+<li>**Switch Statements(switch惊悚现身)：**基于常量的开关语句是OO 的大敌，你应当把他变为子类、state 或strategy。</li>
+<li>**Parallel Inheritance Hierarchies(平等继承体系)：**并行的继承层次是shotgun surgery 的特殊情况。因为当你改变一个层次中的某一个类时，你必须同时改变另外一个层次的并行子类。</li>
+<li>**Lazy Class(冗赘类)：**一个干活不多的类。类的维护需要额外的开销，如果一个类承担了太少的责任，应当消除它。</li>
+<li>**Speculative Generality(夸夸其谈未来性)：**一个类实现了从未用到的功能和通用性。通常这样的类或方法唯一的用户是test case。不要犹豫，删除它。</li>
+<li>**Temporary Field(令人迷惑的临时字段)：**一个对象的属性可能只在某些情况下才有意义。这样的代码将难以理解。专门建立一个对象来持有这样的孤儿属性，把只和他相关的行为移到该类。最常见的是一个特定的算法需要某些只有该算法才有用的变量。</li>
+<li>**Message Chains(过度耦合的消息链)：**消息链发生于当一个客户向一个对象要求另一个对象，然后客户又向这另一对象要求另一个对象，再向这另一个对象要求另一个对象，如此如此。这时，你需要隐藏分派。</li>
+<li>**Middle Man(中间转手人)：**对象的基本特性之一就是封装，而你经常会通过分派去实现封装。但是这一步不能走得太远，如果你发现一个类接口的一大半方法都在做分派，你可能需要移去这个中间人。</li>
+<li>**Inappropriate Intimacy(狎昵关系)：**某些类相互之间太亲密，它们花费了太多的时间去砖研别人的私有部分。对人类而言，我们也许不应该太假正经，但我们应当让自己的类严格遵守禁欲主义。</li>
+<li>**Alternative Classes with Different Interfaces(异曲同工的类)：**做相同事情的方法有不同的函数signature，一致把它们往类层次上移，直至协议一致。</li>
+<li>**Incomplete Library Class(不完美的程序类库)：**要建立一个好的类库非常困难。我们大量的程序工作都基于类库实现。然而，如此广泛而又相异的目标对库构建者提出了苛刻的要求。库构建者也不是万能的。有时 候我们会发现库类无法实现我们需要的功能。而直接对库类的修改有非常困难。这时候就需要用各种手段进行Refactoring。</li>
+<li>**Data Class(纯稚的数据类)：**对象包括状态和行为。如果一个类只有状态没有行为，那么肯定有什么地方出问题了。</li>
+<li>**Refused Bequest(被拒绝的遗赠)：**超类传下来很多行为和状态，而子类只是用了其中的很小一部分。这通常意味着你的类层次有问题。</li>
+<li>**Comments(过多的注释)：**经常觉得要写很多注释表示你的代码难以理解。如果这种感觉太多，表示你需要Refactoring。</li>
+</ul>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://zzddl.github.io/zdl.github.io/post/hashmap-he-identityhashmap-de-qu-bie/" class="post-title gt-a-link">
+                    hashmap和identityhashmap的区别
+                </a>
+            </div>
+        
+
+        
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="Code Smell">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'xBznEMVwmKi5pMvS26moB6yz-gzGzoHsz',
+		appKey: 'ILjXmvK87TpdMtG39nt8eXJF',
+		avatar: 'mp',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: true,
+	});
+</script>
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">温故而知新</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+                <a href="https://weibo.com/u/5666236540/home?wvr=5&amp;sudaref=www.baidu.com&amp;display=0&amp;retcode=6102&amp;sudaref=passport.weibo.com" target="_blank">
+                    <i class="fab fa-weibo gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://zzddl.github.io/zdl.github.io//atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

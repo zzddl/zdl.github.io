@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2020-11-06T14:03:31.956Z</updated>
+    <updated>2020-11-24T13:44:43.241Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,40 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Code Smell]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/code-smell/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/code-smell/">
+        </link>
+        <updated>2020-11-24T13:43:34.000Z</updated>
+        <content type="html"><![CDATA[<p>Code Smell中文译名一般为“代码异味”，或“代码味道”，它是提示代码中某个地方存在错误的一个暗示，开发人员可以通过这种smell（异味）在代码中追捕到问题。</p>
+<p>一般包括：</p>
+<ul>
+<li>**Duplicated Code(重复的代码)：**代码重复几乎是最常见的异味了。他也是Refactoring 的主要目标之一。代码重复往往来自于copy-and-paste 的编程风格。与他相对应OAOO 是一个好系统的重要标志。</li>
+<li>**Long method(过长方法)：**它是传统结构化的“遗毒”。一个方法应当具有自我独立的意图，不要把几个意图放在一起，特别注意大类和长方法。</li>
+<li>**Large Class(过大的类)：**大类就是你把太多的责任交给了一个类。这里的规则是One Class One。</li>
+<li>**Long Parameter List(过长参数列)：**一个方法有超过三四个的参数。</li>
+<li>**Divergent Change(发散式修改)：**一个类里面的内容变化率不同。某些状态一个小时变一次，某些则几个月一年才变一次；某些状态因为这方面的原因发生变化，而另一些则因为其他方面的原因变一 次。面向对象的抽象就是把相对不变的和相对变化相隔离。把问题变化的一方面和另一方面相隔离。这使得这些相对不变的可以重用。问题变化的每个方面都可以单 独重用。这种相异变化的共存使得重用非常困难。</li>
+<li>**Shotgun Surgery(霰弹式改动)：**这正好和上面相反。对系统一个地方的改变涉及到其他许多地方的相关改变。这些变化率和变化内容相似的状态和行为通常应当放在同一个类中。</li>
+<li>**Feature Envy(依恋情结)：**对象的目的就是封装状态以及与这些状态紧密相关的行为。如果一个类的方法频繁用get 方法存取其他类的状态进行计算，那么你要考虑把行为移到涉及状态数目最多的那个类。</li>
+<li>**Data Clumps(数据泥团)：**某些数据通常像孩子一样成群玩耍：一起出现在很多类的成员变量中，一起出现在许多方法的参数中……，这些数据或许应该自己独立形成对象。</li>
+<li>**Primitive Obsession(基本类型偏执)：**面向对象的新手通常习惯使用几个原始类型的数据来表示一个概念。譬如对于范围，他们会使用两个数字。对于Money，他们会用一个浮点数来表示。因为你没 有使用对象来表达问题中存在的概念，这使得代码变的难以理解，解决问题的难度大大增加。好的习惯是扩充语言所能提供原始类型，用小对象来表示范围、金额、 转化率、邮政编码等等。</li>
+<li>**Switch Statements(switch惊悚现身)：**基于常量的开关语句是OO 的大敌，你应当把他变为子类、state 或strategy。</li>
+<li>**Parallel Inheritance Hierarchies(平等继承体系)：**并行的继承层次是shotgun surgery 的特殊情况。因为当你改变一个层次中的某一个类时，你必须同时改变另外一个层次的并行子类。</li>
+<li>**Lazy Class(冗赘类)：**一个干活不多的类。类的维护需要额外的开销，如果一个类承担了太少的责任，应当消除它。</li>
+<li>**Speculative Generality(夸夸其谈未来性)：**一个类实现了从未用到的功能和通用性。通常这样的类或方法唯一的用户是test case。不要犹豫，删除它。</li>
+<li>**Temporary Field(令人迷惑的临时字段)：**一个对象的属性可能只在某些情况下才有意义。这样的代码将难以理解。专门建立一个对象来持有这样的孤儿属性，把只和他相关的行为移到该类。最常见的是一个特定的算法需要某些只有该算法才有用的变量。</li>
+<li>**Message Chains(过度耦合的消息链)：**消息链发生于当一个客户向一个对象要求另一个对象，然后客户又向这另一对象要求另一个对象，再向这另一个对象要求另一个对象，如此如此。这时，你需要隐藏分派。</li>
+<li>**Middle Man(中间转手人)：**对象的基本特性之一就是封装，而你经常会通过分派去实现封装。但是这一步不能走得太远，如果你发现一个类接口的一大半方法都在做分派，你可能需要移去这个中间人。</li>
+<li>**Inappropriate Intimacy(狎昵关系)：**某些类相互之间太亲密，它们花费了太多的时间去砖研别人的私有部分。对人类而言，我们也许不应该太假正经，但我们应当让自己的类严格遵守禁欲主义。</li>
+<li>**Alternative Classes with Different Interfaces(异曲同工的类)：**做相同事情的方法有不同的函数signature，一致把它们往类层次上移，直至协议一致。</li>
+<li>**Incomplete Library Class(不完美的程序类库)：**要建立一个好的类库非常困难。我们大量的程序工作都基于类库实现。然而，如此广泛而又相异的目标对库构建者提出了苛刻的要求。库构建者也不是万能的。有时 候我们会发现库类无法实现我们需要的功能。而直接对库类的修改有非常困难。这时候就需要用各种手段进行Refactoring。</li>
+<li>**Data Class(纯稚的数据类)：**对象包括状态和行为。如果一个类只有状态没有行为，那么肯定有什么地方出问题了。</li>
+<li>**Refused Bequest(被拒绝的遗赠)：**超类传下来很多行为和状态，而子类只是用了其中的很小一部分。这通常意味着你的类层次有问题。</li>
+<li>**Comments(过多的注释)：**经常觉得要写很多注释表示你的代码难以理解。如果这种感觉太多，表示你需要Refactoring。</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[hashmap和identityhashmap的区别]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/hashmap-he-identityhashmap-de-qu-bie/</id>
@@ -1393,104 +1427,6 @@ else
 </tr>
 </tbody>
 </table>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[html学习8.19 -- HTML5 web workers]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-web-workers/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/html-xue-xi-819-html5-web-workers/">
-        </link>
-        <updated>2020-08-19T02:49:44.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="web-worker">Web Worker</h3>
-<p>当在 HTML 页面中执行脚本时，页面是不可响应的，直到脚本已完成。</p>
-<p>Web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能</p>
-<h3 id="检测-web-worker-支持">检测 Web Worker 支持</h3>
-<pre><code class="language-html">if (typeof(Worker) !== &quot;undefined&quot;) {
-    // 是的！支持 Web worker！
-    // 一些代码.....
-} else {
-    // 抱歉！不支持 Web Worker！
-}
-</code></pre>
-<h3 id="创建-web-worker-文件">创建 Web Worker 文件</h3>
-<p>让我们在一个外部 JavaScript 文件中创建我们的 web worker。</p>
-<p>创建计数脚本。该脚本存储于 &quot;demo_workers.js&quot; 文件中：</p>
-<pre><code class="language-html">var i = 0;
-
-function timedCount() {
-    i = i + 1;
-    postMessage(i);
-    setTimeout(&quot;timedCount()&quot;,500);
-}
-
-timedCount();
-</code></pre>
-<p>以上代码中重要的部分是 postMessage() 方法 - 它用于向 HTML 页面传回一段消息。</p>
-<h3 id="创建-web-worker-对象">创建 Web Worker 对象</h3>
-<p>已经有 web worker 文件，需要从 HTML 页面调用它。</p>
-<p>检测是否存在 worker，如果不存在，- 它会创建一个新的 web worker 对象，然后运行 &quot;demo_workers.js&quot; 中的代码：</p>
-<pre><code class="language-html">if (typeof(w) == &quot;undefined&quot;) {
-    w = new Worker(&quot;demo_workers.js&quot;);
-}
-</code></pre>
-<p>然后我们就可以从 web worker 发生和接收消息了。</p>
-<p>向 web worker 添加一个 &quot;onmessage&quot; 事件监听器：</p>
-<pre><code class="language-html">w.onmessage = function(event){
-    document.getElementById(&quot;result&quot;).innerHTML = event.data;
-};
-</code></pre>
-<p>当 web worker 传送消息时，会执行事件监听器中的代码。来自 web worker 的数据会存储于 event.data 中。</p>
-<h3 id="终止-web-worker">终止 Web Worker</h3>
-<p>当创建 web worker 后，它会继续监听消息（即使在外部脚本完成后）直到其被终止为止。</p>
-<p>终止并且释放资源，使用 terminate() 方法：</p>
-<pre><code class="language-html">w.terminate();
-</code></pre>
-<h3 id="复用-web-worker">复用 Web Worker</h3>
-<p>把 worker 变量设置为 undefined，在其被终止后，可以重复使用该代码：</p>
-<pre><code class="language-html">w = undefined;
-</code></pre>
-<h3 id="完整的-web-worker-实例代码">完整的 Web Worker 实例代码</h3>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;body&gt;
-
-&lt;p&gt;Count numbers: &lt;output id=&quot;result&quot;&gt;&lt;/output&gt;&lt;/p&gt;
-&lt;button onclick=&quot;startWorker()&quot;&gt;Start Worker&lt;/button&gt; 
-&lt;button onclick=&quot;stopWorker()&quot;&gt;Stop Worker&lt;/button&gt;
-&lt;br&gt;&lt;br&gt;
-
-&lt;script&gt;
-var w;
-
-function startWorker() {
-    if(typeof(Worker) !== &quot;undefined&quot;) {
-        if(typeof(w) == &quot;undefined&quot;) {
-            w = new Worker(&quot;demo_workers.js&quot;);
-        }
-        w.onmessage = function(event) {
-            document.getElementById(&quot;result&quot;).innerHTML = event.data;
-        };
-    } else {
-        document.getElementById(&quot;result&quot;).innerHTML = &quot;Sorry! No Web Worker support.&quot;;
-    }
-}
-
-function stopWorker() { 
-    w.terminate();
-    w = undefined;
-}
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h3 id="web-worker-和-dom">Web Worker 和 DOM</h3>
-<p>由于 web worker 位于外部文件中，它们无法访问下例 JavaScript 对象：</p>
-<ul>
-<li>window 对象</li>
-<li>document 对象</li>
-<li>parent 对象</li>
-</ul>
 ]]></content>
     </entry>
 </feed>
