@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>python | zdl&#39;s blog</title>
+<title>DAO层、Service层和Controller层的区别 | zdl&#39;s blog</title>
 
 <link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1608641036337">
 
@@ -26,11 +26,11 @@
 
 
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
     <div class="navbar-brand">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -79,49 +79,88 @@
         </div>
     </div>
 </nav>
-        <div class="current-tag-container">
-            <h2 class="title gt-c-content-color-first">
-                #python
-            </h2>
-        </div>
-        <div class="post-list-container">
-    <div class="post-inner">
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://zzddl.github.io/zdl.github.io/post/pandas-ku-loc-he-iloc/">
-                            <span class="post-title gt-c-content-color-first">pandas库loc和iloc</span>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    DAO层、Service层和Controller层的区别
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-12-22 ·
+                    </time>
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/hsZ5dP81f/" class="post-tags">
+                            # java
                         </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2020-10-19 ·
-                        </time>
-                        
-                            <a href="https://zzddl.github.io/zdl.github.io/tag/bA1mqIptz/" class="post-tag">
-                                # python
-                            </a>
-                        
-                            <a href="https://zzddl.github.io/zdl.github.io/tag/iC68fAjzi/" class="post-tag">
-                                # pandas
-                            </a>
-                        
-                    </div>
+                    
+                        <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
+                            # 学习
+                        </a>
+                    
                 </div>
-                
+                <div class="post-content">
+                    <img src="https://img-blog.csdnimg.cn/20200710212510979.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2phcnZhbjU=,size_16,color_FFFFFF,t_70" alt="img" style="zoom:80%;" />
+<h2 id="dao层">DAO层</h2>
+<p>DAO层叫数据访问层，全称为data access object，属于一种比较底层，比较基础的操作，具体到对于某个表的增删改查，也就是说某个DAO一定是和数据库的某一张表一一对应的，其中封装了增删改查基本操作，建议DAO只做原子操作，增删改查。</p>
+<h2 id="service层">Service层</h2>
+<p>Service层叫服务层，被称为服务，粗略的理解就是对一个或多个DAO进行的再次封装，封装成一个服务，所以这里也就不会是一个原子操作了，需要事物控制。</p>
+<h2 id="controller层">Controller层</h2>
+<p>Controler负责请求转发，接受页面过来的参数，传给Service处理，接到返回值，再传给页面。</p>
+<h2 id="小结">小结</h2>
+<p>DAO面向表，Service面向业务。</p>
+<p>后端开发时先数据库设计出所有表，然后对每一张表设计出DAO层，然后根据具体的业务逻辑进一步封装DAO层成一个Service层，对外提供成一个服务。</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://zzddl.github.io/zdl.github.io/post/code-smell/" class="post-title gt-a-link">
+                    Code Smell
+                </a>
             </div>
         
-    </div>
-</div>
-        <div class="pagination-container">
-    
-    
-</div>
+
+        
+            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="DAO层、Service层和Controller层的区别">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span>
+        
+
+        
+
+        
+            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+
+<style>
+	div#vcomments{
+		width:100%;
+		max-width: 1000px;
+		padding: 2.5%
+	}
+</style>
+
+
+	<div id="vcomments"></div>
+
+<script>
+	new Valine({
+		el: '#vcomments',
+		appId: 'xBznEMVwmKi5pMvS26moB6yz-gzGzoHsz',
+		appKey: 'ILjXmvK87TpdMtG39nt8eXJF',
+		avatar: 'mp',
+		pageSize: 5,
+		recordIp: true,
+		placeholder: 'Just Go Go',
+		visitor: true,
+	});
+</script>
+
+        
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">温故而知新</div>
