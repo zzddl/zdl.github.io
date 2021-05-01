@@ -1,102 +1,103 @@
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8"/>
-<meta name="description" content=""/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <head>
+    <meta charset="utf-8" >
 
 <title>大泥球（Big Ball of Mud） | zdl&#39;s blog</title>
 
-<link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1619831253803">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zzddl.github.io/zdl.github.io//favicon.ico?v=1619831472022">
 <link rel="stylesheet" href="https://zzddl.github.io/zdl.github.io//styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
-
-<!-- DEMO JS -->
-<!--<script src="media/scripts/index.js"></script>-->
 
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
-</head>
-<body>
-<div class="main gt-bg-theme-color-first">
-    <nav class="navbar navbar-expand-lg">
-    <div class="navbar-brand">
-        <img class="user-avatar" src="/images/avatar.png" alt="头像">
-        <div class="site-name gt-c-content-color-first">
-            zdl&#39;s blog
-        </div>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="定义：
+大泥球是指一个随意化的杂乱的结构化系统，只是代码的堆砌和拼凑，往往会导致很多错误或者缺陷。
+缺点：
+无法使得系统内的信息得到更好的控制和共享，使得信息失去了应有的价值。大泥球般的系统的整体结构没有得到很好的界定，也就使得大泥球越发的..." />
+    <meta name="keywords" content="学习" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zzddl.github.io/zdl.github.io/">
+        <img src="https://zzddl.github.io/zdl.github.io//images/avatar.png?v=1619831472022" class="site-logo">
+        <h1 class="site-title">zdl&#39;s blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto" style="text-align: center">
-            
-                <div class="nav-item">
-                    
-                        <a href="https://zzddl.github.io/zdl.github.io/" class="menu gt-a-link">
-                            首页
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="https://zzddl.github.io/zdl.github.io/archives" class="menu gt-a-link">
-                            归档
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="https://zzddl.github.io/zdl.github.io/tags" class="menu gt-a-link">
-                            标签
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="https://zzddl.github.io/zdl.github.io/post/about" class="menu gt-a-link">
-                            关于
-                        </a>
-                    
-                </div>
-            
-        </div>
+    <div>
+      
+        
+          <a href="https://zzddl.github.io/zdl.github.io/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://zzddl.github.io/zdl.github.io/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://zzddl.github.io/zdl.github.io/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://zzddl.github.io/zdl.github.io/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
     </div>
-</nav>
-    <div class="post-container">
-        <div class="post-detail gt-bg-theme-color-second">
-            <article class="gt-post-content">
-                <h2 class="post-title">
-                    大泥球（Big Ball of Mud）
-                </h2>
-                <div class="post-info">
-                    <time class="post-time gt-c-content-color-first">
-                        · 2020-09-01 ·
-                    </time>
-                    
-                        <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="post-tags">
-                            # 学习
-                        </a>
-                    
-                </div>
-                <div class="post-content">
-                    <h2 id="定义">定义：</h2>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      开放，共享
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zzddl.github.io/zdl.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">大泥球（Big Ball of Mud）</h2>
+            <div class="post-date">2020-09-01</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="定义">定义：</h2>
 <p>大泥球是指一个随意化的杂乱的结构化系统，只是代码的堆砌和拼凑，往往会导致很多错误或者缺陷。</p>
 <h2 id="缺点">缺点：</h2>
 <p>无法使得系统内的信息得到更好的控制和共享，使得信息失去了应有的价值。大泥球般的系统的整体结构没有得到很好的界定，也就使得大泥球越发的复杂和杂乱无章。最终会使得这个系统的代码不被程序员理解，更无法对其修复，无法满足用户的需求变化。</p>
@@ -106,92 +107,53 @@
 <h2 id="避免或者修改大泥球的方法">避免或者修改大泥球的方法：</h2>
 <p>首先，程序员或者设计师为了在预算中并按时交付高质量的软件，就需要关注软件的特性和功能，然后集中在架构和性能，使得软件设计初步就避免产生小的问题或者方向的偏差。其次，程序员在编写软件时要及时的解决出现的小问题或者原型概念等等，这样不会使得问题堆积导致后期的无法修改。另外，应当及时处理用户需求的变化，由于需求往往会随着时间的推移而变化，所以应当逐步的解决，并且鼓励和积极面对变化而不是掩盖问题。另外，要保持一直工作的状态，不断地维护需求和系统。但不应当进行一次彻底的检查，这样很可能会破坏系统。当然，软件系统也是在变化的，但是不同的部分会以不同的速度变化，所以应当使得它们的变化率一致。最坏的结果就是代码已经下降到了无法修复甚至理解的地步，那么就扔掉，重新开始。</p>
 
-                </div>
-            </article>
-        </div>
-
-        
-            <div class="next-post">
-                <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://zzddl.github.io/zdl.github.io/post/java-he-xin-lei/" class="post-title gt-a-link">
-                    java核心类
-                </a>
             </div>
-        
-
-        
-            <span id="/zdl.github.io/" class="leancloud_visitors" data-flag-title="大泥球（Big Ball of Mud）">
-                <em class="post-meta-item-text">阅读量 </em>
-                <i class="leancloud-visitors-count">0</i>
-            </span>
-        
-
-        
-
-        
-            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
-
-<style>
-	div#vcomments{
-		width:100%;
-		max-width: 1000px;
-		padding: 2.5%
-	}
-</style>
-
-
-	<div id="vcomments"></div>
-
-<script>
-	new Valine({
-		el: '#vcomments',
-		appId: 'xBznEMVwmKi5pMvS26moB6yz-gzGzoHsz',
-		appKey: 'ILjXmvK87TpdMtG39nt8eXJF',
-		avatar: 'mp',
-		pageSize: 5,
-		recordIp: true,
-		placeholder: 'Just Go Go',
-		visitor: true,
-	});
-</script>
-
-        
-
-        <div class="site-footer gt-c-content-color-first">
-    <div class="slogan gt-c-content-color-first">开放，共享</div>
-    <div class="social-container">
-        
             
-        
+              <div class="tag-container">
+                
+                  <a href="https://zzddl.github.io/zdl.github.io/tag/XmSEYpaqt/" class="tag">
+                    学习
+                  </a>
+                
+              </div>
             
-        
             
-                <a href="https://weibo.com/u/5666236540/home?wvr=5&amp;sudaref=www.baidu.com&amp;display=0&amp;retcode=6102&amp;sudaref=passport.weibo.com" target="_blank">
-                    <i class="fab fa-weibo gt-c-content-color-first"></i>
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zzddl.github.io/zdl.github.io/post/java-he-xin-lei/">
+                  <h3 class="post-title">
+                    java核心类
+                  </h3>
                 </a>
+              </div>
             
-        
-            
-        
-            
-        
-            
-        
-    </div>
-    <div class="footer-info">
-        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-    </div>
-    <div>
-        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
-                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://zzddl.github.io/zdl.github.io//atom.xml" target="_blank">RSS</a></a>
-    </div>
-</div>
 
-<script>
-    hljs.initHighlightingOnLoad()
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-    </div>
-</div>
-</body>
+
+
+
+
+
+  </body>
 </html>
