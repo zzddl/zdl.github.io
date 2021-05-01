@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2021-05-01T14:38:35.266Z</updated>
+    <updated>2021-05-01T14:58:43.364Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[四月月度总结]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/si-yue-yue-du-zong-jie/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/si-yue-yue-du-zong-jie/">
+        </link>
+        <updated>2021-05-01T14:56:42.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="时间分配情况">时间分配情况</h2>
+<p>番茄todo是从4月10号才开始用的，所以之前的数据没有。</p>
+<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1619881070400.png" alt="" loading="lazy"></figure>
+<h2 id="分析总结">分析总结</h2>
+<h3 id="高数">高数</h3>
+<p>高数1800题基础部分已经刷完，第一轮只剩下微分方程的物理应用部分还没有解决，汤家凤直播在二刷1800基础部分错题之前基本已经学习完。</p>
+<h3 id="线代">线代</h3>
+<p>线代的一轮战线拉的有些长，在上海还没回学校的时候就开始看了，只看了前两章，一直到四月底才把线代一轮复习完，660题线代部分也刷完了。</p>
+<h3 id="英语">英语</h3>
+<p>英语四月开始每天都看每日一句，从一开始的一天50个单词（新+复习），现在已经增加到一天100个，因为一天50个的话可能单词第一遍要五六个月，太长了，很多单词都是只要认识就行，要多重复，从一个帖子那看到英语复习真题需要手译本，刚买了乘风考研的手译本，还没开始做。田静的长难句开始的比较晚，还没刷完（一开始觉得不用看视频，现在感觉有老师带着理解什么的要更好一些）。</p>
+<h3 id="专业课">专业课</h3>
+<p>4月份还没开始就在看数据结构，现在还没复习完，还剩下最后一章，感觉有些慢了。一开始直接看教材有些不太好懂，严蔚敏教材上的代码不是很好懂，所以开始看王道的视频，王道和天勤的选择题和综合题都做完了，算法题一个也没做，打算第一轮四科都复习完之后，二刷题目的时候一天1-2道算法（吃透）。</p>
+<h2 id="调整">调整</h2>
+<p>五月开始严格按照计划表上的进行。</p>
+<p>专业课上花费的时间要开始增加，数学从现在开始每天四小时左右就可以，大部分的时间要给英语和专业课，专业课第一轮要在6月15日之前完成，五月份英语的长难句和阅读要学完，并且开始刷英语的手译本和真题，坚持每天背单词和句子。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[考研整体复习计划]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/kao-yan-fu-xi-ji-hua/</id>
@@ -1031,40 +1054,6 @@ df.iloc[[1,2,3,4],[3,4,5]]
 <p>**注：**pull=fetch+merge</p>
 <p>执行代码后可以在本地看到README.md文件</p>
 <p>此时再执行语句 git push -u origin master即可完成代码上传到github</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[STM32 位绑定操作]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/stm32-wei-bang-ding-cao-zuo/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/stm32-wei-bang-ding-cao-zuo/">
-        </link>
-        <updated>2020-09-08T02:13:01.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="定义">定义</h3>
-<p>STM32将寄存器映射到了位绑定区（bit_band region），这样就可以通过统一的线性寻址空间直接操作寄存器了，这个空间就是0x00000000~0xFFFF FFFF共4GB大小，除去寄存器外，其他包括程序存储区、数据存储区、输入输出端口等。</p>
-<h3 id="支持位绑定操作的两个内存区">支持位绑定操作的两个内存区</h3>
-<p>0x2000 0000~0x200F FFFF（SRAM区中最低1MB）</p>
-<p>0x4000 0000~0x400F FFFF（片上外设区中最低1MB）</p>
-<h3 id="位绑定操作的理解">位绑定操作的理解</h3>
-<p>CPU是32位的，最方便快捷的是直接操作一个32位的地址，比如0x4200 ABCD这样，对这个地址赋值是最快捷的操作，只要一条指令。于是STM32又设计出别名区（Alias region）的概念，将一个32位地址空间对应到位带区（bit_band region）中的一个位。32位是STM32 CPU能独立访问的地址空间（称为字，即4个字节），将这个地址空间的起始位（bit0，其他bit1~bit31忽略）内容设为0或1就等于对位带区的相应位进行了操作，也相当于对寄存器进行了操作。</p>
-<p>映射关系：</p>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdn.net/20170214140941826" alt="img" loading="lazy"></figure>
-<p>位绑定别名区一共有两个，每一个都是32MB，是位绑定区1MB的32倍，因为位绑定区是以位为单位，每8位有一个地址，位绑定别名区是以字为单位，一个字等于四个字节32位字长。</p>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdn.net/20170214140948727" alt="img" loading="lazy"></figure>
-<p>位绑定区0x2000 0000的第0位对应别名区地址0x22000000~0x2200 0003这4个字节，需要指出的是0x2200 0001、0x2200 0002、0x2200 0003这样的地址是不能直接被访问的，只有0x2200 0000、0x2200 0004、0x2200 0008…这样的起始地址（其实是4的倍数）才能被访问</p>
-<p><strong>别名区的地址映射就是计算起始地址</strong></p>
-<p>STM32别名区起始地址的计算：</p>
-<p>it_word_addr = bit_band_base + (byte_offset * 32) +(bit_number * 4)</p>
-<ul>
-<li>bit_word_addr：是位绑定区目标位映射到别名区的字的起始地址</li>
-<li>bit_band_base：是别名区的起始地址</li>
-<li>byte_offset：是位带区包含目标位的字节的地址偏移量。</li>
-<li>byte_offset * 32：是因为位带区的一个位要扩张到别名区的32个位，同样，一个位带区的地址也会扩张到别名区的32个地址。byte_offset * 32表示前面已经占用的地址。</li>
-<li>bit_number：是目标位所在的位的位置（0-7）</li>
-<li>bit_number*4是因为 1bit位要占用四个地址单元（四个字节，32 bit位）</li>
-</ul>
-<p>公式的变形：</p>
-<p>it_word_addr = bit_band_base + ((byte_offset * 8) + bit_number) * 4</p>
-<p>由于位绑定区每一个地址是8位，所以(byte_offset * 8)+ bit_number相当计算出了一个以字节为单位的偏移，再乘以4就是以字为单位的偏移了。</p>
 ]]></content>
     </entry>
 </feed>
