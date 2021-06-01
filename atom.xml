@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzddl.github.io/zdl.github.io/</id>
     <title>zdl&apos;s blog</title>
-    <updated>2021-05-01T15:04:43.797Z</updated>
+    <updated>2021-06-01T15:05:16.700Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzddl.github.io/zdl.github.io/"/>
     <link rel="self" href="https://zzddl.github.io/zdl.github.io/atom.xml"/>
@@ -10,6 +10,31 @@
     <logo>https://zzddl.github.io/zdl.github.io/images/avatar.png</logo>
     <icon>https://zzddl.github.io/zdl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, zdl&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[五月月度总结]]></title>
+        <id>https://zzddl.github.io/zdl.github.io/post/wu-yue-yue-du-zong-jie/</id>
+        <link href="https://zzddl.github.io/zdl.github.io/post/wu-yue-yue-du-zong-jie/">
+        </link>
+        <updated>2021-06-01T15:04:13.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="时间分配情况">时间分配情况</h2>
+<p>专业课的时间分配达成了目标，占据了百分之四十以上的时间，早上计划复习英语的时间被缩短了，因为有的时候会起的晚一点，另外五月份外方课的assignment和软件测试的实验占据了很多的时间。</p>
+<p>六月份的期末考试和物联网综合应用的作业势必要占用很多时间，要早起把学习的时间延长的每天11小时或以上了。</p>
+<img src="E:\研究生\月度总结\五月\C0AAF78D80888A45EF1369AC3E7FE63F.png" style="zoom:50%;" />
+<h2 id="分析总结">分析总结</h2>
+<h3 id="高数">高数</h3>
+<p>这个月开始的时候吧汤家凤的直播讲解基本学完了，1800基础部分的错题前四章都刷完了，但是感觉第二遍还是有好多不会的，定积分往后还没有刷，把定积分在直播中讲的重点的问题又回顾了一遍。</p>
+<p>六月开始打算把1800后面四章的错题刷一遍，然后六月16号软件测试考完试开始强化阶段。</p>
+<h3 id="线代">线代</h3>
+<p>线代这个月已经把基础阶段复习完毕，660上面的线代题也已经刷完了，并且整理好了错题本，六月份进入强化阶段，今天做完了第一章的思维导图，感觉线代前后联系起来是很重要的，思维导图的形式更加直观。</p>
+<p>六月把思维导图写完，高数强化完成之后再进入线代强化。</p>
+<h3 id="英语">英语</h3>
+<p>英语这个月把唐迟的阅读的逻辑和田静的长难句课程听完了，刚做完2001年的真题，目前为止只精读了一篇，后面六月开始每天精读一篇文章，目前恋词5500已经背完了25个unit。</p>
+<p>六月份考完期末后，要每天固定的两个小时英语时间，不能少！</p>
+<h3 id="专业课">专业课</h3>
+<p>本来打算进入五月就开始计算机组成原理的复习，但是数据结构当时还差最后一章没有看完，所以拖延了几天，导致计组在五月份也没看完，现在还剩下最后一章I/O接口，选择题只做了王道的，天勤的还没有做。</p>
+<p>六月份要尽力把操作系统和计算机网络学完。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[四月月度总结]]></title>
         <id>https://zzddl.github.io/zdl.github.io/post/si-yue-yue-du-zong-jie/</id>
@@ -1036,24 +1061,6 @@ df.iloc[[1,2,3,4],[3,4,5]]
 <li>loc使用范围比iloc更广更实用，loc可以使用切片、名称(index,columns)、也可以切片和名称混合使用；但是loc不能使用不存在的索引来充当切片取值,像-1。</li>
 <li>iloc只能用整数来取数。</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[如何解决failed to push some refs to git]]></title>
-        <id>https://zzddl.github.io/zdl.github.io/post/ru-he-jie-jue-failed-to-push-some-refs-to-git/</id>
-        <link href="https://zzddl.github.io/zdl.github.io/post/ru-he-jie-jue-failed-to-push-some-refs-to-git/">
-        </link>
-        <updated>2020-10-01T16:00:20.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="错误信息">错误信息</h3>
-<p>在使用git 对源代码进行push到gitHub时可能会出错，例如</p>
-<figure data-type="image" tabindex="1"><img src="https://zzddl.github.io/zdl.github.io//post-images/1601568150391.jpg" alt="" loading="lazy"></figure>
-<h3 id="错误原因">错误原因</h3>
-<p>出现错误的主要原因是github中的README.md文件不在本地代码目录中</p>
-<h3 id="解决办法">解决办法</h3>
-<p>执行命令<strong>git pull --rebase origin master</strong></p>
-<p>**注：**pull=fetch+merge</p>
-<p>执行代码后可以在本地看到README.md文件</p>
-<p>此时再执行语句 git push -u origin master即可完成代码上传到github</p>
 ]]></content>
     </entry>
 </feed>
